@@ -17,23 +17,33 @@ public class SilverTown {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "silver_SEQ")
 	@SequenceGenerator(sequenceName = "silver_SEQ", allocationSize = 1, name = "silver_SEQ")
-	private int userNo;
+	private int StNo;
 
 	@NotNull
-	private String user_id;
+	private String st_name;
 	@NotNull
-	private String user_pw;
+	private String city;
 	@NotNull
-	private String user_name;
+	private String address;
 	@NotNull
-	private int user_age;
+	private String stImgUrl;
+	@NotNull
+	private int stScale;
+	@NotNull
+	private int stType;
+	private String stFacility;
 
-	public SilverTown(int userNo, String user_id, String user_pw, String user_name, int user_age) {
-		this.userNo = userNo;
-		this.user_id = user_id;
-		this.user_pw = user_pw;
-		this.user_name = user_name;
-		this.user_age = user_age;
+	public SilverTown(int stNo, @NotNull String st_name, @NotNull String city, @NotNull String address,
+			@NotNull String stImgUrl, @NotNull int stScale, @NotNull int stType, String stFacility) {
+		super();
+		StNo = stNo;
+		this.st_name = st_name;
+		this.city = city;
+		this.address = address;
+		this.stImgUrl = stImgUrl;
+		this.stScale = stScale;
+		this.stType = stType;
+		this.stFacility = stFacility;
 	}
 
 }
