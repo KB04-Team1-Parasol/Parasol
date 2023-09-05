@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-
-public class FinanceDto {
-	private long fin_no;
-	private String fin_name;
-	private int fin_type;
-	private String fin_link;
+public class DepositDto {
+	private Long fin_no;
+	private int deposit_period;
+	private float deposit_rate;
+	
+	
 }

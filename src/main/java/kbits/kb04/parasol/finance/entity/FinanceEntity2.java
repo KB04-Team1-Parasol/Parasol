@@ -1,14 +1,20 @@
 package kbits.kb04.parasol.finance.entity;
 
 import javax.persistence.*;
+
+import kbits.kb04.parasol.finance.dto.FinanceDto;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
 @Table(name = "finance")
-public class FinanceEntity {
+public class FinanceEntity2 {
 	@Id
 	//시퀀스 생성기 사용 
 	@GeneratedValue(
@@ -27,13 +33,13 @@ public class FinanceEntity {
 	
 	@Column(name = "fin_link")
 	private String fin_link;
-	
-	// constructor 
-	public FinanceEntity(Long fin_no, String fin_name, int fin_type, String fin_link) {
-		super();
-		this.fin_no = fin_no;
-		this.fin_name = fin_name;
-		this.fin_type = fin_type;
-		this.fin_link = fin_link;
+
+	@Builder
+	public String toString() {
+		return "FinanceEntity2 [fin_no=" + fin_no + ", fin_name=" + fin_name + ", fin_type=" + fin_type + ", fin_link="
+				+ fin_link + "]";
 	}
+	
+	
+	
 }
