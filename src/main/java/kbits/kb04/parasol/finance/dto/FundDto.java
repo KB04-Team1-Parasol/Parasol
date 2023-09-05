@@ -11,7 +11,9 @@ import lombok.NoArgsConstructor;
 @Data
 
 public class FundDto {
-	private Long fin_no;
-	private float fund_rate;
-	private int fund_risk;
+	private Long fund_no;
+	private String fund_name;
+	private Float fund_rate;
+	private Integer fund_risk;
+	private String fund_link;
 }
