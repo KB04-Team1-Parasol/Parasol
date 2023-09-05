@@ -19,17 +19,17 @@ public class Fund {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "fund_SEQ")
 	@SequenceGenerator(sequenceName = "fund_SEQ", allocationSize = 1, name = "fund_SEQ")	
-	private long fund_no;
+	private Long fund_no;
 
 	@Column(name = "fund_name")
 	private String fund_name;
 	
 	@Column(name = "fund_rate")
-	private float fund_rate;
+	private Float fund_rate;
 	
 
 	@Column(name = "fund_risk")
-	private int fund_risk;
+	private Integer fund_risk;
 	
 	@Column(name = "fund_link")
 	private String fund_link;

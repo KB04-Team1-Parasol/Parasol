@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 
 public class SavingDto {
 	private Long fin_no;
-	private int saving_period;
-	private int max_cost;
-	private float saving_rate;
+	private Integer saving_period;
+	private Integer max_cost;
+	private Float saving_rate;
 }

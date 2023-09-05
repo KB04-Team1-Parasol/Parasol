@@ -9,10 +9,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+
 public class DepositDto {
-	private Long fin_no;
-	private int deposit_period;
-	private float deposit_rate;
+	private Long deposit_no;
+	private String deposit_name;
+	private Integer deposit_period;
+	private Float deposit_rate;
+	private String deposit_link;
 	
 	
 }

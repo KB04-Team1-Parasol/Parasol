@@ -16,19 +16,19 @@ public class Saving {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "saving_SEQ")
 	@SequenceGenerator(sequenceName = "saving_SEQ", allocationSize = 1, name = "saving_SEQ")	
-	private long saving_no;
+	private Long saving_no;
 
 	@Column(name = "saving_name")
 	private String savingName;
 	
 	@Column(name = "saving_period")
-	private long savingPeriod;
+	private Long savingPeriod;
 	
 	@Column(name = "max_cost")
-	private long maxCost;
+	private Long maxCost;
 	
 	@Column(name = "saving_max")
-	private float savingMax;
+	private Float savingMax;
 	
 	@Column(name = "saving_link")
 	private String savingLink;

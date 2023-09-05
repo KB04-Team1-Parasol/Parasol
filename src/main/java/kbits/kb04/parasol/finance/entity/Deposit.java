@@ -17,16 +17,16 @@ public class Deposit {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "deposit_SEQ")
 	@SequenceGenerator(sequenceName = "deposit_SEQ", allocationSize = 1, name = "deposit_SEQ")	
-	private long deposit_no;
+	private Long deposit_no;
 
 	@Column(name = "deposit_name")
 	private String depositName;
 	
 	@Column(name = "deposit_period")
-	private long depositPeriod;
+	private Long depositPeriod;
 	
 	@Column(name = "deposit_rate")
-	private float depositRate;
+	private Float depositRate;
 	
 	@Column(name = "deposit_link")
 	private String depositLink;
