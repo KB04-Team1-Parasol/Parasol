@@ -22,7 +22,7 @@ public class SilverTown {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "silver_SEQ")
 	@SequenceGenerator(sequenceName = "silver_SEQ", allocationSize = 1, name = "silver_SEQ")
-	private int stNo;
+	private Long stNo;
 
 	@NotNull
 	private String stName;
@@ -33,21 +33,21 @@ public class SilverTown {
 	@NotNull
 	private String stImgUrl;
 	@NotNull
-	private int stScale;
+	private Integer stScale;
 	@NotNull
-	private int stType;
+	private Integer stType;
 	private String stFacility;
 	@NotNull
 	private String stUrl;
 	@NotNull
-	private int stPeriod; 
+	private Integer stPeriod;
 
 	@OneToMany(mappedBy = "silverTown")
 	private List<SilverTownDetail> details = new ArrayList<SilverTownDetail>();
 
-	public SilverTown(@NotNull String stName, @NotNull String city, @NotNull String address,
-			@NotNull String stImgUrl, @NotNull int stScale, @NotNull int stType, String stFacility,
-			@NotNull String stUrl, @NotNull int stPeriod, List<SilverTownDetail> details) {
+	public SilverTown(@NotNull String stName, @NotNull String city, @NotNull String address, @NotNull String stImgUrl,
+			@NotNull Integer stScale, @NotNull Integer stType, String stFacility, @NotNull String stUrl,
+			@NotNull Integer stPeriod, List<SilverTownDetail> details) {
 		super();
 		this.stName = stName;
 		this.city = city;
