@@ -4,7 +4,6 @@
  */
 
 package kbits.kb04.parasol.finance.entity;
-
 import javax.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
