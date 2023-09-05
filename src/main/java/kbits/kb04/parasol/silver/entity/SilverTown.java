@@ -1,39 +1,57 @@
 package kbits.kb04.parasol.silver.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class SilverTown {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "silver_SEQ")
 	@SequenceGenerator(sequenceName = "silver_SEQ", allocationSize = 1, name = "silver_SEQ")
-	private int userNo;
+	private int stNo;
 
 	@NotNull
-	private String user_id;
+	private String st_name;
 	@NotNull
-	private String user_pw;
+	private String city;
 	@NotNull
-	private String user_name;
+	private String address;
 	@NotNull
-	private int user_age;
+	private String stImgUrl;
+	@NotNull
+	private int stScale;
+	@NotNull
+	private int stType;
+	private String stFacility;
 
-	public SilverTown(int userNo, String user_id, String user_pw, String user_name, int user_age) {
-		this.userNo = userNo;
-		this.user_id = user_id;
-		this.user_pw = user_pw;
-		this.user_name = user_name;
-		this.user_age = user_age;
+	@OneToMany(mappedBy = "silverTown")
+	private List<SilverTownDetail> details = new ArrayList<SilverTownDetail>();
+
+	public SilverTown(int stNo, @NotNull String st_name, @NotNull String city, @NotNull String address,
+			@NotNull String stImgUrl, @NotNull int stScale, @NotNull int stType, String stFacility) {
+		super();
+		this.stNo = stNo;
+		this.st_name = st_name;
+		this.city = city;
+		this.address = address;
+		this.stImgUrl = stImgUrl;
+		this.stScale = stScale;
+		this.stType = stType;
+		this.stFacility = stFacility;
 	}
 
 }
