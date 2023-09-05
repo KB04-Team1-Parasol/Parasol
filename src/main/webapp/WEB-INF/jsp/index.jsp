@@ -38,8 +38,16 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav ms-lg-5 me-lg-auto">
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="#section_1">실버타운</a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarLightDropdownMenuLink" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false">실버타운</a>
+							<ul class="dropdown-menu dropdown-menu-light"
+								aria-labelledby="navbarLightDropdownMenuLink">
+								<li><a class="dropdown-item" href="silver/search">실버타운 검색</a></li>
+								<li><a class="dropdown-item" href="silver/custom">맞춤 실버타운 찾기</a></li>
+							</ul>
+						</li>
 						<li class="nav-item"><a class="nav-link click-scroll"
 							href="#section_2">금융상품</a></li>
 						<li class="nav-item"><a class="nav-link click-scroll"
@@ -54,11 +62,10 @@
 							data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
 							<ul class="dropdown-menu dropdown-menu-light"
 								aria-labelledby="navbarLightDropdownMenuLink">
-								<li><a class="dropdown-item" href="topics-listing.html">Topics
-										Listing</a></li>
-								<li><a class="dropdown-item" href="contact.html">Contact
-										Form</a></li>
-							</ul></li>
+								<li><a class="dropdown-item" href="topics-listing.html">Topics Listing</a></li>
+								<li><a class="dropdown-item" href="contact.html">Contact Form</a></li>
+							</ul>
+						</li>
 					</ul>
 					<div class="d-none d-lg-block">
 						<a href="#top" class="navbar-icon bi-person smoothscroll"></a>
