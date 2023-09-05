@@ -20,7 +20,7 @@ public class SilverTownDetail {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "silver_detail_SEQ")
 	@SequenceGenerator(sequenceName = "silver_detail_SEQ", allocationSize = 1, name = "silver_detail_SEQ")
-	private int stdNo;
+	private Long stdNo;
 
 	@NotNull
 	private String stdRoomType;
