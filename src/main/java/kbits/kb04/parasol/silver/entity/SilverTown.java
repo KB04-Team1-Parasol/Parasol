@@ -25,7 +25,7 @@ public class SilverTown {
 	private int stNo;
 
 	@NotNull
-	private String st_name;
+	private String stName;
 	@NotNull
 	private String city;
 	@NotNull
@@ -37,21 +37,28 @@ public class SilverTown {
 	@NotNull
 	private int stType;
 	private String stFacility;
+	@NotNull
+	private String stUrl;
+	@NotNull
+	private int stPeriod; 
 
 	@OneToMany(mappedBy = "silverTown")
 	private List<SilverTownDetail> details = new ArrayList<SilverTownDetail>();
 
-	public SilverTown(int stNo, @NotNull String st_name, @NotNull String city, @NotNull String address,
-			@NotNull String stImgUrl, @NotNull int stScale, @NotNull int stType, String stFacility) {
+	public SilverTown(@NotNull String stName, @NotNull String city, @NotNull String address,
+			@NotNull String stImgUrl, @NotNull int stScale, @NotNull int stType, String stFacility,
+			@NotNull String stUrl, @NotNull int stPeriod, List<SilverTownDetail> details) {
 		super();
-		this.stNo = stNo;
-		this.st_name = st_name;
+		this.stName = stName;
 		this.city = city;
 		this.address = address;
 		this.stImgUrl = stImgUrl;
 		this.stScale = stScale;
 		this.stType = stType;
 		this.stFacility = stFacility;
+		this.stUrl = stUrl;
+		this.stPeriod = stPeriod;
+		this.details = details;
 	}
 
 }

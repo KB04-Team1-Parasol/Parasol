@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import kbits.kb04.parasol.silver.entity.SilverTown;
 
 @Repository
-public interface SilverTownRepository extends JpaRepository<SilverTown, Long> {
-	
+public interface SilverTownRepository extends JpaRepository<SilverTown, Long> {	
+
 }

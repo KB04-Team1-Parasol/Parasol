@@ -32,10 +32,20 @@ public class SilverTownDetail {
 	private int stdRoomSize;
 	@NotNull
 	private int stdOccupancy;
-	@NotNull
-	private int stdPeriod;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "st_no")
 	private SilverTown silverTown;
+
+	public SilverTownDetail(@NotNull String stdRoomType, @NotNull int stdDeposit,
+			@NotNull int stdMonthlyCost, @NotNull int stdRoomSize, @NotNull int stdOccupancy, SilverTown silverTown) {
+		super();
+		this.stdRoomType = stdRoomType;
+		this.stdDeposit = stdDeposit;
+		this.stdMonthlyCost = stdMonthlyCost;
+		this.stdRoomSize = stdRoomSize;
+		this.stdOccupancy = stdOccupancy;
+		this.silverTown = silverTown;
+	}
+
 }
