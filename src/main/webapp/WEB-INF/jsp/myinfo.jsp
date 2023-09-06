@@ -79,8 +79,8 @@
 					class="photo_edit"></span>
 				</a>
 				<div class="profile">
-					<p class="useid">이름 들어갈 자리</p>
-					<p class="usemail">아이디 들어갈 자리</p>
+					<p class="useid">${user.userName }</p>
+					<p class="usemail">${user.userId}</p>
 				</div>
 				<div class="alarm_area">
 					<a href="https://talk.naver.com/ct/wc4bsu#nafullscreen"
@@ -156,60 +156,55 @@
 					<ul class="base_row">
 						<li>
 							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 순자산</span>
+								<span id="phoneNoRegSpan" class="item_text"> 순자산 : ${userAsset.pureAsset}</span>
 
 							</div>
 						</li>
 
 						<li>
 							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 금융자산</span>
+								<span id="phoneNoRegSpan" class="item_text"> 금융자산 : ${userAsset.finAsset}</span>
 
 							</div>
 						</li>
 
 						<li>
 							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 실물자산</span>
+								<span id="phoneNoRegSpan" class="item_text"> 실물자산 : ${userAsset.realAsset}</span>
 
 							</div>
 						</li>
 						<li>
 							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 부채</span>
+								<span id="phoneNoRegSpan" class="item_text"> 부채 : ${userAsset.debt}</span>
 
 							</div>
 						</li>
 						<li>
 							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 월 소득</span>
+								<span id="phoneNoRegSpan" class="item_text"> 월 소득 : ${userAsset.monthlyIncome}</span>
 
 							</div>
 						</li>
 						<li>
 							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 연금</span>
+								<span id="phoneNoRegSpan" class="item_text"> 연금 : ${userAsset.annuity}</span>
 
 							</div>
 						</li>
 						<li>
 							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 입주 예상 나이</span>
+								<span id="phoneNoRegSpan" class="item_text"> 입주 예상 나이 : ${userAsset.hopeAge}</span>
 
 							</div>
 						</li>
 						<li>
 							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 희망 거주 기간</span>
+								<span id="phoneNoRegSpan" class="item_text"> 희망 거주 기간 : ${userAsset.hopePeriod}</span>
 
 							</div>
 						</li>
-						<li>
-							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 나이</span>
 
-							</div>
-						</li>
 
 					</ul>
 				</div>
