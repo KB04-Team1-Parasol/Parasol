@@ -9,5 +9,5 @@ import kbits.kb04.parasol.silver.entity.SilverTown;
 
 @Repository
 public interface SilverTownRepository extends JpaRepository<SilverTown, Long> {
-	List<SilverTown> findByStName(String stName);
+	List<SilverTown> findByStNameContaining(String stName);
 }

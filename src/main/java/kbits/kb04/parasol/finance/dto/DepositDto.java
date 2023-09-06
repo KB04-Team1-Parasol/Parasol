@@ -1,3 +1,4 @@
+
 package kbits.kb04.parasol.finance.dto;
 
 import lombok.AllArgsConstructor;
@@ -9,13 +10,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-
 public class DepositDto {
-	private Long deposit_no;
-	private String deposit_name;
-	private Integer deposit_period;
-	private Float deposit_rate;
-	private String deposit_link;
-	
+	private Long depositNo;
+	private String depositName;
+	private Long depositPeriod;
+	private Float depositRate;
+	private String depositLink;
 	
 }

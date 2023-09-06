@@ -9,10 +9,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-
 public class SavingDto {
-	private Long fin_no;
-	private Integer saving_period;
-	private Integer max_cost;
-	private Float saving_rate;
+
+	private Long savingNo;
+	private String savingName;
+	private Integer savingPeriod;
+	private Integer savingMax;
+	private Float savingRate;
+	private String savinLink;
 }
