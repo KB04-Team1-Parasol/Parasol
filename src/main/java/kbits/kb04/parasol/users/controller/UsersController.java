@@ -1,26 +1,20 @@
 package kbits.kb04.parasol.users.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import kbits.kb04.parasol.users.dto.UsersDto;
 import kbits.kb04.parasol.users.entity.UserAsset;
 import kbits.kb04.parasol.users.entity.Users;
 import kbits.kb04.parasol.users.exception.UsersNotFoundException;
-import kbits.kb04.parasol.users.repository.UsersRepository;
 import kbits.kb04.parasol.users.service.UsersService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 
 @Controller
-//@RequestMapping("/myinfo")
+@RequestMapping("/user")
 @RequiredArgsConstructor
 @Slf4j
 public class UsersController {
@@ -45,7 +39,7 @@ public class UsersController {
         System.out.println(user);
         System.out.println("1111");
         // 사용자 정보를 보여줄 JSP 페이지로 이동
-        return "myinfo"; // myinfo.jsp로 이동
+        return "user/myinfo"; // myinfo.jsp로 이동
     }
     
 
