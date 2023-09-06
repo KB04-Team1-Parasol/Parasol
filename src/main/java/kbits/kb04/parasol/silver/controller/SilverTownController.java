@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kbits.kb04.parasol.silver.dto.SearchResponseDto;
+import kbits.kb04.parasol.silver.dto.SilverTownDetailResponseDto;
 import kbits.kb04.parasol.silver.entity.SilverTown;
 import kbits.kb04.parasol.silver.entity.SilverTownDetail;
 import kbits.kb04.parasol.silver.service.SilverTownService;
@@ -54,6 +55,9 @@ public class SilverTownController {
 	// 상세보기
 	@GetMapping("/detail")
 	public String silver_detail(@RequestParam("no") long no, Model model) {
+		SilverTownDetailResponseDto dto = silverTownService.getSilverTownDetail(no);
+		model.addAttribute("dto", dto);
+
 		return "silver/detail";
 	}
 
