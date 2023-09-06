@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-
 public class SavingDto {
+
 	private Long savingNo;
 	private String savingName;
 	private Integer savingPeriod;
