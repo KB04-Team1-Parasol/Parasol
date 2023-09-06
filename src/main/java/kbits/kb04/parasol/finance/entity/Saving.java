@@ -1,3 +1,4 @@
+
 /**
  * 적금 Entity
  * 적금 식별번호, 상품이름, 기간, 최대금액, 이자율, 링크 
@@ -16,7 +17,7 @@ public class Saving {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "saving_SEQ")
 	@SequenceGenerator(sequenceName = "saving_SEQ", allocationSize = 1, name = "saving_SEQ")	
-	private Long saving_no;
+	private Long savingNo;
 
 	@Column(name = "saving_name")
 	private String savingName;
@@ -24,13 +25,24 @@ public class Saving {
 	@Column(name = "saving_period")
 	private Long savingPeriod;
 	
-	@Column(name = "max_cost")
-	private Long maxCost;
-	
 	@Column(name = "saving_max")
 	private Float savingMax;
 	
+	@Column(name = "saving_rate")
+	private Float savingRate;
+	
 	@Column(name = "saving_link")
 	private String savingLink;
+
+	public Saving(Long savingNo, String savingName, Long savingPeriod, Float savingMax, Float savingRate,
+			String savingLink) {
+		super();
+		this.savingNo = savingNo;
+		this.savingName = savingName;
+		this.savingPeriod = savingPeriod;
+		this.savingMax = savingMax;
+		this.savingRate = savingRate;
+		this.savingLink = savingLink;
+	}
 	
 }

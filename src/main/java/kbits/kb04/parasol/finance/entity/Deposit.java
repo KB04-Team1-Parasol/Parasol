@@ -17,7 +17,7 @@ public class Deposit {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "deposit_SEQ")
 	@SequenceGenerator(sequenceName = "deposit_SEQ", allocationSize = 1, name = "deposit_SEQ")	
-	private Long deposit_no;
+	private Long depositNo;
 
 	@Column(name = "deposit_name")
 	private String depositName;
@@ -32,9 +32,9 @@ public class Deposit {
 	private String depositLink;
 	
 	// constructor
-	public Deposit(long deposit_no, String depositName, long depositPeriod, float depositRate, String depositLink) {
+	public Deposit(long depositNo, String depositName, long depositPeriod, float depositRate, String depositLink) {
 		super();
-		this.deposit_no = deposit_no;
+		this.depositNo = depositNo;
 		this.depositName = depositName;
 		this.depositPeriod = depositPeriod;
 		this.depositRate = depositRate;
