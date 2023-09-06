@@ -16,8 +16,8 @@ public class SilverTownService {
 	private final SilverTownRepository silverTownRepository;
 
 	@Transactional
-	public List<SilverTown> serachByKeyword(String keyword) {
-		List<SilverTown> silverTowns = this.silverTownRepository.findByStName(keyword);
+	public List<SilverTown> searchByKeyword(String keyword) {
+		List<SilverTown> silverTowns = this.silverTownRepository.findByStNameContaining(keyword);
 
 		return silverTowns;
 	}
