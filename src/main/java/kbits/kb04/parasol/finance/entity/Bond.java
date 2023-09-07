@@ -26,6 +26,9 @@ public class Bond {
 	@Column(name = "bond_name")
 	private String bondName;
 	
+	@Column(name = "bond_code")
+	private String bondCode;
+	
 	@Column(name = "bond_date")
 	private Date bondDate;
 	
@@ -38,23 +41,26 @@ public class Bond {
 	@Column(name = "bond_credit")
 	private String bondCredit;
 	
-	@Column(name = "bond_link")
-	private String bondLink;
+	@Column(name = "bond_type")
+	private Integer bondType;
 
-	@Column(name = "bond_Img")
-	private String bondImg;
+	@Column(name = "bond_cycle")
+	private String bondCycle;
 
-	public Bond(Long bondNo, String bondName, Date bondDate, Float bondRate, Integer bondRisk, String bondCredit,
-			String bondLink, String bondImg) {
+	public Bond(Long bondNo, String bondName, String bondCode, Date bondDate, Float bondRate, Integer bondRisk,
+			String bondCredit, Integer bondType, String bondCycle) {
 		super();
 		this.bondNo = bondNo;
 		this.bondName = bondName;
+		this.bondCode = bondCode;
 		this.bondDate = bondDate;
 		this.bondRate = bondRate;
 		this.bondRisk = bondRisk;
 		this.bondCredit = bondCredit;
-		this.bondLink = bondLink;
-		this.bondImg = bondImg;
+		this.bondType = bondType;
+		this.bondCycle = bondCycle;
 	}
+
+
 	
 }

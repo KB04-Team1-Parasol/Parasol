@@ -14,10 +14,13 @@ import lombok.NoArgsConstructor;
 public class BondDto {
 	private Long bondNo;
 	private String bondName;
+	private String bondCode;
 	private Date bondDate;
 	private Float bondRate;
 	private Integer bondRisk;
 	private String bondCredit;
-	private String bondLink;
-	private String bondImg;
+	private Integer bondType;
+	private String bondCycle;
+
+
 }
