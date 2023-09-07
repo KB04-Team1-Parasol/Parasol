@@ -3,8 +3,17 @@ package kbits.kb04.parasol.users.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import kbits.kb04.parasol.auth.JwtProvider;
+import kbits.kb04.parasol.auth.RefreshToken;
+import kbits.kb04.parasol.auth.RefreshTokenRepository;
+import kbits.kb04.parasol.auth.TokenDto;
+import kbits.kb04.parasol.users.dto.LoginRequestDto;
 import kbits.kb04.parasol.users.dto.UserAssetDto;
 import kbits.kb04.parasol.users.dto.UsersDto;
 import kbits.kb04.parasol.users.entity.UserAsset;
@@ -20,11 +29,12 @@ public class UsersService {
 
     private final UsersRepository userRepository;
     private final UserAssetRepository userAssetRepository;
-    
+    private final AuthenticationManagerBuilder authenticationManagerBuilder;
+	private final JwtProvider jwtProvider;
+	private final RefreshTokenRepository refreshTokenRepository;
     
     // 아이디 조회 -> 존재 -> 개인 정보 출력
     // 아이디 조회 -> 존재 -> 자산 정보 조회 -> 존재 -> 자산 정보 출력
-    
     Users user=null;
 
     public Users findByUserId(String id) {
@@ -48,5 +58,38 @@ public class UsersService {
         
         return userAsset;
     }
+
+    @Transactional
+	public TokenDto login(LoginRequestDto dto) {
+		System.out.println("login()_id:" + dto.getUser_id());
+		System.out.println("login()_pw:" + dto.getUser_pw());
+
+		// 1. Login ID/PW 를 기반으로 AuthenticationToken 생성
+		UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+				dto.getUser_id(), dto.getUser_pw());
+
+		// 2. 실제로 검증 (사용자 비밀번호 체크) 이 이루어지는 부분
+		// authenticate 메서드가 실행이 될 때 CustomUserDetailsService 에서 만들었던 loadUserByUsername
+		// 메서드가 실행됨
+		System.out.println("userservicetoken:" + authenticationToken);
+		Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
+
+		System.out.println("auto" + authentication);
+		// 3. 인증 정보를 기반으로 JWT 생성
+		TokenDto tokenDto = jwtProvider.generateToken(authentication);
+
+		// 4. RefreshToken 저장
+		RefreshToken refreshToken = RefreshToken.builder().key(authentication.getName())
+				.value(tokenDto.getRefreshToken()).build();
+		refreshTokenRepository.save(refreshToken);
+
+		return tokenDto;
+	}
+
+	public Users findUserById(String userId) {
+		Optional<Users> userById = userRepository.findByUserId(userId);
+		Users user = userById.get();
+		return user;
+	}
 
 }

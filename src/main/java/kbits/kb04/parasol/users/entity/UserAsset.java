@@ -26,8 +26,6 @@ public class UserAsset {
 	@Column(name = "user_no")
 	private Long userNo;
 	
-	
-	
 	@Column(name = "pure_asset")
 	private int pureAsset;
 	

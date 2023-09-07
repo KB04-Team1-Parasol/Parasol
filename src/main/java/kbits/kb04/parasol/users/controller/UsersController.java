@@ -1,5 +1,6 @@
 package kbits.kb04.parasol.users.controller;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,14 +8,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kbits.kb04.parasol.auth.TokenDto;
 import kbits.kb04.parasol.users.dto.LoginRequestDto;
 import kbits.kb04.parasol.users.entity.UserAsset;
 import kbits.kb04.parasol.users.entity.Users;
 import kbits.kb04.parasol.users.exception.UsersNotFoundException;
 import kbits.kb04.parasol.users.service.UsersService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-
 
 @Controller
 @RequestMapping("/user")
@@ -58,11 +58,11 @@ public class UsersController {
     
     @PostMapping("/login_action")
 	public String login(@ModelAttribute LoginRequestDto loginDto, Model model) {
-//		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-//       String encodePW = encoder.encode(loginDto.getUser_pw());
-//       System.out.println(encodePW);
-		//TokenDto tokenDto = userService.login(loginDto);
-		//model.addAttribute("tokenDto", tokenDto);
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String encodePW = encoder.encode(loginDto.getUser_pw());
+        System.out.println(encodePW);
+		TokenDto tokenDto = userService.login(loginDto);
+		model.addAttribute("tokenDto", tokenDto);
 		return "redirect:/index"; // 로그인 성공 시 보여줄 뷰 이름
 	}
     
