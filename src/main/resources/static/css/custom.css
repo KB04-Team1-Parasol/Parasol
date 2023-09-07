@@ -1,5 +1,3 @@
-
-
 @charset "UTF-8";
 
 .featured-section {
@@ -16,13 +14,20 @@
 	background-image: none;
 }
 
-
-#loginbtn {
-	margin : auto;
-}
-
 .base_box{
 	width: 694px;
+}
+
+#signupBtn {
+	background: var(--custom-btn-bg-color);
+    border: none;
+    border-radius: var(--border-radius-large);
+    color: var(--white-color);
+    font-family: var(--title-font-family);
+    font-size: var(--p-font-size);
+    font-weight: var(--font-weight-semibold);
+    transition: all 0.3s;
+    margin-bottom: 0;
 }
 
 .base_row{

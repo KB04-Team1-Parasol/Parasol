@@ -71,27 +71,12 @@
 			</div>
 		</nav>
 
-
-		<header
-			class="site-header d-flex flex-column justify-content-center align-items-center">
-			<div class="container">
-				<div class="row align-items-center">
-
-					<div class="col-lg-5 col-12">
-						<h2 class="text-white">Log In</h2>
-					</div>
-
-				</div>
-			</div>
-		</header>
-
-
 		<section class="section-padding section-bg justify-content-center align-items-center">
 			<div class="container">
 				<div>
 
 					<div class="col-lg-12 col-12">
-						<h3 class="mb-4 pb-2 text-center">로그인 정보를 입력하세요</h3>
+						<h3 class="mb-4 pb-2 text-center">회원가입 정보를 입력하세요</h3>
 					</div>
 					<div class="col-lg-12 col-6">
 						<form action="login_action" method="post" class="custom-form contact-form"
@@ -105,17 +90,28 @@
 								</div>
 								<div class="col-lg-6 col-12 mx-auto">
 									<div class="form-floating">
-										<input type="password"  name="user_pw"
+										<input type="password" name="user_pw"
 											class="form-control" required/>
 										<label for="floatingInput">Password</label>
 									</div>
 								</div>
+								<div class="col-lg-6 col-12 mx-auto">
+									<div class="form-floating">
+										<input type="text" name="user_name"
+											class="form-control" required/>
+										<label for="floatingInput">이름</label>
+									</div>
+								</div>
+								<div class="col-lg-6 col-12 mx-auto">
+									<div class="form-floating">
+										<input type="text" name="user_age"
+											class="form-control" required/>
+										<label for="floatingInput">나이(만)</label>
+									</div>
+								</div>
 								<div class="row justify-content-center">
 									<div class="col-lg-3 col-6">
-										<button type="submit" class="form-control">Login</button>
-									</div>
-									<div class="col-lg-3 col-6">
-										<a href="signup" class="form-control btn" id="signupBtn">Sign Up</a>
+										<a href="signup" class="form-control btn" id="signupBtn">회원가입</a>
 									</div>
 								</div>
 						</form>

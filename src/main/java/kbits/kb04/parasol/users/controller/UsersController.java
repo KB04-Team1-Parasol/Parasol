@@ -49,6 +49,13 @@ public class UsersController {
 		return "user/signin";
 	}
     
+    // 회원가입 화면
+    @GetMapping("/signup")
+	public String signup() {
+		
+		return "user/signup";
+	}
+    
     @PostMapping("/login_action")
 	public String login(@ModelAttribute LoginRequestDto loginDto, Model model) {
 //		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
