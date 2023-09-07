@@ -11,7 +11,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>예금목록조회</title>
+        <title>예금상품</title>
 
         <!-- CSS FILES -->        
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,11 +21,6 @@
         <link href="/css/bootstrap-icons.css" rel="stylesheet">
         <link href="/css/templatemo-topic-listing.css" rel="stylesheet">
         <link href="/css/custom.css" rel="stylesheet">
-        
-<!--
-TemplateMo 590 topic listing
-https://templatemo.com/tm-590-topic-listing
--->
     </head>
     <body class="topics-listing-page" id="top">
         <main>
@@ -94,11 +89,11 @@ https://templatemo.com/tm-590-topic-listing
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">금융상품둘러보기</a></li>
 
-                                    <li class="breadcrumb-item active" aria-current="page">예금상품</li>
+                                    <li class="breadcrumb-item active" aria-current="page">KB예금상품</li>
                                 </ol>
                             </nav>
 
-                            <h2 class="text-white">예금상품</h2>
+                            <h2 class="text-white">KB예금상품</h2>
                         </div>
 
                     </div>
@@ -109,9 +104,6 @@ https://templatemo.com/tm-590-topic-listing
             <section class="section-padding">
                 <div class="container">
                     <div class="row">
-
-
-
 						<div class="col-lg-8 col-12 mt-3 mx-auto">
 						    <c:forEach var="deposit" items="${depositList.content}">
 						        <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
@@ -119,11 +111,13 @@ https://templatemo.com/tm-590-topic-listing
 						                <!-- 이미지 및 기타 정보 출력 -->
 						                <div class="custom-block-topics-listing-info d-flex">
 						                    <div>
+
 						                        <h5 class="mb-2">상품 명: ${deposit.depositName}</h5>
-						                        <p class="mb-0">예금 기간: ${deposit.depositPeriod}</p>
-						                        <p class="mb-0">이율: ${deposit.depositRate}</p>
+						                        <p class="mb-0">최대 기간: ${deposit.depositPeriod}</p>
+						                        <p class="mb-0">만기 이자율: ${deposit.depositRate}</p>
 						                        <a href="<c:url value="/finance/deposit/${deposit.depositNo}" />" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
-						                    </div>
+
+            								</div>
 						                </div>
 						            </div>
 						        </div>
@@ -161,78 +155,6 @@ https://templatemo.com/tm-590-topic-listing
                 </div>
             </section>
      </main>
-		<footer class="site-footer section-padding">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-3 col-12 mb-4 pb-2">
-                        <a class="navbar-brand mb-2" href="index.html">
-                            <i class="bi-back"></i>
-                            <span>Topic</span>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <h6 class="site-footer-title mb-3">Resources</h6>
-
-                        <ul class="site-footer-links">
-                            <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">Home</a>
-                            </li>
-
-                            <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">How it works</a>
-                            </li>
-
-                            <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">FAQs</a>
-                            </li>
-
-                            <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
-                        <h6 class="site-footer-title mb-3">Information</h6>
-
-                        <p class="text-white d-flex mb-1">
-                            <a href="tel: 305-240-9671" class="site-footer-link">
-                                305-240-9671
-                            </a>
-                        </p>
-
-                        <p class="text-white d-flex">
-                            <a href="mailto:info@company.com" class="site-footer-link">
-                                info@company.com
-                            </a>
-                        </p>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            English</button>
-
-                            <ul class="dropdown-menu">
-                                <li><button class="dropdown-item" type="button">Thai</button></li>
-
-                                <li><button class="dropdown-item" type="button">Myanmar</button></li>
-
-                                <li><button class="dropdown-item" type="button">Arabic</button></li>
-                            </ul>
-                        </div>
-
-                        <p class="copyright-text mt-lg-5 mt-4">Copyright © 2048 Topic Listing Center. All rights reserved.
-                        <br><br>Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a> Distribution <a href="https://themewagon.com">ThemeWagon</a></p>
-                        
-                    </div>
-
-                </div>
-            </div>
-        </footer>
-
         <!-- JAVASCRIPT FILES -->
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>

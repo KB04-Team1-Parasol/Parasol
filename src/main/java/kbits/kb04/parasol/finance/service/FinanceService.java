@@ -1,8 +1,12 @@
 package kbits.kb04.parasol.finance.service;
 
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.sql.Date;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -20,8 +24,7 @@ public class FinanceService {
 	@Autowired
 	private final DepositRepository depositRepository;	
 	private final SavingRepository savingRepository;
-	
-	// private final FundRepository fundRepository;
+	private final BondRepository bondRepository;
 	
 	
 	/**
@@ -48,6 +51,7 @@ public class FinanceService {
         );
      }
 
+     
 	/**
 	 * 2. 적금 Paging
 	 * @param page
@@ -72,34 +76,45 @@ public class FinanceService {
         );
     }
 	
+	
 	/**
 	 * 3. 채권 Paging
 	 * @param page
 	 * @param pageSize
 	 * @return
-	 */
+	 */	
+	public Page<BondDto> getBonds(int page, int pageSize){
+		Pageable pageable = PageRequest.of(page - 1, pageSize);
+		Page<Bond> BondPage = bondRepository.findAll(pageable);
+		return BondPage.map(this::convertToDto);
+	}
+	private BondDto convertToDto(Bond bond) {
+		return new BondDto(
+			bond.getBondNo(),
+			bond.getBondName(),
+			bond.getBondCode(),
+			bond.getBondDate(),	
+			bond.getBondRate(),
+			bond.getBondRisk(),
+			bond.getBondCredit(),
+			bond.getBondType(),
+			bond.getBondCycle()
+		);
+	}
 	
-	
+
 	
 	// 페이지에서 번호 받아오기
 	public Optional<Deposit> findByDepositNo(Long depositNo) {
         return depositRepository.findBydepositNo(depositNo);
     }
 	
-//	public Deposit findDepositByDepositNo(Long depositNo) {
-//		Optional<Deposit> depositByno = depositRepository.findBydepositNo(depositNo);
-//		Deposit deposit = depositByno.get();
-//		System.out.println(deposit.getDepositName());
-//		return deposit;
-//	}
-//	
-//	
-//	public Saving findSavingBySavingNO(Long findNO) {
-//		Optional<Saving> savingbyno = savingRepository.findBySavingNo(findNO);
-//		Saving save = savingbyno.get();
-//		return save;
-//	}
 
+	// 설문 조사에 따른 계산해주기
+	public int calculateResult(PersonalDto personaldto) {
+		int sum = personaldto.getAge() + personaldto.getIncome();
+		return sum;
+	}
 }
 		
 
