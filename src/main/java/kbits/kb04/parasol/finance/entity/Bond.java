@@ -45,10 +45,10 @@ public class Bond {
 	private Integer bondType;
 
 	@Column(name = "bond_cycle")
-	private String bondCycle;
+	private Integer bondCycle;
 
 	public Bond(Long bondNo, String bondName, String bondCode, Date bondDate, Float bondRate, Integer bondRisk,
-			String bondCredit, Integer bondType, String bondCycle) {
+			String bondCredit, Integer bondType, Integer bondCycle) {
 		super();
 		this.bondNo = bondNo;
 		this.bondName = bondName;

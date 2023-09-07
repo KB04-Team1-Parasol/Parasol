@@ -20,7 +20,7 @@ public class BondDto {
 	private Integer bondRisk;
 	private String bondCredit;
 	private Integer bondType;
-	private String bondCycle;
+	private Integer bondCycle;
 
 
 }
