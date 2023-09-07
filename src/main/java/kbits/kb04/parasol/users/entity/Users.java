@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import kbits.kb04.parasol.users.enums.Role;
+import kbits.kb04.parasol.users.enums.UserAssetStatus;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,13 +39,16 @@ public class Users {
 	
 	@Enumerated(EnumType.STRING)
 	private Role role;
+	
+	@Enumerated(EnumType.ORDINAL)
+	private UserAssetStatus userAssetStatus;
 
 	@OneToOne(mappedBy="users", optional=true)
 	private UserAsset userAsset;
 
 	
 	public Users(@NotNull Long userNo, @NotNull String userId, @NotNull String userPw, @NotNull String userName,
-			@NotNull int userAge) {
+			@NotNull Integer userAge) {
 		super();
 		this.userNo = userNo;
 		this.userId = userId;
@@ -52,16 +56,18 @@ public class Users {
 		this.userName = userName;
 		this.userAge = userAge;
 		this.role = Role.ROLE_USER;
+		this.userAssetStatus = UserAssetStatus.INPUT_NO;
 	}
 
 	public Users(@NotNull String userId, @NotNull String userPw, @NotNull String userName,
-			@NotNull int userAge) {
+			@NotNull Integer userAge) {
 		super();
 		this.userId = userId;
 		this.userPw = userPw;
 		this.userName = userName;
 		this.userAge = userAge;
 		this.role = Role.ROLE_USER;
+		this.userAssetStatus = UserAssetStatus.INPUT_NO;
 	}
 
 

@@ -66,7 +66,7 @@ public class UsersController {
     // 회원가입 처리
     @PostMapping("/signup_action")
 	public String signup_action(@ModelAttribute SignUpRequestDto signupDto, Model model) {
-		String id = userService.signUp(signupDto);
+		userService.signUp(signupDto);
 		System.out.println("signupDtoId: "+ signupDto.getUser_id());
 		System.out.println("signupDtoPw: " + signupDto.getUser_pw());
 		System.out.println("signupDtoName: " + signupDto.getUser_name());

@@ -82,6 +82,7 @@
 						<form action="signup_action" method="post" class="custom-form contact-form"
 							role="form">
 								<input type="hidden" name="role" value="ROLE_USER">
+								<input type="hidden" name="user_asset_status" value="INPUT_NO">
 								<div class="col-lg-6 col-12 mx-auto">
 									<div class="form-floating">
 										<input type="text" name="user_id"
