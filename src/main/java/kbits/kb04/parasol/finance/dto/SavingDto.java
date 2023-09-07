@@ -13,8 +13,9 @@ public class SavingDto {
 
 	private Long savingNo;
 	private String savingName;
-	private Integer savingPeriod;
+	private Long savingPeriod;
 	private Integer savingMax;
 	private Float savingRate;
-	private String savinLink;
+	private String savingLink;
+	private String savingImg;
 }

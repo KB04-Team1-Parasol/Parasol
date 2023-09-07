@@ -16,5 +16,5 @@ public class DepositDto {
 	private Long depositPeriod;
 	private Float depositRate;
 	private String depositLink;
-	
+	private String depositImg;
 }

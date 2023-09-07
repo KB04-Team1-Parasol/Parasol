@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import kbits.kb04.parasol.finance.dto.DepositDto;
+import kbits.kb04.parasol.finance.dto.SavingDto;
 import kbits.kb04.parasol.finance.service.FinanceService;
 
 @Controller
@@ -25,19 +26,47 @@ public class FinanceController {
         this.financeService = financeService;
     }
 	
-    @GetMapping("/deposits")
+    /**
+     * 1. 예금상품조회
+     * @param page
+     * @param pageSize
+     * @return
+     */
+    @GetMapping("/deposit")
     public ModelAndView getDeposits(
         @RequestParam(defaultValue = "1") int page,
         @RequestParam(defaultValue = "3") int pageSize
     ) {
     	Page<DepositDto> depositList = financeService.getDeposits(page, pageSize);
-        
-        ModelAndView modelAndView = new ModelAndView("finance/info");
+        ModelAndView modelAndView = new ModelAndView("finance/deposit");
         modelAndView.addObject("depositList", depositList); // 데이터를 모델에 추가
         return modelAndView;
     }
 	
-	// 적금 상품 조회
+	/**
+	 * 2.적금상품조회
+	 * @param page
+	 * @param pageSize
+	 * @return
+	 */
+    @GetMapping("/saving")
+    public ModelAndView getSavings(
+        @RequestParam(defaultValue = "1") int page,
+        @RequestParam(defaultValue = "3") int pageSize
+    ) {
+        Page<SavingDto> savingList = financeService.getSavings(page, pageSize);
+        ModelAndView modelAndView = new ModelAndView("finance/saving");
+        modelAndView.addObject("savingList", savingList); // 데이터를 모델에 추가
+        return modelAndView;
+    }
+    
+    
+    
+    /**
+	 * 3. 채권상품조회
+	 * @param page
+	 * @param pageSize
+	 * @return
+	 */
 
-	// 펀드 상품 조회
 }
