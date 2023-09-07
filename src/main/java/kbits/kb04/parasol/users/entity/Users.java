@@ -1,19 +1,9 @@
 package kbits.kb04.parasol.users.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-import kbits.kb04.parasol.silver.entity.SilverTownDetail;
+import kbits.kb04.parasol.users.enums.Role;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,7 +17,7 @@ public class Users {
 	@SequenceGenerator(sequenceName = "users_SEQ", allocationSize = 1, name = "users_SEQ")
 	@NotNull
 	@Column(name = "user_no")
-	private int userNo;
+	private Long userNo;
 	
 	
 	@NotNull
@@ -44,13 +34,16 @@ public class Users {
 	
 	@NotNull
 	@Column(name = "user_age")
-	private int userAge;
+	private Integer userAge;
+	
+	@Enumerated(EnumType.STRING)
+	private Role role;
 
 	@OneToOne(mappedBy="users", optional=true)
 	private UserAsset userAsset;
 
 	
-	public Users(@NotNull int userNo, @NotNull String userId, @NotNull String userPw, @NotNull String userName,
+	public Users(@NotNull Long userNo, @NotNull String userId, @NotNull String userPw, @NotNull String userName,
 			@NotNull int userAge) {
 		super();
 		this.userNo = userNo;
@@ -58,6 +51,7 @@ public class Users {
 		this.userPw = userPw;
 		this.userName = userName;
 		this.userAge = userAge;
+		this.role = Role.ROLE_USER;
 	}
 
 
