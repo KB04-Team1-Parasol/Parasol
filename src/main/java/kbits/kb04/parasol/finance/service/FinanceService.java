@@ -1,5 +1,8 @@
 package kbits.kb04.parasol.finance.service;
 
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -14,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 public class FinanceService {
 	
 	// Repository 객체 생성
+	@Autowired
 	private final DepositRepository depositRepository;	
 	private final SavingRepository savingRepository;
 	
@@ -76,6 +80,25 @@ public class FinanceService {
 	 */
 	
 	
+	
+	// 페이지에서 번호 받아오기
+	public Optional<Deposit> findByDepositNo(Long depositNo) {
+        return depositRepository.findBydepositNo(depositNo);
+    }
+	
+//	public Deposit findDepositByDepositNo(Long depositNo) {
+//		Optional<Deposit> depositByno = depositRepository.findBydepositNo(depositNo);
+//		Deposit deposit = depositByno.get();
+//		System.out.println(deposit.getDepositName());
+//		return deposit;
+//	}
+//	
+//	
+//	public Saving findSavingBySavingNO(Long findNO) {
+//		Optional<Saving> savingbyno = savingRepository.findBySavingNo(findNO);
+//		Saving save = savingbyno.get();
+//		return save;
+//	}
 
 }
 		
