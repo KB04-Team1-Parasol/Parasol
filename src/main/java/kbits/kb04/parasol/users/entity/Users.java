@@ -54,7 +54,15 @@ public class Users {
 		this.role = Role.ROLE_USER;
 	}
 
-
+	public Users(@NotNull String userId, @NotNull String userPw, @NotNull String userName,
+			@NotNull int userAge) {
+		super();
+		this.userId = userId;
+		this.userPw = userPw;
+		this.userName = userName;
+		this.userAge = userAge;
+		this.role = Role.ROLE_USER;
+	}
 
 
 }

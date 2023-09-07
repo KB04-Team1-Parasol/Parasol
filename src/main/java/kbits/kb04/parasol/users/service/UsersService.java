@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +15,7 @@ import kbits.kb04.parasol.auth.RefreshToken;
 import kbits.kb04.parasol.auth.RefreshTokenRepository;
 import kbits.kb04.parasol.auth.TokenDto;
 import kbits.kb04.parasol.users.dto.LoginRequestDto;
+import kbits.kb04.parasol.users.dto.SignUpRequestDto;
 import kbits.kb04.parasol.users.dto.UserAssetDto;
 import kbits.kb04.parasol.users.dto.UsersDto;
 import kbits.kb04.parasol.users.entity.UserAsset;
@@ -58,12 +60,24 @@ public class UsersService {
         
         return userAsset;
     }
+    // 회원가입 처리 함수
+    @Transactional
+    public String signUp(SignUpRequestDto requestDto) {
+        Optional<Users> userById = userRepository.findByUserId(requestDto.getUser_id());
+        if (userById.isPresent()) {
+            throw new RuntimeException();   //TODO 이미 존재합니다 exception
+        }
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String encodePW = encoder.encode(requestDto.getUser_pw());
+        requestDto.setUser_pw(encodePW);
+        Users user = requestDto.userFromDto();
+        userRepository.save(user);
 
+        return user.getUserId();
+    }
+    // 로그인 처리 함수
     @Transactional
 	public TokenDto login(LoginRequestDto dto) {
-		System.out.println("login()_id:" + dto.getUser_id());
-		System.out.println("login()_pw:" + dto.getUser_pw());
-
 		// 1. Login ID/PW 를 기반으로 AuthenticationToken 생성
 		UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
 				dto.getUser_id(), dto.getUser_pw());
@@ -71,10 +85,8 @@ public class UsersService {
 		// 2. 실제로 검증 (사용자 비밀번호 체크) 이 이루어지는 부분
 		// authenticate 메서드가 실행이 될 때 CustomUserDetailsService 에서 만들었던 loadUserByUsername
 		// 메서드가 실행됨
-		System.out.println("userservicetoken:" + authenticationToken);
 		Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
 
-		System.out.println("auto" + authentication);
 		// 3. 인증 정보를 기반으로 JWT 생성
 		TokenDto tokenDto = jwtProvider.generateToken(authentication);
 

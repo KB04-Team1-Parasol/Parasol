@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kbits.kb04.parasol.auth.TokenDto;
 import kbits.kb04.parasol.users.dto.LoginRequestDto;
+import kbits.kb04.parasol.users.dto.SignUpRequestDto;
 import kbits.kb04.parasol.users.entity.UserAsset;
 import kbits.kb04.parasol.users.entity.Users;
 import kbits.kb04.parasol.users.exception.UsersNotFoundException;
@@ -56,11 +57,24 @@ public class UsersController {
 		return "user/signup";
 	}
     
+    // 회원가입 처리
+    @PostMapping("/signup_action")
+	public String signup_action(@ModelAttribute SignUpRequestDto signupDto, Model model) {
+		String id = userService.signUp(signupDto);
+		System.out.println("signupDtoId: "+ signupDto.getUser_id());
+		System.out.println("signupDtoPw: " + signupDto.getUser_pw());
+		System.out.println("signupDtoName: " + signupDto.getUser_name());
+		System.out.println("signupDtoAge: " + signupDto.getUser_age());
+		model.addAttribute("signupDto", signupDto);
+		return "redirect:/user/signin";
+	}
+    
+    // 로그인 처리
     @PostMapping("/login_action")
-	public String login(@ModelAttribute LoginRequestDto loginDto, Model model) {
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        String encodePW = encoder.encode(loginDto.getUser_pw());
-        System.out.println(encodePW);
+	public String login_action(@ModelAttribute LoginRequestDto loginDto, Model model) {
+//		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+//      String encodePW = encoder.encode(loginDto.getUser_pw());
+//      System.out.println(encodePW);
 		TokenDto tokenDto = userService.login(loginDto);
 		model.addAttribute("tokenDto", tokenDto);
 		return "redirect:/index"; // 로그인 성공 시 보여줄 뷰 이름

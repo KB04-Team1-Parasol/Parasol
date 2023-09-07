@@ -27,42 +27,42 @@ public class UserAsset {
 	private Long userNo;
 	
 	@Column(name = "pure_asset")
-	private int pureAsset;
+	private Long pureAsset;
 	
 	
 	@Column(name = "fin_asset")
-	private int finAsset;
+	private Long finAsset;
 	
 	
 	@Column(name = "real_asset")
-	private int realAsset;
+	private Long realAsset;
 	
 	
 	@Column(name = "debt")
-	private int debt;
+	private Long debt;
 	
 	// 저축 가능 금액 (로직 계산 시 참고)
 	@Column(name = "monthly_income")
-	private int monthlyIncome;
+	private Long monthlyIncome;
 	
 	
 	@Column(name = "annuity")
-	private int annuity;
+	private Long annuity;
 	
 	
 	@Column(name = "hope_age")
-	private int hopeAge;
+	private Long hopeAge;
 	
 	
 	@Column(name = "hope_period")
-	private int hopePeriod;
+	private Long hopePeriod;
 
 	@OneToOne
 	@JoinColumn(name="user_no")
 	private Users users;
 	
-	public UserAsset(@NotNull Long userNo, int pureAsset, int finAsset, int realAsset, int debt, int monthlyIncome, int annuity,
-			int hopeAge, int hopePeriod) {
+	public UserAsset(@NotNull Long userNo, Long pureAsset, Long finAsset, Long realAsset, Long debt, Long monthlyIncome, Long annuity,
+			Long hopeAge, Long hopePeriod) {
 		super();
 		this.userNo = userNo;
 		this.pureAsset = pureAsset;
