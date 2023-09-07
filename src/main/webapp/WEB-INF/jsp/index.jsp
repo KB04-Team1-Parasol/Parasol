@@ -51,7 +51,7 @@
 						<li class="nav-item"><a class="nav-link click-scroll"
 							href="#section_2">금융상품</a></li>
 						<li class="nav-item"><a class="nav-link click-scroll"
-							href="information">Information</a></li>
+							href="info">Information</a></li>
 						<li class="nav-item"><a class="nav-link click-scroll"
 							href="#section_4">FAQs</a></li>
 						<li class="nav-item"><a class="nav-link click-scroll"

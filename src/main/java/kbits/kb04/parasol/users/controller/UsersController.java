@@ -67,11 +67,6 @@ public class UsersController {
     @PostMapping("/signup_action")
 	public String signup_action(@ModelAttribute SignUpRequestDto signupDto, Model model) {
 		userService.signUp(signupDto);
-		System.out.println("signupDtoId: "+ signupDto.getUser_id());
-		System.out.println("signupDtoPw: " + signupDto.getUser_pw());
-		System.out.println("signupDtoName: " + signupDto.getUser_name());
-		System.out.println("signupDtoAge: " + signupDto.getUser_age());
-		model.addAttribute("signupDto", signupDto);
 		return "redirect:/user/signin";
 	}
     

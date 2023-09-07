@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
@@ -72,33 +73,12 @@
             </nav>
 
 
-            <header class="site-header d-flex flex-column justify-content-center align-items-center">
-                <div class="container">
-                    <div class="row align-items-center">
-
-                        <div class="col-lg-5 col-12">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Homepage</a></li>
-
-                                    <li class="breadcrumb-item active" aria-current="page">Topics Listing</li>
-                                </ol>
-                            </nav>
-
-                            <h2 class="text-white">Topics Listing</h2>
-                        </div>
-
-                    </div>
-                </div>
-            </header>
-
-
             <section class="section-padding">
                 <div class="container">
                     <div class="row">
 
                         <div class="col-lg-12 col-12 text-center">
-                            <h3 class="mb-4">Popular Topics</h3>
+                            <h3 class="mb-4">Information</h3>
                         </div>
 
                         <div class="col-lg-8 col-12 mt-3 mx-auto">

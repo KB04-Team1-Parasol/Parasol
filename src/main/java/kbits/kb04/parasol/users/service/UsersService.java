@@ -72,12 +72,7 @@ public class UsersService {
         String encodePW = encoder.encode(requestDto.getUser_pw());
         requestDto.setUser_pw(encodePW);
         Users user = requestDto.userFromDto();
-        System.out.println(user.getUserId());
-        System.out.println(user.getUserPw());
-        System.out.println(user.getUserName());
-        System.out.println(user.getUserAge());
-        System.out.println(user.getRole());
-        System.out.println(user.getUserAssetStatus());
+        
         userRepository.save(user);
 
         return user.getUserId();

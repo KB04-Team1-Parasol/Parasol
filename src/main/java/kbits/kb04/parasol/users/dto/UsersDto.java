@@ -1,9 +1,8 @@
 package kbits.kb04.parasol.users.dto;
 
-import lombok.Data;
+import lombok.Getter;
 
-
-@Data
+@Getter
 public class UsersDto {
 
 	private int user_no,user_age;
