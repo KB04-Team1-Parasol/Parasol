@@ -17,8 +17,6 @@ import kbits.kb04.parasol.users.entity.Users;
 이러한 메서드를 사용하여 데이터베이스와 상호작용할 수 있으며, 별도의 SQL 쿼리를 작성할 필요가 없습니다. 
 Repository 인터페이스를 사용하여 데이터베이스 연동 코드를 간단하게 작성할 수 있습니다.*/
 
-public interface UsersRepository extends JpaRepository<Users, Integer> {
-    Optional<Users> findByUserId(String id);
-
-
+public interface UsersRepository extends JpaRepository<Users, Long> {
+    Optional<Users> findByUserId(String userid);
 }

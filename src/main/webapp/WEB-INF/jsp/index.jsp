@@ -24,8 +24,8 @@
 
 		<nav class="navbar navbar-expand-lg">
 			<div class="container">
-				<a class="navbar-brand" href="index.html"> <i class="bi-back"></i>
-					<span>Topic</span>
+				<a class="navbar-brand" href="/"> <i class="bi-back"></i>
+					<span>Parasol</span>
 				</a>
 				<div class="d-lg-none ms-auto me-4">
 					<a href="#top" class="navbar-icon bi-person smoothscroll"></a>
@@ -51,7 +51,7 @@
 						<li class="nav-item"><a class="nav-link click-scroll"
 							href="#section_2">금융상품</a></li>
 						<li class="nav-item"><a class="nav-link click-scroll"
-							href="#section_3">Information</a></li>
+							href="information">Information</a></li>
 						<li class="nav-item"><a class="nav-link click-scroll"
 							href="#section_4">FAQs</a></li>
 						<li class="nav-item"><a class="nav-link click-scroll"
@@ -62,13 +62,13 @@
 							data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
 							<ul class="dropdown-menu dropdown-menu-light"
 								aria-labelledby="navbarLightDropdownMenuLink">
-								<li><a class="dropdown-item" href="topics-listing.html">Topics Listing</a></li>
-								<li><a class="dropdown-item" href="contact.html">Contact Form</a></li>
+								<li><a class="dropdown-item" href="/">Topics Listing</a></li>
+								<li><a class="dropdown-item" href="/">Contact Form</a></li>
 							</ul>
 						</li>
 					</ul>
 					<div class="d-none d-lg-block">
-						<a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+						<a href="user/signin" class="navbar-icon bi-person smoothscroll"></a>
 					</div>
 				</div>
 			</div>

@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class WebController {
+	
 	@GetMapping("/index")
 	public String hello() {
 		
@@ -15,5 +16,10 @@ public class WebController {
 	public String signin() {
 		
 		return "signin";
+	}
+	
+	@GetMapping("/information")
+	public String information() {
+		return "information";
 	}
 }

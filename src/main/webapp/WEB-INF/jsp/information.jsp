@@ -15,14 +15,12 @@
     <link href="/css/templatemo-topic-listing.css" rel="stylesheet">
 </head>
 <body class="topics-listing-page" id="top">
-
         <main>
-
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/">
                         <i class="bi-back"></i>
-                        <span>Topic</span>
+                        <span>Parasol</span>
                     </a>
 
                     <div class="d-lg-none ms-auto me-4">

@@ -24,7 +24,7 @@ public class UserAsset {
 	@SequenceGenerator(sequenceName = "user_asset_SEQ", allocationSize = 1, name = "user_asset_SEQ")	
 	@NotNull
 	@Column(name = "user_no")
-	private int userNo;
+	private Long userNo;
 	
 	
 	
@@ -63,7 +63,7 @@ public class UserAsset {
 	@JoinColumn(name="user_no")
 	private Users users;
 	
-	public UserAsset(@NotNull int userNo, int pureAsset, int finAsset, int realAsset, int debt, int monthlyIncome, int annuity,
+	public UserAsset(@NotNull Long userNo, int pureAsset, int finAsset, int realAsset, int debt, int monthlyIncome, int annuity,
 			int hopeAge, int hopePeriod) {
 		super();
 		this.userNo = userNo;

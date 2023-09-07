@@ -9,5 +9,4 @@ public class ParasolApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ParasolApplication.class, args);
 	}
-
 }
