@@ -14,6 +14,7 @@ import kbits.kb04.parasol.auth.JwtProvider;
 import kbits.kb04.parasol.auth.RefreshToken;
 import kbits.kb04.parasol.auth.RefreshTokenRepository;
 import kbits.kb04.parasol.auth.TokenDto;
+import kbits.kb04.parasol.auth.TokenRequestDto;
 import kbits.kb04.parasol.users.dto.LoginRequestDto;
 import kbits.kb04.parasol.users.dto.SignUpRequestDto;
 import kbits.kb04.parasol.users.dto.UserAssetDto;
@@ -98,6 +99,34 @@ public class UsersService {
 		return tokenDto;
 	}
 
+    @Transactional
+    public TokenDto reissue(TokenRequestDto tokenRequestDto){
+        // 1. Refresh Token 검증
+        if (!jwtProvider.validateToken(tokenRequestDto.getRefreshToken())) {
+            throw new RuntimeException("Refresh Token 이 유효하지 않습니다.");
+        }
+        // 2. Access Token 에서 Member ID 가져오기
+        Authentication authentication = jwtProvider.getAuthentication(tokenRequestDto.getAccessToken());
+
+        // 3. 저장소에서 Member ID 를 기반으로 Refresh Token 값 가져옴
+        RefreshToken refreshToken = refreshTokenRepository.findByKey(authentication.getName())
+                .orElseThrow(() -> new RuntimeException("로그아웃 된 사용자입니다."));
+
+        // 4. Refresh Token 일치하는지 검사
+        if (!refreshToken.getValue().equals(tokenRequestDto.getRefreshToken())) {
+            throw new RuntimeException("토큰의 유저 정보가 일치하지 않습니다.");
+        }
+
+        // 5. 새로운 토큰 생성
+        TokenDto tokenDto = jwtProvider.generateToken(authentication);
+
+        // 6. 저장소 정보 업데이트
+        RefreshToken newRefreshToken = refreshToken.updateValue(tokenDto.getRefreshToken());
+        refreshTokenRepository.save(newRefreshToken);
+
+        return tokenDto;
+    }
+    
 	public Users findUserById(String userId) {
 		Optional<Users> userById = userRepository.findByUserId(userId);
 		Users user = userById.get();

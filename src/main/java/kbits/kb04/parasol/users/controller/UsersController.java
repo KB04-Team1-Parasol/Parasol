@@ -1,6 +1,11 @@
 package kbits.kb04.parasol.users.controller;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import java.io.BufferedReader;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import io.jsonwebtoken.io.IOException;
 import kbits.kb04.parasol.auth.TokenDto;
 import kbits.kb04.parasol.users.dto.LoginRequestDto;
 import kbits.kb04.parasol.users.dto.SignUpRequestDto;
@@ -80,4 +86,23 @@ public class UsersController {
 		return "redirect:/index"; // 로그인 성공 시 보여줄 뷰 이름
 	}
     
+    @PostMapping("/reissue")
+    public ResponseEntity<String> reissue(HttpServletRequest request) throws java.io.IOException {
+        StringBuilder requestBody = new StringBuilder();
+        try {
+            BufferedReader reader = request.getReader();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                requestBody.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error reading request body");
+        }
+
+        // requestBody에는 JSON 데이터가 포함됩니다. 이를 파싱하고 처리할 수 있습니다.
+        String json = requestBody.toString();
+
+        return ResponseEntity.ok("Request body received: " + json);
+    }
 }
