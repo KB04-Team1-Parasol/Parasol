@@ -14,34 +14,71 @@ import lombok.RequiredArgsConstructor;
 public class FinanceService {
 	
 	// Repository 객체 생성
-	private final DepositRepository depositRepository;
-	private final FundRepository fundRepository;
+	private final DepositRepository depositRepository;	
 	private final SavingRepository savingRepository;
 	
-	// 1. 예금Dto Paging
+	// private final FundRepository fundRepository;
+	
+	
+	/**
+	 * 1. 예금 paging
+	 * @param page
+	 * @param pageSize
+	 * @return
+	 */
 	 public Page<DepositDto> getDeposits(int page, int pageSize) {
 	        Pageable pageable = PageRequest.of(page - 1, pageSize); // 페이지 번호는 1부터 시작하므로 1을 빼줍니다.
 	        Page<Deposit> depositPage = depositRepository.findAll(pageable);
 
 	        return depositPage.map(this::convertToDto);
-	 	}
+	 }
+	 
+     private DepositDto convertToDto(Deposit deposit) {
+        return new DepositDto(
+            deposit.getDepositNo(),
+            deposit.getDepositName(),
+            deposit.getDepositPeriod(),
+            deposit.getDepositRate(),
+            deposit.getDepositLink(),
+            deposit.getDepositImg()
+        );
+     }
 
-	    private DepositDto convertToDto(Deposit deposit) {
-	        return new DepositDto(
-	            deposit.getDepositNo(),
-	            deposit.getDepositName(),
-	            deposit.getDepositPeriod(),
-	            deposit.getDepositRate(),
-	            deposit.getDepositLink()
-	        );
-	    }
+	/**
+	 * 2. 적금 Paging
+	 * @param page
+	 * @param pageSize
+	 * @return
+	 */
+	public Page<SavingDto> getSavings(int page, int pageSize) {
+			Pageable pageable = PageRequest.of(page - 1, pageSize); // 페이지 번호는 1부터 시작하므로 1을 빼줍니다.
+	        Page<Saving> savingPage = savingRepository.findAll(pageable);
+
+	        return savingPage.map(this::convertToDto);
+	}
+	private SavingDto convertToDto(Saving saving) {
+        return new SavingDto(	 
+        		saving.getSavingNo(),
+        		saving.getSavingName(),
+        		saving.getSavingPeriod(),
+        		saving.getSavingMax(),
+        		saving.getSavingRate(),
+        		saving.getSavingLink(),
+        		saving.getSavingImg()
+        );
+    }
+	
+	/**
+	 * 3. 채권 Paging
+	 * @param page
+	 * @param pageSize
+	 * @return
+	 */
+	
+	
 
 }
 		
-	
-	
-	
-	// 3. 펀드 보여주기 - 전체
-	
+
 	
 

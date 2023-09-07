@@ -31,6 +31,9 @@ public class Deposit {
 	@Column(name = "deposit_link")
 	private String depositLink;
 	
+	@Column(name = "deposit_Img")
+	private String depositImg;
+	
 	// constructor
 	public Deposit(long depositNo, String depositName, long depositPeriod, float depositRate, String depositLink) {
 		super();
@@ -39,5 +42,6 @@ public class Deposit {
 		this.depositPeriod = depositPeriod;
 		this.depositRate = depositRate;
 		this.depositLink = depositLink;
+		this.depositImg = depositImg;
 	}
 }

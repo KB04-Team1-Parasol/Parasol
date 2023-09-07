@@ -26,7 +26,7 @@ public class Saving {
 	private Long savingPeriod;
 	
 	@Column(name = "saving_max")
-	private Float savingMax;
+	private Integer savingMax;
 	
 	@Column(name = "saving_rate")
 	private Float savingRate;
@@ -34,7 +34,10 @@ public class Saving {
 	@Column(name = "saving_link")
 	private String savingLink;
 
-	public Saving(Long savingNo, String savingName, Long savingPeriod, Float savingMax, Float savingRate,
+	@Column(name = "saving_Img")
+	private String savingImg;
+	
+	public Saving(Long savingNo, String savingName, Long savingPeriod, Integer savingMax, Float savingRate,
 			String savingLink) {
 		super();
 		this.savingNo = savingNo;
