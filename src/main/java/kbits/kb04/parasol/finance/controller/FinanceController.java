@@ -2,17 +2,23 @@
 
 package kbits.kb04.parasol.finance.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import kbits.kb04.parasol.finance.dto.DepositDto;
 import kbits.kb04.parasol.finance.dto.SavingDto;
+import kbits.kb04.parasol.finance.entity.Deposit;
+import kbits.kb04.parasol.finance.repository.DepositRepository;
 import kbits.kb04.parasol.finance.service.FinanceService;
 
 @Controller
@@ -25,6 +31,8 @@ public class FinanceController {
     public FinanceController(FinanceService financeService) {
         this.financeService = financeService;
     }
+    @Autowired
+    private DepositRepository depositRepository;
 	
     /**
      * 1. 예금상품조회
@@ -68,5 +76,38 @@ public class FinanceController {
 	 * @param pageSize
 	 * @return
 	 */
+    
+    @GetMapping("/personal")
+    public String personalInvest() {
+    	
+    	return "finance/personal";
+    }
+    
+    @PostMapping("/twoja")
+    public String personalInvest(@RequestParam int age, @RequestParam int income) {
+    	
+    	int sum = age + income;
+    	if(sum <2) {
+    		return null;
+    	} else if(sum <4) {
+    		return null;
+    	} else {
+    		return null;
+    	}
+    }
+    
+ 	@GetMapping("deposit/{depositNo}")
+    public String showDepositDetail(@PathVariable Long depositNo, Model model) {
+        Optional<Deposit> optionalDeposit = financeService.findByDepositNo(depositNo);
 
+        if (optionalDeposit.isPresent()) {
+            Deposit deposit = optionalDeposit.get();
+            model.addAttribute("deposit", deposit);
+            return "finance/detail"; // 상세 정보를 보여줄 JSP 페이지 이름
+        } else {
+            // 데이터를 찾을 수 없을 때의 처리
+            return "depositNotFoundPage"; // 상품이 없을 때 보여줄 JSP 페이지 이름
+        }
+    }
+ 	
 }
