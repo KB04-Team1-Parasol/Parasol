@@ -66,14 +66,16 @@ public class UsersService {
     public String signUp(SignUpRequestDto requestDto) {
         Optional<Users> userById = userRepository.findByUserId(requestDto.getUser_id());
         if (userById.isPresent()) {
-            throw new RuntimeException();   //TODO 이미 존재합니다 exception
+            throw new RuntimeException(); 
         }
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String encodePW = encoder.encode(requestDto.getUser_pw());
         requestDto.setUser_pw(encodePW);
         Users user = requestDto.userFromDto();
+        UserAsset userAsset = new UserAsset(user.getUserNo(), null, null, null, null, null, null, null, null);
         
         userRepository.save(user);
+        userAssetRepository.save(userAsset);
 
         return user.getUserId();
     }
@@ -83,7 +85,7 @@ public class UsersService {
 		// 1. Login ID/PW 를 기반으로 AuthenticationToken 생성
 		UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
 				dto.getUser_id(), dto.getUser_pw());
-
+		
 		// 2. 실제로 검증 (사용자 비밀번호 체크) 이 이루어지는 부분
 		// authenticate 메서드가 실행이 될 때 CustomUserDetailsService 에서 만들었던 loadUserByUsername
 		// 메서드가 실행됨

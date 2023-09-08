@@ -1,8 +1,8 @@
 package kbits.kb04.parasol.users.dto;
 
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 public class LoginRequestDto {
     private String user_id;
     private String user_pw;

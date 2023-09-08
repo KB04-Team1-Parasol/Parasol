@@ -72,7 +72,7 @@ public class UsersController {
     
     // 로그인 처리
     @PostMapping("/login_action")
-	public String login_action(@ModelAttribute LoginRequestDto loginDto, Model model) {
+	public String login_action(@ModelAttribute("Users") LoginRequestDto loginDto, Model model) {
 //		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 //      String encodePW = encoder.encode(loginDto.getUser_pw());
 //      System.out.println(encodePW);

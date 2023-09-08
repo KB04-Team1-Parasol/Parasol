@@ -75,15 +75,4 @@ public class UserAsset {
 		this.hopePeriod = hopePeriod;
 	}
 
-	public UserAsset(@NotNull Long user_no) {
-		super();
-		this.userNo = userNo;
-	}
-	
-	
-	
-
-
-
-
 }
