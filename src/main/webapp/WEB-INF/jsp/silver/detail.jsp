@@ -5,123 +5,115 @@
 <head>
 <meta charset="UTF-8">
 <title>실버타운 상세보기</title>
-<!-- CSS FILES -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap"
-	rel="stylesheet">
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/bootstrap-icons.css" rel="stylesheet">
-<link href="../css/templatemo-topic-listing.css" rel="stylesheet">
-<link href="../css/custom.css" rel="stylesheet">
+<!-- css setting -->
+<jsp:include page="/WEB-INF/jsp/settings/css.jsp"/>
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="/css/silver/detail.css" rel="stylesheet" />
 </head>
 <body id="top">
 	<main>
-		<nav class="navbar navbar-expand-lg">
-			<div class="container">
-				<a class="navbar-brand" href="index.html"> <i class="bi-back"></i>
-					<span>Topic</span>
-				</a>
-				<div class="d-lg-none ms-auto me-4">
-					<a href="#top" class="navbar-icon bi-person smoothscroll"></a>
-				</div>
-				<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarNav"
-					aria-controls="navbarNav" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav ms-lg-5 me-lg-auto">
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#"
-							id="navbarLightDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false">실버타운</a>
-							<ul class="dropdown-menu dropdown-menu-light"
-								aria-labelledby="navbarLightDropdownMenuLink">
-								<li><a class="dropdown-item" href="silver/search">실버타운 검색</a></li>
-								<li><a class="dropdown-item" href="silver/custom">맞춤 실버타운 찾기</a></li>
-							</ul>
-						</li>
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="#section_2">금융상품</a></li>
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="#section_3">Information</a></li>
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="#section_4">FAQs</a></li>
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="#section_5">Contact</a></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#"
-							id="navbarLightDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-							<ul class="dropdown-menu dropdown-menu-light"
-								aria-labelledby="navbarLightDropdownMenuLink">
-								<li><a class="dropdown-item" href="topics-listing.html">Topics Listing</a></li>
-								<li><a class="dropdown-item" href="contact.html">Contact Form</a></li>
-							</ul>
-						</li>
-					</ul>
-					<div class="d-none d-lg-block">
-						<a href="#top" class="navbar-icon bi-person smoothscroll"></a>
-					</div>
-				</div>
-			</div>
-		</nav>
+	
+		<!-- header include -->
+		<jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
 		
-		<section class="contact-section section-padding section-bg"
-			id="section_5">
-			<div class="container">
-				<div class="row">
-
-					<div class="col-lg-12 col-12 text-center">
-						<h2 class="mb-5">${ dto.getStName() }</h2>
-					</div>
-
-					<div class="col-lg-5 col-12 mb-4 mb-lg-0">
-						<iframe class="google-map"
-							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2595.065641062665!2d-122.4230416990949!3d37.80335401520422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858127459fabad%3A0x808ba520e5e9edb7!2sFrancisco%20Park!5e1!3m2!1sen!2sth!4v1684340239744!5m2!1sen!2sth"
-							width="100%" height="250" style="border: 0;" allowfullscreen=""
-							loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-						${ dto.getStImgUrl() }
-					</div>
-
-					<div class="col-lg-3 col-md-6 col-12 mb-3 mb-lg- mb-md-0 ms-auto">
-						<h4 class="mb-3">${ dto.getStdRoomType() }</h4>
-
-						<hr>
-
-						<p class="d-flex align-items-center mb-1">
-							<span class="me-2">보증금 ${ dto.getStdDeposit()*10000 }원</span>
-						</p>
-
-						<p class="d-flex align-items-center">
-							<span class="me-2">월세 ${ dto.getStdMonthlyCost()*10000 }원</span>
-						</p>
-					</div>
-
-					<div class="col-lg-3 col-md-6 col-12 mx-auto">
-						<h4 class="mb-3">Dubai office</h4>
-
-						<p>Burj Park, Downtown Dubai, United Arab Emirates</p>
-
-						<hr>
-
-						<p class="d-flex align-items-center mb-1">
-							<span class="me-2">Phone</span> <a href="tel: 110-220-3400"
-								class="site-footer-link"> 110-220-3400 </a>
-						</p>
-
-						<p class="d-flex align-items-center">
-							<span class="me-2">Email</span> <a href="mailto:info@company.com"
-								class="site-footer-link"> info@company.com </a>
-						</p>
-					</div>
-
-				</div>
-			</div>
-		</section>
+		<!-- Header-->
+        <header class="py-5 bg-yellow">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center justify-content-center">
+                    <div class="col-lg-8 col-xl-7 col-xxl-6">
+                        <div class="my-5 text-center text-xl-start">
+                            <h1 class="display-5 fw-bolder">${ dto.getStName() }</h1>
+                            <h2 class="display-7 mb-5">${ dto.getStdRoomType() }</h2>
+                            <p class="lead fw-normal mb-2"><span class="fw-bolder">주소</span> ${ dto.getAddress() }</p>
+                            <p class="lead fw-normal mb-2"><span class="fw-bolder">보증금</span> ${ dto.getStdDeposit()*10000 }원</p>
+                            <p class="lead fw-normal mb-4"><span class="fw-bolder">월세</span> ${ dto.getStdMonthlyCost()*10000 }원</p>
+		                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+		                        <a class="btn btn-primary btn-lg px-4 me-sm-3" href="${ dto.getStUrl() }" target="_blank">홈페이지 이동</a>
+		                    </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
+                </div>
+            </div>
+        </header>
+		
+        <!-- Page Content-->
+        <section class="pt-4">
+        	<div class="row gx-5 justify-content-center mb-5">
+	            <div class="col-lg-8 col-xl-6">
+	                <div class="text-center">
+	                    <h2 class="fw-bolder">상세 정보</h2>
+	                </div>
+	            </div>
+	        </div>
+        
+            <div class="container px-lg-5">
+                <!-- Page Features-->
+                <div class="row gx-lg-5">
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <div class="card bg-light border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-cloud-download"></i></div>
+                                <h2 class="fs-4 fw-bold">유형</h2>
+                                <p class="mb-0">${ dto.getStType() }</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <div class="card bg-light border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-card-heading"></i></div>
+                                <h2 class="fs-4 fw-bold">규모</h2>
+                                <p class="mb-0">${ dto.getStScale() }</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <div class="card bg-light border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-patch-check"></i></div>
+                                <h2 class="fs-4 fw-bold">계약 기간</h2>
+                                <p class="mb-0">${ dto.getStPeriod() }년</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <div class="card bg-light border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-code"></i></div>
+                                <h2 class="fs-4 fw-bold">세대 수</h2>
+                                <p class="mb-0">${ dto.getStdOccupancy() }인</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <div class="card bg-light border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-bootstrap"></i></div>
+                                <h2 class="fs-4 fw-bold">평수</h2>
+                                <p class="mb-0">${ dto.getStdRoomSize() }평</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <div class="card bg-light border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"></i></div>
+                                <h2 class="fs-4 fw-bold">부대 시설</h2>
+                                <p class="mb-0">${ dto.getStFacility() }</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		
+		
+		<!-- footer include -->
+		<jsp:include page="/WEB-INF/jsp/common/footer.jsp"/>
+		
+		<!-- JAVASCRIPT FILES -->
+		<jsp:include page="/WEB-INF/jsp/settings/js.jsp"/>
 		
 	</main>
 </body>
