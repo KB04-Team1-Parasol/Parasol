@@ -25,6 +25,10 @@
 	overflow: hidden;
 }
 
+#contentCustom {
+	line-height: 35px;
+}
+
 #signupBtn {
 	background: var(--custom-btn-bg-color);
     border: none;

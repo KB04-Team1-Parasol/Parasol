@@ -76,64 +76,19 @@
 			</div>
 		</nav>
 
-
 		<section class="section-padding">
-			<div class="container">
+			<div class="container col-lg-8 col-8">
 				<div class="row">
 					<div class="col-lg-12 col-12 text-center">
-						<h3 class="mb-4">Information</h3>
+						<h2 class="mb-4">${infoDetail.infoTitle}</h2>
+					</div>
+					<div class="d-flex col-lg-12 col-12 justify-content-end">
+						<p class="mb-0">작성일: ${infoDetail.infoDate}</p>
+					</div>
+					<div>
+						<p class="mb-0" id="contentCustom">${infoDetail.infoContent}</p>
 					</div>
 
-					<div
-						class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-						<div class="col-lg-8 col-12 mt-3 mx-auto">
-							<c:forEach var="information" items="${infoList.content}">
-								<div
-									class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-									<div class="d-flex">
-										<img src="${information.infoImg}"
-											class="custom-block-image img-fluid"
-											onerror="this.src='/images/main.jpg'">
-										<!-- 이미지 및 기타 정보 출력 -->
-										<div class="custom-block-topics-listing-info d-flex">
-											<div>
-												<a href="<c:url value="/info/info/${information.infoNo}"/>">
-													<h5 class="mb-2">${information.infoTitle}</h5>
-												</a>
-												<p class="font-weight-bold mb-0">작성일:
-													${information.infoDate}</p>
-												<p class="mb-0" id="webkitText">${information.infoContent}</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</c:forEach>
-
-						</div>
-
-						<div class="col-lg-12 col-12">
-							<nav aria-label="Page navigation example">
-								<ul class="pagination justify-content-center mb-0">
-									<li class="page-item"><a class="page-link" href="#"
-										aria-label="Previous"> <span aria-hidden="true">Prev</span>
-									</a></li>
-
-									<!-- Spring에서 받은 페이지 정보를 활용하여 페이지 번호를 동적으로 생성 -->
-									<c:forEach begin="1" end="${infoList.totalPages}"
-										var="pageNumber">
-										<li
-											class="page-item ${pageNumber == infoList.number + 1 ? 'active' : ''}">
-											<a class="page-link" href="?page=${pageNumber}">${pageNumber}</a>
-										</li>
-									</c:forEach>
-
-									<li class="page-item"><a class="page-link" href="#"
-										aria-label="Next"> <span aria-hidden="true">Next</span>
-									</a></li>
-								</ul>
-							</nav>
-						</div>
-					</div>
 				</div>
 			</div>
 		</section>
