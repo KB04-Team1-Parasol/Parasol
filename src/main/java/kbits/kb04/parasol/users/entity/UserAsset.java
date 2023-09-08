@@ -6,18 +6,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
 
 import lombok.AccessLevel;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
+
 public class UserAsset {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_asset_SEQ")
@@ -60,9 +62,14 @@ public class UserAsset {
 	@OneToOne
 	@JoinColumn(name="user_no")
 	private Users users;
+
 	
-	public UserAsset(@NotNull Long userNo, Long pureAsset, Long finAsset, Long realAsset, Long debt, Long monthlyIncome, Long annuity,
-			Long hopeAge, Long hopePeriod) {
+	
+
+
+	public UserAsset(@NotNull Long userNo, Long pureAsset, Long finAsset, Long realAsset, Long debt, Long monthlyIncome,
+			Long annuity, Long hopeAge, Long hopePeriod, Users users) {
+
 		super();
 		this.userNo = userNo;
 		this.pureAsset = pureAsset;
@@ -73,6 +80,23 @@ public class UserAsset {
 		this.annuity = annuity;
 		this.hopeAge = hopeAge;
 		this.hopePeriod = hopePeriod;
+		this.users = users;
 	}
+	
+	public UserAsset(@NotNull Long userNo, Long pureAsset, Long finAsset, Long realAsset, Long debt, Long monthlyIncome,
+			Long annuity, Long hopeAge, Long hopePeriod) {
+		super();
+		this.userNo = userNo;
+		this.pureAsset = pureAsset;
+		this.finAsset = finAsset;
+		this.realAsset = realAsset;
+		this.debt = debt;
+		this.monthlyIncome = monthlyIncome;
+		this.annuity = annuity;
+		this.hopeAge = hopeAge;
+		this.hopePeriod = hopePeriod;
+
+	}
+
 
 }
