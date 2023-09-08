@@ -18,6 +18,13 @@
 	width: 694px;
 }
 
+#webkitText {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+}
+
 #signupBtn {
 	background: var(--custom-btn-bg-color);
     border: none;
