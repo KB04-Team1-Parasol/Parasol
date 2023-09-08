@@ -73,6 +73,7 @@ public class FinanceService {
         		saving.getSavingRate(),
         		saving.getSavingLink(),
         		saving.getSavingImg()
+  
         );
     }
 	
@@ -110,11 +111,17 @@ public class FinanceService {
     }
 	
 
-	// 설문 조사에 따른 계산해주기
+	// 설문 조사에 따른 계산 및 위험도 분석
 	public int calculateResult(PersonalDto personaldto) {
-		int sum = personaldto.getAge() + personaldto.getIncome();
+		int sum = personaldto.getAge() + personaldto.getIncome()
+		+personaldto.getInvest()+personaldto.getFinance() + personaldto.getDerivatives()
+		+personaldto.getLossprofit() + personaldto.getUnderstand();
+		
 		return sum;
+		
 	}
+	
+
 }
 		
 

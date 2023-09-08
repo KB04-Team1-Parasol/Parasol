@@ -161,7 +161,123 @@
 			                        </div>
                                 </div>
                             </div>
+                          
+                            <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+                                <div class="d-flex">
+     								<div class="custom-block-topics-listing-info d-flex">
+                                        <div>
+                                            <p class="mb-0">
+											<form action="personal/result" method="post" modelAttribute="toja">
+									        <h3>자산 중 금융 자산 비중</h3>
+									        <input type="radio" id="under50mil" name="finance" value="1">
+									        <label for="under50mil">적은%</label><br>
+									        
+									        <input type="radio" id="under70mil" name="finance" value="2">
+									        <label for="under70mil">ㅇㅇㅇㅇ%</label><br>
+									
+									        <input type="radio" id="under100mil" name="finance" value="3">
+									        <label for="under100mil">ㅇㅇㅇㅇ%</label><br>
+									
+									        <input type="radio" id="upper100mil" name="finance" value="4">
+									        <label for="upper100mil">많은%</label><br>
+											<br>
+	                                     </div>
+                                   </div>
+                                </div>
+                            </div>
+                            
+                            <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+                                <div class="d-flex">
+     								<div class="custom-block-topics-listing-info d-flex">
+                                        <div>
+                                            <p class="mb-0">
+											<form action="personal/result" method="post" modelAttribute="toja">
+									        <h3>금융 자산 중 투자성상품 비중</h3>
+									        <input type="radio" id="under50mil" name="invest" value="1">
+									        <label for="under50mil">적은 %</label><br>
+									        
+									        <input type="radio" id="under70mil" name="invest" value="2">
+									        <label for="under70mil">ㅇㅇ</label><br>
+									
+									        <input type="radio" id="under100mil" name="invest" value="3">
+									        <label for="under100mil">ㅇㅇ</label><br>
+									
+									        <input type="radio" id="upper100mil" name="invest" value="4">
+									        <label for="upper100mil">많은%</label><br>
+											<br>
+	                                     </div>
+                                   </div>
+                                </div>
+                            </div>
+                            
                        
+                       		  <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+                                <div class="d-flex">
+     								<div class="custom-block-topics-listing-info d-flex">
+                                        <div>
+                                            <p class="mb-0">
+											<form action="personal/result" method="post" modelAttribute="toja">
+									        <h3>금융 상품 이해도</h3>
+									        <input type="radio" id="knowalot" name="understand" value="5">
+									        <label for="knowalot">어디저디여기까지 알고있다</label><br>
+									        
+									        <input type="radio" id="knowhalf" name="understand" value="3">
+									        <label for="knowhalf">어디더지까자ㅣ 알고있다</label><br>
+									
+									        <input type="radio" id="knowless" name="understand" value="1">
+									        <label for="knowless">어디까지만 안다</label><br>
+
+											<br>
+	                                     </div>
+                                   </div>
+                                </div>
+                            </div>
+                       
+                       
+                       	  <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+                                <div class="d-flex">
+     								<div class="custom-block-topics-listing-info d-flex">
+                                        <div>
+                                            <p class="mb-0">
+											<form action="personal/result" method="post" modelAttribute="toja">
+									        <h3>수익과 손실이 어디까지 괜찮나요</h3>
+									        <input type="radio" id="yesloss" name="lossprofit" value="5">
+									        <label for="yesloss">손실 나도 수익이 나면 괜찮음</label><br>
+						        
+									        <input type="radio" id="noboth" name="lossprofit" value="3">
+									        <label for="noboth">손실도 수익도 ㄴㄴ</label><br>
+									
+									        <input type="radio" id="noloss" name="lossprofit" value="1">
+									        <label for="noloss">손실은 절대안돼</label><br>
+
+											<br>
+	                                     </div>
+                                   </div>
+                                </div>
+                            </div>
+                       
+	                        <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+	                                <div class="d-flex">
+	     								<div class="custom-block-topics-listing-info d-flex">
+	                                        <div>
+	                                            <p class="mb-0">
+												<form action="personal/result" method="post" modelAttribute="toja">
+										        <h3>파생상품 이해도</h3>
+										        <input type="radio" id="fullknow" name="derivatives" value="5">
+										        <label for="fullknow">나는 다 이해한다</label><br>
+							        
+										        <input type="radio" id="halfknow" name="derivatives" value="3">
+										        <label for="halfknow">반밖에 모린다</label><br>
+										
+										        <input type="radio" id="lessknow" name="derivatives" value="1">
+										        <label for="lessknow">조금바께 모린다</label><br>
+	
+												<br>
+		                                     </div>
+	                                   </div>
+	                                </div>
+	                          </div>
+							
 							<input type="submit" value="제출" class="btn custom-btn mt-3 mt-lg-4">									
 						    </form>
                        
