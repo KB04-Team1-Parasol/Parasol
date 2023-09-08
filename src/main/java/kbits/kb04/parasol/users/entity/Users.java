@@ -6,12 +6,14 @@ import javax.validation.constraints.NotNull;
 import kbits.kb04.parasol.users.enums.Role;
 import kbits.kb04.parasol.users.enums.UserAssetStatus;
 import lombok.AccessLevel;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
+
 public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_SEQ")
@@ -47,8 +49,10 @@ public class Users {
 	private UserAsset userAsset;
 
 	
+	
 	public Users(@NotNull Long userNo, @NotNull String userId, @NotNull String userPw, @NotNull String userName,
-			@NotNull Integer userAge) {
+			@NotNull int userAge) {
+
 		super();
 		this.userNo = userNo;
 		this.userId = userId;

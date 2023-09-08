@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 import io.jsonwebtoken.io.IOException;
 import kbits.kb04.parasol.auth.TokenDto;
+import kbits.kb04.parasol.users.dto.AssetInputRequestDto;
+
 import kbits.kb04.parasol.users.dto.LoginRequestDto;
 import kbits.kb04.parasol.users.dto.SignUpRequestDto;
 import kbits.kb04.parasol.users.entity.UserAsset;
@@ -30,13 +33,13 @@ public class UsersController {
 
     private final UsersService userService;
 
-    // 사용자 개인 정보 가져오기 
+    // 마이페이지에서 기본 정보, 자산 정보 조회
     @GetMapping("/myinfo")
     public String getUserInfo(Model model) throws UsersNotFoundException {
         // UserService를 통해 사용자 정보를 조회
-        // Users user = userService.findByUserId("test"); // user_id가 dndud1024인 사용자 정보 조회
-        Users user = userService.findByUserId("d"); // user_id가 dndud1024인 사용자 정보 조회
-        UserAsset userAsset = userService.findByUserNo(1);
+        // Users user = userService.findByUserId("test"); 
+        Users user = userService.findByUserId("test2"); 
+        UserAsset userAsset = userService.findByUserNo(user.getUserNo());
 
     	
     	// Model에 사용자 정보를 추가
@@ -48,6 +51,25 @@ public class UsersController {
         // 사용자 정보를 보여줄 JSP 페이지로 이동
         return "user/myinfo"; // myinfo.jsp로 이동
     }
+    
+    // 마이페이지 -> 자산정보 기입 페이지로 이동
+    @GetMapping("/assetinput")
+    public String showAssetInputForm(Model model) {
+        // 자산 정보 입력 폼을 보여주는 로직 추가
+        return "user/assetinput"; // JSP 파일의 경로와 이름
+    }
+    
+    
+    // 
+    @PostMapping("/assetinput_action")
+    public String saveAssetInputForm(@ModelAttribute AssetInputRequestDto assetInputDto
+    		,Model model) {
+        // 폼에서 입력된 자산 정보를 서비스에 전달하여 저장 및 업데이트
+        userService.assetInput(assetInputDto);
+        return "redirect:/user/myinfo"; // 입력 후 다시 마이 페이지로 리디렉션
+    }
+    
+    
     
     // 로그인 화면
     @GetMapping("/signin")

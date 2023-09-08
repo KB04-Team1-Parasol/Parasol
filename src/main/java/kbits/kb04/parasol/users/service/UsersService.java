@@ -10,6 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import kbits.kb04.parasol.auth.JwtProvider;
 import kbits.kb04.parasol.auth.RefreshToken;
 import kbits.kb04.parasol.auth.RefreshTokenRepository;
@@ -17,7 +18,12 @@ import kbits.kb04.parasol.auth.TokenDto;
 import kbits.kb04.parasol.auth.TokenRequestDto;
 import kbits.kb04.parasol.users.dto.LoginRequestDto;
 import kbits.kb04.parasol.users.dto.SignUpRequestDto;
-import kbits.kb04.parasol.users.dto.UserAssetDto;
+
+
+
+import kbits.kb04.parasol.users.dto.AssetInputRequestDto;
+
+
 import kbits.kb04.parasol.users.dto.UsersDto;
 import kbits.kb04.parasol.users.entity.UserAsset;
 import kbits.kb04.parasol.users.entity.Users;
@@ -47,7 +53,9 @@ public class UsersService {
         return user;
     }
     
-    public UserAsset findByUserNo(Integer no) {
+    
+    
+    public UserAsset findByUserNo(Long no) {
     	
         // 사용자 정보 조회
     	// 사용자가 없는 경우 null을 반환하거나 예외 처리를 수행
@@ -76,6 +84,7 @@ public class UsersService {
         
         userRepository.save(user);
         userAssetRepository.save(userAsset);
+
 
         return user.getUserId();
     }
@@ -136,4 +145,27 @@ public class UsersService {
 		return user;
 	}
 
+
+
+    // 자산정보 기입 처리 
+    @Transactional
+    public void assetInput(AssetInputRequestDto requestDto) {
+    	
+        // UserAsset 테이블에 존재하는 고유번호를 찾아 업데이트 
+    	// 예시로 고유 번호 2일 시 테스트 
+    	requestDto.setUser_no(Long.parseLong("3"));
+    	// 존재한다면
+    	Optional<UserAsset> userAssetByNo = userAssetRepository.findByUserNo(requestDto.getUser_no());
+    	
+    	// Dto를 불러와 엔티티에 저장하기 
+        if(userAssetByNo.isPresent()) {
+        	UserAsset userAsset = requestDto.userAssetFromDto();
+        	userAssetRepository.save(userAsset);
+        	
+        }
+
+        return;
+    }
+    
 }
+

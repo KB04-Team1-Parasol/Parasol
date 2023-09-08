@@ -20,4 +20,5 @@ Repository 인터페이스를 사용하여 데이터베이스 연동 코드를 �
 @Repository
 public interface UsersRepository extends JpaRepository<Users, Long> {
     Optional<Users> findByUserId(String userid);
+
 }

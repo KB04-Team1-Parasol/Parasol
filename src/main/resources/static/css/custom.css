@@ -81,7 +81,26 @@ px
     border-top: 0;
 }
 
+.photo_edit::before, .photo, .profile_area{
+    background-image: url(https://ssl.pstatic.net/static/nid/account/m_sp_01_home_16ebd894.png);
+    background-size: 274px 260px;
+    background-repeat: no-repeat;
+}
 
+/* 내프로필 및 자산정보 탭에 연필 모양 로고 추가 */
+.title_text::after {
+    content: '';
+    display: inline-block;
+    margin-left: 10px; /* 원하는 여백 조정 */
+    width: 16px; /* 로고 이미지의 너비 */
+    height: 16px; /* 로고 이미지의 높이 */
+    background-image: url(https://ssl.pstatic.net/static/nid/account/m_sp_01_home_16ebd894.png);
+    background-size: 274px 260px;
+    background-repeat: no-repeat;
+    
+    /* 140 - 164 -> 정보 로고로 이미지 변경 */
+    background-position: -152px -164px; /* 원하는 배경 이미지 위치 조정 */
+}
 
 
 

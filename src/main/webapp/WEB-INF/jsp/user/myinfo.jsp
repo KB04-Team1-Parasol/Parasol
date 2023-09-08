@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Topic Listing Bootstrap 5 Template</title>
+<title>마이페이지</title>
 <!-- CSS FILES -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,7 @@
 		<nav class="navbar navbar-expand-lg">
 			<div class="container">
 				<a class="navbar-brand" href="index.html"> <i class="bi-back"></i>
-					<span>Topic</span>
+					<span>Parasol</span>
 				</a>
 				<div class="d-lg-none ms-auto me-4">
 					<a href="#top" class="navbar-icon bi-person smoothscroll"></a>
@@ -71,26 +71,20 @@
 		<!-- 메인 바디 -->
 
 		<div
-			style="margin-top: 80px; display: flex; justify-content: space-around;">
+			style="margin-top: 180px; margin-bottom: 180px; margin-left : 180px; display: flex; justify-content: space-around;">
 			<div class="profile_inner">
-				<a href="#" onclick="changeImage()" class="photo"> <img
-					src="https://static.nid.naver.com/images/web/user/default.png"
-					width="84" height="84" alt="프로필 이미지"> <span
-					class="photo_edit"></span>
-				</a>
-				<div class="profile">
-					<p class="useid">${user.userName }</p>
-					<p class="usemail">${user.userId}</p>
-				</div>
-				<div class="alarm_area">
-					<a href="https://talk.naver.com/ct/wc4bsu#nafullscreen"
-						onclick="nclk(this,'nid.talktalkcheck','','',event)"> <span
-						class="alarm_text">새로운 알림</span>
-					</a> <a href="https://talk.naver.com/ct/wc4bsu#nafullscreen"
-						onclick="nclk(this,'nid.talktalkcheck','','',event)"> <span
-						class="alarm_more">+63</span>
-					</a>
-				</div>
+				<canvas id="myChart" width="400" height="400"></canvas>
+
+				<script>
+					// EL을 사용하여 JSP 페이지에서 데이터를 JavaScript 변수로 초기화
+					var pureAsset = "${userAsset.pureAsset}";
+					var finAsset = "${userAsset.finAsset}";
+					var realAsset = "${userAsset.realAsset}";
+					var debt = "${userAsset.debt}";
+					var monthlyIncome = "${userAsset.monthlyIncome}";
+					var annuity = "${userAsset.annuity}";
+				</script>
+
 			</div>
 
 
@@ -99,30 +93,21 @@
 					<a href="/user2/help/myInfoV2?m=viewProfile&amp;lang=ko_KR"
 						class="title" onclick="nclk(this,'nid.myprofilego','','',event)">
 
-						<span class="title_text">내프로필</span> <!-- 						<button type="button" class="btn_edit"
-							onclick="showMyLetterEmailChangePopUp()">
-
-						</button> -->
+						<span class="title_text">내프로필</span>
 					</a>
 
 					<ul class="base_row">
 						<li>
 							<div class="row_item name ">
 								<span class="item_text"></span>
-								<!-- <button type="button" class="btn_edit" onclick="changeName()">
-							<span class="text">이름 수정</span>
-						</button> -->
+
 							</div>
 						</li>
 
 						<li>
 							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text">
-									</span>
-								<!-- <button type="button" id="phoneNoRegBtn" class="btn_edit"
-							onclick="showPhoneNumberChangePopUp()">
-							<span id="phoneNoRegBtnTxt" class="text">수정</span>
-						</button> -->
+								<span id="phoneNoRegSpan" class="item_text"> </span>
+
 								<table>
 									<tr>
 										<td>User ID:</td>
@@ -147,60 +132,70 @@
 
 
 				<div class="asset_box">
-					<a href="/user2/help/myInfoV2?m=viewProfile&amp;lang=ko_KR"
-						class="title" onclick="nclk(this,'nid.myprofilego','','',event)">
-						<span class="title_text">자산정보</span>
+					<a href="/user/assetinput" class="title"
+						onclick="nclk(this,'nid.myprofilego','','',event)"> <span
+						class="title_text">자산정보</span>
 
 					</a>
+
+
 
 					<ul class="base_row">
 						<li>
 							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 순자산 : ${userAsset.pureAsset}</span>
+								<span id="phoneNoRegSpan" class="item_text"> 순자산 :
+									${userAsset.pureAsset}</span>
 
 							</div>
 						</li>
 
 						<li>
 							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 금융자산 : ${userAsset.finAsset}</span>
+								<span id="phoneNoRegSpan" class="item_text"> 금융자산 :
+									${userAsset.finAsset}</span>
 
 							</div>
 						</li>
 
 						<li>
 							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 실물자산 : ${userAsset.realAsset}</span>
+								<span id="phoneNoRegSpan" class="item_text"> 실물자산 :
+									${userAsset.realAsset}</span>
 
 							</div>
 						</li>
 						<li>
 							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 부채 : ${userAsset.debt}</span>
+								<span id="phoneNoRegSpan" class="item_text"> 부채 :
+									${userAsset.debt}</span>
 
 							</div>
 						</li>
 						<li>
 							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 월 소득 : ${userAsset.monthlyIncome}</span>
+								<span id="phoneNoRegSpan" class="item_text"> 월 소득 :
+									${userAsset.monthlyIncome}</span>
 
 							</div>
 						</li>
 						<li>
 							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 연금 : ${userAsset.annuity}</span>
+								<span id="phoneNoRegSpan" class="item_text"> 연금 :
+									${userAsset.annuity}</span>
 
 							</div>
 						</li>
 						<li>
 							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 입주 예상 나이 : ${userAsset.hopeAge}</span>
+								<span id="phoneNoRegSpan" class="item_text"> 입주 예상 나이 :
+									${userAsset.hopeAge}</span>
 
 							</div>
 						</li>
 						<li>
 							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 희망 거주 기간 : ${userAsset.hopePeriod}</span>
+								<span id="phoneNoRegSpan" class="item_text"> 희망 거주 기간 :
+									${userAsset.hopePeriod}</span>
 
 							</div>
 						</li>
@@ -211,12 +206,90 @@
 			</div>
 		</div>
 
+
+
+		<footer class="site-footer section-padding">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-lg-3 col-12 mb-4 pb-2">
+						<a class="navbar-brand mb-2" href="index.html"> <i
+							class="bi-back"></i> <span>Topic</span>
+						</a>
+					</div>
+
+					<div class="col-lg-3 col-md-4 col-6">
+						<h6 class="site-footer-title mb-3">Resources</h6>
+
+						<ul class="site-footer-links">
+							<li class="site-footer-link-item"><a href="#"
+								class="site-footer-link">Home</a></li>
+
+							<li class="site-footer-link-item"><a href="#"
+								class="site-footer-link">How it works</a></li>
+
+							<li class="site-footer-link-item"><a href="#"
+								class="site-footer-link">FAQs</a></li>
+
+							<li class="site-footer-link-item"><a href="#"
+								class="site-footer-link">Contact</a></li>
+						</ul>
+					</div>
+
+					<div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
+						<h6 class="site-footer-title mb-3">Information</h6>
+
+						<p class="text-white d-flex mb-1">
+							<a href="tel: 305-240-9671" class="site-footer-link">
+								305-240-9671 </a>
+						</p>
+
+						<p class="text-white d-flex">
+							<a href="mailto:info@company.com" class="site-footer-link">
+								info@company.com </a>
+						</p>
+					</div>
+
+					<div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
+						<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button"
+								data-bs-toggle="dropdown" aria-expanded="false">English</button>
+
+							<ul class="dropdown-menu">
+								<li><button class="dropdown-item" type="button">Thai</button></li>
+
+								<li><button class="dropdown-item" type="button">Myanmar</button></li>
+
+								<li><button class="dropdown-item" type="button">Arabic</button></li>
+							</ul>
+						</div>
+
+						<p class="copyright-text mt-lg-5 mt-4">
+							Copyright © 2048 Topic Listing Center. All rights reserved. <br>
+							<br>Design: <a rel="nofollow" href="https://templatemo.com"
+								target="_blank">TemplateMo</a> Distribution <a
+								href="https://themewagon.com">ThemeWagon</a>
+						</p>
+
+					</div>
+
+				</div>
+			</div>
+		</footer>
+
+
+
+
+
+
 		<!-- JAVASCRIPT FILES -->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.bundle.min.js"></script>
-		<script src="js/jquery.sticky.js"></script>
-		<script src="js/click-scroll.js"></script>
-		<script src="js/custom.js"></script>
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/bootstrap.bundle.min.js"></script>
+		<script src="/js/jquery.sticky.js"></script>
+		<script src="/js/click-scroll.js"></script>
+		<script src="/js/custom.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<script src="/js/asset_info_chart.js"></script>
 
 	</main>
 </body>
