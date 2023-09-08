@@ -74,6 +74,11 @@ public class UserAsset {
 		this.hopeAge = hopeAge;
 		this.hopePeriod = hopePeriod;
 	}
+
+	public UserAsset(@NotNull Long user_no) {
+		super();
+		this.userNo = userNo;
+	}
 	
 	
 	
