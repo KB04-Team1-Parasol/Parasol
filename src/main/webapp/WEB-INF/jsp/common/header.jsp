@@ -47,7 +47,7 @@
 				</li>
 			</ul>
 			<div class="d-none d-lg-block">
-				<a href="user/signin" class="navbar-icon bi-person smoothscroll"></a>
+				<a href="/user/signin" class="navbar-icon bi-person smoothscroll"></a>
 			</div>
 		</div>
 	</div>

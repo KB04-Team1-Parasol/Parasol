@@ -1,10 +1,16 @@
 package kbits.kb04.parasol.silver.dto;
 
+import java.util.List;
+
+import kbits.kb04.parasol.finance.entity.Bond;
+import kbits.kb04.parasol.finance.entity.Deposit;
+import kbits.kb04.parasol.finance.entity.Saving;
 import kbits.kb04.parasol.silver.entity.SilverTownDetail;
 import lombok.Getter;
 
 @Getter
-public class SilverTownDetailResponseDto {
+public class SilverTownDetailCustomResponseDto {
+	// 실버타운
 	private long stNo;
 	private String address;
 	private String stFacility;
@@ -17,6 +23,7 @@ public class SilverTownDetailResponseDto {
 	private String[] stScaleArr = {"", "대형", "중형", "소형"};
 	private String[] stTypeArr = {"", "도심형", "근교형", "전원형"};
 	
+	// 실버타운 디테일
 	private long stdNo;
 	private int stdDeposit;
 	private int stdMonthlyCost;
@@ -24,7 +31,15 @@ public class SilverTownDetailResponseDto {
 	private int stdRoomSize;
 	private String stdRoomType;
 	
-	public SilverTownDetailResponseDto(SilverTownDetail silverTownDetail) {
+	private List<Deposit> depositList;
+	private List<Saving> savingList;
+	private List<Bond> bondList;
+	
+	public SilverTownDetailCustomResponseDto(
+			SilverTownDetail silverTownDetail,
+			List<Deposit> depositList,
+			List<Saving> savingList,
+			List<Bond> bondList) {
 		super();
 		this.stNo = silverTownDetail.getSilverTown().getStNo();
 		this.address = silverTownDetail.getSilverTown().getAddress();
@@ -35,12 +50,17 @@ public class SilverTownDetailResponseDto {
 		this.stScale = stScaleArr[silverTownDetail.getSilverTown().getStScale()];
 		this.stType = stTypeArr[silverTownDetail.getSilverTown().getStType()];
 		this.stUrl = silverTownDetail.getSilverTown().getStUrl();
+		
 		this.stdNo = silverTownDetail.getStdNo();
 		this.stdDeposit = silverTownDetail.getStdDeposit();
 		this.stdMonthlyCost = silverTownDetail.getStdMonthlyCost();
 		this.stdOccupancy = silverTownDetail.getStdOccupancy();
 		this.stdRoomSize = silverTownDetail.getStdRoomSize();
 		this.stdRoomType = silverTownDetail.getStdRoomType();
+		
+		this.depositList = depositList;
+		this.savingList = savingList;
+		this.bondList = bondList;
 	}
 	
 }
