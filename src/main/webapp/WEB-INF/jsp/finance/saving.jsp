@@ -17,10 +17,10 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">                       
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/bootstrap-icons.css" rel="stylesheet">
-        <link href="../css/templatemo-topic-listing.css" rel="stylesheet">
-        <link href="../css/custom.css" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/bootstrap-icons.css" rel="stylesheet">
+        <link href="/css/templatemo-topic-listing.css" rel="stylesheet">
+        <link href="/css/custom.css" rel="stylesheet">
         
 <!--
 TemplateMo 590 topic listing
@@ -117,7 +117,7 @@ https://templatemo.com/tm-590-topic-listing
 						                        <h5 class="mb-2"> ${saving.savingName}</h5>
 						                        <p class="mb-0">최대 기간: ${saving.savingPeriod}개월</p>
 						                        <p class="mb-0">이율 : ${saving.savingRate}%</p>
-						                        <a href="topics-detail.html" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+						                        <a href="<c:url value="/finance/saving/${saving.savingNo}"/>" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
 						                    </div>
 						                </div>
 						            </div>

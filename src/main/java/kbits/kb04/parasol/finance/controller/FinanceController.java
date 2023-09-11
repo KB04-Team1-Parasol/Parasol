@@ -21,7 +21,9 @@ import kbits.kb04.parasol.finance.service.FinanceService;
 import kbits.kb04.parasol.finance.repository.DepositRepository;
 import kbits.kb04.parasol.finance.dto.PersonalDto;
 import kbits.kb04.parasol.finance.dto.SavingDto;
+import kbits.kb04.parasol.finance.entity.Bond;
 import kbits.kb04.parasol.finance.entity.Deposit;
+import kbits.kb04.parasol.finance.entity.Saving;
 
 // import kbits.kb04.parasol.users.dto.SignUpRequestDto;
 
@@ -36,9 +38,6 @@ public class FinanceController {
     public FinanceController(FinanceService financeService) {
         this.financeService = financeService;
     }
-    @Autowired
-    private DepositRepository depositRepository;
-	
     /**
      * 1. 예금상품조회
      * @param page
@@ -109,9 +108,36 @@ public class FinanceController {
         if (optionalDeposit.isPresent()) {
             Deposit deposit = optionalDeposit.get();
             model.addAttribute("deposit", deposit);
-            return "finance/detail"; // 상세 정보를 보여줄 JSP 페이지 이름
+            return "finance/depositDetail"; // 상세 정보를 보여줄 JSP 페이지 이름
         } else {
             // 데이터 없을 때
+            return "depositNotFoundPage"; // 상품이 없을 때 보여줄 JSP 페이지 이름
+        }
+    }
+    
+    @GetMapping("saving/{savingNo}")
+    public String showSavingDetail(@PathVariable Long savingNo, Model model) {
+        Optional<Saving> optionalSaving = financeService.findBySavingNo(savingNo);
+
+        if (optionalSaving.isPresent()) {
+            Saving saving = optionalSaving.get();
+            model.addAttribute("saving", saving);
+            return "finance/savingDetail"; // 상세 정보를 보여줄 JSP 페이지 이름
+        } else {
+            // 데이터 없을 때
+            return "depositNotFoundPage"; // 상품이 없을 때 보여줄 JSP 페이지 이름
+        }
+    }
+    
+    @GetMapping("bond/{bondNo}")
+    public String showBondDetail(@PathVariable Long bondNo, Model model) {
+        Optional<Bond> optionalBond = financeService.findBybondNo(bondNo);
+
+        if (optionalBond.isPresent()) {
+            Bond bond = optionalBond.get();
+            model.addAttribute("bond", bond);
+            return "finance/bondDetail"; // 상세 정보를 보여줄 JSP 페이지 이름
+        } else {
             return "depositNotFoundPage"; // 상품이 없을 때 보여줄 JSP 페이지 이름
         }
     }
