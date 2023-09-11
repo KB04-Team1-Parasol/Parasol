@@ -106,7 +106,7 @@
 
 
 						<div class="col-lg-8 col-12 mt-3 mx-auto">
-						    <c:forEach var="deposit" items="${depositList.content}">
+						    <c:forEach var="bond" items="${bondList.content}">
 						        <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
 						            <div class="d-flex">
 						                <!-- 이미지 및 기타 정보 출력 -->

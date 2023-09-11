@@ -13,6 +13,20 @@
 <meta name="author" content="">
 
 <title>예금디테일</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+function calculateSum() {
+    var won = parseFloat(document.getElementById('won').value);
+    var period = parseFloat(document.getElementById('period').value);
+    var percent = parseFloat(document.getElementById('percent').value);
+    var interest = won * period * percent/12/100;
+    var result = won + won * period * percent/12;
+    document.getElementById('result').innerHTML = '이자: ' + '<b>'+ interest + '</b>' + '를 더해' + '<br>'+ '총: '+ '<b>' +result  +'</b>' + '을 모으실 수 있습니다.' ;
+
+    // 폼의 기본 제출 동작을 방지합니다.
+    return false;
+}
+</script>
 
 <!-- CSS FILES -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,13 +40,6 @@
 <link href="/css/custom.css" rel="stylesheet">
 <link href="/css/custom-fin.css" rel="stylesheet">
 
-<!--
-
-TemplateMo 590 topic listing
-
-https://templatemo.com/tm-590-topic-listing
-
--->
 </head>
 
 <body class="topics-listing-page" id="top">
@@ -59,26 +66,9 @@ https://templatemo.com/tm-590-topic-listing
 			</div>
 		</header>
 
-
-		<div class="product-basic">
-			<h2 class="headline">
-				<span>${deposit.depositName}</span><b>KB내맘대로적금</b>
-			</h2>
-
-
-
-
-		</div>
-
 		<section class="section-padding">
 			<div class="container">
 				<div class="row">
-
-					<div class="col-lg-12 col-12 text-center">
-						<h3 class="mb-4">${deposit.depositName}</h3>
-					</div>
-
-
 
 					<div class="col-lg-8 col-12 mt-3 mx-auto">
 						<div
@@ -93,8 +83,9 @@ https://templatemo.com/tm-590-topic-listing
 											<h3 class="mb-1">${deposit.depositName}</h3>
 										</div>
 										<hr>
-
+										<br>
 										<div class="row mb-4">
+										
 											<!-- 첫번째 -->
 											<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0"
 												style="height: 150px;">
@@ -171,14 +162,14 @@ https://templatemo.com/tm-590-topic-listing
 										<div class="d-flex justify-content-center">
 										<div class="col-lg-10 col-12">
 											<form action="#" method="post"
-												class="custom-form contact-form" role="form">
+												class="custom-form contact-form" role="form" onsubmit="return calculateSum();">
 												<div class="row">
 													<div class="col-lg-4 col-md-6 col-12">
 														<div class="form-floating">
-															<input type="number" name="name" id="name"
+															<input type="number" name="name" id="won"
 																class="form-control" placeholder="Name" required="">
 
-															<label for="floatingInput">원씩</label>
+															<label for="floatingInput">원을</label>
 														</div>
 													</div>
 
@@ -193,17 +184,16 @@ https://templatemo.com/tm-590-topic-listing
 													
 													<div class="col-lg-4 col-md-6 col-12">
 														<div class="form-floating">
-															<input type="number" name="period" id="period"
+															<input type="number" name="period" id="percent"
 																 class="form-control"
 																placeholder="Name" required=""> <label
-																for="floatingInput">%의 적금 상품</label>
+																for="floatingInput">%의 예금 상품</label>
 														</div>
 													</div>
-													
-													<div class="col-lg-4 col-12 ms-auto">
-														<button type="submit" class="form-control">Submit</button>
+													<div class="col-lg-4 col-12 ms-auto d-flex justify-content-end mb-4">
+														<button type="submit" class="form-control" id="calculate">에 가입한다면?</button>
 													</div>
-
+													<p><span id="result"></span></p>
 												</div>
 											</form>
 										</div>
@@ -217,7 +207,7 @@ https://templatemo.com/tm-590-topic-listing
 						</div>
 
 						<div
-							class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+							class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5 d-flex justify-content-center align-items-center">
 							<img src="${deposit.depositImg}" alt="">
 						</div>
 

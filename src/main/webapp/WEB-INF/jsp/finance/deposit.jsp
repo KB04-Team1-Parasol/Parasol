@@ -104,13 +104,13 @@
             <section class="section-padding">
                 <div class="container">
                     <div class="row">
-						<div class="col-lg-8 col-12 mt-3 mx-auto">
+						<div class=" col-lg-8 col-12 mt-3 mx-auto">
 						    <c:forEach var="deposit" items="${depositList.content}">
 						        <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
 						            <div class="d-flex">
 						                <!-- 이미지 및 기타 정보 출력 -->
 						                <div class="custom-block-topics-listing-info d-flex">
-						                    <div>
+						                    <div >
 
 						                        <h5 class="mb-2">상품 명: ${deposit.depositName}</h5>
 						                        <p class="mb-0">최대 기간: ${deposit.depositPeriod}</p>
@@ -118,6 +118,10 @@
 						                        <a href="<c:url value="/finance/deposit/${deposit.depositNo}" />" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
 
             								</div>
+						                </div>
+						                <div class="d-flex col-5 justify-content-end">
+						                <c:set var="kbcha" value="${deposit.depositNo % 5+1}" />
+										<img src="/images/fr${kbcha}.png" alt="">
 						                </div>
 						            </div>
 						        </div>

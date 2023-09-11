@@ -110,6 +110,14 @@ public class FinanceService {
         return depositRepository.findBydepositNo(depositNo);
     }
 	
+	public Optional<Saving> findBySavingNo(Long SavingNo) {
+        return savingRepository.findBySavingNo(SavingNo);
+    }
+	
+	public Optional<Bond> findBybondNo(Long bondNo){
+		return bondRepository.findBybondNo(bondNo);
+	}
+	
 
 	// 설문 조사에 따른 계산 및 위험도 분석
 	public int calculateResult(PersonalDto personaldto) {
