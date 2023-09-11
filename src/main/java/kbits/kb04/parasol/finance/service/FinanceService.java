@@ -73,6 +73,7 @@ public class FinanceService {
         		saving.getSavingRate(),
         		saving.getSavingLink(),
         		saving.getSavingImg()
+  
         );
     }
 	
@@ -110,10 +111,33 @@ public class FinanceService {
     }
 	
 
-	// 설문 조사에 따른 계산해주기
+	// 설문 조사에 따른 계산 및 위험도 분석
 	public int calculateResult(PersonalDto personaldto) {
-		int sum = personaldto.getAge() + personaldto.getIncome();
-		return sum;
+		int sum = personaldto.getAge() + personaldto.getIncome()
+		+personaldto.getInvest()+personaldto.getFinance() + personaldto.getDerivatives()
+		+personaldto.getLossprofit() + personaldto.getUnderstand();
+		
+		//sum을 기준으로 이것저것 나눠보기
+		//합계는 최소 7, 하나라도 선택안할시 제출 불가하도록 설정할 것
+		
+		int danger = 0;
+		
+		if(sum < 11) {
+			danger = 1; // 위험도 제일 낮은 것
+		}
+		else if(sum < 15){
+			danger = 2;
+		}
+		else if(sum < 19){
+			danger = 3;
+		}
+		else if(sum < 24) {
+			danger = 4;
+		}
+		else if(sum >= 24) {
+			danger = 5; // 제일 위험한 것
+		}
+		return danger;	
 	}
 }
 		

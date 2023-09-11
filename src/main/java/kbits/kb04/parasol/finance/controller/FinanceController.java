@@ -1,32 +1,33 @@
 // Swagger 적용예정
-
 package kbits.kb04.parasol.finance.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.data.domain.Page;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.BindResult;
-import org.springframework.data.domain.Page;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 
 import kbits.kb04.parasol.finance.dto.DepositDto;
+import kbits.kb04.parasol.finance.service.FinanceService;
+import kbits.kb04.parasol.finance.repository.DepositRepository;
 import kbits.kb04.parasol.finance.dto.PersonalDto;
 import kbits.kb04.parasol.finance.dto.SavingDto;
 import kbits.kb04.parasol.finance.entity.Deposit;
-import kbits.kb04.parasol.finance.repository.DepositRepository;
-import kbits.kb04.parasol.finance.service.FinanceService;
-import kbits.kb04.parasol.users.dto.SignUpRequestDto;
+
+// import kbits.kb04.parasol.users.dto.SignUpRequestDto;
 
 @Controller
 @RequestMapping("/finance")
+//@Tag(name = "경제", description = "템플릿 API Document")
 public class FinanceController {
 	
 	private final FinanceService financeService;
@@ -45,6 +46,8 @@ public class FinanceController {
      * @return
      */
     @GetMapping("/deposit")
+//    @Operation(summary = "예금상품조회", description = "DB의 예금 상품 출력")
+    
     public ModelAndView getDeposits(
         @RequestParam(defaultValue = "1") int page,
         @RequestParam(defaultValue = "3") int pageSize
@@ -122,6 +125,8 @@ public class FinanceController {
     
     @GetMapping("/personal")
     public String personalInvest() {	
+    	
+    	
     	return "finance/personal";
     }
     
@@ -137,13 +142,9 @@ public class FinanceController {
     		PersonalDto personalDto,
     		Model personal
     ) {
-    	personal.addAttribute("personal", personalDto);
-    	//서비스를 통해 연산 가능
-    	int result = financeService.calculateResult(personalDto);
-    	//연산결과는 personal에 넣어주기
-    	personal.addAttribute(result);
-//    	System.out.println(personal); 	
-//    	System.out.println(result); 	
+    	personal.addAttribute("personal", personalDto); 	
+    	//사용자로부터 입력받은 값들을 계산결과 personalDto.Result 에 넣어주기
+    	personalDto.setResult(financeService.calculateResult(personalDto));
     	return "finance/result";
     }    
 
