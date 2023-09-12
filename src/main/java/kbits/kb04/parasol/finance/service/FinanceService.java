@@ -34,9 +34,8 @@ public class FinanceService {
 	 * @return
 	 */
 	 public Page<DepositDto> getDeposits(int page, int pageSize) {
-	        Pageable pageable = PageRequest.of(page - 1, pageSize); // 페이지 번호는 1부터 시작하므로 1을 빼줍니다.
-	        Page<Deposit> depositPage = depositRepository.findAll(pageable);
-
+		 Pageable pageable = PageRequest.of(Math.max(page - 1, 0), pageSize);
+		 Page<Deposit> depositPage = depositRepository.findAll(pageable);
 	        return depositPage.map(this::convertToDto);
 	 }
 	 
@@ -59,9 +58,8 @@ public class FinanceService {
 	 * @return
 	 */
 	public Page<SavingDto> getSavings(int page, int pageSize) {
-			Pageable pageable = PageRequest.of(page - 1, pageSize); // 페이지 번호는 1부터 시작하므로 1을 빼줍니다.
+			Pageable pageable = PageRequest.of(Math.max(page - 1, 0), pageSize);
 	        Page<Saving> savingPage = savingRepository.findAll(pageable);
-
 	        return savingPage.map(this::convertToDto);
 	}
 	private SavingDto convertToDto(Saving saving) {

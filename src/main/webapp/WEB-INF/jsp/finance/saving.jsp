@@ -125,29 +125,31 @@ https://templatemo.com/tm-590-topic-listing
 						    </c:forEach>
 						</div>
                  <div class="col-lg-12 col-12">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-center mb-0">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                            <span aria-hidden="true">Prev</span>
-                                        </a>
-                                  
-                                    
-                                    <!-- Spring에서 받은 페이지 정보를 활용하여 페이지 번호를 동적으로 생성 -->
+                        
+                        <!-- 페이징 처리, 다른 jsp 에도 동일하게 적용할 것 -->
+						    <nav aria-label="Page navigation example">
+						        <ul class="pagination justify-content-center mb-0">
+						            <li class="page-item ${savingList.number == 0 ? 'disabled' : ''}">
+									    <a class="page-link" href="?page=${savingList.number}" aria-label="Previous">
+									        <span aria-hidden="true">이전</span>
+									    </a>
+									</li>
+						
+						            <!-- 페이지 번호 동적 생성 -->
 						            <c:forEach begin="1" end="${savingList.totalPages}" var="pageNumber">
-						                <li class="page-item ${pageNumber == depositList.number + 1 ? 'active' : ''}">
+						                <li class="page-item ${pageNumber == savingList.number + 1 ? 'active' : ''}">
 						                    <a class="page-link" href="?page=${pageNumber}">${pageNumber}</a>
 						                </li>
 						            </c:forEach>
 						
-						            <li class="page-item">
-						                <a class="page-link" href="#" aria-label="Next">
-						                    <span aria-hidden="true">Next</span>
-						                </a>
+						            <li class="page-item ${savingList.number + 1 == savingList.totalPages ? 'disabled' : ''}">
+						                 <a class="page-link" href="?page=${savingList.number + 2}" aria-label="Next">
+						            <span aria-hidden="true">다음</span>
+						        </a>
 						            </li>
-                                </ul>
-                            </nav>
-                        </div>
+						        </ul>
+						    </nav>
+						</div>
 
                     </div>
                 </div>
