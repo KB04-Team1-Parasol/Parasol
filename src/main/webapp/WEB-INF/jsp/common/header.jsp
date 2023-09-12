@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <nav class="navbar navbar-expand-lg">
 	<div class="container">
@@ -47,7 +48,14 @@
 				</li>
 			</ul>
 			<div class="d-none d-lg-block">
-				<a href="user/login" class="navbar-icon bi-person smoothscroll"></a>
+				<c:choose>
+					<c:when test="${empty sessionScope.tokenDto}">
+						<a href="user/login" class="navbar-icon bi-person smoothscroll"></a>
+					</c:when>
+					<c:otherwise>
+						<a href="user/myinfo" class="navbar-icon bi-person smoothscroll"></a>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 	</div>
