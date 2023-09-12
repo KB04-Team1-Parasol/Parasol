@@ -39,11 +39,13 @@ function calculateSum() {
 <link href="/css/templatemo-topic-listing.css" rel="stylesheet">
 <link href="/css/custom.css" rel="stylesheet">
 <link href="/css/custom-fin.css" rel="stylesheet">
+<link href="/css/silver/detail.css" rel="stylesheet" />
 
 </head>
 
 <body class="topics-listing-page" id="top">
 	<main>
+	<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
 		<header
 			class="site-header d-flex flex-column justify-content-center align-items-center">
 			<div class="container">
@@ -140,7 +142,7 @@ function calculateSum() {
 														<!-- 우측 정렬을 위해 justify-content-end 추가 -->
 
 														<div>
-															<h6 class="mb-2">연 ${deposit.depositRate} %</h6>
+															<h6 class="text-red mb-2">연 ${deposit.depositRate} %</h6>
 														</div>
 													</div>
 												</div>
