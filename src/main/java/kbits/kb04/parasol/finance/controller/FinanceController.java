@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.data.domain.Page;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 
+import kbits.kb04.parasol.finance.dto.BondDto;
 import kbits.kb04.parasol.finance.dto.DepositDto;
 import kbits.kb04.parasol.finance.service.FinanceService;
 import kbits.kb04.parasol.finance.repository.DepositRepository;
@@ -87,7 +89,7 @@ public class FinanceController {
         @RequestParam(defaultValue = "1") int page,
         @RequestParam(defaultValue = "3") int pageSize
     ) {
-        Page<SavingDto> bondList = financeService.getSavings(page, pageSize);
+        Page<BondDto> bondList = financeService.getBonds(page, pageSize);
         ModelAndView modelAndView = new ModelAndView("finance/bond");
         modelAndView.addObject("bondList", bondList); // 데이터를 모델에 추가
         return modelAndView;
@@ -135,6 +137,7 @@ public class FinanceController {
         if (optionalBond.isPresent()) {
             Bond bond = optionalBond.get();
             model.addAttribute("bond", bond);
+            model.addAttribute("currentYear", LocalDate.now().getYear());
             return "finance/bondDetail"; // 상세 정보를 보여줄 JSP 페이지 이름
         } else {
             return "depositNotFoundPage"; // 상품이 없을 때 보여줄 JSP 페이지 이름

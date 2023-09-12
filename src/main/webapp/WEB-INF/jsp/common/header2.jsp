@@ -27,7 +27,15 @@
             <li><a href="/silver/custom">맞춤 실버타운 찾기</a></li>
           </ul>
         </li>
-        <li><a href="services.html">금융상품</a></li>
+        <li class="dropdown"><a href="/finance/deposit"><span>금융상품</span> <i
+              class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <ul>
+            <li><a href="/finance/deposit">예금 상품</a></li>
+            <li><a href="/finance/saving">적금 상품</a></li>
+            <li><a href="/finance/bond">채권 상품</a></li>
+            <li><a href="/finance/personal">맞춤 상품</a></li>
+          </ul>
+        </li>
         <li><a href="projects.html">정보</a></li>
         <li><a href="/user/signin">
         	<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">

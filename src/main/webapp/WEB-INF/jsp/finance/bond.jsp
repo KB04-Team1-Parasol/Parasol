@@ -14,10 +14,11 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">                       
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/bootstrap-icons.css" rel="stylesheet">
-        <link href="../css/templatemo-topic-listing.css" rel="stylesheet">
-        <link href="../css/custom.css" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/bootstrap-icons.css" rel="stylesheet">
+        <link href="/css/custom-fin.css" rel="stylesheet">
+        <link href="/css/templatemo-topic-listing.css" rel="stylesheet">
+        <link href="/css/custom.css" rel="stylesheet">
         
     </head>
     <body class="topics-listing-page" id="top">
@@ -112,32 +113,37 @@
 						                <!-- 이미지 및 기타 정보 출력 -->
 						                <div class="custom-block-topics-listing-info d-flex">
 						                    <div>
+						                    	<div class="mb-3">
+											    <c:choose>
+											        <c:when test="${bond.bondRisk == 1}"><span class="bondbadge bg-1design rounded-pill">초저위험</span></c:when>
+											        <c:when test="${bond.bondRisk == 2}"><span class="bondbadge bg-2design rounded-pill">저위험</span></c:when>
+											        <c:when test="${bond.bondRisk == 3}"><span class="bondbadge bg-3design rounded-pill">중위험</span></c:when>
+											        <c:when test="${bond.bondRisk == 4}"><span class="bondbadge bg-4design rounded-pill">고위험</span></c:when>
+											        <c:when test="${bond.bondRisk == 5}"><span class="bondbadge bg-5design rounded-pill">초고위험</span></c:when>
+											        <c:otherwise>알 수 없는 위험</c:otherwise>
+											    </c:choose>
+											    </div>
 						                        <h5 class="mb-2">${bond.bondName}</h5>
-						                        <p class="mb-0">만기일 : ${bond.bondDate}</p>
+						                        <p class="mb-0">만기일 : ${bond.bondType}</p>
 						                        <p class="mb-0">3년 수익률 : ${bond.bondRate}</p>
 						                        <p class="mb-0">위험도: ${bond.bondRisk}</p>
-						                        <a href="topics-detail.html" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+						                        <a href="<c:url value="/finance/bond/${bond.bondNo}" />" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
 						                    </div>
 						                </div>
 						            </div>
 						        </div>
 						    </c:forEach>
 						</div>
-												
-                        
-
                         <div class="col-lg-12 col-12">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination justify-content-center mb-0">
                                     <li class="page-item">
                                         <a class="page-link" href="#" aria-label="Previous">
                                             <span aria-hidden="true">Prev</span>
-                                        </a>
-                                  
-                                    
+                                        </a>                                  
                                     <!-- Spring에서 받은 페이지 정보를 활용하여 페이지 번호를 동적으로 생성 -->
 						            <c:forEach begin="1" end="${bondList.totalPages}" var="pageNumber">
-						                <li class="page-item ${pageNumber == depositList.number + 1 ? 'active' : ''}">
+						                <li class="page-item ${pageNumber == bondList.number + 1 ? 'active' : ''}">
 						                    <a class="page-link" href="?page=${pageNumber}">${pageNumber}</a>
 						                </li>
 						            </c:forEach>

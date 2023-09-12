@@ -7,6 +7,7 @@
 
 package kbits.kb04.parasol.finance.entity;
 import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.*;
 import lombok.Getter;
@@ -47,6 +48,7 @@ public class Bond {
 	@Column(name = "bond_cycle")
 	private Integer bondCycle;
 
+	// constructor
 	public Bond(Long bondNo, String bondName, String bondCode, Date bondDate, Float bondRate, Integer bondRisk,
 			String bondCredit, Integer bondType, Integer bondCycle) {
 		super();
@@ -61,6 +63,13 @@ public class Bond {
 		this.bondCycle = bondCycle;
 	}
 
+	public int getYear() {
+		return bondDate.getYear() + 1900;
+	}
+	
+	public int getMonth() {
+		return bondDate.getMonth() + 4 - LocalDate.now().getDayOfMonth();
+	}
 
 	
 }
