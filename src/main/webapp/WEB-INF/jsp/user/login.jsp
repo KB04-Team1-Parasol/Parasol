@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
@@ -24,55 +25,13 @@
 <link href="/css/custom.css" rel="stylesheet">
 </head>
 
-<body class="topics-listing-page" id="top">
+<body id="top">
 	<main>
-		<nav class="navbar navbar-expand-lg">
-			<div class="container">
-				<a class="navbar-brand" href="/"> <i class="bi-back"></i> <span>Parasol</span>
-				</a>
-				<div class="d-lg-none ms-auto me-4">
-					<a href="#top" class="navbar-icon bi-person smoothscroll"></a>
-				</div>
-				<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarNav"
-					aria-controls="navbarNav" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav ms-lg-5 me-lg-auto">
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="index.html#section_1">Home</a></li>
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="index.html#section_2">Browse Topics</a></li>
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="index.html#section_3">How it works</a></li>
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="index.html#section_4">FAQs</a></li>
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="index.html#section_5">Contact</a></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#section_5"
-							id="navbarLightDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+		<!-- header include -->
+		<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
 
-							<ul class="dropdown-menu dropdown-menu-light"
-								aria-labelledby="navbarLightDropdownMenuLink">
-								<li><a class="dropdown-item" href="topics-listing.html">Topics
-										Listing</a></li>
-								<li><a class="dropdown-item active" href="contact.html">Contact
-										Form</a></li>
-							</ul></li>
-					</ul>
-
-					<div class="d-none d-lg-block">
-						<a href="#top" class="navbar-icon bi-person smoothscroll"></a>
-					</div>
-				</div>
-			</div>
-		</nav>
-
-		<section class="section-padding section-bg justify-content-center align-items-center">
+		<section
+			class="section-padding section-bg justify-content-center align-items-center">
 			<div class="container">
 				<div>
 
@@ -80,30 +39,31 @@
 						<h3 class="mb-4 pb-2 text-center">로그인 정보를 입력하세요</h3>
 					</div>
 					<div class="col-lg-12 col-6">
-						<form action="login" method="post" class="custom-form contact-form"
-							role="form">
-								<div class="col-lg-6 col-12 mx-auto">
-									<div class="form-floating">
-										<input type="text" name="user_id"
-											class="form-control" required/>
-										<label for="floatingInput">ID</label>
-									</div>
+
+						<form action="login_action" method="post"
+							class="custom-form contact-form" role="form">
+							<div class="col-lg-6 col-12 mx-auto">
+								<div class="form-floating">
+									<input type="text" name="user_id" class="form-control" required />
+									<label for="floatingInput">ID</label>
+
 								</div>
-								<div class="col-lg-6 col-12 mx-auto">
-									<div class="form-floating">
-										<input type="password"  name="user_pw"
-											class="form-control" required/>
-										<label for="floatingInput">Password</label>
-									</div>
+							</div>
+							<div class="col-lg-6 col-12 mx-auto">
+								<div class="form-floating">
+									<input type="password" name="user_pw" class="form-control"
+										required /> <label for="floatingInput">Password</label>
 								</div>
-								<div class="row justify-content-center">
-									<div class="col-lg-3 col-6">
-										<button type="submit" class="form-control">Login</button>
-									</div>
-									<div class="col-lg-3 col-6">
-										<a href="signup" class="form-control btn" id="signupBtn">Sign Up</a>
-									</div>
+							</div>
+							<div class="row justify-content-center">
+								<div class="col-lg-3 col-6">
+									<button type="submit" class="form-control">Login</button>
 								</div>
+								<div class="col-lg-3 col-6">
+									<a href="signup" class="form-control btn" id="signupBtn">Sign
+										Up</a>
+								</div>
+							</div>
 						</form>
 					</div>
 				</div>
@@ -111,74 +71,8 @@
 		</section>
 	</main>
 
-	<footer class="site-footer section-padding">
-		<div class="container">
-			<div class="row">
-
-				<div class="col-lg-3 col-12 mb-4 pb-2">
-					<a class="navbar-brand mb-2" href="index.html"> <i
-						class="bi-back"></i> <span>Topic</span>
-					</a>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-6">
-					<h6 class="site-footer-title mb-3">Resources</h6>
-
-					<ul class="site-footer-links">
-						<li class="site-footer-link-item"><a href="#"
-							class="site-footer-link">Home</a></li>
-
-						<li class="site-footer-link-item"><a href="#"
-							class="site-footer-link">How it works</a></li>
-
-						<li class="site-footer-link-item"><a href="#"
-							class="site-footer-link">FAQs</a></li>
-
-						<li class="site-footer-link-item"><a href="#"
-							class="site-footer-link">Contact</a></li>
-					</ul>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
-					<h6 class="site-footer-title mb-3">Information</h6>
-
-					<p class="text-white d-flex mb-1">
-						<a href="tel: 305-240-9671" class="site-footer-link">
-							305-240-9671 </a>
-					</p>
-
-					<p class="text-white d-flex">
-						<a href="mailto:info@company.com" class="site-footer-link">
-							info@company.com </a>
-					</p>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
-					<div class="dropdown">
-						<button class="btn btn-secondary dropdown-toggle" type="button"
-							data-bs-toggle="dropdown" aria-expanded="false">English</button>
-
-						<ul class="dropdown-menu">
-							<li><button class="dropdown-item" type="button">Thai</button></li>
-
-							<li><button class="dropdown-item" type="button">Myanmar</button></li>
-
-							<li><button class="dropdown-item" type="button">Arabic</button></li>
-						</ul>
-					</div>
-
-					<p class="copyright-text mt-lg-5 mt-4">
-						Copyright © 2048 Topic Listing Center. All rights reserved. <br>
-						<br>Design: <a rel="nofollow" href="https://templatemo.com"
-							target="_blank">TemplateMo</a> Distribution <a
-							href="https://themewagon.com">ThemeWagon</a>
-					</p>
-
-				</div>
-
-			</div>
-		</div>
-	</footer>
+	<!-- footer include -->
+	<jsp:include page="/WEB-INF/jsp/common/footer.jsp" />
 
 	<!-- JAVASCRIPT FILES -->
 	<script src="/js/jquery.min.js"></script>
