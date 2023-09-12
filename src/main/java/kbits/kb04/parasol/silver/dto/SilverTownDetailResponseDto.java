@@ -1,5 +1,7 @@
 package kbits.kb04.parasol.silver.dto;
 
+import java.text.DecimalFormat;
+
 import kbits.kb04.parasol.silver.entity.SilverTownDetail;
 import lombok.Getter;
 
@@ -18,11 +20,13 @@ public class SilverTownDetailResponseDto {
 	private String[] stTypeArr = {"", "도심형", "근교형", "전원형"};
 	
 	private long stdNo;
-	private int stdDeposit;
-	private int stdMonthlyCost;
+	private String stdDeposit;
+	private String stdMonthlyCost;
 	private int stdOccupancy;
 	private int stdRoomSize;
 	private String stdRoomType;
+	
+	DecimalFormat df = new DecimalFormat("###,###");
 	
 	public SilverTownDetailResponseDto(SilverTownDetail silverTownDetail) {
 		super();
@@ -36,8 +40,8 @@ public class SilverTownDetailResponseDto {
 		this.stType = stTypeArr[silverTownDetail.getSilverTown().getStType()];
 		this.stUrl = silverTownDetail.getSilverTown().getStUrl();
 		this.stdNo = silverTownDetail.getStdNo();
-		this.stdDeposit = silverTownDetail.getStdDeposit();
-		this.stdMonthlyCost = silverTownDetail.getStdMonthlyCost();
+		this.stdDeposit = df.format(silverTownDetail.getStdDeposit()*10000);
+		this.stdMonthlyCost = df.format(silverTownDetail.getStdMonthlyCost()*10000);
 		this.stdOccupancy = silverTownDetail.getStdOccupancy();
 		this.stdRoomSize = silverTownDetail.getStdRoomSize();
 		this.stdRoomType = silverTownDetail.getStdRoomType();
