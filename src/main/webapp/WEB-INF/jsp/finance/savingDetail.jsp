@@ -150,7 +150,7 @@ https://templatemo.com/tm-590-topic-listing
 														<!-- 우측 정렬을 위해 justify-content-end 추가 -->
 
 														<div>
-															<h6 class="mb-2">연 ${saving.savingRate} %</h6>
+															<h6 class="text-red mb-2">연 ${saving.savingRate} %</h6>
 														</div>
 													</div>
 												</div>

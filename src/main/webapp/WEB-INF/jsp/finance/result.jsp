@@ -155,7 +155,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
           </section>
           
-          
           <!-- 탑 마진 줄일 것  -->
             <section class="section-padding">
             <div class="container">
@@ -194,9 +193,9 @@ document.addEventListener("DOMContentLoaded", function () {
 											<a href="topics-detail.html">
 												<div class="d-flex">
 													<div>
-														<h5 class="mb-2">Logo Design</h5>
+														<h5 class="mb-2">${personal.result}</h5>
 
-														<p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+														<p class="mb-0">${personal.periodtime}</p>
 													</div>
 												</div>
 											</a>

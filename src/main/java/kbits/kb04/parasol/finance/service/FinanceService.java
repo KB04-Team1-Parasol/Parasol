@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -84,8 +86,8 @@ public class FinanceService {
 	 */	
 	public Page<BondDto> getBonds(int page, int pageSize){
 		Pageable pageable = PageRequest.of(page - 1, pageSize);
-		Page<Bond> BondPage = bondRepository.findAll(pageable);
-		return BondPage.map(this::convertToDto);
+		Page<Bond> bondPage = bondRepository.findAll(pageable);
+		return bondPage.map(this::convertToDto);
 	}
 	private BondDto convertToDto(Bond bond) {
 		return new BondDto(
@@ -115,6 +117,9 @@ public class FinanceService {
 	public Optional<Bond> findBybondNo(Long bondNo){
 		return bondRepository.findBybondNo(bondNo);
 	}
+	
+	
+	
 	
 
 	// 설문 조사에 따른 계산 및 위험도 분석
