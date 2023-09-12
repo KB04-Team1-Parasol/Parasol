@@ -19,5 +19,6 @@ public class PersonalDto {
 	int lossprofit;
 	int derivatives;
 	int result;
+	int periodtime;
 	
 }

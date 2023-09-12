@@ -120,7 +120,7 @@
             								</div>
 						                </div>
 						                <div class="d-flex col-5 justify-content-end">
-						                <c:set var="kbcha" value="${deposit.depositNo % 5+1}" />
+						                <c:set var="kbcha" value="${deposit.depositNo % 5 + 1}" />
 										<img src="/images/fr${kbcha}.png" alt="">
 						                </div>
 						            </div>

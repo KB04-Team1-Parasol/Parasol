@@ -35,7 +35,7 @@ public class Deposit {
 	private String depositImg;
 	
 	// constructor
-	public Deposit(long depositNo, String depositName, long depositPeriod, float depositRate, String depositLink) {
+	public Deposit(long depositNo, String depositName, long depositPeriod, float depositRate, String depositLink, String depositImg) {
 		super();
 		this.depositNo = depositNo;
 		this.depositName = depositName;
