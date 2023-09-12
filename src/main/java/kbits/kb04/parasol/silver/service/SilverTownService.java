@@ -118,10 +118,9 @@ public class SilverTownService {
 		return new SilverTownCustomUserDto(pureAsset, monthlyIncome, hopeAge, userAge);
 	}
 	
-	// 총 자산(미래 기준) 구하기
+	// 총 자산(미래 기준, 금융상품 x) 구하기
 	@Transactional
 	public int getFutureAsset(SilverTownCustomUserDto userDto) {
-		// 총 자산(미래 기준)
 		// { 순자산 + (월 저축 금액 * 12) * (입주예상나이 - 현재나이) } * ( 1 + 평균물가상승률 ) * 투자가능비율
 		int pureAsset = userDto.getPureAsset();
 		int monthlyIncome = userDto.getMonthlyIncome();
@@ -137,7 +136,7 @@ public class SilverTownService {
 	public List<SilverTownCustomResponseDto> getSilverTownFiltering(Users user) {
 		SilverTownCustomUserDto userDto = setUserDto(user);
 		
-		// 총 자산(미래 기준)
+		// 총 자산
 		int futureAsset = this.getFutureAsset(userDto);
 		
 		List<SilverTownDetail> silverTownDetailList_total = silverTownDetailRepository.findAll();

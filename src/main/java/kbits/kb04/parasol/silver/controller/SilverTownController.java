@@ -8,6 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -108,39 +109,38 @@ public class SilverTownController {
 	@PostMapping("/custom")
 	public String silver_custom_list(@RequestParam("city") String city, @RequestParam("stType") int stType,
 			Model model) {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		Users user = usersService.findByUserId(authentication.getName());
-
-		// 로그인 정보 없을 때
-		if (user == null) {
-
-		}
-
-		// 자산 정보 없을 때
-		if (user.getUserAssetStatus() == UserAssetStatus.INPUT_NO) {
-
-		}
-
-		List<SilverTownCustomResponseDto> silverTownCustomList = silverTownService.getSilverTownFiltering(user);
-		model.addAttribute("silverTownCustomList", silverTownCustomList);
-
-		System.out.println(city);
-		System.out.println(stType);
+//		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//		Users user = usersService.findByUserId(authentication.getName());
+//		
+//		// 로그인 정보 없을 때
+//		if(user == null) {
+//			
+//		}
+//		
+//		// 자산 정보 없을 때
+//		if(user.getUserAssetStatus() == UserAssetStatus.INPUT_NO) {
+//			
+//		}
+//		
+//		List<SilverTownCustomResponseDto> silverTownCustomList = 
+//				silverTownService.getSilverTownFiltering(user);
+//		model.addAttribute("silverTownCustomList", silverTownCustomList);
+		
 		return "silver/custom_list";
 	}
 
 	// 상세보기(순수 검색)
-	@GetMapping("/detail")
-	public String silver_detail(@RequestParam("no") long no, Model model) {
-		SilverTownDetailResponseDto dto = silverTownService.getSilverTownDetail(no);
+	@GetMapping("/detail/{std_no}")
+	public String silver_detail(@PathVariable("std_no") long std_no, Model model) {
+		SilverTownDetailResponseDto dto = silverTownService.getSilverTownDetail(std_no);
 		model.addAttribute("dto", dto);
 
 		return "silver/detail";
 	}
 
 	// 상세보기(맞춤 검색)
-	@GetMapping("/detail_custom")
-	public String silver_detail_custom(@RequestParam("no") long no, Model model) {
+	@GetMapping("/detail_custom/{std_no}")
+	public String silver_detail_custom(@PathVariable("std_no") long std_no, Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		Users user = usersService.findByUserId(authentication.getName());
 
@@ -153,9 +153,10 @@ public class SilverTownController {
 		if (user.getUserAssetStatus() == UserAssetStatus.INPUT_NO) {
 
 		}
-
-		SilverTownDetailCustomResponseDto dto = silverTownService.getSilverTownDetailCustom(no, user);
+		
+		SilverTownDetailCustomResponseDto dto = silverTownService.getSilverTownDetailCustom(std_no, user);
 		model.addAttribute("dto", dto);
+		
 		return "silver/detail";
 	}
 

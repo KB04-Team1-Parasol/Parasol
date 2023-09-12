@@ -1,5 +1,6 @@
 package kbits.kb04.parasol.silver.dto;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import kbits.kb04.parasol.finance.entity.Bond;
@@ -25,8 +26,8 @@ public class SilverTownDetailCustomResponseDto {
 	
 	// 실버타운 디테일
 	private long stdNo;
-	private int stdDeposit;
-	private int stdMonthlyCost;
+	private String stdDeposit;
+	private String stdMonthlyCost;
 	private int stdOccupancy;
 	private int stdRoomSize;
 	private String stdRoomType;
@@ -34,6 +35,8 @@ public class SilverTownDetailCustomResponseDto {
 	private List<Deposit> depositList;
 	private List<Saving> savingList;
 	private List<Bond> bondList;
+	
+	DecimalFormat df = new DecimalFormat("###,###");
 	
 	public SilverTownDetailCustomResponseDto(
 			SilverTownDetail silverTownDetail,
@@ -52,8 +55,8 @@ public class SilverTownDetailCustomResponseDto {
 		this.stUrl = silverTownDetail.getSilverTown().getStUrl();
 		
 		this.stdNo = silverTownDetail.getStdNo();
-		this.stdDeposit = silverTownDetail.getStdDeposit();
-		this.stdMonthlyCost = silverTownDetail.getStdMonthlyCost();
+		this.stdDeposit = df.format(silverTownDetail.getStdDeposit()*10000);
+		this.stdMonthlyCost = df.format(silverTownDetail.getStdMonthlyCost()*10000);
 		this.stdOccupancy = silverTownDetail.getStdOccupancy();
 		this.stdRoomSize = silverTownDetail.getStdRoomSize();
 		this.stdRoomType = silverTownDetail.getStdRoomType();
