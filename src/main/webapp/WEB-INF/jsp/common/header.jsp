@@ -23,8 +23,8 @@
 					data-bs-toggle="dropdown" aria-expanded="false">실버타운</a>
 					<ul class="dropdown-menu dropdown-menu-light"
 						aria-labelledby="navbarLightDropdownMenuLink">
-						<li><a class="dropdown-item" href="silver/search">실버타운 검색</a></li>
-						<li><a class="dropdown-item" href="silver/custom">맞춤 실버타운 찾기</a></li>
+						<li><a class="dropdown-item" href="/silver/search">실버타운 검색</a></li>
+						<li><a class="dropdown-item" href="/silver/custom">맞춤 실버타운 찾기</a></li>
 					</ul>
 				</li>
 				<li class="nav-item"><a class="nav-link click-scroll"
