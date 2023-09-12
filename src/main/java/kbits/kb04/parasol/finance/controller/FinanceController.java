@@ -45,8 +45,6 @@ public class FinanceController {
      * @return
      */
     @GetMapping("/deposit")
-//    @Operation(summary = "예금상품조회", description = "DB의 예금 상품 출력")
-    
     public ModelAndView getDeposits(
         @RequestParam(defaultValue = "1") int page,
         @RequestParam(defaultValue = "3") int pageSize
@@ -57,6 +55,7 @@ public class FinanceController {
         return modelAndView;
     }
 	
+    
 	/**
 	 * 2.적금상품조회
 	 * @param page

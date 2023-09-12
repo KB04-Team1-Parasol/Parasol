@@ -141,9 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				</div>
 			</div>
 		</section>
-
-
-            <section class="section-padding">
+        <section class="section-padding">
                 <div class="container">
                     <div class="row">
 
@@ -155,6 +153,58 @@ document.addEventListener("DOMContentLoaded", function () {
 					 </div>
                     </div>
                 </div>
+          </section>
+          
+          
+          <!-- 탑 마진 줄일 것  -->
+            <section class="section-padding">
+            <div class="container">
+					<div class="col-12">
+								<div class="row">
+									<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+										<div class="custom-block bg-white shadow-lg">
+											<a href="topics-detail.html">
+												<div class="d-flex">
+													<div>
+														<h5 class="mb-2">Web Design</h5>
+
+														<p class="mb-0">고객님을 위해 추천하는 어쩌고는 글씨가 늘어나면 쭈우우욱 늘어납니다</p>
+													</div>				
+												</div> 
+											</a>
+										</div>
+									</div>
+
+									<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+										<div class="custom-block bg-white shadow-lg">
+											<a href="topics-detail.html">
+												<div class="d-flex">
+													<div>
+														<h5 class="mb-2">Graphic</h5>
+
+														<p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+													</div>
+												</div>
+											</a>
+										</div>
+									</div>
+
+									<div class="col-lg-4 col-md-6 col-12">
+										<div class="custom-block bg-white shadow-lg">
+											<a href="topics-detail.html">
+												<div class="d-flex">
+													<div>
+														<h5 class="mb-2">Logo Design</h5>
+
+														<p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+													</div>
+												</div>
+											</a>
+										</div>
+									</div>
+								</div>
+					</div>
+			</div>
             </section>
       </main>
         <!-- JAVASCRIPT FILES -->
