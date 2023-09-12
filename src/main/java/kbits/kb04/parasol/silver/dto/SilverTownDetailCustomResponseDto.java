@@ -1,12 +1,17 @@
 package kbits.kb04.parasol.silver.dto;
 
 import java.text.DecimalFormat;
+import java.util.List;
 
+import kbits.kb04.parasol.finance.entity.Bond;
+import kbits.kb04.parasol.finance.entity.Deposit;
+import kbits.kb04.parasol.finance.entity.Saving;
 import kbits.kb04.parasol.silver.entity.SilverTownDetail;
 import lombok.Getter;
 
 @Getter
-public class SilverTownDetailResponseDto {
+public class SilverTownDetailCustomResponseDto {
+	// 실버타운
 	private long stNo;
 	private String address;
 	private String stFacility;
@@ -19,6 +24,7 @@ public class SilverTownDetailResponseDto {
 	private String[] stScaleArr = {"", "대형", "중형", "소형"};
 	private String[] stTypeArr = {"", "도심형", "근교형", "전원형"};
 	
+	// 실버타운 디테일
 	private long stdNo;
 	private String stdDeposit;
 	private String stdMonthlyCost;
@@ -26,9 +32,17 @@ public class SilverTownDetailResponseDto {
 	private int stdRoomSize;
 	private String stdRoomType;
 	
+	private List<Deposit> depositList;
+	private List<Saving> savingList;
+	private List<Bond> bondList;
+	
 	DecimalFormat df = new DecimalFormat("###,###");
 	
-	public SilverTownDetailResponseDto(SilverTownDetail silverTownDetail) {
+	public SilverTownDetailCustomResponseDto(
+			SilverTownDetail silverTownDetail,
+			List<Deposit> depositList,
+			List<Saving> savingList,
+			List<Bond> bondList) {
 		super();
 		this.stNo = silverTownDetail.getSilverTown().getStNo();
 		this.address = silverTownDetail.getSilverTown().getAddress();
@@ -39,12 +53,17 @@ public class SilverTownDetailResponseDto {
 		this.stScale = stScaleArr[silverTownDetail.getSilverTown().getStScale()];
 		this.stType = stTypeArr[silverTownDetail.getSilverTown().getStType()];
 		this.stUrl = silverTownDetail.getSilverTown().getStUrl();
+		
 		this.stdNo = silverTownDetail.getStdNo();
 		this.stdDeposit = df.format(silverTownDetail.getStdDeposit()*10000);
 		this.stdMonthlyCost = df.format(silverTownDetail.getStdMonthlyCost()*10000);
 		this.stdOccupancy = silverTownDetail.getStdOccupancy();
 		this.stdRoomSize = silverTownDetail.getStdRoomSize();
 		this.stdRoomType = silverTownDetail.getStdRoomType();
+		
+		this.depositList = depositList;
+		this.savingList = savingList;
+		this.bondList = bondList;
 	}
 	
 }

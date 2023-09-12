@@ -13,4 +13,11 @@ public class PersonalDto {
 	
 	int age;
 	int income;
+	int finance;
+	int invest;
+	int understand;
+	int lossprofit;
+	int derivatives;
+	int result;
+	
 }

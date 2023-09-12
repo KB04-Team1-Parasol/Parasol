@@ -17,10 +17,10 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">                       
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/bootstrap-icons.css" rel="stylesheet">
-        <link href="../css/templatemo-topic-listing.css" rel="stylesheet">
-        <link href="../css/custom.css" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/bootstrap-icons.css" rel="stylesheet">
+        <link href="/css/templatemo-topic-listing.css" rel="stylesheet">
+        <link href="/css/custom.css" rel="stylesheet">
         
 <!--
 TemplateMo 590 topic listing
@@ -117,7 +117,7 @@ https://templatemo.com/tm-590-topic-listing
 						                        <h5 class="mb-2"> ${saving.savingName}</h5>
 						                        <p class="mb-0">최대 기간: ${saving.savingPeriod}개월</p>
 						                        <p class="mb-0">이율 : ${saving.savingRate}%</p>
-						                        <a href="topics-detail.html" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+						                        <a href="<c:url value="/finance/saving/${saving.savingNo}"/>" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
 						                    </div>
 						                </div>
 						            </div>
@@ -125,29 +125,31 @@ https://templatemo.com/tm-590-topic-listing
 						    </c:forEach>
 						</div>
                  <div class="col-lg-12 col-12">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-center mb-0">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                            <span aria-hidden="true">Prev</span>
-                                        </a>
-                                  
-                                    
-                                    <!-- Spring에서 받은 페이지 정보를 활용하여 페이지 번호를 동적으로 생성 -->
+                        
+                        <!-- 페이징 처리, 다른 jsp 에도 동일하게 적용할 것 -->
+						    <nav aria-label="Page navigation example">
+						        <ul class="pagination justify-content-center mb-0">
+						            <li class="page-item ${savingList.number == 0 ? 'disabled' : ''}">
+									    <a class="page-link" href="?page=${savingList.number}" aria-label="Previous">
+									        <span aria-hidden="true">이전</span>
+									    </a>
+									</li>
+						
+						            <!-- 페이지 번호 동적 생성 -->
 						            <c:forEach begin="1" end="${savingList.totalPages}" var="pageNumber">
-						                <li class="page-item ${pageNumber == depositList.number + 1 ? 'active' : ''}">
+						                <li class="page-item ${pageNumber == savingList.number + 1 ? 'active' : ''}">
 						                    <a class="page-link" href="?page=${pageNumber}">${pageNumber}</a>
 						                </li>
 						            </c:forEach>
 						
-						            <li class="page-item">
-						                <a class="page-link" href="#" aria-label="Next">
-						                    <span aria-hidden="true">Next</span>
-						                </a>
+						            <li class="page-item ${savingList.number + 1 == savingList.totalPages ? 'disabled' : ''}">
+						                 <a class="page-link" href="?page=${savingList.number + 2}" aria-label="Next">
+						            <span aria-hidden="true">다음</span>
+						        </a>
 						            </li>
-                                </ul>
-                            </nav>
-                        </div>
+						        </ul>
+						    </nav>
+						</div>
 
                     </div>
                 </div>
