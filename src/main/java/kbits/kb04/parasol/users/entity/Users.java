@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access=AccessLevel.PROTECTED)
-
 public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_SEQ")
@@ -21,7 +20,6 @@ public class Users {
 	@NotNull
 	@Column(name = "user_no")
 	private Long userNo;
-	
 	
 	@NotNull
 	@Column(name = "user_id")
@@ -48,8 +46,6 @@ public class Users {
 	@OneToOne(mappedBy="users", optional=true)
 	private UserAsset userAsset;
 
-	
-	
 	public Users(@NotNull Long userNo, @NotNull String userId, @NotNull String userPw, @NotNull String userName,
 			@NotNull int userAge) {
 

@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="kbits.kb04.parasol.auth.TokenDto"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	String grantType = "";
+	String accessToken = "";
+	TokenDto tokenDto = (TokenDto) request.getSession().getAttribute("tokenDto");
+	if (tokenDto != null) {
+	    grantType = tokenDto.getGrantType();
+	    accessToken = tokenDto.getAccessToken();
+	}
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +20,39 @@
 <title>파라다이스 라이프 솔루션</title>
 <!-- css setting -->
 <jsp:include page="/WEB-INF/jsp/settings/css.jsp"/>
+
 </head>
 <body id="top">
+<script>
+    // 서버에서 전달된 토큰 정보
+    var grantType = "<%= grantType %>";
+    var accessToken = "<%= accessToken %>";
+
+    // XMLHttpRequest 객체 생성
+    var xhr = new XMLHttpRequest();
+
+    // HTTP 요청 설정
+    xhr.open("GET", "http://localhost:8080/user/login", true);
+
+    // Access Token을 "Authorization" 헤더에 설정
+    xhr.setRequestHeader("Authorization", grantType + " " + accessToken);
+
+    // 요청 완료 후의 동작 설정
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) { // 요청이 완료되면
+            if (xhr.status === 200) { // 성공적인 응답
+                var response = xhr.responseText;
+                console.log("서버 응답: " + response);
+            } else {
+                console.error("오류 발생: " + xhr.status);
+            }
+        }
+    };
+
+    // 요청 보내기
+    xhr.send();
+</script>
 	<main>
-	
 		<!-- header include -->
 		<jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
 		
@@ -299,9 +338,6 @@
 									<div class="col-lg-6 col-md-6 col-12">
 										<div class="custom-block custom-block-overlay">
 											<div class="d-flex flex-column h-100">
-												<img
-													src="images/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planning-future-office-room.jpg"
-													class="custom-block-image img-fluid" alt="">
 
 												<div class="custom-block-overlay-text d-flex">
 													<div>

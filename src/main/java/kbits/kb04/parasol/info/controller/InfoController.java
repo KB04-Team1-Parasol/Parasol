@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import kbits.kb04.parasol.auth.SecurityUtil;
 import kbits.kb04.parasol.finance.entity.Deposit;
 import kbits.kb04.parasol.info.dto.PostDto;
 import kbits.kb04.parasol.info.entity.Information;

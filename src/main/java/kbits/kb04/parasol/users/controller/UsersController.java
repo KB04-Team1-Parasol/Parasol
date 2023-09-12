@@ -3,7 +3,9 @@ package kbits.kb04.parasol.users.controller;
 import java.io.BufferedReader;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -11,10 +13,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.servlet.ModelAndView;
 
 import io.jsonwebtoken.io.IOException;
+import kbits.kb04.parasol.auth.SecurityUtil;
 import kbits.kb04.parasol.auth.TokenDto;
 import kbits.kb04.parasol.users.dto.AssetInputRequestDto;
 
@@ -72,10 +76,10 @@ public class UsersController {
     
     
     // 로그인 화면
-    @GetMapping("/signin")
+    @GetMapping("/login")
 	public String signin() {
 		
-		return "user/signin";
+		return "user/login";
 	}
     
     // 회원가입 화면
@@ -89,18 +93,20 @@ public class UsersController {
     @PostMapping("/signup_action")
 	public String signup_action(@ModelAttribute SignUpRequestDto signupDto, Model model) {
 		userService.signUp(signupDto);
-		return "redirect:/user/signin";
+		return "redirect:/user/login";
 	}
     
     // 로그인 처리
-    @PostMapping("/login_action")
-	public String login_action(@ModelAttribute("Users") LoginRequestDto loginDto, Model model) {
+    @PostMapping("/login")
+	public String login_action(@ModelAttribute("Users") LoginRequestDto loginDto, Model model, HttpSession session) {
 //		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 //      String encodePW = encoder.encode(loginDto.getUser_pw());
 //      System.out.println(encodePW);
 		TokenDto tokenDto = userService.login(loginDto);
+		session.setAttribute("tokenDto", tokenDto);
 		model.addAttribute("tokenDto", tokenDto);
-		return "redirect:/index"; // 로그인 성공 시 보여줄 뷰 이름
+		
+		return "redirect:/";
 	}
     
     @PostMapping("/reissue")

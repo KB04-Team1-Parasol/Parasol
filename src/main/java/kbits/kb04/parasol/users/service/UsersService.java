@@ -54,7 +54,6 @@ public class UsersService {
     }
     
     
-    
     public UserAsset findByUserNo(Long no) {
     	
         // 사용자 정보 조회
@@ -99,10 +98,10 @@ public class UsersService {
 		// authenticate 메서드가 실행이 될 때 CustomUserDetailsService 에서 만들었던 loadUserByUsername
 		// 메서드가 실행됨
 		Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
-
+		
 		// 3. 인증 정보를 기반으로 JWT 생성
 		TokenDto tokenDto = jwtProvider.generateToken(authentication);
-
+		
 		// 4. RefreshToken 저장
 		RefreshToken refreshToken = RefreshToken.builder().key(authentication.getName())
 				.value(tokenDto.getRefreshToken()).build();
@@ -144,8 +143,6 @@ public class UsersService {
 		Users user = userById.get();
 		return user;
 	}
-
-
 
     // 자산정보 기입 처리 
     @Transactional

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <head>
 <meta charset="utf-8">
@@ -79,7 +80,7 @@
 						<h3 class="mb-4 pb-2 text-center">로그인 정보를 입력하세요</h3>
 					</div>
 					<div class="col-lg-12 col-6">
-						<form action="login_action" method="post" class="custom-form contact-form"
+						<form action="login" method="post" class="custom-form contact-form"
 							role="form">
 								<div class="col-lg-6 col-12 mx-auto">
 									<div class="form-floating">
@@ -180,10 +181,10 @@
 	</footer>
 
 	<!-- JAVASCRIPT FILES -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.bundle.min.js"></script>
-	<script src="js/jquery.sticky.js"></script>
-	<script src="js/custom.js"></script>
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.bundle.min.js"></script>
+	<script src="/js/jquery.sticky.js"></script>
+	<script src="/js/custom.js"></script>
 
 </body>
 </html>
