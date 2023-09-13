@@ -13,14 +13,9 @@
 		<script>
 		  const Utils = Chart.helpers;
 		</script>		
-        <!-- CSS FILES -->        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">                       
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/css/bootstrap-icons.css" rel="stylesheet">
-        <link href="/css/templatemo-topic-listing.css" rel="stylesheet">
-        <link href="/css/custom.css" rel="stylesheet">
+        <!-- css setting -->
+		<link href="/css/silver/detail.css" rel="stylesheet" />
+		<jsp:include page="/WEB-INF/jsp/settings/css.jsp" />
 
 </head>
 
@@ -102,13 +97,13 @@ document.addEventListener("DOMContentLoaded", function () {
 <body id="top">
 	<main>	
 		<!-- header include -->
-		<jsp:include page="/WEB-INF/jsp/common/header.jsp"/>		
+		<jsp:include page="/WEB-INF/jsp/common/header2.jsp"/>		
 		<section
 			class="hero-section d-flex justify-content-center align-items-center" id="section_1">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 col-12 mx-auto">
-						<h1 class="text-black text-center">{고객}님의 간단 투자 성향</h1>
+						<h1 class="text-black text-center">${uname }님의 간단 투자 성향</h1>
 						<h6 class="text-center">마이데이터를 활용한 상품추천도 둘러보세요!</h6>
 					</div>
 				</div>
@@ -165,9 +160,16 @@ document.addEventListener("DOMContentLoaded", function () {
 											<a href="topics-detail.html">
 												<div class="d-flex">
 													<div>
-														<h5 class="mb-2">Web Design</h5>
-
-														<p class="mb-0">고객님을 위해 추천하는 어쩌고는 글씨가 늘어나면 쭈우우욱 늘어납니다</p>
+														<h5 class="mb-2">추천 채권</h5>
+														<br>
+														<h5 class="mb-2">${recommendedBond.bondName}</h5>
+														<br>
+														<p class="mb-0">채권 위험도 : ${recommendedBond.bondRisk}</p>
+														<p class="mb-0">채권 수익률 : ${recommendedBond.bondRate}</p>
+														<br>
+														<div class="">
+														<a href="topics-detail.html" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+														</div>
 													</div>				
 												</div> 
 											</a>
@@ -179,9 +181,15 @@ document.addEventListener("DOMContentLoaded", function () {
 											<a href="topics-detail.html">
 												<div class="d-flex">
 													<div>
-														<h5 class="mb-2">Graphic</h5>
-
-														<p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+														<h5 class="mb-2">추천 예금</h5>
+														<br>
+														<h5 class="mb-2">${recommendedDeposit.depositName}</h5>
+														<br>
+														<p class="mb-0">예금 만기일 : ${recommendedDeposit.depositPeriod}</p>
+														<p class="mb-0">예금 이율 : ${recommendedDeposit.depositRate}</p>
+														<br>
+														<a href="topics-detail.html" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+											
 													</div>
 												</div>
 											</a>
@@ -193,9 +201,15 @@ document.addEventListener("DOMContentLoaded", function () {
 											<a href="topics-detail.html">
 												<div class="d-flex">
 													<div>
-														<h5 class="mb-2">${personal.result}</h5>
-
-														<p class="mb-0">${personal.periodtime}</p>
+														<h5 class="mb-2">추천 적금</h5>
+														<br>
+														<h5 class="mb-2">${recommendedSaving.savingName}</h5>
+														<br>
+														<p class="mb-0">적금 만기일 : ${recommendedSaving.savingPeriod}</p>
+														<p class="mb-0">적금 이율 : ${recommendedSaving.savingRate}</p>
+														<br>
+														<a href="topics-detail.html" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+											
 													</div>
 												</div>
 											</a>

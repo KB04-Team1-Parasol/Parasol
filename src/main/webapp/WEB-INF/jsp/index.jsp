@@ -54,7 +54,7 @@
 </script>
 	<main>
 		<!-- header include -->
-		<jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
+		<jsp:include page="/WEB-INF/jsp/common/header2.jsp"/>
 		
 		<section
 			class="hero-section d-flex justify-content-center align-items-center" id="section_1">
@@ -618,7 +618,7 @@
 		</section>
 
 		<!-- footer include -->
-		<jsp:include page="/WEB-INF/jsp/common/footer.jsp"/>
+		<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp"/>
 		
 		<!-- JAVASCRIPT FILES -->
 		<jsp:include page="/WEB-INF/jsp/settings/js.jsp"/>

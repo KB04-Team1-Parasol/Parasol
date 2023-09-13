@@ -199,13 +199,11 @@
 
 							</div>
 						</li>
-
-
 					</ul>
 				</div>
 			</div>
 		</div>
-
+		<a href="logout" class="form-control btn" id="logoutBtn">Log Out</a>
 
 
 		<footer class="site-footer section-padding">

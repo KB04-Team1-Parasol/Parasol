@@ -41,17 +41,13 @@ public class UsersController {
     @GetMapping("/myinfo")
     public String getUserInfo(Model model) throws UsersNotFoundException {
         // UserService를 통해 사용자 정보를 조회
-        // Users user = userService.findByUserId("test"); 
-        Users user = userService.findByUserId("test2"); 
+        Users user = userService.findByUserId(SecurityUtil.getCurrentUserId()); 
         UserAsset userAsset = userService.findByUserNo(user.getUserNo());
 
-    	
     	// Model에 사용자 정보를 추가
         model.addAttribute("user", user);
         model.addAttribute("userAsset", userAsset);
         
-        System.out.println(user);
-        System.out.println("1111");
         // 사용자 정보를 보여줄 JSP 페이지로 이동
         return "user/myinfo"; // myinfo.jsp로 이동
     }
@@ -69,11 +65,11 @@ public class UsersController {
     public String saveAssetInputForm(@ModelAttribute AssetInputRequestDto assetInputDto
     		,Model model) {
         // 폼에서 입력된 자산 정보를 서비스에 전달하여 저장 및 업데이트
+    	Users user = userService.findByUserId(SecurityUtil.getCurrentUserId()); 
+        assetInputDto.setUser_no(user.getUserNo());
         userService.assetInput(assetInputDto);
         return "redirect:/user/myinfo"; // 입력 후 다시 마이 페이지로 리디렉션
     }
-    
-    
     
     // 로그인 화면
     @GetMapping("/login")
@@ -89,6 +85,14 @@ public class UsersController {
 		return "user/signup";
 	}
     
+    // 회원가입 화면
+    @GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		
+		return "redirect:/";
+	}
+    
     // 회원가입 처리
     @PostMapping("/signup_action")
 	public String signup_action(@ModelAttribute SignUpRequestDto signupDto, Model model) {
@@ -99,7 +103,7 @@ public class UsersController {
     // 로그인 처리
     @PostMapping("/login")
 	public String login_action(@ModelAttribute("Users") LoginRequestDto loginDto, Model model, HttpSession session) {
-//		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+//		BCryptPasswordEncoder enc<oder = new BCryptPasswordEncoder();
 //      String encodePW = encoder.encode(loginDto.getUser_pw());
 //      System.out.println(encodePW);
 		TokenDto tokenDto = userService.login(loginDto);
