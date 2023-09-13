@@ -44,7 +44,6 @@ public class UsersController {
         Users user = userService.findByUserId(SecurityUtil.getCurrentUserId()); 
         UserAsset userAsset = userService.findByUserNo(user.getUserNo());
 
-    	
     	// Model에 사용자 정보를 추가
         model.addAttribute("user", user);
         model.addAttribute("userAsset", userAsset);
