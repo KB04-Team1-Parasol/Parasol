@@ -30,8 +30,8 @@
 						<h6 class="site-footer-title mb-3">Information</h6>
 
 						<p class="text-white d-flex mb-1">
-							<a href="tel: 305-240-9671" class="site-footer-link">
-								305-240-9671 </a>
+							<a href="https://www.naver.com/" class="site-footer-link">
+								Our Notion </a>
 						</p>
 
 						<p class="text-white d-flex">
@@ -41,25 +41,8 @@
 					</div>
 
 					<div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
-						<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button"
-								data-bs-toggle="dropdown" aria-expanded="false">
-								English</button>
-
-							<ul class="dropdown-menu">
-								<li><button class="dropdown-item" type="button">Thai</button></li>
-
-								<li><button class="dropdown-item" type="button">Myanmar</button></li>
-
-								<li><button class="dropdown-item" type="button">Arabic</button></li>
-							</ul>
-						</div>
-
 						<p class="copyright-text mt-lg-5 mt-4">
-							Copyright © 2048 Topic Listing Center. All rights reserved. <br>
-							<br>Design: <a rel="nofollow" href="https://templatemo.com"
-								target="_blank">TemplateMo</a> Distribution <a
-								href="https://themewagon.com">ThemeWagon</a>
+							Copyright © 2048 Parasol. All rights reserved.
 						</p>
 
 					</div>

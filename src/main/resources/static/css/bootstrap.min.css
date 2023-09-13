@@ -5510,6 +5510,11 @@ fieldset:disabled .btn {
     counter-reset: section
 }
 
+.mini-box{
+	width: 1000px;
+	height: 800px;
+}
+
 .list-group-numbered>.list-group-item::before {
     content: counters(section, ".") ". ";
     counter-increment: section
