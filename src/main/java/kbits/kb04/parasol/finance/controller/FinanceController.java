@@ -17,10 +17,12 @@ import kbits.kb04.parasol.finance.dto.BondDto;
 import kbits.kb04.parasol.finance.dto.DepositDto;
 import kbits.kb04.parasol.finance.service.FinanceService;
 import kbits.kb04.parasol.silver.service.*;
+import kbits.kb04.parasol.users.dto.AssetInputRequestDto;
 import kbits.kb04.parasol.users.dto.UsersDto;
 import kbits.kb04.parasol.users.entity.UserAsset;
 import kbits.kb04.parasol.users.entity.Users;
 import kbits.kb04.parasol.users.service.UsersService;
+import lombok.RequiredArgsConstructor;
 import kbits.kb04.parasol.finance.repository.DepositRepository;
 import kbits.kb04.parasol.finance.dto.PersonalDto;
 import kbits.kb04.parasol.finance.dto.SavingDto;
@@ -32,14 +34,13 @@ import kbits.kb04.parasol.finance.entity.Saving;
 
 @Controller
 @RequestMapping("/finance")
+@RequiredArgsConstructor
 public class FinanceController {
 	
+	@Autowired
 	private final FinanceService financeService;
+	private final UsersService userService;
 
-    @Autowired
-    public FinanceController(FinanceService financeService) {
-        this.financeService = financeService;
-    }
     /**
      * 1. 예금상품조회
      * @param page
@@ -171,6 +172,7 @@ public class FinanceController {
     (@ModelAttribute("toja")
     		PersonalDto personalDto,
     		UsersDto usersdto,
+    		AssetInputRequestDto assetdto,
     		Model model
     ) {
     	// 설문 결과
@@ -179,16 +181,26 @@ public class FinanceController {
     	//사용자로부터 입력받은 값들을 계산결과 personalDto.Result 에 넣어주기
     	personalDto.setResult(financeService.calculateResult(personalDto));
     
+    	Users user = userService.findByUserId(SecurityUtil.getCurrentUserId()); 
+    	UserAsset userAsset = userService.findByUserNo(user.getUserNo());
+    	Long monthIncome = userAsset.getMonthlyIncome();
+    	String uname = user.getUserName();
     	
+    	System.out.println("월수입"+ monthIncome);
     	BondDto recommendedBond = financeService.bondRecommendation(personalDto);
-    	DepositDto recommendedDeposit = financeService.depositRecommendation(personalDto, usersdto);
+    	DepositDto recommendedDeposit = financeService.depositRecommendation(personalDto);
+    	SavingDto recommendedSaving = financeService.savingRecommendation(personalDto, monthIncome);
     	// UsersDto currentUser = UsersService
+    	
     	
     	model.addAttribute("recommendedBond", recommendedBond);
     	model.addAttribute("recommendedDeposit", recommendedDeposit);
+    	model.addAttribute("recommendedSaving", recommendedSaving);
+    	model.addAttribute("uname", uname);
     	
     	System.out.println("넘겨줄채권 " + recommendedBond);
     	System.out.println("넘겨줄예금 " + recommendedDeposit);
+    	System.out.println("넘겨줄적금 " + recommendedSaving);
     	return "finance/result";
     }
     

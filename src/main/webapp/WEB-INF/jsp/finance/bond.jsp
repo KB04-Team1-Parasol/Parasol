@@ -11,73 +11,13 @@
         <meta name="author" content="">
         <title>채권상품</title>
         <!-- CSS FILES -->        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">                       
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/css/bootstrap-icons.css" rel="stylesheet">
-        <link href="/css/custom-fin.css" rel="stylesheet">
-        <link href="/css/templatemo-topic-listing.css" rel="stylesheet">
-        <link href="/css/custom.css" rel="stylesheet">
+        <link href="/css/finance/custom-fin.css" rel="stylesheet">
+        <jsp:include page="/WEB-INF/jsp/settings/css.jsp" />
         
     </head>
     <body class="topics-listing-page" id="top">
         <main>
-            <nav class="navbar navbar-expand-lg">
-                <div class="container">
-                    <a class="navbar-brand" href="index.html">
-                        <i class="bi-back"></i>
-                        <span>우리로고넣기</span>
-                    </a>
-
-                    <div class="d-lg-none ms-auto me-4">
-                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
-                    </div>
-    
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-    
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll" href="index.html#section_1">Home</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll" href="index.html#section_2">Browse Topics</a>
-                            </li>
-    
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll" href="index.html#section_3">How it works</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll" href="index.html#section_4">FAQs</a>
-                            </li>
-    
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll" href="index.html#section_5">Contact</a>
-                            </li>
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-
-                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                    <li><a class="dropdown-item active" href="topics-listing.html">Topics Listing</a></li>
-
-                                    <li><a class="dropdown-item" href="contact.html">Contact Form</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                        <div class="d-none d-lg-block">
-                            <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-
+			<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />	
 
             <header class="site-header d-flex flex-column justify-content-center align-items-center">
                 <div class="container">
@@ -104,8 +44,6 @@
                 <div class="container">
                     <div class="row">
 
-
-
 						<div class="col-lg-8 col-12 mt-3 mx-auto">
 						    <c:forEach var="bond" items="${bondList.content}">
 						        <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
@@ -113,7 +51,7 @@
 						                <!-- 이미지 및 기타 정보 출력 -->
 						                <div class="custom-block-topics-listing-info d-flex">
 						                    <div>
-						                    	<div class="mb-3">
+						                    	<div class="mb-3 justify-content-start">
 											    <c:choose>
 											        <c:when test="${bond.bondRisk == 1}"><span class="bondbadge bg-1design rounded-pill">초저위험</span></c:when>
 											        <c:when test="${bond.bondRisk == 2}"><span class="bondbadge bg-2design rounded-pill">저위험</span></c:when>
@@ -122,10 +60,11 @@
 											        <c:when test="${bond.bondRisk == 5}"><span class="bondbadge bg-5design rounded-pill">초고위험</span></c:when>
 											        <c:otherwise>알 수 없는 위험</c:otherwise>
 											    </c:choose>
+											    	<span class="bondbadge bg-5design rounded-pill">초고위험</span>
 											    </div>
 						                        <h5 class="mb-2">${bond.bondName}</h5>
-						                        <p class="mb-0">만기일 : ${bond.bondType}</p>
-						                        <p class="mb-0">3년 수익률 : ${bond.bondRate}</p>
+						                        <p class="mb-0">만기일 : ${bond.bondDate}</p>
+						                        <p class="mb-0">3년 수익률 : <span style="color:red;">${bond.bondRate}%</span></p>
 						                        <p class="mb-0">위험도: ${bond.bondRisk}</p>
 						                        <a href="<c:url value="/finance/bond/${bond.bondNo}" />" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
 						                    </div>
