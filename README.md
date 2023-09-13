@@ -3,12 +3,13 @@
 ![image](https://github.com/KB04-Team1-Parasol/Parasol/assets/22187692/4c87b9ff-04e2-464b-bc4f-27b9237965ec)
 
 </div>
+
 # 파라솔 (파라다이스 라이프 솔루션)
-KB IT아카데미 It's Your Life 4기 최종 프로젝트
-노인들을 위한 실버타운 & 금융상품 추천 서비스
+### KB IT아카데미 It's Your Life 4기 최종 프로젝트
+### 노인들을 위한 실버타운 & 금융상품 추천 서비스
 
 <div align=center>
-  
+<hr>  
 [팀 노션](https://www.naver.com/) | 
 [시연 영상](https://www.naver.com/)
 </div>
