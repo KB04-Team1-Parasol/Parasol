@@ -72,13 +72,13 @@
 									        <input type="radio" id="age30s" name="age" value="4" required>
 									        <label for="age30s">30대</label><br>
 									
-									        <input type="radio" id="age40s" name="age" value="3" required>
+									        <input type="radio" id="age40s" name="age" value="1" required>
 									        <label for="age40s">40대</label><br>
 									
 									        <input type="radio" id="age50s" name="age" value="2" required>
 									        <label for="age50s">50대</label><br>
 									
-									        <input type="radio" id="age60s" name="age" value="1" required>
+									        <input type="radio" id="age60s" name="age" value="3" required>
 									        <label for="age60s">60대 이상</label><br>
 											<br>
 	                                     </div>

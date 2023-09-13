@@ -165,9 +165,14 @@ document.addEventListener("DOMContentLoaded", function () {
 											<a href="topics-detail.html">
 												<div class="d-flex">
 													<div>
-														<h5 class="mb-2">Web Design</h5>
-
-														<p class="mb-0">고객님을 위해 추천하는 어쩌고는 글씨가 늘어나면 쭈우우욱 늘어납니다</p>
+														<h5 class="mb-2">추천 채권</h5>
+														<br>
+														<h5 class="mb-2">${recommendedBond.bondName}</h5>
+														<br>
+														<p class="mb-0">채권 위험도 : ${recommendedBond.bondRisk}</p>
+														<p class="mb-0">채권 수익률 : ${recommendedBond.bondRate}</p>
+														<br>
+														<a href="topics-detail.html" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
 													</div>				
 												</div> 
 											</a>
@@ -179,9 +184,15 @@ document.addEventListener("DOMContentLoaded", function () {
 											<a href="topics-detail.html">
 												<div class="d-flex">
 													<div>
-														<h5 class="mb-2">Graphic</h5>
-
-														<p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+														<h5 class="mb-2">추천 예금</h5>
+														<br>
+														<h5 class="mb-2">${recommendedDeposit.depositName}</h5>
+														<br>
+														<p class="mb-0">예금 만기일 : ${recommendedDeposit.depositPeriod}</p>
+														<p class="mb-0">예금 이율 : ${recommendedDeposit.depositRate}</p>
+														<br>
+														<a href="topics-detail.html" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+											
 													</div>
 												</div>
 											</a>

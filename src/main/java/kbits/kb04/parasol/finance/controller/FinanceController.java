@@ -12,14 +12,15 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.HttpStatus;
-
+import kbits.kb04.parasol.auth.SecurityUtil;
 import kbits.kb04.parasol.finance.dto.BondDto;
 import kbits.kb04.parasol.finance.dto.DepositDto;
 import kbits.kb04.parasol.finance.service.FinanceService;
+import kbits.kb04.parasol.silver.service.*;
+import kbits.kb04.parasol.users.dto.UsersDto;
+import kbits.kb04.parasol.users.entity.UserAsset;
+import kbits.kb04.parasol.users.entity.Users;
+import kbits.kb04.parasol.users.service.UsersService;
 import kbits.kb04.parasol.finance.repository.DepositRepository;
 import kbits.kb04.parasol.finance.dto.PersonalDto;
 import kbits.kb04.parasol.finance.dto.SavingDto;
@@ -31,7 +32,6 @@ import kbits.kb04.parasol.finance.entity.Saving;
 
 @Controller
 @RequestMapping("/finance")
-//@Tag(name = "경제", description = "템플릿 API Document")
 public class FinanceController {
 	
 	private final FinanceService financeService;
@@ -148,12 +148,14 @@ public class FinanceController {
 
     /**
      * 5. 맞춤 상품 조회 페이지
+     * 회원일 경우 설문지로 넘기기, 회원이 아니라면 로그인으로 바로 이동하기
+     * 
      * @return
      */
     
     @GetMapping("/personal")
     public String personalInvest() {	
-    	
+    	// 토큰 있으면 넘기고 , 없으면 로그인으로 그냥 보내기
     	
     	return "finance/personal";
     }
@@ -168,12 +170,28 @@ public class FinanceController {
     public String personalInvestAction
     (@ModelAttribute("toja")
     		PersonalDto personalDto,
-    		Model personal
+    		UsersDto usersdto,
+    		Model model
     ) {
-    	personal.addAttribute("personal", personalDto); 	
+    	// 설문 결과
+    	model.addAttribute("personal", personalDto); 	
+    	System.out.println("설문 dto" + personalDto);
     	//사용자로부터 입력받은 값들을 계산결과 personalDto.Result 에 넣어주기
     	personalDto.setResult(financeService.calculateResult(personalDto));
+    
+    	
+    	BondDto recommendedBond = financeService.bondRecommendation(personalDto);
+    	DepositDto recommendedDeposit = financeService.depositRecommendation(personalDto, usersdto);
+    	// UsersDto currentUser = UsersService
+    	
+    	model.addAttribute("recommendedBond", recommendedBond);
+    	model.addAttribute("recommendedDeposit", recommendedDeposit);
+    	
+    	System.out.println("넘겨줄채권 " + recommendedBond);
+    	System.out.println("넘겨줄예금 " + recommendedDeposit);
     	return "finance/result";
-    }    
+    }
+    
+    
 
 }
