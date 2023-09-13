@@ -38,7 +38,7 @@
             <li><a href="/finance/personal">맞춤 상품</a></li>
           </ul>
         </li>
-        <li><a href="projects.html">정보</a></li>
+        <li><a href="/info/info">정보</a></li>
 
         <li>
         	<c:choose>
