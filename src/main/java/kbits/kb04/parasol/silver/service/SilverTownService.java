@@ -48,7 +48,6 @@ public class SilverTownService {
 	
 	// 실버타운 검색
 	// 기본 화면위한 전체 리스트
-	@Transactional
 	public List<SilverTownDetail> townList(){
 		return silverTownDetailRepository.findAll();
 	}
