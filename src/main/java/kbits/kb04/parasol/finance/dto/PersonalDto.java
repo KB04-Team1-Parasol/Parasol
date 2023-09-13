@@ -18,6 +18,8 @@ public class PersonalDto {
 	int understand;
 	int lossprofit;
 	int derivatives;
+	
+	
 	int result;
 	int periodtime;
 	
