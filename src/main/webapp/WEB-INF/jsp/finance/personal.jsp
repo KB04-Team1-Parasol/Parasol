@@ -12,16 +12,10 @@
         <meta name="author" content="">
 
         <title>예금디테일</title>
-        <link href="/css/silver/detail.css" rel="stylesheet" />
-
         <!-- CSS FILES -->        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">                       
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/css/bootstrap-icons.css" rel="stylesheet">
-        <link href="/css/templatemo-topic-listing.css" rel="stylesheet">
-        <link href="/css/custom.css" rel="stylesheet">
+    	<link href="/css/finance/custom-fin.css" rel="stylesheet">
+    	<jsp:include page="/WEB-INF/jsp/settings/css.jsp" />
+        
 
 </head>
     <body class="topics-listing-page" id="top">

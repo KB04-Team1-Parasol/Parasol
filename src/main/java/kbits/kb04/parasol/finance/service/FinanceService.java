@@ -23,6 +23,7 @@ import kbits.kb04.parasol.auth.SecurityUtil;
 import kbits.kb04.parasol.finance.dto.*;
 import kbits.kb04.parasol.finance.entity.*;
 import kbits.kb04.parasol.finance.repository.*;
+import kbits.kb04.parasol.users.dto.AssetInputRequestDto;
 import kbits.kb04.parasol.users.dto.UsersDto;
 import kbits.kb04.parasol.users.entity.UserAsset;
 import kbits.kb04.parasol.users.entity.Users;
@@ -217,7 +218,7 @@ public class FinanceService {
 	
 
 // 예금추천
-	public DepositDto depositRecommendation(PersonalDto personaldto, UsersDto usersdto) {
+	public DepositDto depositRecommendation(PersonalDto personaldto) {
 		// 계산합
 		DepositDto largeRateDepositDto = null;
 		float largeRate = Integer.MIN_VALUE;
@@ -225,14 +226,14 @@ public class FinanceService {
 		System.out.println("예금들" + depositList);
 		
 		// 설문에서 응답한 투자 기간
-		int myPariod = personaldto.getPeriodtime();
+		int myPeriod = personaldto.getPeriodtime();
 		
 		// 반복문으로 추천할 예금목록 찾기
 	    for(Deposit deposit : depositList) {
-				long depositPariod = deposit.getDepositPeriod(); //기간
+				long depositPeriod = deposit.getDepositPeriod(); //기간
 				float depositRate = deposit.getDepositRate();
 				// 응답한 투자기간보다 기간이 낮은것들 중에서, 가장 이율이 높은 것을 추천해준다
-				if(depositPariod <= myPariod && depositRate > largeRate) {
+				if(depositPeriod <= myPeriod && depositRate > largeRate) {
 					largeRateDepositDto = new DepositDto(); // 차례로 이름, 기간, 이율, 링크 반환
 					largeRateDepositDto.setDepositName(deposit.getDepositName());
 					largeRateDepositDto.setDepositPeriod(deposit.getDepositPeriod());
@@ -245,6 +246,38 @@ public class FinanceService {
      System.out.println(largeRateDepositDto);
      return largeRateDepositDto;	
 	}
+	
+	// 예금추천
+		public SavingDto savingRecommendation(PersonalDto personaldto, Long monthIncome) {
+			// 계산합
+			SavingDto largeRateDepositDto = null;
+			float largeRate = Integer.MIN_VALUE;
+			List<Saving> savingList = savingRepository.findAll(); // 전체 예금가져오기
+			System.out.println("적금들" + savingList);
+			
+			// 설문에서 응답한 투자 기간
+			int myPeriod = personaldto.getPeriodtime();
+			Long myIncome = monthIncome / 100 * 60;
+			
+			// 반복문으로 추천할 예금목록 찾기
+		    for(Saving saving : savingList) {
+					long savingPeriod = saving.getSavingPeriod(); // 기간
+					float savingRate = saving.getSavingRate();	//	
+					long savingMax = saving.getSavingMax();		//	적금 가능 액수
+					// 응답한 투자기간보다 기간이 낮은것들 중에서, 가장 이율이 높은 것을 추천해준다
+					if(savingPeriod <= myPeriod && savingRate > largeRate && savingMax <= myIncome) {
+						largeRateDepositDto = new SavingDto(); // 차례로 이름, 기간, 이율, 링크 반환
+						largeRateDepositDto.setSavingName(saving.getSavingName());
+						largeRateDepositDto.setSavingPeriod(saving.getSavingPeriod());
+						largeRateDepositDto.setSavingRate(saving.getSavingRate());
+						largeRateDepositDto.setSavingLink(saving.getSavingLink());
+						largeRate = savingRate; // swap
+						
+					}
+			}	
+	     System.out.println(largeRateDepositDto);
+	     return largeRateDepositDto;	
+		}	
 	
 }
 

@@ -147,10 +147,9 @@ public class UsersService {
     // 자산정보 기입 처리 
     @Transactional
     public void assetInput(AssetInputRequestDto requestDto) {
-    	
         // UserAsset 테이블에 존재하는 고유번호를 찾아 업데이트 
     	// 예시로 고유 번호 2일 시 테스트 
-    	requestDto.setUser_no(Long.parseLong("3"));
+    	//requestDto.setUser_no(Long.parseLong("3"));
     	// 존재한다면
     	Optional<UserAsset> userAssetByNo = userAssetRepository.findByUserNo(requestDto.getUser_no());
     	
