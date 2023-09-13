@@ -91,18 +91,22 @@ public class SilverTownController {
 
 	// 맞춤 실버타운 찾기(필터링)
 	@GetMapping("/custom")
-	public String silver_custom() {
+	public String silver_custom(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		Users user = usersService.findByUserId(authentication.getName());
 		
 		// 로그인 정보 없을 때
-		if(user == null) {
-			
+		if(authentication.getName() == "anonymousUser") {
+			model.addAttribute("msg", "로그인이 필요한 서비스입니다. 로그인 창으로 이동하시겠습니까?");
+			model.addAttribute("url", "/user/login");
+			return "common/confirm";
 		}
 		
+		Users user = usersService.findByUserId(authentication.getName());
 		// 자산 정보 없을 때
 		if(user.getUserAssetStatus() == UserAssetStatus.INPUT_NO) {
-			
+			model.addAttribute("msg", "자산 정보 입력이 필요한 서비스입니다. 자산 정보 기입창으로 이동하시겠습니까?");
+			model.addAttribute("url", "/user/assetinput");
+			return "common/confirm";
 		}
 
 		return "silver/custom_filter";
@@ -113,16 +117,6 @@ public class SilverTownController {
 	public String silver_custom_list(SearchRequestDto requestDto, Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		Users user = usersService.findByUserId(authentication.getName());
-		
-		// 로그인 정보 없을 때
-		if(user == null) {
-			
-		}
-		
-		// 자산 정보 없을 때
-		if(user.getUserAssetStatus() == UserAssetStatus.INPUT_NO) {
-			
-		}
 		
 		List<SilverTownCustomResponseDto> silverTownCustomList = 
 				silverTownService.getSilverTownFiltering(user, requestDto);

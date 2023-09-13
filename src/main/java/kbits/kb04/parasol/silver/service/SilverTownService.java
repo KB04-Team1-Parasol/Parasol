@@ -8,7 +8,6 @@ import java.util.List;
 
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import kbits.kb04.parasol.silver.dto.SearchRequestDto;
 import kbits.kb04.parasol.finance.entity.Bond;
@@ -48,7 +47,6 @@ public class SilverTownService {
 
 	// 실버타운 검색
 	// 키워드를 포함한 검색
-	@Transactional
 	public List<SilverTown> searchByKeyword(String keyword) {
 		List<SilverTown> silverTowns = this.silverTownRepository.findByStNameContaining(keyword);
 
@@ -95,7 +93,6 @@ public class SilverTownService {
 	}
 	
 	// 상세 보기(순수 검색)
-	@Transactional
 	public SilverTownDetailResponseDto getSilverTownDetail(long stdNo) {
 		SilverTownDetail stDetail = this.silverTownDetailRepository.findById(stdNo).get();
 		return new SilverTownDetailResponseDto(stDetail);
@@ -103,7 +100,6 @@ public class SilverTownService {
 	
 	// 맞춤 실버타운 찾기
 	// 유저 정보 받기
-	@Transactional
 	public SilverTownCustomUserDto setUserDto(Users user) {
 		int pureAsset = user.getUserAsset().getPureAsset().intValue();
 		int monthlyIncome = (int)(user.getUserAsset().getMonthlyIncome() + user.getUserAsset().getAnnuity());
@@ -114,7 +110,6 @@ public class SilverTownService {
 	}
 	
 	// 총 자산(미래 기준, 금융상품 x) 구하기
-	@Transactional
 	public int getFutureAsset(SilverTownCustomUserDto userDto) {
 		// { 순자산 + (월 저축 금액 * 12) * (입주예상나이 - 현재나이) } * ( 1 + 평균물가상승률 ) * 투자가능비율
 		int pureAsset = userDto.getPureAsset();
@@ -127,7 +122,6 @@ public class SilverTownService {
 	}
 	
 	// 실버타운 필터링
-	@Transactional
 	public List<SilverTownCustomResponseDto> getSilverTownFiltering(Users user, SearchRequestDto searchRequestDto) {
 		SilverTownCustomUserDto userDto = setUserDto(user);
 		
@@ -173,7 +167,6 @@ public class SilverTownService {
 	}
 	
 	// 상세 보기(맞춤 검색)
-	@Transactional
 	public SilverTownDetailCustomResponseDto getSilverTownDetailCustom(long stdNo, Users user) {
 		SilverTownCustomUserDto userDto = this.setUserDto(user);
 		
@@ -191,7 +184,6 @@ public class SilverTownService {
 	}
 	
 	// 예금 필터링
-	@Transactional
 	public List<Deposit> getDepositFiltering(
 			SilverTownDetail silverTownDetail, 
 			SilverTownCustomUserDto userDto){
@@ -217,7 +209,6 @@ public class SilverTownService {
 	}
 	
 	// 적금 필터링
-	@Transactional
 	public List<Saving> getSavingFiltering(
 			SilverTownDetail silverTownDetail, 
 			SilverTownCustomUserDto userDto){
@@ -247,7 +238,6 @@ public class SilverTownService {
 	}
 	
 	// 채권 필터링
-	@Transactional
 	public List<Bond> getBondFiltering(
 			SilverTownDetail silverTownDetail, 
 			SilverTownCustomUserDto userDto){
