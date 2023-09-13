@@ -36,7 +36,23 @@ public class SilverTownController {
 
 	// 실버타운 검색 메뉴 클릭시 이동
 	@GetMapping("/search")
-	public String silver_search() {
+	public String silver_search(Model model) {
+		List<SilverTownDetail> list = silverTownService.townList();
+		List<SearchResponseDto> response = new ArrayList<SearchResponseDto>();
+
+		for (SilverTownDetail silverTownDetail : list) {
+			String townName = silverTownDetail.getSilverTown().getStName();
+			String typeName = silverTownDetail.getStdRoomType();
+			Integer deposit = silverTownDetail.getStdDeposit();
+			Integer monCost = silverTownDetail.getStdMonthlyCost();
+			String imgUrl = silverTownDetail.getSilverTown().getStImgUrl();
+			Long stdNo = silverTownDetail.getStdNo();
+
+			SearchResponseDto responseDto = new SearchResponseDto(townName, typeName, deposit, monCost, imgUrl, stdNo);
+			response.add(responseDto);
+		}
+		model.addAttribute("responseDto", response);
+
 		return "silver/search";
 	}
 
@@ -55,7 +71,7 @@ public class SilverTownController {
 				Integer monCost = silverTownDetail.getStdMonthlyCost();
 				String imgUrl = silverTown.getStImgUrl();
 				Long stdNo = silverTownDetail.getStdNo();
-				
+
 				SearchResponseDto responseDto = new SearchResponseDto(townName, typeName, deposit, monCost, imgUrl,
 						stdNo);
 				response.add(responseDto);
@@ -80,7 +96,7 @@ public class SilverTownController {
 			Integer monCost = silverTownDetail.getStdMonthlyCost();
 			String imgUrl = silverTownDetail.getSilverTown().getStImgUrl();
 			Long stdNo = silverTownDetail.getStdNo();
-			
+
 			SearchResponseDto responseDto = new SearchResponseDto(townName, typeName, deposit, monCost, imgUrl, stdNo);
 			response.add(responseDto);
 		}
@@ -117,9 +133,19 @@ public class SilverTownController {
 	public String silver_custom_list(SearchRequestDto requestDto, Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		Users user = usersService.findByUserId(authentication.getName());
-		
-		List<SilverTownCustomResponseDto> silverTownCustomList = 
-				silverTownService.getSilverTownFiltering(user, requestDto);
+
+		// 로그인 정보 없을 때
+		if (user == null) {
+
+		}
+
+		// 자산 정보 없을 때
+		if (user.getUserAssetStatus() == UserAssetStatus.INPUT_NO) {
+
+		}
+
+		List<SilverTownCustomResponseDto> silverTownCustomList 
+			= silverTownService.getSilverTownFiltering(user, requestDto);
 		model.addAttribute("silverTownCustomList", silverTownCustomList);
 
 		return "silver/custom_list";

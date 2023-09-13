@@ -45,6 +45,15 @@ public class SilverTownService {
 	// 이자 과세율
 	private final double interestTaxRate = 0.154;
 
+	
+	// 실버타운 검색
+	// 기본 화면위한 전체 리스트
+	@Transactional
+	public List<SilverTownDetail> townList(){
+		return silverTownDetailRepository.findAll();
+	}
+	
+	
 	// 실버타운 검색
 	// 키워드를 포함한 검색
 	public List<SilverTown> searchByKeyword(String keyword) {
