@@ -3539,6 +3539,7 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-warning {
+	font-weight: bold;
     --bs-btn-color: #ffc107;
     --bs-btn-border-color: #ffc107;
     --bs-btn-hover-color: #000;
