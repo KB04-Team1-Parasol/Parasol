@@ -6,14 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>실버타운 검색</title>
-<!-- CSS FILES -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/bootstrap-icons.css" rel="stylesheet">
-<link href="../css/templatemo-topic-listing.css" rel="stylesheet">
-<link href="../css/custom.css" rel="stylesheet">
+<!-- css setting -->
+<jsp:include page="/WEB-INF/jsp/settings/css.jsp"/>
+<link href="/css/silver/list.css" rel="stylesheet" />
 </head>
 
 <body>
