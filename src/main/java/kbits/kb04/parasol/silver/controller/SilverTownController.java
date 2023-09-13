@@ -91,18 +91,18 @@ public class SilverTownController {
 	// 맞춤 실버타운 찾기(필터링)
 	@GetMapping("/custom")
 	public String silver_custom() {
-//		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//		Users user = usersService.findByUserId(authentication.getName());
-//		
-//		// 로그인 정보 없을 때
-//		if(user == null) {
-//			
-//		}
-//		
-//		// 자산 정보 없을 때
-//		if(user.getUserAssetStatus() == UserAssetStatus.INPUT_NO) {
-//			
-//		}
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		Users user = usersService.findByUserId(authentication.getName());
+		
+		// 로그인 정보 없을 때
+		if(user == null) {
+			
+		}
+		
+		// 자산 정보 없을 때
+		if(user.getUserAssetStatus() == UserAssetStatus.INPUT_NO) {
+			
+		}
 
 		return "silver/custom_filter";
 	}
@@ -111,22 +111,22 @@ public class SilverTownController {
 	@PostMapping("/custom")
 	public String silver_custom_list(@RequestParam("city") String city, @RequestParam("stType") int stType,
 			Model model) {
-//		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//		Users user = usersService.findByUserId(authentication.getName());
-//		
-//		// 로그인 정보 없을 때
-//		if(user == null) {
-//			
-//		}
-//		
-//		// 자산 정보 없을 때
-//		if(user.getUserAssetStatus() == UserAssetStatus.INPUT_NO) {
-//			
-//		}
-//		
-//		List<SilverTownCustomResponseDto> silverTownCustomList = 
-//				silverTownService.getSilverTownFiltering(user);
-//		model.addAttribute("silverTownCustomList", silverTownCustomList);
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		Users user = usersService.findByUserId(authentication.getName());
+		
+		// 로그인 정보 없을 때
+		if(user == null) {
+			
+		}
+		
+		// 자산 정보 없을 때
+		if(user.getUserAssetStatus() == UserAssetStatus.INPUT_NO) {
+			
+		}
+		
+		List<SilverTownCustomResponseDto> silverTownCustomList = 
+				silverTownService.getSilverTownFiltering(user);
+		model.addAttribute("silverTownCustomList", silverTownCustomList);
 		
 		return "silver/custom_list";
 	}
