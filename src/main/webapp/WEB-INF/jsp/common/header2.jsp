@@ -28,6 +28,7 @@
             <li><a href="/silver/custom">맞춤 실버타운 찾기</a></li>
           </ul>
         </li>
+
         <li class="dropdown"><a href="/finance/deposit"><span>금융상품</span> <i
               class="bi bi-chevron-down dropdown-indicator"></i></a>
           <ul>
@@ -38,6 +39,7 @@
           </ul>
         </li>
         <li><a href="projects.html">정보</a></li>
+
         <li>
         	<c:choose>
 				<c:when test="${empty sessionScope.tokenDto}">
@@ -57,6 +59,7 @@
 				</c:otherwise>
 			</c:choose>
 		</li>
+
       </ul>
     </nav><!-- .navbar -->
 

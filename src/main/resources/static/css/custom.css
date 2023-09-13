@@ -49,6 +49,7 @@
     background-color: #fff;
     box-sizing: border-box;
 	list-style-type:none;
+	margin-bottom:50px;
 }
 
 .base_box .title {
@@ -57,15 +58,14 @@
     padding: 15px 38px 13px 18px;
     border-radius: 12px 12px 0 0;
     background-image: linear-gradient(98deg,#EBC57C,#F5E2BE);
+    margin-top:30px;
 }
 
 .base_box .title::after {
     content: '';
     position: absolute;
     top: 17px;
-    right: 18px
-px
-;
+    right: 18px;
     background-position: -206px -96px;
     background-repeat: no-repeat;
     width: 8px;
@@ -91,8 +91,15 @@ px
     background-repeat: no-repeat;
 }
 
-/* 내프로필 및 자산정보 탭에 연필 모양 로고 추가 */
-.title_text::after {
+.asset_title_text {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -.19px;
+    color: #fff;
+}
+/* 자산정보 탭에 연필 모양 로고 추가 */
+.asset_title_text::after {
     content: '';
     display: inline-block;
     margin-left: 10px; /* 원하는 여백 조정 */
@@ -105,7 +112,6 @@ px
     /* 140 - 164 -> 정보 로고로 이미지 변경 */
     background-position: -152px -164px; /* 원하는 배경 이미지 위치 조정 */
 }
-
 
 
 .asset_box .title {
@@ -151,4 +157,21 @@ px
 
 .naverid .container {
     background-color: #f9fbfc;
+}
+.now_asset_text{
+  text-align : center;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -.19px;
+  color: #000;
+}
+
+
+.info_title_text {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -.19px;
+    color: #fff;
 }

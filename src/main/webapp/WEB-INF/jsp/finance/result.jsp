@@ -157,7 +157,6 @@ document.addEventListener("DOMContentLoaded", function () {
 								<div class="row">
 									<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
 										<div class="custom-block bg-white shadow-lg">
-											<a href="topics-detail.html">
 												<div class="d-flex">
 													<div>
 														<h5 class="mb-2">추천 채권</h5>
@@ -168,17 +167,15 @@ document.addEventListener("DOMContentLoaded", function () {
 														<p class="mb-0">채권 수익률 : ${recommendedBond.bondRate}</p>
 														<br>
 														<div class="">
-														<a href="topics-detail.html" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+														<button onclick="window.open('https://naver.com ')"class="btn custom-btn mt-3 mt-lg-4">채권상세보기</button>
 														</div>
 													</div>				
-												</div> 
-											</a>
+											</div> 
 										</div>
 									</div>
 
 									<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
 										<div class="custom-block bg-white shadow-lg">
-											<a href="topics-detail.html">
 												<div class="d-flex">
 													<div>
 														<h5 class="mb-2">추천 예금</h5>
@@ -188,17 +185,14 @@ document.addEventListener("DOMContentLoaded", function () {
 														<p class="mb-0">예금 만기일 : ${recommendedDeposit.depositPeriod}</p>
 														<p class="mb-0">예금 이율 : ${recommendedDeposit.depositRate}</p>
 														<br>
-														<a href="topics-detail.html" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
-											
-													</div>
+														<button onclick="window.open('https://naver.com ')"class="btn custom-btn mt-3 mt-lg-4">예금상세보기</button>
 												</div>
-											</a>
+											</div>
 										</div>
 									</div>
 
 									<div class="col-lg-4 col-md-6 col-12">
 										<div class="custom-block bg-white shadow-lg">
-											<a href="topics-detail.html">
 												<div class="d-flex">
 													<div>
 														<h5 class="mb-2">추천 적금</h5>
@@ -208,11 +202,9 @@ document.addEventListener("DOMContentLoaded", function () {
 														<p class="mb-0">적금 만기일 : ${recommendedSaving.savingPeriod}</p>
 														<p class="mb-0">적금 이율 : ${recommendedSaving.savingRate}</p>
 														<br>
-														<a href="topics-detail.html" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
-											
+														<button onclick="window.open('https://naver.com ')"class="btn custom-btn mt-3 mt-lg-4">적금상세보기</button>
 													</div>
 												</div>
-											</a>
 										</div>
 									</div>
 								</div>
