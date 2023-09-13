@@ -68,12 +68,7 @@ public class SilverTownService {
 
 		Integer stdRoomSize = requestDto.getStdRoomSize();
 		Integer stPeriod = requestDto.getStPeriod();
-
-		System.out.println("name" + stName + "ttt");
-		System.out.println("city" + city + "ttt");
-		System.out.println("stType" + stType);
-		System.out.println("stScale" + stScale);
-
+		
 		Specification<SilverTownDetail> spec = (root, query, criteriaBuilder) -> null;
 
 		if (stName != null)
@@ -85,7 +80,7 @@ public class SilverTownService {
 		if (stScale != null)
 			spec = spec.and(SilverTownDetailSpecification.equalStScale(stScale));
 		if (stdRoomSize != null)
-			spec = spec.and(SilverTownDetailSpecification.equalStdRoomSize(stdRoomSize));
+			spec = spec.and(SilverTownDetailSpecification.findLessRoomSize(stdRoomSize));
 		if (stdOccupancy != null)
 			spec = spec.and(SilverTownDetailSpecification.equalStdOccupancy(stdOccupancy));
 
