@@ -33,7 +33,7 @@
 					</div>
 					<div class="col-lg-12 col-6">
 
-						<form action="login_action" method="post"
+						<form action="login" method="post"
 							class="custom-form contact-form" role="form">
 							<div class="col-lg-6 col-12 mx-auto">
 								<div class="form-floating">

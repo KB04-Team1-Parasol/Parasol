@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +19,9 @@
 <link href="/css/bootstrap-icons.css" rel="stylesheet">
 <link href="/css/templatemo-topic-listing.css" rel="stylesheet">
 <link href="/css/custom.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+
 </head>
 <body id="top">
 	<main>
@@ -27,11 +31,9 @@
 
 
 		<!-- 메인 바디 -->
-
-		<div 
-			style="background-color: #F5E2BE; 
-			 margin-bottom: 180px;  display: flex; justify-content: space-around;
-			">
+	<section class="section-padding"></section>
+		<div
+			style="background-color: #F5E2BE; margin-bottom: 180px; display: flex; justify-content: space-around;">
 			<div class="profile_inner" style="margin-left: 120px;">
 				<div
 					style="display: flex; align-items: center; margin-bottom: 20px;">
@@ -63,20 +65,20 @@
 						<span class="info_title_text">내프로필</span>
 					</div>
 
-					<ul class="base_row">
+					<ul class="base_row" style="font-family: 'Nunito', sans-serif;">
 						<li>
 							<div class="row_item id ">
-								<span class="info_item_text">${user.userId} </span>
+								<span class="info_item_text"><b>아이디</b> : ${user.userId} </span>
 							</div>
 						</li>
 						<li>
 							<div class="row_item name">
-								<span class="info_item_text">${user.userName } </span>
+								<span class="info_item_text"><b>이름</b> : ${user.userName } </span>
 							</div>
 						</li>
 						<li>
 							<div class="row_item age">
-								<span class="info_item_text">${user.userAge } </span>
+								<span class="info_item_text"><b>나이</b> : ${user.userAge } </span>
 							</div>
 						</li>
 
@@ -92,67 +94,73 @@
 						class="asset_title_text">자산정보</span>
 
 					</a>
+					<!--  신규 회원 가입 시 자산 정보 미기입 상태 -->
 
 
-
-					<ul class="base_row">
-
+					<ul class="base_row" style="font-family: 'Nunito', sans-serif;">
+					<c:choose>
+					<c:when test="${empty userAsset.finAsset}">
+						<span class="item_text">맞춤 서비스를 이용하시려면 자산 정보를 기입해주세요.</span>
+					</c:when>
+					<c:otherwise>
 						<li>
 							<div class="row_item phone ">
-								<span class="item_text"> 금융자산 : ${userAsset.finAsset}</span>
+								<span class="item_text"> <b>금융자산</b> : ${userAsset.finAsset}</span>
 
 							</div>
 						</li>
 
 						<li>
 							<div class="row_item phone ">
-								<span class="item_text"> 실물자산 : ${userAsset.realAsset}</span>
+								<span class="item_text"> <b>실물자산</b> : ${userAsset.realAsset}</span>
 
 							</div>
 						</li>
 
 						<li>
-							<div class="row_item phone ">
-								<span class="item_text"> 현금 :
-									${userAsset.pureAsset-userAsset.finAsset-userAsset.realAsset+userAsset.debt}</span>
-
+							<div class="row_item phone">
+								<span class="item_text"> <b>현금</b> :${userAsset.pureAsset - userAsset.realAsset - userAsset.finAsset + userAsset.debt }
+								</span>
 							</div>
 						</li>
 
 						<li>
 							<div class="row_item phone ">
-								<span class="item_text"> 부채 : ${userAsset.debt}</span>
+								<span class="item_text"> <b>부채</b> : ${userAsset.debt}</span>
 
 							</div>
 						</li>
 						<li>
 							<div class="row_item phone ">
-								<span class="item_text"> 월 소득 :
+								<span class="item_text"> <b>월 소득</b> :
 									${userAsset.monthlyIncome}</span>
 
 							</div>
 						</li>
 						<li>
 							<div class="row_item phone ">
-								<span class="item_text"> 연금 : ${userAsset.annuity}</span>
+								<span class="item_text"> <b>연금</b> : ${userAsset.annuity}</span>
 
 							</div>
 						</li>
 						<li>
 							<div class="row_item phone ">
-								<span class="item_text"> 입주 예상 나이 : ${userAsset.hopeAge}</span>
+								<span class="item_text"> <b>입주 예상 나이</b> : ${userAsset.hopeAge}</span>
 
 							</div>
 						</li>
 						<li>
 							<div class="row_item phone ">
-								<span class="item_text"> 희망 거주 기간 :
+								<span class="item_text"> <b>희망 거주 기간</b> :
 									${userAsset.hopePeriod}</span>
 
 							</div>
 						</li>
+						</c:otherwise>
+					</c:choose>
 					</ul>
 				</div>
+
 			</div>
 		</div>
 
