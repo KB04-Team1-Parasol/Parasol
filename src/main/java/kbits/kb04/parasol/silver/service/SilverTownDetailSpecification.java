@@ -17,8 +17,8 @@ public class SilverTownDetailSpecification {
 		return (root, query, criteriaBuilder) -> criteriaBuilder.between(root.get("stdMonthlyCost"), 0, stdMonthlyCost);
 	}
 
-	public static Specification<SilverTownDetail> equalStdRoomSize(Integer stdRoomSize) {
-		return (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("stdRoomSize"), stdRoomSize);
+	public static Specification<SilverTownDetail> findLessRoomSize(Integer stdRoomSize) {
+		return (root, query, criteriaBuilder) -> criteriaBuilder.between(root.get("stdRoomSize"), 0, stdRoomSize);
 	}
 
 	public static Specification<SilverTownDetail> equalStType(Integer stType) {

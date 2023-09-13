@@ -1,24 +1,28 @@
 package kbits.kb04.parasol.silver.dto;
 
+import java.text.DecimalFormat;
+
 import lombok.Getter;
 
 @Getter
 public class SilverTownCustomResponseDto {
-	private long stdNo;
+	private Long stdNo;
 	private String stName;
 	private String stRoomType;
-	private Integer stdDeposit;
-	private Integer stdMonthlyCost;
+	private String stdDeposit;
+	private String stdMonthlyCost;
 	private String stImgUrl;
 	
-	public SilverTownCustomResponseDto(long stdNo, String stName, String stRoomType, Integer stdDeposit,
+	DecimalFormat df = new DecimalFormat("###,###");
+	
+	public SilverTownCustomResponseDto(Long stdNo, String stName, String stRoomType, Integer stdDeposit,
 			Integer stdMonthlyCost, String stImgUrl) {
 		super();
 		this.stdNo = stdNo;
 		this.stName = stName;
 		this.stRoomType = stRoomType;
-		this.stdDeposit = stdDeposit;
-		this.stdMonthlyCost = stdMonthlyCost;
+		this.stdDeposit = df.format(stdDeposit*10000);
+		this.stdMonthlyCost = df.format(stdMonthlyCost*10000);
 		this.stImgUrl = stImgUrl;
 	}
 	

@@ -26,6 +26,8 @@ public class SilverTownDetailResponseDto {
 	private int stdRoomSize;
 	private String stdRoomType;
 	
+	private boolean isCustom = false;
+	
 	DecimalFormat df = new DecimalFormat("###,###");
 	
 	public SilverTownDetailResponseDto(SilverTownDetail silverTownDetail) {

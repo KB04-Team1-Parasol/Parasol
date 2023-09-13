@@ -65,6 +65,8 @@ public class UsersController {
     public String saveAssetInputForm(@ModelAttribute AssetInputRequestDto assetInputDto
     		,Model model) {
         // 폼에서 입력된 자산 정보를 서비스에 전달하여 저장 및 업데이트
+    	Users user = userService.findByUserId(SecurityUtil.getCurrentUserId()); 
+        assetInputDto.setUser_no(user.getUserNo());
         userService.assetInput(assetInputDto);
         return "redirect:/user/myinfo"; // 입력 후 다시 마이 페이지로 리디렉션
     }

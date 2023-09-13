@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,26 +22,26 @@
 				<div class="row gx-5 align-items-center justify-content-center">
 					<div class="col-lg-8 col-xl-7 col-xxl-6">
 						<div class="my-5 text-center text-xl-start">
-							<h1 class="display-5 fw-bolder">${ dto.getStName() }</h1>
-							<h2 class="display-7 mb-5">${ dto.getStdRoomType() }</h2>
+							<h1 class="display-5 fw-bolder">${ dto.stName }</h1>
+							<h2 class="display-7 mb-5">${ dto.stdRoomType }</h2>
 							<p class="lead fw-normal mb-2">
-								<span class="fw-bolder">주소</span> ${ dto.getAddress() }
+								<span class="fw-bolder">주소</span> ${ dto.address }
 							</p>
 							<p class="lead fw-normal mb-2">
-								<span class="fw-bolder">보증금</span> ${ dto.getStdDeposit() }원
+								<span class="fw-bolder">보증금</span> ${ dto.stdDeposit }원
 							</p>
 							<p class="lead fw-normal mb-4">
-								<span class="fw-bolder">월세</span> ${ dto.getStdMonthlyCost() }원
+								<span class="fw-bolder">월세</span> ${ dto.stdMonthlyCost }원
 							</p>
 							<div
 								class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
 								<a class="btn btn-light btn-lg px-4 me-sm-3"
-									href="${ dto.getStUrl() }" target="_blank">홈페이지 이동</a>
+									href="${ dto.stUrl }" target="_blank">홈페이지 이동</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
-						<img class="img-fluid rounded-3 my-5" src="${ dto.getStImgUrl() }"
+						<img class="img-fluid rounded-3 my-5" src="${ dto.stImgUrl }"
 							alt="..." />
 					</div>
 				</div>
@@ -75,7 +76,7 @@
 									</svg>
 								</div>
 								<h2 class="fs-4 fw-bold">유형</h2>
-								<p class="mb-0">${ dto.getStType() }</p>
+								<p class="mb-0">${ dto.stType }</p>
 							</div>
 						</div>
 					</div>
@@ -93,7 +94,7 @@
 									</svg>
 								</div>
 								<h2 class="fs-4 fw-bold">규모</h2>
-								<p class="mb-0">${ dto.getStScale() }</p>
+								<p class="mb-0">${ dto.stScale }</p>
 							</div>
 						</div>
 					</div>
@@ -112,7 +113,7 @@
 									</svg>
 								</div>
 								<h2 class="fs-4 fw-bold">계약 기간</h2>
-								<p class="mb-0">${ dto.getStPeriod() }년</p>
+								<p class="mb-0">${ dto.stPeriod }년</p>
 							</div>
 						</div>
 					</div>
@@ -128,7 +129,7 @@
 									</svg>
 								</div>
 								<h2 class="fs-4 fw-bold">세대 수</h2>
-								<p class="mb-0">${ dto.getStdOccupancy() }인</p>
+								<p class="mb-0">${ dto.stdOccupancy }인</p>
 							</div>
 						</div>
 					</div>
@@ -144,7 +145,7 @@
 									</svg>
 								</div>
 								<h2 class="fs-4 fw-bold">평수</h2>
-								<p class="mb-0">${ dto.getStdRoomSize() }평</p>
+								<p class="mb-0">${ dto.stdRoomSize }평</p>
 							</div>
 						</div>
 					</div>
@@ -162,7 +163,7 @@
 									</svg>
 								</div>
 								<h2 class="fs-4 fw-bold">부대 시설</h2>
-								<p class="mb-0">${ dto.getStFacility() }</p>
+								<p class="mb-0">${ dto.stFacility }</p>
 							</div>
 						</div>
 					</div>
@@ -170,6 +171,8 @@
 			</div>
 		</section>
 		<hr>
+		
+		<c:if test="${ dto.isCustom() }">
 		<!-- Features section-->
 		<section class="py-5" id="features">
 			<div class="row gx-5 justify-content-center mb-5">
@@ -180,149 +183,84 @@
 				</div>
 			</div>
 			<div class="container px-5 my-5">
+				<c:if test="${ dto.depositList.size() > 0 }">
 				<div class="row gx-5 mb-5">
 					<div class="col-lg-2 mb-5 mb-lg-0 mt-3">
 						<h2 class="fw-bolder mb-0">예금</h2>
 					</div>
 					<div class="col-lg-8">
-						<div
-							class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-							<div class="d-flex">
-								<div class="custom-block-topics-listing-info d-flex">
-									<div>
-										<h5 class="mb-2">상품 명: a</h5>
-										<p class="mb-0">최대 기간: aa</p>
-										<p class="mb-0">만기 이자율: aa</p>
-										<a href="" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+						<c:forEach var="deposit" items="${dto.depositList}">
+							<div
+								class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+								<div class="d-flex">
+									<div class="custom-block-topics-listing-info d-flex">
+										<div>
+											<h5 class="mb-2">상품 명: ${ deposit.depositName }</h5>
+											<p class="mb-0">최대 기간: ${ deposit.depositPeriod }개월</p>
+											<p class="mb-0">이율: ${ deposit.depositRate }%</p>
+											<a href="" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div
-							class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-							<div class="d-flex">
-								<div class="custom-block-topics-listing-info d-flex">
-									<div>
-										<h5 class="mb-2">상품 명: b</h5>
-										<p class="mb-0">최대 기간: bb</p>
-										<p class="mb-0">만기 이자율: bbb</p>
-										<a href="" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div
-							class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-							<div class="d-flex">
-								<div class="custom-block-topics-listing-info d-flex">
-									<div>
-										<h5 class="mb-2">상품 명: c</h5>
-										<p class="mb-0">최대 기간: cc</p>
-										<p class="mb-0">만기 이자율: ccc</p>
-										<a href="" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
-									</div>
-								</div>
-							</div>
-						</div>
+						</c:forEach>
 					</div>
 				</div>
+				</c:if>
 
+				<c:if test="${ dto.savingList.size() > 0 }">
 				<div class="row gx-5 mb-5">
 					<div class="col-lg-2 mb-5 mb-lg-0 mt-3">
 						<h2 class="fw-bolder mb-0">적금</h2>
 					</div>
 					<div class="col-lg-8">
-						<div
-							class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-							<div class="d-flex">
-								<div class="custom-block-topics-listing-info d-flex">
-									<div>
-										<h5 class="mb-2">상품 명: a</h5>
-										<p class="mb-0">최대 기간: aa</p>
-										<p class="mb-0">만기 이자율: aa</p>
-										<a href="" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+						<c:forEach var="saving" items="${dto.savingList}">
+							<div
+								class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+								<div class="d-flex">
+									<div class="custom-block-topics-listing-info d-flex">
+										<div>
+											<h5 class="mb-2">상품 명: ${ saving.savingNo }</h5>
+											<p class="mb-0">최대 기간: ${ saving.savingMax }</p>
+											<p class="mb-0">만기 이자율: ${ saving.savingRate }</p>
+											<a href="" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div
-							class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-							<div class="d-flex">
-								<div class="custom-block-topics-listing-info d-flex">
-									<div>
-										<h5 class="mb-2">상품 명: b</h5>
-										<p class="mb-0">최대 기간: bb</p>
-										<p class="mb-0">만기 이자율: bbb</p>
-										<a href="" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div
-							class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-							<div class="d-flex">
-								<div class="custom-block-topics-listing-info d-flex">
-									<div>
-										<h5 class="mb-2">상품 명: c</h5>
-										<p class="mb-0">최대 기간: cc</p>
-										<p class="mb-0">만기 이자율: ccc</p>
-										<a href="" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
-									</div>
-								</div>
-							</div>
-						</div>
+						</c:forEach>
 					</div>
 				</div>
+				</c:if>
 
+				<c:if test="${ dto.bondList.size() > 0 }">
 				<div class="row gx-5 mb-5">
 					<div class="col-lg-2 mb-5 mb-lg-0 mt-3">
 						<h2 class="fw-bolder mb-0">채권</h2>
 					</div>
 					<div class="col-lg-8">
+						<c:forEach var="bond" items="${dto.bondList}">
 						<div
 							class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
 							<div class="d-flex">
 								<div class="custom-block-topics-listing-info d-flex">
 									<div>
-										<h5 class="mb-2">상품 명: a</h5>
-										<p class="mb-0">최대 기간: aa</p>
-										<p class="mb-0">만기 이자율: aa</p>
+										<h5 class="mb-2">상품 명: ${ bond.bondName }</h5>
+										<p class="mb-0">만기일: ${ bond.bondDate }</p>
+										<p class="mb-0">3년 수익률: ${ bond.bondRate }</p>
+										<p class="mb-0">위험도: ${ bond.bondRisk }</p>
 										<a href="" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div
-							class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-							<div class="d-flex">
-								<div class="custom-block-topics-listing-info d-flex">
-									<div>
-										<h5 class="mb-2">상품 명: b</h5>
-										<p class="mb-0">최대 기간: bb</p>
-										<p class="mb-0">만기 이자율: bbb</p>
-										<a href="" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div
-							class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-							<div class="d-flex">
-								<div class="custom-block-topics-listing-info d-flex">
-									<div>
-										<h5 class="mb-2">상품 명: c</h5>
-										<p class="mb-0">최대 기간: cc</p>
-										<p class="mb-0">만기 이자율: ccc</p>
-										<a href="" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
-									</div>
-								</div>
-							</div>
-						</div>
+						</c:forEach>
 					</div>
 				</div>
+				</c:if>
 			</div>
 		</section>
-
+		</c:if>
 
 		<!-- footer include -->
 		<jsp:include page="/WEB-INF/jsp/common/footer.jsp" />
