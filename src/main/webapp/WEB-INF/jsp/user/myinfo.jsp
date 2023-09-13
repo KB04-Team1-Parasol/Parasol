@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,61 +19,28 @@
 <link href="/css/bootstrap-icons.css" rel="stylesheet">
 <link href="/css/templatemo-topic-listing.css" rel="stylesheet">
 <link href="/css/custom.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+
 </head>
 <body id="top">
 	<main>
 
-		<nav class="navbar navbar-expand-lg">
-			<div class="container">
-				<a class="navbar-brand" href="index.html"> <i class="bi-back"></i>
-					<span>Parasol</span>
-				</a>
-				<div class="d-lg-none ms-auto me-4">
-					<a href="#top" class="navbar-icon bi-person smoothscroll"></a>
-				</div>
-				<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarNav"
-					aria-controls="navbarNav" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav ms-lg-5 me-lg-auto">
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="#section_1">실버타운</a></li>
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="#section_2">금융상품</a></li>
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="#section_3">Information</a></li>
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="#section_4">FAQs</a></li>
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="#section_5">Contact</a></li>
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#"
-							id="navbarLightDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-							<ul class="dropdown-menu dropdown-menu-light"
-								aria-labelledby="navbarLightDropdownMenuLink">
-								<li><a class="dropdown-item" href="topics-listing.html">Topics
-										Listing</a></li>
-								<li><a class="dropdown-item" href="contact.html">Contact
-										Form</a></li>
-							</ul></li>
-					</ul>
-					<div class="d-none d-lg-block">
-						<a href="#top" class="navbar-icon bi-person smoothscroll"></a>
-					</div>
-				</div>
-			</div>
-		</nav>
+		<!-- header include -->
+		<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
 
 
 		<!-- 메인 바디 -->
-
+	<section class="section-padding"></section>
 		<div
-			style="margin-top: 180px; margin-bottom: 180px; margin-left : 180px; display: flex; justify-content: space-around;">
-			<div class="profile_inner">
+			style="background-color: #F5E2BE; margin-bottom: 180px; display: flex; justify-content: space-around;">
+			<div class="profile_inner" style="margin-left: 120px;">
+				<div
+					style="display: flex; align-items: center; margin-bottom: 20px;">
+					<img src="https://i.ibb.co/0MwnT7J/icon-set1.png" alt="icon-set1"
+						border="0" width="120" height="120">
+					<div class="now_asset_text">보유 자산 현황</div>
+				</div>
 				<canvas id="myChart" width="400" height="400"></canvas>
 
 				<script>
@@ -88,40 +56,29 @@
 			</div>
 
 
+
+
 			<div class="info_box">
 				<div class="base_box">
-					<a href="/user2/help/myInfoV2?m=viewProfile&amp;lang=ko_KR"
-						class="title" onclick="nclk(this,'nid.myprofilego','','',event)">
+					<div class="title">
 
-						<span class="title_text">내프로필</span>
-					</a>
+						<span class="info_title_text">내프로필</span>
+					</div>
 
-					<ul class="base_row">
+					<ul class="base_row" style="font-family: 'Nunito', sans-serif;">
 						<li>
-							<div class="row_item name ">
-								<span class="item_text"></span>
-
+							<div class="row_item id ">
+								<span class="info_item_text"><b>아이디</b> : ${user.userId} </span>
 							</div>
 						</li>
-
 						<li>
-							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> </span>
-
-								<table>
-									<tr>
-										<td>User ID:</td>
-										<td>${user.userId}</td>
-									</tr>
-									<tr>
-										<td>User Name:</td>
-										<td>${user.userName }</td>
-									</tr>
-									<tr>
-										<td>User Age:</td>
-										<td>${user.userAge }</td>
-									</tr>
-								</table>
+							<div class="row_item name">
+								<span class="info_item_text"><b>이름</b> : ${user.userName } </span>
+							</div>
+						</li>
+						<li>
+							<div class="row_item age">
+								<span class="info_item_text"><b>나이</b> : ${user.userAge } </span>
 							</div>
 						</li>
 
@@ -134,75 +91,79 @@
 				<div class="asset_box">
 					<a href="/user/assetinput" class="title"
 						onclick="nclk(this,'nid.myprofilego','','',event)"> <span
-						class="title_text">자산정보</span>
+						class="asset_title_text">자산정보</span>
 
 					</a>
+					<!--  신규 회원 가입 시 자산 정보 미기입 상태 -->
 
 
-
-					<ul class="base_row">
+					<ul class="base_row" style="font-family: 'Nunito', sans-serif;">
+					<c:choose>
+					<c:when test="${empty userAsset.finAsset}">
+						<span class="item_text">맞춤 서비스를 이용하시려면 자산 정보를 기입해주세요.</span>
+					</c:when>
+					<c:otherwise>
 						<li>
-							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 순자산 :
-									${userAsset.pureAsset}</span>
+							<div class="row_item phone ">
+								<span class="item_text"> <b>금융자산</b> : ${userAsset.finAsset}</span>
 
 							</div>
 						</li>
 
 						<li>
-							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 금융자산 :
-									${userAsset.finAsset}</span>
+							<div class="row_item phone ">
+								<span class="item_text"> <b>실물자산</b> : ${userAsset.realAsset}</span>
 
 							</div>
 						</li>
 
 						<li>
-							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 실물자산 :
-									${userAsset.realAsset}</span>
+							<div class="row_item phone">
+								<span class="item_text"> <b>현금</b> :${userAsset.pureAsset - userAsset.realAsset - userAsset.finAsset + userAsset.debt }
+								</span>
+							</div>
+						</li>
+
+						<li>
+							<div class="row_item phone ">
+								<span class="item_text"> <b>부채</b> : ${userAsset.debt}</span>
 
 							</div>
 						</li>
 						<li>
-							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 부채 :
-									${userAsset.debt}</span>
-
-							</div>
-						</li>
-						<li>
-							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 월 소득 :
+							<div class="row_item phone ">
+								<span class="item_text"> <b>월 소득</b> :
 									${userAsset.monthlyIncome}</span>
 
 							</div>
 						</li>
 						<li>
-							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 연금 :
-									${userAsset.annuity}</span>
+							<div class="row_item phone ">
+								<span class="item_text"> <b>연금</b> : ${userAsset.annuity}</span>
 
 							</div>
 						</li>
 						<li>
-							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 입주 예상 나이 :
-									${userAsset.hopeAge}</span>
+							<div class="row_item phone ">
+								<span class="item_text"> <b>입주 예상 나이</b> : ${userAsset.hopeAge}</span>
 
 							</div>
 						</li>
 						<li>
-							<div id="phoneNoRegDiv" class="row_item phone ">
-								<span id="phoneNoRegSpan" class="item_text"> 희망 거주 기간 :
+							<div class="row_item phone ">
+								<span class="item_text"> <b>희망 거주 기간</b> :
 									${userAsset.hopePeriod}</span>
 
 							</div>
 						</li>
+						</c:otherwise>
+					</c:choose>
 					</ul>
 				</div>
+
 			</div>
 		</div>
+
 		<a href="logout" class="form-control btn" id="logoutBtn">Log Out</a>
 
 
@@ -279,7 +240,6 @@
 
 
 
-
 		<!-- JAVASCRIPT FILES -->
 		<script src="/js/jquery.min.js"></script>
 		<script src="/js/bootstrap.bundle.min.js"></script>
@@ -288,6 +248,7 @@
 		<script src="/js/custom.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<script src="/js/asset_info_chart.js"></script>
+
 
 	</main>
 </body>

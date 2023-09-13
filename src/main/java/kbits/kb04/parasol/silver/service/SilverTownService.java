@@ -8,7 +8,6 @@ import java.util.List;
 
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import kbits.kb04.parasol.silver.dto.SearchRequestDto;
 import kbits.kb04.parasol.finance.entity.Bond;
@@ -46,9 +45,17 @@ public class SilverTownService {
 	// 이자 과세율
 	private final double interestTaxRate = 0.154;
 
+	
+	// 실버타운 검색
+	// 기본 화면위한 전체 리스트
+	@Transactional
+	public List<SilverTownDetail> townList(){
+		return silverTownDetailRepository.findAll();
+	}
+	
+	
 	// 실버타운 검색
 	// 키워드를 포함한 검색
-	@Transactional
 	public List<SilverTown> searchByKeyword(String keyword) {
 		List<SilverTown> silverTowns = this.silverTownRepository.findByStNameContaining(keyword);
 
@@ -68,12 +75,7 @@ public class SilverTownService {
 
 		Integer stdRoomSize = requestDto.getStdRoomSize();
 		Integer stPeriod = requestDto.getStPeriod();
-
-		System.out.println("name" + stName + "ttt");
-		System.out.println("city" + city + "ttt");
-		System.out.println("stType" + stType);
-		System.out.println("stScale" + stScale);
-
+		
 		Specification<SilverTownDetail> spec = (root, query, criteriaBuilder) -> null;
 
 		if (stName != null)
@@ -85,7 +87,7 @@ public class SilverTownService {
 		if (stScale != null)
 			spec = spec.and(SilverTownDetailSpecification.equalStScale(stScale));
 		if (stdRoomSize != null)
-			spec = spec.and(SilverTownDetailSpecification.equalStdRoomSize(stdRoomSize));
+			spec = spec.and(SilverTownDetailSpecification.findLessRoomSize(stdRoomSize));
 		if (stdOccupancy != null)
 			spec = spec.and(SilverTownDetailSpecification.equalStdOccupancy(stdOccupancy));
 
@@ -100,7 +102,6 @@ public class SilverTownService {
 	}
 	
 	// 상세 보기(순수 검색)
-	@Transactional
 	public SilverTownDetailResponseDto getSilverTownDetail(long stdNo) {
 		SilverTownDetail stDetail = this.silverTownDetailRepository.findById(stdNo).get();
 		return new SilverTownDetailResponseDto(stDetail);
@@ -108,7 +109,6 @@ public class SilverTownService {
 	
 	// 맞춤 실버타운 찾기
 	// 유저 정보 받기
-	@Transactional
 	public SilverTownCustomUserDto setUserDto(Users user) {
 		int pureAsset = user.getUserAsset().getPureAsset().intValue();
 		int monthlyIncome = (int)(user.getUserAsset().getMonthlyIncome() + user.getUserAsset().getAnnuity());
@@ -119,7 +119,6 @@ public class SilverTownService {
 	}
 	
 	// 총 자산(미래 기준, 금융상품 x) 구하기
-	@Transactional
 	public int getFutureAsset(SilverTownCustomUserDto userDto) {
 		// { 순자산 + (월 저축 금액 * 12) * (입주예상나이 - 현재나이) } * ( 1 + 평균물가상승률 ) * 투자가능비율
 		int pureAsset = userDto.getPureAsset();
@@ -132,34 +131,40 @@ public class SilverTownService {
 	}
 	
 	// 실버타운 필터링
-	@Transactional
-	public List<SilverTownCustomResponseDto> getSilverTownFiltering(Users user) {
+	public List<SilverTownCustomResponseDto> getSilverTownFiltering(Users user, SearchRequestDto searchRequestDto) {
 		SilverTownCustomUserDto userDto = setUserDto(user);
 		
 		// 총 자산
 		int futureAsset = this.getFutureAsset(userDto);
 		
-		List<SilverTownDetail> silverTownDetailList_total = silverTownDetailRepository.findAll();
+		Specification<SilverTownDetail> spec = (root, query, criteriaBuilder) -> null;
+		Integer stType = searchRequestDto.getStType();
+		String city = searchRequestDto.getCity();
+		if(stType != null)
+			spec = spec.and(SilverTownDetailSpecification.equalStType(searchRequestDto.getStType()));
+		if(city != null)
+			spec = spec.and(SilverTownDetailSpecification.equalCity(searchRequestDto.getCity()));
+		List<SilverTownDetail> silverTownDetailList_total = silverTownDetailRepository.findAll(spec);
 		List<SilverTownCustomResponseDto> silverTownDetailList = new ArrayList<SilverTownCustomResponseDto>();
 		for (SilverTownDetail silverTownDetail : silverTownDetailList_total) {
 			// 총 필요 비용
-			// (보증금 + 월세 * 12 * 계약거주기간 ) * ( 1 + 평균물가상승률 )
-			int stdDeposit = silverTownDetail.getStdDeposit();
-			int stdMonthlyCost = silverTownDetail.getStdMonthlyCost();
-			int stPeriod = silverTownDetail.getSilverTown().getStPeriod();
-			int totalCost = (int)((stdDeposit + stdMonthlyCost*12*stPeriod) * (1 + inflationRate));
+			int totalCost = this.getTotalCost(silverTownDetail);
 			
 			// 총 필요 비용 > 총 자산(금융상품 x)인 실버타운 필터링
 			if(totalCost > futureAsset) { 
-				List<Deposit> depositList = this.getDepositFiltering(silverTownDetail, userDto);
+				List<Deposit> depositFiltering = this.getDepositFiltering(silverTownDetail, userDto);
 				List<Saving> savingFiltering = this.getSavingFiltering(silverTownDetail, userDto);
 				List<Bond> bondFiltering = this.getBondFiltering(silverTownDetail, userDto);
+
 				// 추천 금융상품이 존재하는 실버타운 필터링
-				if(depositList.size() > 0 || savingFiltering.size() > 0 || bondFiltering.size() > 0) {
+				if(depositFiltering.size() > 0 || savingFiltering.size() > 0 || bondFiltering.size() > 0) {
 					Long stdNo = silverTownDetail.getStdNo();
 					String stName = silverTownDetail.getSilverTown().getStName();
+					int stdDeposit = silverTownDetail.getStdDeposit();
+					int stdMonthlyCost = silverTownDetail.getStdMonthlyCost();
 					String stdRoomType = silverTownDetail.getStdRoomType();
 					String stImgUrl = silverTownDetail.getSilverTown().getStImgUrl();
+					
 					SilverTownCustomResponseDto silverTownCustomResponseDto = 
 							new SilverTownCustomResponseDto(stdNo, stName, stdRoomType, stdDeposit, stdMonthlyCost, stImgUrl);
 					silverTownDetailList.add(silverTownCustomResponseDto);
@@ -171,7 +176,6 @@ public class SilverTownService {
 	}
 	
 	// 상세 보기(맞춤 검색)
-	@Transactional
 	public SilverTownDetailCustomResponseDto getSilverTownDetailCustom(long stdNo, Users user) {
 		SilverTownCustomUserDto userDto = this.setUserDto(user);
 		
@@ -189,7 +193,6 @@ public class SilverTownService {
 	}
 	
 	// 예금 필터링
-	@Transactional
 	public List<Deposit> getDepositFiltering(
 			SilverTownDetail silverTownDetail, 
 			SilverTownCustomUserDto userDto){
@@ -199,12 +202,13 @@ public class SilverTownService {
 		List<Deposit> depositList_total = depositRepository.findAll();
 		List<Deposit> depositList = new ArrayList<Deposit>();
 		for (Deposit deposit : depositList_total) {
-			// 이자: 예치금 * 만기이자율 * 기간
+			// 이자: 예치금 * 만기이자율 * 연수(기간/12)
 			// 이자과세: 이자 * 이자과세율
 			// 총 저축금: 예치금 + 이자 - 이자과세
-			int invest = (int)(yechigeum * deposit.getDepositRate() * deposit.getDepositPeriod());
+			int invest = (int)(yechigeum * deposit.getDepositRate()/100 * deposit.getDepositPeriod()/12);
 			int investTax = (int)(invest * interestTaxRate);
 			int result = yechigeum + invest - investTax;
+			
 			if(result >= totalCost) {
 				depositList.add(deposit);
 			}
@@ -214,7 +218,6 @@ public class SilverTownService {
 	}
 	
 	// 적금 필터링
-	@Transactional
 	public List<Saving> getSavingFiltering(
 			SilverTownDetail silverTownDetail, 
 			SilverTownCustomUserDto userDto){
@@ -224,15 +227,14 @@ public class SilverTownService {
 		List<Saving> savingList_total = savingRepository.findAll();
 		List<Saving> savingList = new ArrayList<Saving>();
 		for (Saving saving : savingList_total) {
-			// 총 원금: 월 저축액 * 12 * 기간 => 조건 필요(예치금 ≥ 총 원금)
-			// 개월수: 기간 * 12
+			// 총 원금: 월 저축액 * 기간 => 조건 필요(예치금 ≥ 총 원금)
 			// 총 이자: 월 저축액 * ( 이자율 / 12 ) * 개월수 * (개월수 + 1) / 2
 			// 이자과세: 총 이자 * 이자과세율
 			// 총 저축금: 총 원금 + 총 이자 - 이자과세
-			int totalOrigMoney = (int)(userDto.getMonthlyIncome()*12 * saving.getSavingPeriod());
+			int totalOrigMoney = (int)(saving.getSavingMax() * saving.getSavingPeriod());
 			if(yechigeum < totalOrigMoney) continue; // 예치금이 총 원금보다 작을 경우 skip
-			int months = (int)(saving.getSavingPeriod() * 12);
-			int totalInterest = (int)(userDto.getMonthlyIncome() * (saving.getSavingRate()/12) * months * (months+1) / 2);
+			int months = (int)(saving.getSavingPeriod()*1);
+			int totalInterest = (int)(saving.getSavingMax() * (saving.getSavingRate()/100/12) * months * (months+1) / 2);
 			int interestTax = (int)(totalInterest * interestTaxRate);
 			int result = totalOrigMoney + totalInterest - interestTax;
 			
@@ -245,7 +247,6 @@ public class SilverTownService {
 	}
 	
 	// 채권 필터링
-	@Transactional
 	public List<Bond> getBondFiltering(
 			SilverTownDetail silverTownDetail, 
 			SilverTownCustomUserDto userDto){
@@ -267,8 +268,8 @@ public class SilverTownService {
 			int remainYear = diff.getYears(); 
 			if(remainYear < 2) continue;
 			
-			// 총 저축금: 예치금 * ( 1 + 은행환산수익률 ) * 남은 기간
-			int result = (int)(yechigeum * (1 + bond.getBondRate()) * remainYear);
+			// 총 저축금: 예치금 * ( 1 + 은행환산수익률 * 남은 기간 )
+			int result = (int)(yechigeum * (1 + bond.getBondRate()/100 * remainYear));
 			if(result >= totalCost) {
 				bondList.add(bond);
 			}
@@ -284,6 +285,7 @@ public class SilverTownService {
 
 	// 실버타운 총 필요 비용 계산
 	public int getTotalCost(SilverTownDetail silverTownDetail) {
+		// (보증금 + 월세 * 12 * 계약거주기간 ) * ( 1 + 평균물가상승률 )
 		int stdDeposit = silverTownDetail.getStdDeposit();
 		int stdMonthlyCost = silverTownDetail.getStdMonthlyCost();
 		int stPeriod = silverTownDetail.getSilverTown().getStPeriod();

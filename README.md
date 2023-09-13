@@ -3,12 +3,14 @@
 ![image](https://github.com/KB04-Team1-Parasol/Parasol/assets/22187692/4c87b9ff-04e2-464b-bc4f-27b9237965ec)
 
 </div>
+
 # 파라솔 (파라다이스 라이프 솔루션)
-KB IT아카데미 It's Your Life 4기 최종 프로젝트
-노인들을 위한 실버타운 & 금융상품 추천 서비스
+### KB IT아카데미 It's Your Life 4기 최종 프로젝트
+### 노인들을 위한 실버타운 & 금융상품 추천 서비스
 
 <div align=center>
-  
+<hr>
+
 [팀 노션](https://www.naver.com/) | 
 [시연 영상](https://www.naver.com/)
 </div>
@@ -64,11 +66,11 @@ KB IT아카데미 It's Your Life 4기 최종 프로젝트
   <tbody>
     <tr>
       <td align="center"><a href="https://github.com/jh9523"><img src="https://avatars.githubusercontent.com/u/135290575?v=4" width="100px;" alt=""/><br /><sub><b>김준환 </b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/OneK-2"><img src="https://avatars.githubusercontent.com/u/85729858?v=4" width="100px;" alt=""/><br /><sub><b>BE 이원규 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/OneK-2"><img src="https://avatars.githubusercontent.com/u/85729858?v=4" width="100px;" alt=""/><br /><sub><b>이원규 </b></sub></a><br /></td>
       <td align="center"><a href="https://github.com/HwangJungHyun"><img src="https://avatars.githubusercontent.com/u/99892677?v=4" width="100px;" alt=""/><br /><sub><b>황정현 </b></sub></a><br /></td>
       <td align="center"><a href="https://github.com/junirii"><img src="https://avatars.githubusercontent.com/u/105265611?v=4" width="100px;" alt=""/><br /><sub><b>김준일 </b></sub></a><br /></td>
       <td align="center"><a href="https://github.com/raeunlee"><img src="https://avatars.githubusercontent.com/u/69973291?v=4" width="100px;" alt=""/><br /><sub><b>이라은 </b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/wooyoungman"><img src="https://avatars.githubusercontent.com/u/101693311?v=4" width="100px;" alt=""/><br /><sub><b>BE 정우영 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/wooyoungman"><img src="https://avatars.githubusercontent.com/u/101693311?v=4" width="100px;" alt=""/><br /><sub><b>정우영 </b></sub></a><br /></td>
     </tr>
   </tbody>
 </table>

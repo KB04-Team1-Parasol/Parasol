@@ -7,7 +7,7 @@
 <link href="/css/header/main.css" rel="stylesheet">
 
 <!-- ======= Header ======= -->
-<div id="header" class="header d-flex align-items-center">
+<div id="header" class="header d-flex align-items-center shadow-sm">
   <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
     <a href="/" class="logo d-flex align-items-center">
@@ -21,13 +21,14 @@
     <nav id="navbar" class="navbar_v2">
       <ul>
         <li><a href="/" class="active">Home</a></li>
-        <li class="dropdown"><a href="/silver/search"><span>실버타운</span> <i
+        <li class="dropdown"><a href="#" class=""><span>실버타운</span> <i
               class="bi bi-chevron-down dropdown-indicator"></i></a>
           <ul>
             <li><a href="/silver/search">실버타운 검색</a></li>
             <li><a href="/silver/custom">맞춤 실버타운 찾기</a></li>
           </ul>
         </li>
+
         <li class="dropdown"><a href="/finance/deposit"><span>금융상품</span> <i
               class="bi bi-chevron-down dropdown-indicator"></i></a>
           <ul>
@@ -38,17 +39,18 @@
           </ul>
         </li>
         <li><a href="projects.html">정보</a></li>
+
         <li>
         	<c:choose>
 				<c:when test="${empty sessionScope.tokenDto}">
-					<a href="user/login">
+					<a href="../../../../user/login">
 						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
 			  				<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
 			  				<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
 						</svg></a>
 				</c:when>
 				<c:otherwise>
-					<a href="user/myinfo">
+					<a href="../../../../user/myinfo">
 						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
 			  				<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
 			  				<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
@@ -57,8 +59,12 @@
 				</c:otherwise>
 			</c:choose>
 		</li>
+
       </ul>
     </nav><!-- .navbar -->
 
   </div>
 </div><!-- End Header -->
+
+<!-- Template Main JS File -->
+<script src="/js/header/main.js"></script>
