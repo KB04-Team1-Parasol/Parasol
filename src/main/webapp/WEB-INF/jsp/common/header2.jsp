@@ -7,7 +7,7 @@
 <link href="/css/header/main.css" rel="stylesheet">
 
 <!-- ======= Header ======= -->
-<div id="header" class="header d-flex align-items-center">
+<div id="header" class="header d-flex align-items-center shadow-sm">
   <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
     <a href="/" class="logo d-flex align-items-center">
@@ -21,7 +21,7 @@
     <nav id="navbar" class="navbar_v2">
       <ul>
         <li><a href="/" class="active">Home</a></li>
-        <li class="dropdown"><a href="/silver/search"><span>실버타운</span> <i
+        <li class="dropdown"><a href="#" class=""><span>실버타운</span> <i
               class="bi bi-chevron-down dropdown-indicator"></i></a>
           <ul>
             <li><a href="/silver/search">실버타운 검색</a></li>
@@ -62,3 +62,6 @@
 
   </div>
 </div><!-- End Header -->
+
+<!-- Template Main JS File -->
+<script src="/js/header/main.js"></script>
