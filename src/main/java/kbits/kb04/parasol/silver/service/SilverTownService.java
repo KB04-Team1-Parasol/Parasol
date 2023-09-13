@@ -128,13 +128,20 @@ public class SilverTownService {
 	
 	// 실버타운 필터링
 	@Transactional
-	public List<SilverTownCustomResponseDto> getSilverTownFiltering(Users user) {
+	public List<SilverTownCustomResponseDto> getSilverTownFiltering(Users user, SearchRequestDto searchRequestDto) {
 		SilverTownCustomUserDto userDto = setUserDto(user);
 		
 		// 총 자산
 		int futureAsset = this.getFutureAsset(userDto);
 		
-		List<SilverTownDetail> silverTownDetailList_total = silverTownDetailRepository.findAll();
+		Specification<SilverTownDetail> spec = (root, query, criteriaBuilder) -> null;
+		Integer stType = searchRequestDto.getStType();
+		String city = searchRequestDto.getCity();
+		if(stType != null)
+			spec = spec.and(SilverTownDetailSpecification.equalStType(searchRequestDto.getStType()));
+		if(city != null)
+			spec = spec.and(SilverTownDetailSpecification.equalCity(searchRequestDto.getCity()));
+		List<SilverTownDetail> silverTownDetailList_total = silverTownDetailRepository.findAll(spec);
 		List<SilverTownCustomResponseDto> silverTownDetailList = new ArrayList<SilverTownCustomResponseDto>();
 		for (SilverTownDetail silverTownDetail : silverTownDetailList_total) {
 			// 총 필요 비용

@@ -38,6 +38,8 @@ public class SilverTownDetailCustomResponseDto {
 	
 	DecimalFormat df = new DecimalFormat("###,###");
 	
+	private boolean isCustom = true;
+	
 	public SilverTownDetailCustomResponseDto(
 			SilverTownDetail silverTownDetail,
 			List<Deposit> depositList,

@@ -110,8 +110,7 @@ public class SilverTownController {
 
 	// 맞춤 실버타운 찾기(리스트)
 	@PostMapping("/custom")
-	public String silver_custom_list(@RequestParam("city") String city, @RequestParam("stType") int stType,
-			Model model) {
+	public String silver_custom_list(SearchRequestDto requestDto, Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		Users user = usersService.findByUserId(authentication.getName());
 		
@@ -126,7 +125,7 @@ public class SilverTownController {
 		}
 		
 		List<SilverTownCustomResponseDto> silverTownCustomList = 
-				silverTownService.getSilverTownFiltering(user);
+				silverTownService.getSilverTownFiltering(user, requestDto);
 		model.addAttribute("silverTownCustomList", silverTownCustomList);
 
 		return "silver/custom_list";
