@@ -67,7 +67,7 @@
 						<h6 class="text-center">나만의 실버타운을 찾아보세요!</h6>
 
 						<form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5"
-							role="search" action="/silver/search">
+							role="search" action="/silver/search_keyword">
 							<div class="input-group input-group-lg">
 								<span class="input-group-text bi-search" id="basic-addon1">
 
@@ -165,51 +165,42 @@
 								<div class="row">
 									<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
 										<div class="custom-block bg-white shadow-lg">
-											<a href="topics-detail.html">
+											<a href="/info/info/9">
 												<div class="d-flex">
 													<div>
-														<h5 class="mb-2">Advertising</h5>
+														<h5 class="mb-2">수요 증가하는 실버타운… 대기 시간 5년·보증금 최고 9억 원</h5>
 
-														<p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
 													</div>
-
-													<span class="badge bg-advertising rounded-pill ms-auto">30</span>
-												</div> <img src="images/topics/undraw_online_ad_re_ol62.png"
-												class="custom-block-image img-fluid" alt="">
+												</div> <img src="https://img.etoday.co.kr/pto_db/2023/07/600/20230714114306_1905977_1200_600.jpg"
+												class="custom-block-image img-fluid" onerror="this.src='/images/main.jpg'">
 											</a>
 										</div>
 									</div>
 
 									<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
 										<div class="custom-block bg-white shadow-lg">
-											<a href="topics-detail.html">
+											<a href="/info/info/1">
 												<div class="d-flex">
 													<div>
-														<h5 class="mb-2">Video Content</h5>
+														<h5 class="mb-2">고령화시대 '실버타운' 알아보는 노인들,입주시 기본 체크사항은?</h5>
 
-														<p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
 													</div>
-
-													<span class="badge bg-advertising rounded-pill ms-auto">65</span>
-												</div> <img src="images/topics/undraw_Group_video_re_btu7.png"
-												class="custom-block-image img-fluid" alt="">
+												</div> <img src="https://cdn.kgrow.co.kr/news/photo/202301/822433_4266_1149.jpg"
+												class="custom-block-image img-fluid" onerror="this.src='/images/main.jpg'">
 											</a>
 										</div>
 									</div>
 
-									<div class="col-lg-4 col-md-6 col-12">
+									<div class="col-lg-4 col-md-6 col-12 mb-lg-3">
 										<div class="custom-block bg-white shadow-lg">
-											<a href="topics-detail.html">
+											<a href="/info/info/1">
 												<div class="d-flex">
 													<div>
-														<h5 class="mb-2">Viral Tweet</h5>
+														<h5 class="mb-2">나를 위한 맞춤공간 '실버타운' 인기...민간ㆍ공공 건설 붐</h5>
 
-														<p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
 													</div>
-
-													<span class="badge bg-advertising rounded-pill ms-auto">50</span>
-												</div> <img src="images/topics/undraw_viral_tweet_gndb.png"
-												class="custom-block-image img-fluid" alt="">
+												</div> <img src="https://cdn.emozak.co.kr/news/photo/202204/5156_11954_1957.jpg"
+												class="custom-block-image img-fluid" onerror="this.src='/images/main.jpg'">
 											</a>
 										</div>
 									</div>
@@ -221,51 +212,42 @@
 								<div class="row">
 									<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
 										<div class="custom-block bg-white shadow-lg">
-											<a href="topics-detail.html">
+											<a href="/info/info/1">
 												<div class="d-flex">
 													<div>
-														<h5 class="mb-2">Advertising</h5>
+														<h5 class="mb-2">은퇴 앞두고 있다면 부채관리는 이렇게!</h5>
 
-														<p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
 													</div>
-
-													<span class="badge bg-advertising rounded-pill ms-auto">30</span>
-												</div> <img src="images/topics/undraw_online_ad_re_ol62.png"
-												class="custom-block-image img-fluid" alt="">
+												</div> <img src="https://image.ajunews.com/content/image/2021/03/03/20210303074620389150.jpg"
+												class="custom-block-image img-fluid" onerror="this.src='/images/main.jpg'">
 											</a>
 										</div>
 									</div>
 
 									<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
 										<div class="custom-block bg-white shadow-lg">
-											<a href="topics-detail.html">
+											<a href="/info/info/1">
 												<div class="d-flex">
 													<div>
-														<h5 class="mb-2">Video Content</h5>
+														<h5 class="mb-2">“자식이니까 신고못해” 노인 파산 이끄는 ‘금융착취’</h5>
 
-														<p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
 													</div>
-
-													<span class="badge bg-advertising rounded-pill ms-auto">65</span>
-												</div> <img src="images/topics/undraw_Group_video_re_btu7.png"
-												class="custom-block-image img-fluid" alt="">
+												</div> <img src="https://img.etoday.co.kr/pto_db/2023/09/600/20230901173705_1922942_1200_877.jpg"
+												class="custom-block-image img-fluid" onerror="this.src='/images/main.jpg'">
 											</a>
 										</div>
 									</div>
 
-									<div class="col-lg-4 col-md-6 col-12">
+									<div class="col-lg-4 col-md-6 col-12 mb-lg-3">
 										<div class="custom-block bg-white shadow-lg">
-											<a href="topics-detail.html">
+											<a href="/info/info/1">
 												<div class="d-flex">
 													<div>
-														<h5 class="mb-2">Viral Tweet</h5>
+														<h5 class="mb-2">[시니어를 잡아라]가속화되는 디지털 금융 속 시니어 잡기 ‘열풍’</h5>
 
-														<p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
 													</div>
-
-													<span class="badge bg-advertising rounded-pill ms-auto">50</span>
-												</div> <img src="images/topics/undraw_viral_tweet_gndb.png"
-												class="custom-block-image img-fluid" alt="">
+												</div> <img src="https://image.dnews.co.kr/photo/photo/2023/02/09/202302091043299290642-2-349594.JPG"
+												class="custom-block-image img-fluid" onerror="this.src='/images/main.jpg'">
 											</a>
 										</div>
 									</div>
@@ -298,14 +280,13 @@
 
 													</div>
 
-													<span class="badge bg-advertising rounded-pill ms-auto">65</span>
 												</div> <img src="http://www.newsmp.com/news/photo/202308/235622_251184_5051.jpg" 
 													class="custom-block-image img-fluid" onerror="this.src='/images/main.jpg'">
 											</a>
 										</div>
 									</div>
 
-									<div class="col-lg-4 col-md-6 col-12">
+									<div class="col-lg-4 col-md-6 col-12 mb-lg-3">
 										<div class="custom-block bg-white shadow-lg">
 											<a href="/info/info/8">
 												<div class="d-flex">
@@ -335,7 +316,7 @@
 				<div class="row">
 
 					<div class="col-lg-6 col-12">
-						<h2 class="mb-4">Frequently Asked Questions</h2>
+						<h2 class="mb-4">자주 묻는 질문</h2>
 					</div>
 
 					<div class="clearfix"></div>
@@ -351,17 +332,14 @@
 									<button class="accordion-button" type="button"
 										data-bs-toggle="collapse" data-bs-target="#collapseOne"
 										aria-expanded="true" aria-controls="collapseOne">
-										What is Topic Listing?</button>
+										맞춤 서비스를 이용하려면 어떻게 해야하나요?</button>
 								</h2>
 
 								<div id="collapseOne" class="accordion-collapse collapse show"
 									aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-									<div class="accordion-body">
-										Topic Listing is free Bootstrap 5 CSS template. <strong>You
-											are not allowed to redistribute this template</strong> on any other
-										template collection website without our permission. Please
-										contact TemplateMo for more detail. Thank you.
-									</div>
+									<div class="accordion-body">기본적으로, 회원 가입 후 오른쪽 상단 헤더의 유저
+										아이콘을 클릭하여 자산기입을 해야합니다. 자산 기입 후, 실버타운 및 금융 상품탭의 맞춤 서비스를 이용하여
+										고객님의 자산정보에 따른 상품을 추천받을 수 있습니다.</div>
 								</div>
 							</div>
 
@@ -370,16 +348,13 @@
 									<button class="accordion-button collapsed" type="button"
 										data-bs-toggle="collapse" data-bs-target="#collapseTwo"
 										aria-expanded="false" aria-controls="collapseTwo">
-										How to find a topic?</button>
+										예상 입주 나이가 확실히 정해지지 않아도 괜찮나요?</button>
 								</h2>
 
 								<div id="collapseTwo" class="accordion-collapse collapse"
 									aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-									<div class="accordion-body">
-										You can search on Google with <strong>keywords</strong> such
-										as templatemo portfolio, templatemo one-page layouts,
-										photography, digital marketing, etc.
-									</div>
+									<div class="accordion-body">예상 입주나이가 정확하지 않은 경우에도 충분히 추천
+										서비스를 이용하실 수 있습니다. 하지만, 예상 입주나이가 정확할수록 추천을 했을 때 정확도 또한 올라갑니다.</div>
 								</div>
 							</div>
 
@@ -388,18 +363,14 @@
 									<button class="accordion-button collapsed" type="button"
 										data-bs-toggle="collapse" data-bs-target="#collapseThree"
 										aria-expanded="false" aria-controls="collapseThree">
-										Does it need to paid?</button>
+										더 많은 추천을 받고 싶은 경우, 어떻게 해야하나요?</button>
 								</h2>
 
 								<div id="collapseThree" class="accordion-collapse collapse"
 									aria-labelledby="headingThree"
 									data-bs-parent="#accordionExample">
 									<div class="accordion-body">
-										You can modify any of this with custom CSS or overriding our
-										default variables. It's also worth noting that just about any
-										HTML can go within the
-										<code>.accordion-body</code>
-										, though the transition does limit overflow.
+										추천 서비스 이외에도 필터링 검색을 통하여 실버타운 및 금융상품에 대해 검색하여 원하는 정보를 얻으실 수 있습니다.
 									</div>
 								</div>
 							</div>

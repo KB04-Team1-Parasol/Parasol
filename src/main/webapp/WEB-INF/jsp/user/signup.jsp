@@ -82,7 +82,7 @@
 	</main>
 
 	<!-- footer include -->
-	<jsp:include page="/WEB-INF/jsp/common/footer.jsp" />
+	<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp" />
 	
 	
 	<!-- JAVASCRIPT FILES -->

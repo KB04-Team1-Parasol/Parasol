@@ -2,7 +2,6 @@
 
 .featured-section {
 	background-color: #F5E2BE;
-	
 }
 
 .navbar {
@@ -174,4 +173,11 @@
     line-height: 20px;
     letter-spacing: -.19px;
     color: #fff;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
