@@ -72,15 +72,15 @@
 						</div>
 						<div class="carousel-inner h-100">
 							<div class="carousel-item active" data-bs-interval="3000">
+								<img src="images/main/main4.png"
+									class="custom-block-image img-fluid">
+							</div>
+							<div class="carousel-item" data-bs-interval="3000">
 								<img src="images/main/main.jpg"
 									class="custom-block-image img-fluid">
 							</div>
 							<div class="carousel-item" data-bs-interval="3000">
 								<img src="images/main/main2.png"
-									class="custom-block-image img-fluid">
-							</div>
-							<div class="carousel-item" data-bs-interval="3000">
-								<img src="images/main/main3.jpg"
 									class="custom-block-image img-fluid">
 							</div>
 						</div>

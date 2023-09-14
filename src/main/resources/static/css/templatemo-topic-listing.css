@@ -12,7 +12,7 @@ https://templatemo.com/tm-590-topic-listing
 :root {
   --white-color: #ffffff;
   --primary-color: #13547a;
-  --secondary-color: #80d0c7;
+  --secondary-color: #FEB900;
   --section-bg-color: #f0f8ff;
   --custom-btn-bg-color: #E0A83E;			/* TODO */
   --custom-btn-bg-hover-color: #EBC57C;
@@ -1110,11 +1110,6 @@ blockquote {
   .nav-tabs .nav-link {
     font-size: var(--copyright-font-size);
     padding: 10px;
-  }
-
-  .featured-section {
-    border-radius: 0 0 80px 80px;
-    padding-bottom: 50px;
   }
 
   .custom-block-topics-listing .custom-block-image {
