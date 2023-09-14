@@ -134,11 +134,18 @@ public class FinanceController {
     @GetMapping("bond/{bondNo}")
     public String showBondDetail(@PathVariable Long bondNo, Model model) {
         Optional<Bond> optionalBond = financeService.findBybondNo(bondNo);
-
+        LocalDate now = LocalDate.now();
+        int nyear = (now.getYear()-2000) * 12;	// 23년 X 12월 = 276년
+        int nmonth = now.getMonthValue();
+        int summonth = nyear + nmonth;	// OO년 X 12 + OO월  ex) 23*12 + 9
+        System.out.println(nyear +"년" + nmonth+"월");
+        
         if (optionalBond.isPresent()) {
             Bond bond = optionalBond.get();
+            System.out.println("년도"+(bond.getBondDate().getYear()-100) ); 
             model.addAttribute("bond", bond);
             model.addAttribute("currentYear", LocalDate.now().getYear());
+            model.addAttribute("nyear", nyear);
             return "finance/bondDetail"; // 상세 정보를 보여줄 JSP 페이지 이름
         } else {
             return "depositNotFoundPage"; // 상품이 없을 때 보여줄 JSP 페이지 이름

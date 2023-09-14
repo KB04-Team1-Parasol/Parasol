@@ -71,8 +71,4 @@ public class Bond {
 		return bondDate.getMonth() + 4 - LocalDate.now().getDayOfMonth();
 	}
 	
-	public int getIntRate() {
-		return (int)(bondRate*100);
-	}
-	
 }
