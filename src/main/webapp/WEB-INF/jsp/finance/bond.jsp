@@ -95,9 +95,8 @@
 											<h5 class="mb-2">${bond.bondName}</h5>
 											<p class="mb-0">만기일 : ${bond.bondDate}</p>
 											<p class="mb-0">
-												3년 수익률 : <span style="color: red;">${bond.bondRate}%</span>
+												3년 수익률 : <span style="color: red; font-weight: bold; ">${bond.bondRate}%</span>
 											</p>
-											<p class="mb-0">위험도: ${bond.bondRisk}</p>
 											<a href="<c:url value="/finance/bond/${bond.bondNo}" />"
 												class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
 										</div>
