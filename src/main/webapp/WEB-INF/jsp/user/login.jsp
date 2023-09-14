@@ -17,7 +17,7 @@
 <jsp:include page="/WEB-INF/jsp/settings/css.jsp" />
 </head>
 
-<body id="top">
+<body class="topics-listing-page" id="top">
 	<main>
 		<!-- header include -->
 

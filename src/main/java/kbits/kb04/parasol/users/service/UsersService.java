@@ -27,6 +27,7 @@ import kbits.kb04.parasol.users.dto.AssetInputRequestDto;
 import kbits.kb04.parasol.users.dto.UsersDto;
 import kbits.kb04.parasol.users.entity.UserAsset;
 import kbits.kb04.parasol.users.entity.Users;
+import kbits.kb04.parasol.users.enums.UserAssetStatus;
 import kbits.kb04.parasol.users.exception.UsersNotFoundException;
 import kbits.kb04.parasol.users.repository.UserAssetRepository;
 import kbits.kb04.parasol.users.repository.UsersRepository;
@@ -157,6 +158,14 @@ public class UsersService {
         if(userAssetByNo.isPresent()) {
         	UserAsset userAsset = requestDto.userAssetFromDto();
         	userAssetRepository.save(userAsset);
+        	
+        	Optional<Users> userById = userRepository.findById(requestDto.getUser_no());
+            if (userById.isPresent()) {
+                Users user = userById.get();
+                // user_asset_status 필드에 값을 설정
+                user.setUserAssetStatus(UserAssetStatus.INPUT_OK); // 여기서 "어떤값"을 원하는 값으로 설정
+                userRepository.save(user);
+            }
         	
         }
 
