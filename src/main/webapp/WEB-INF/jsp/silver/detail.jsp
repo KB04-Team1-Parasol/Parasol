@@ -18,13 +18,13 @@
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
 
 		<!-- Header-->
-		<header class="bg-yellow header_silver">
+		<header class="header_silver">
 			<div class="container px-5">
 				<div class="row gx-5 align-items-center justify-content-center">
 					<div class="col-lg-8 col-xl-7 col-xxl-6">
 						<div class="my-5 text-center text-xl-start">
 							<h1 class="display-5 fw-bolder">${ dto.stName }</h1>
-							<h2 class="display-7 mb-5">${ dto.stdRoomType }</h2>
+							<h3 class="display-7 mb-5">${ dto.stdRoomType }</h3>
 							<p class="lead fw-normal mb-2">
 								<span class="fw-bolder">주소</span> ${ dto.address }
 							</p>
@@ -48,9 +48,10 @@
 				</div>
 			</div>
 		</header>
+		<hr>
 
 		<!-- Page Content-->
-		<section class="pt-4">
+		<section class="pt-5">
 			<div class="row gx-5 justify-content-center mb-5">
 				<div class="col-lg-8 col-xl-6">
 					<div class="text-center">
@@ -226,7 +227,6 @@
 						                <!-- 이미지 및 기타 정보 출력 -->
 						                <div class="custom-block-topics-listing-info d-flex">
 						                    <div>
-						                    	<p>ddd</p>
 						                        <h5 class="mb-2">${saving.savingName}</h5>
 						                        <p class="mb-0">최대 기간: ${saving.savingPeriod}개월</p>
 						                        <p class="mb-0">이율 : ${saving.savingRate}%</p>
@@ -252,7 +252,6 @@
 						                <!-- 이미지 및 기타 정보 출력 -->
 						                <div class="custom-block-topics-listing-info d-flex">
 						                    <div>
-						                    	<p>ddd</p>
 						                    	<div class="mb-3 justify-content-start">
 											    <c:choose>
 											        <c:when test="${bond.bondRisk == 1}"><span class="bondbadge bg-1design rounded-pill">초저위험</span></c:when>
@@ -286,6 +285,12 @@
 
 		<!-- JAVASCRIPT FILES -->
 		<jsp:include page="/WEB-INF/jsp/settings/js.jsp" />
+		<script>
+			var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+			var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+			  return new bootstrap.Tooltip(tooltipTriggerEl)
+			})
+		</script>
 
 	</main>
 </body>
