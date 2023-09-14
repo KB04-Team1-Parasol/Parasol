@@ -42,7 +42,7 @@
 		</header>
 
 
-		<section class="section-padding">
+		<section class="section-padding section-background-image">
 			<div class="container">
 				<div class="row">
 					<div class=" col-lg-8 col-12 mt-3 mx-auto">

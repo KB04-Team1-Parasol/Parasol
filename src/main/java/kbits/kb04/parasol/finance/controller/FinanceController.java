@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.data.domain.Page;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -21,6 +23,7 @@ import kbits.kb04.parasol.users.dto.AssetInputRequestDto;
 import kbits.kb04.parasol.users.dto.UsersDto;
 import kbits.kb04.parasol.users.entity.UserAsset;
 import kbits.kb04.parasol.users.entity.Users;
+import kbits.kb04.parasol.users.enums.UserAssetStatus;
 import kbits.kb04.parasol.users.service.UsersService;
 import lombok.RequiredArgsConstructor;
 import kbits.kb04.parasol.finance.repository.DepositRepository;
@@ -162,8 +165,19 @@ public class FinanceController {
      */
     
     @GetMapping("/personal")
-    public String personalInvest() {	
+    public String personalInvest(Model model) {	
     	// 토큰 있으면 넘기고 , 없으면 로그인으로 그냥 보내기
+    	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+		// 토큰 없을때
+		if (!isUserLoggedIn(authentication, model)) {
+			return "common/confirm";
+		}
+
+		// 자산 정보 없을 때
+		if (!isUserAssetInputComplete(authentication, model)) {
+			return "common/confirm";
+		}
     	
     	return "finance/personal";
     }
@@ -211,6 +225,26 @@ public class FinanceController {
     	return "finance/result";
     }
     
+    // 로그인 상태를 확인하고 필요한 메시지 및 URL을 설정하여 처리하는 함수
+ 	private boolean isUserLoggedIn(Authentication authentication, Model model) {
+ 		if (authentication.getName().equals("anonymousUser")) {
+ 			model.addAttribute("msg", "로그인이 필요한 서비스입니다. 로그인 창으로 이동하시겠습니까?");
+ 			model.addAttribute("url", "/user/login");
+ 			return false;
+ 		}
+ 		return true;
+ 	}
+ 	
+ 	// 사용자 자산 정보 상태를 확인하고 필요한 메시지 및 URL을 설정하여 처리하는 함수
+ 	private boolean isUserAssetInputComplete(Authentication authentication, Model model) {
+ 		Users user = userService.findByUserId(authentication.getName());
+ 		if (user.getUserAssetStatus() == UserAssetStatus.INPUT_NO) {
+ 			model.addAttribute("msg", "자산 정보 입력이 필요한 서비스입니다. 자산 정보 기입창으로 이동하시겠습니까?");
+ 			model.addAttribute("url", "/user/assetinput");
+ 			return false;
+ 		}
+ 		return true;
+ 	}
     
 
 }

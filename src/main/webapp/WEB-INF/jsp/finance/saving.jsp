@@ -51,7 +51,7 @@ https://templatemo.com/tm-590-topic-listing
 						<div class="col-lg-8 col-12 mt-3 mx-auto">
 						    <c:forEach var="saving" items="${savingList.content}">
 						        <div class="custom-block-fin custom-block-topics-listing bg-white shadow-lg mb-5">
-						            <div class="d-flex">
+						            <div class="d-flex justify-content-between">
 						                <!-- 이미지 및 기타 정보 출력 -->
 						                <div class="custom-block-topics-listing-info d-flex">
 						                    <div>
@@ -64,9 +64,9 @@ https://templatemo.com/tm-590-topic-listing
 						                </div>
 						                
 						                <div class="d-flex col-5 justify-content-end">
-										<c:set var="kbcha" value="${saving.savingNo % 5 + 1}" />
+										<c:set var="kbcha" value="${saving.savingNo % 7 + 1}" />
 										<img src="/images/fr${kbcha}.png" alt="">
-										</div>
+									</div>
 						            
 						            </div>
 						        </div>
