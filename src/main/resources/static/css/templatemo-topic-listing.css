@@ -142,6 +142,11 @@ strong {
   padding-bottom: 100px;
 }
 
+.section-padding-silver-f{
+	padding-top: 65px;
+  	padding-bottom: 65px;
+}
+
 .section-bg {
   background-color: var(--section-bg-color);
 }
