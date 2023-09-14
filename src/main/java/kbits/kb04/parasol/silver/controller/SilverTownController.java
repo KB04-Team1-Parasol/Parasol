@@ -109,19 +109,14 @@ public class SilverTownController {
 	@GetMapping("/custom")
 	public String silver_custom(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		
+
 		// 로그인 정보 없을 때
-		if(authentication.getName() == "anonymousUser") {
-			model.addAttribute("msg", "로그인이 필요한 서비스입니다. 로그인 창으로 이동하시겠습니까?");
-			model.addAttribute("url", "/user/login");
+		if (!isUserLoggedIn(authentication, model)) {
 			return "common/confirm";
 		}
-		
-		Users user = usersService.findByUserId(authentication.getName());
+
 		// 자산 정보 없을 때
-		if(user.getUserAssetStatus() == UserAssetStatus.INPUT_NO) {
-			model.addAttribute("msg", "자산 정보 입력이 필요한 서비스입니다. 자산 정보 기입창으로 이동하시겠습니까?");
-			model.addAttribute("url", "/user/assetinput");
+		if (!isUserAssetInputComplete(authentication, model)) {
 			return "common/confirm";
 		}
 
@@ -135,17 +130,17 @@ public class SilverTownController {
 		Users user = usersService.findByUserId(authentication.getName());
 
 		// 로그인 정보 없을 때
-		if (user == null) {
-
+		if (!isUserLoggedIn(authentication, model)) {
+			return "common/confirm";
 		}
 
 		// 자산 정보 없을 때
-		if (user.getUserAssetStatus() == UserAssetStatus.INPUT_NO) {
-
+		if (!isUserAssetInputComplete(authentication, model)) {
+			return "common/confirm";
 		}
 
-		List<SilverTownCustomResponseDto> silverTownCustomList 
-			= silverTownService.getSilverTownFiltering(user, requestDto);
+		List<SilverTownCustomResponseDto> silverTownCustomList = silverTownService.getSilverTownFiltering(user,
+				requestDto);
 		model.addAttribute("silverTownCustomList", silverTownCustomList);
 
 		return "silver/custom_list";
@@ -167,19 +162,40 @@ public class SilverTownController {
 		Users user = usersService.findByUserId(authentication.getName());
 
 		// 로그인 정보 없을 때
-		if (user == null) {
-
+		if (!isUserLoggedIn(authentication, model)) {
+			return "common/confirm";
 		}
 
 		// 자산 정보 없을 때
-		if (user.getUserAssetStatus() == UserAssetStatus.INPUT_NO) {
-
+		if (!isUserAssetInputComplete(authentication, model)) {
+			return "common/confirm";
 		}
 
 		SilverTownDetailCustomResponseDto dto = silverTownService.getSilverTownDetailCustom(std_no, user);
 		model.addAttribute("dto", dto);
 
 		return "silver/detail";
+	}
+
+	// 로그인 상태를 확인하고 필요한 메시지 및 URL을 설정하여 처리하는 함수
+	private boolean isUserLoggedIn(Authentication authentication, Model model) {
+		if (authentication.getName().equals("anonymousUser")) {
+			model.addAttribute("msg", "로그인이 필요한 서비스입니다. 로그인 창으로 이동하시겠습니까?");
+			model.addAttribute("url", "/user/login");
+			return false;
+		}
+		return true;
+	}
+
+	// 사용자 자산 정보 상태를 확인하고 필요한 메시지 및 URL을 설정하여 처리하는 함수
+	private boolean isUserAssetInputComplete(Authentication authentication, Model model) {
+		Users user = usersService.findByUserId(authentication.getName());
+		if (user.getUserAssetStatus() == UserAssetStatus.INPUT_NO) {
+			model.addAttribute("msg", "자산 정보 입력이 필요한 서비스입니다. 자산 정보 기입창으로 이동하시겠습니까?");
+			model.addAttribute("url", "/user/assetinput");
+			return false;
+		}
+		return true;
 	}
 
 }

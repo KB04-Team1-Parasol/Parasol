@@ -182,26 +182,76 @@
 											<small> (채권수량기준)</small>
 
 										</div>
+										
+										
+										
 									</div>
 								</div>
 							</div>
 						</div>
 						<div
 							class="row custom-block custom-block-topics-listing bg-white shadow-lg mb-5 d-flex">
-							<div
-								class="d-flex justify-content-center align-items-center mb-5">
+							<div class="d-flex justify-content-center align-items-center mb-5">
 								<h4>가상투자해보기</h4>
 								<br>
 							</div>
 							<div class="d-flex justify-content-center align-items-center">
-								<h2>1000만원</h2>
-								<h4>을 투자한다면,</h4>
+								<h2 class="text-detail">1000만원</h2>
+								<h4>을</h4>
+								<h2 class="text-detail">${(bond.year - currentYear) * 12 + bond.month }개월간</h2>
+								<h4>투자한다면,</h4>
 							</div>
 							<div class="d-flex justify-content-center align-items-center">
 								<h4>만기 예상 금액은(세전)</h4>
 							</div>
+							<div class="d-flex justify-content-center align-items-center mb-3">
+								<h2 class="text-detail"> ${ Math.round((((bond.year - currentYear) * 12 + bond.month) / 12 * bond.bondRate +100) * 100000) }원</h2>
+								 <h4>입니다.</h4>
+							</div>
+							<hr>
+							
+							<div class="mb-3">  </div>
+							<div class="d-flex justify-content-center mb-5">  
+								<div class="col-lg-5">
+									<div>
+										<h5>이 채권의 주요 정보는?</h5>
+									</div>
+									<hr>
+									<!-- 1. -->
+									<div class="left-box">투자등급</div>
+									<c:choose>
+								        <c:when test="${bond.bondRisk == 1}"><div class="right-box">초저위험</div><br></c:when>
+										<c:when test="${bond.bondRisk == 2}">
+											<div class="right-box">저위험</div>
+											<br>
+										</c:when>
+										<c:when test="${bond.bondRisk == 3}"><div class="right-box">중위험</div><br></c:when>
+								        <c:when test="${bond.bondRisk == 4}"><div class="right-box">고위험</div><br></c:when>
+								        <c:when test="${bond.bondRisk == 5}"><div class="right-box">초고위험</div><br></c:when>
+								        <c:otherwise>알 수 없는 위험</c:otherwise>
+								    </c:choose>
+									<!-- 2. -->
+									<div class="left-box">이자지급방법</div>
+									<div class="right-box">이표채(확정금리)</div><br>
+									<!-- 3. -->
+									<div class="left-box">이자지급주기</div>
+									<div class="right-box">${bond.bondCycle}개월</div><br>
+									<!-- 4. -->
+									<div class="left-box">신용등급</div>
+									<div class="right-box">${bond.bondCredit}</div><br>
+									<!-- 5. -->
+									<div class="left-box">투자기간</div>
+									<div class="right-box">${((bond.year - currentYear) * 12 + bond.month)*31} 일</div><br>
+								</div>
+							</div>
+							
+							
+							<div>
+							<h7> * 가상투자 결과물은 고객님의 이해를 돕기 위해 </h7>
+							<h6 class="text-red"> 계산된 예상 금액으로 실제와 차이가 있을 수 있으니 유의 바랍니다.</h6>
+							</div>
+							
 						</div>
-
 
 
 

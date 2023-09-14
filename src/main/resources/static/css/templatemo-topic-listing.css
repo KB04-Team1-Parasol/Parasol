@@ -14,8 +14,8 @@ https://templatemo.com/tm-590-topic-listing
   --primary-color: #13547a;
   --secondary-color: #80d0c7;
   --section-bg-color: #f0f8ff;
-  --custom-btn-bg-color: #80d0c7;				/* TODO */
-  --custom-btn-bg-hover-color: #13547a;
+  --custom-btn-bg-color: #E0A83E;			/* TODO */
+  --custom-btn-bg-hover-color: #EBC57C;
   --dark-color: #000000;
   --p-color: #717275;
   --border-color: #7fffd4;
@@ -140,6 +140,11 @@ strong {
 .section-padding {
   padding-top: 100px;
   padding-bottom: 100px;
+}
+
+.section-padding-silver-f{
+	padding-top: 65px;
+  	padding-bottom: 65px;
 }
 
 .section-bg {

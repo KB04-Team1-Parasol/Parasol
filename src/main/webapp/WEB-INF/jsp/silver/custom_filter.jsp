@@ -7,6 +7,7 @@
 <title>맞춤 실버타운 찾기</title>
 <!-- css setting -->
 <jsp:include page="/WEB-INF/jsp/settings/css.jsp"/>
+<link href="/css/silver/list.css" rel="stylesheet" />
 </head>
 <body id="top">
 	<main>
@@ -14,7 +15,7 @@
 		<!-- header include -->
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp"/>
 		
-		<section class="section-padding">
+		<section class="section-padding section_custum_filter">
 			<div class="container">
             	<div class="row">
             		<form method="post" action="custom">
