@@ -10852,3 +10852,8 @@ html {
   background-repeat: no-repeat;
   min-height: 15rem;
 }
+
+.header_silver{
+	padding-top: 7rem !important;
+	padding-bottom: 3rem !important;
+}

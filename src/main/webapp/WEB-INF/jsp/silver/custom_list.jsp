@@ -33,7 +33,16 @@
 		                                    <h5 class="fw-bolder">${ silverTownDetail.stName } ${ silverTownDetail.stRoomType }</h5>
 		                                    <!-- Product price-->
 		                                    보증금 : ${ silverTownDetail.stdDeposit }원<br>
-		                                    월세 : ${ silverTownDetail.stdMonthlyCost }원
+		                                    월세 : ${ silverTownDetail.stdMonthlyCost }원<br>
+		                                    <c:if test="${ silverTownDetail.depositCnt > 0 }">
+		                                    	<span class="badge rounded-pill">예금</span>
+		                                    </c:if>
+		                                    <c:if test="${ silverTownDetail.savingCnt > 0 }">
+		                                    	<span class="badge rounded-pill">적금</span>
+		                                    </c:if>
+		                                    <c:if test="${ silverTownDetail.bondCnt > 0 }">
+		                                    	<span class="badge rounded-pill">채권</span>
+		                                    </c:if>
 		                                </div>
 		                            </div>
 		                        </div>
