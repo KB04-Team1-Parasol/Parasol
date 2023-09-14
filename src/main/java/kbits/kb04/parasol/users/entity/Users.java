@@ -9,6 +9,7 @@ import lombok.AccessLevel;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
@@ -69,6 +70,9 @@ public class Users {
 		this.role = Role.ROLE_USER;
 		this.userAssetStatus = UserAssetStatus.INPUT_NO;
 	}
-
+	
+	public void setUserAssetStatus(UserAssetStatus userAssetStatus) {
+	    this.userAssetStatus = userAssetStatus;
+	}
 
 }

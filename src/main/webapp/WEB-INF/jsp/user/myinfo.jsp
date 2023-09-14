@@ -33,7 +33,7 @@
 		<!-- 메인 바디 -->
 	<section class="section-padding"></section>
 		<div
-			style="background-color: #F5E2BE; margin-bottom: 180px; display: flex; justify-content: space-around;">
+			style=" margin-bottom: 180px; display: flex; justify-content: space-around;">
 			<div class="profile_inner" style="margin-left: 120px;">
 				<div
 					style="display: flex; align-items: center; margin-bottom: 20px;">
@@ -93,7 +93,7 @@
 						onclick="nclk(this,'nid.myprofilego','','',event)"> <span
 						class="asset_title_text">자산정보</span>
 
-					</a>
+					</a>	
 					<!--  신규 회원 가입 시 자산 정보 미기입 상태 -->
 
 
