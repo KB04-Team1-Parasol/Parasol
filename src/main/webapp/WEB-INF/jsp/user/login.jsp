@@ -23,7 +23,8 @@
 
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp"/>
 
-		<section class="section-padding section-bg justify-content-center align-items-center">
+		
+		<section class="user-section-padding section-bg justify-content-center align-items-center">
 
 			<div class="container">
 				<div>
@@ -35,24 +36,24 @@
 
 						<form action="login" method="post"
 							class="custom-form contact-form" role="form">
-							<div class="col-lg-6 col-12 mx-auto">
+							<div class="col-lg-4 col-12 mx-auto">
 								<div class="form-floating">
 									<input type="text" name="user_id" class="form-control" required />
 									<label for="floatingInput">ID</label>
 
 								</div>
 							</div>
-							<div class="col-lg-6 col-12 mx-auto">
+							<div class="col-lg-4 col-12 mx-auto">
 								<div class="form-floating">
 									<input type="password" name="user_pw" class="form-control"
 										required /> <label for="floatingInput">Password</label>
 								</div>
 							</div>
 							<div class="row justify-content-center">
-								<div class="col-lg-3 col-6">
+								<div class="col-lg-2 col-6">
 									<button type="submit" class="form-control">Login</button>
 								</div>
-								<div class="col-lg-3 col-6">
+								<div class="col-lg-2 col-6">
 									<a href="signup" class="form-control btn" id="signupBtn">Sign
 										Up</a>
 								</div>

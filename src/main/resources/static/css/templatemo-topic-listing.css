@@ -142,6 +142,11 @@ strong {
   padding-bottom: 100px;
 }
 
+.user-section-padding {
+  padding-top: 250px;
+  padding-bottom: 100px;
+}
+
 .section-padding-silver-f{
 	padding-top: 65px;
   	padding-bottom: 65px;
@@ -530,14 +535,12 @@ strong {
 -----------------------------------------*/
 .featured-section {
   background-color: var(--secondary-color);
-  border-radius: 0 0 100px 100px;
   padding-bottom: 100px;
   height: 600px;
 }
 
 .featured-section .row {
   position: relative;
-  bottom: 100px;
   margin-bottom: -100px;
 }
 

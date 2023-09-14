@@ -29,7 +29,7 @@
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
 		
 
-		<section class="section-padding section-bg justify-content-center align-items-center">
+		<section class="user-section-padding section-bg justify-content-center align-items-center">
 			<div class="container">
 				<div>
 
@@ -41,28 +41,28 @@
 							role="form">
 								<input type="hidden" name="role" value="ROLE_USER">
 								<input type="hidden" name="user_asset_status" value="INPUT_NO">
-								<div class="col-lg-6 col-12 mx-auto">
+								<div class="col-lg-4 col-12 mx-auto">
 									<div class="form-floating">
 										<input type="text" name="user_id"
 											class="form-control" required/>
 										<label for="floatingInput">ID</label>
 									</div>
 								</div>
-								<div class="col-lg-6 col-12 mx-auto">
+								<div class="col-lg-4 col-12 mx-auto">
 									<div class="form-floating">
 										<input type="password" name="user_pw"
 											class="form-control" required/>
 										<label for="floatingInput">Password</label>
 									</div>
 								</div>
-								<div class="col-lg-6 col-12 mx-auto">
+								<div class="col-lg-4 col-12 mx-auto">
 									<div class="form-floating">
 										<input type="text" name="user_name"
 											class="form-control" required/>
 										<label for="floatingInput">이름</label>
 									</div>
 								</div>
-								<div class="col-lg-6 col-12 mx-auto">
+								<div class="col-lg-4 col-12 mx-auto">
 									<div class="form-floating">
 										<input type="text" name="user_age"
 											class="form-control" required/>
