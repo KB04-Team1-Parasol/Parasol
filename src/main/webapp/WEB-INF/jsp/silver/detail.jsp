@@ -9,6 +9,7 @@
 <!-- css setting -->
 <link href="/css/silver/detail.css" rel="stylesheet" />
 <jsp:include page="/WEB-INF/jsp/settings/css.jsp" />
+<link href="/css/finance/custom-fin.css" rel="stylesheet">
 </head>
 <body id="top">
 	<main>
@@ -17,7 +18,7 @@
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
 
 		<!-- Header-->
-		<header class="py-5 bg-yellow">
+		<header class="bg-yellow header_silver">
 			<div class="container px-5">
 				<div class="row gx-5 align-items-center justify-content-center">
 					<div class="col-lg-8 col-xl-7 col-xxl-6">
@@ -190,19 +191,24 @@
 					</div>
 					<div class="col-lg-8">
 						<c:forEach var="deposit" items="${dto.depositList}">
-							<div
-								class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-								<div class="d-flex">
-									<div class="custom-block-topics-listing-info d-flex">
-										<div>
-											<h5 class="mb-2">상품 명: ${ deposit.depositName }</h5>
-											<p class="mb-0">최대 기간: ${ deposit.depositPeriod }개월</p>
-											<p class="mb-0">이율: ${ deposit.depositRate }%</p>
-											<a href="" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
+							<div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+						            <div class="d-flex">
+						                <!-- 이미지 및 기타 정보 출력 -->
+						                <div class="custom-block-topics-listing-info d-flex">
+						                    <div>
+						                        <h5 class="mb-2">${deposit.depositName}</h5>
+						                        <p class="mb-0">최대 기간: ${deposit.depositPeriod}개월</p>
+						                        <p class="mb-0">만기 이자율: ${deposit.depositRate}%</p>
+						                        <a href="<c:url value="/finance/deposit/${deposit.depositNo}" />" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+
+            								</div>
+						                </div>
+						                <div class="d-flex col-5 justify-content-end">
+						                <c:set var="kbcha" value="${deposit.depositNo % 5 + 1}" />
+										<img src="/images/fr${kbcha}.png" alt="">
+						                </div>
+						            </div>
+						        </div>
 						</c:forEach>
 					</div>
 				</div>
@@ -215,19 +221,20 @@
 					</div>
 					<div class="col-lg-8">
 						<c:forEach var="saving" items="${dto.savingList}">
-							<div
-								class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-								<div class="d-flex">
-									<div class="custom-block-topics-listing-info d-flex">
-										<div>
-											<h5 class="mb-2">상품 명: ${ saving.savingNo }</h5>
-											<p class="mb-0">최대 기간: ${ saving.savingMax }</p>
-											<p class="mb-0">만기 이자율: ${ saving.savingRate }</p>
-											<a href="" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
-										</div>
-									</div>
-								</div>
-							</div>
+							<div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+						            <div class="d-flex">
+						                <!-- 이미지 및 기타 정보 출력 -->
+						                <div class="custom-block-topics-listing-info d-flex">
+						                    <div>
+						                    	<p>ddd</p>
+						                        <h5 class="mb-2">${saving.savingName}</h5>
+						                        <p class="mb-0">최대 기간: ${saving.savingPeriod}개월</p>
+						                        <p class="mb-0">이율 : ${saving.savingRate}%</p>
+						                        <a href="<c:url value="/finance/saving/${saving.savingNo}"/>" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+						                    </div>
+						                </div>
+						            </div>
+						        </div>
 						</c:forEach>
 					</div>
 				</div>
@@ -240,20 +247,32 @@
 					</div>
 					<div class="col-lg-8">
 						<c:forEach var="bond" items="${dto.bondList}">
-						<div
-							class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-							<div class="d-flex">
-								<div class="custom-block-topics-listing-info d-flex">
-									<div>
-										<h5 class="mb-2">상품 명: ${ bond.bondName }</h5>
-										<p class="mb-0">만기일: ${ bond.bondDate }</p>
-										<p class="mb-0">3년 수익률: ${ bond.bondRate }</p>
-										<p class="mb-0">위험도: ${ bond.bondRisk }</p>
-										<a href="" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
-									</div>
-								</div>
-							</div>
-						</div>
+						<div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+						            <div class="d-flex">
+						                <!-- 이미지 및 기타 정보 출력 -->
+						                <div class="custom-block-topics-listing-info d-flex">
+						                    <div>
+						                    	<p>ddd</p>
+						                    	<div class="mb-3 justify-content-start">
+											    <c:choose>
+											        <c:when test="${bond.bondRisk == 1}"><span class="bondbadge bg-1design rounded-pill">초저위험</span></c:when>
+											        <c:when test="${bond.bondRisk == 2}"><span class="bondbadge bg-2design rounded-pill">저위험</span></c:when>
+											        <c:when test="${bond.bondRisk == 3}"><span class="bondbadge bg-3design rounded-pill">중위험</span></c:when>
+											        <c:when test="${bond.bondRisk == 4}"><span class="bondbadge bg-4design rounded-pill">고위험</span></c:when>
+											        <c:when test="${bond.bondRisk == 5}"><span class="bondbadge bg-5design rounded-pill">초고위험</span></c:when>
+											        <c:otherwise>알 수 없는 위험</c:otherwise>
+											    </c:choose>
+											    	<span class="bondbadge bg-5design rounded-pill">초고위험</span>
+											    </div>
+						                        <h5 class="mb-2">${bond.bondName}</h5>
+						                        <p class="mb-0">만기일 : ${bond.bondDate}</p>
+						                        <p class="mb-0">3년 수익률 : <span style="color:red;">${bond.bondRate}%</span></p>
+						                        <p class="mb-0">위험도: ${bond.bondRisk}</p>
+						                        <a href="<c:url value="/finance/bond/${bond.bondNo}" />" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+						                    </div>
+						                </div>
+						            </div>
+						        </div>
 						</c:forEach>
 					</div>
 				</div>

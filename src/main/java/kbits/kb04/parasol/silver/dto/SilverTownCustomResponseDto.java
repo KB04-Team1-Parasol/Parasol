@@ -13,10 +13,14 @@ public class SilverTownCustomResponseDto {
 	private String stdMonthlyCost;
 	private String stImgUrl;
 	
+	private int depositCnt;
+	private int savingCnt;
+	private int bondCnt;
+	
 	DecimalFormat df = new DecimalFormat("###,###");
 	
 	public SilverTownCustomResponseDto(Long stdNo, String stName, String stRoomType, Integer stdDeposit,
-			Integer stdMonthlyCost, String stImgUrl) {
+			Integer stdMonthlyCost, String stImgUrl, int depositCnt, int savingCnt, int bondCnt) {
 		super();
 		this.stdNo = stdNo;
 		this.stName = stName;
@@ -24,6 +28,9 @@ public class SilverTownCustomResponseDto {
 		this.stdDeposit = df.format(stdDeposit*10000);
 		this.stdMonthlyCost = df.format(stdMonthlyCost*10000);
 		this.stImgUrl = stImgUrl;
+		this.depositCnt = depositCnt;
+		this.savingCnt = savingCnt;
+		this.bondCnt = bondCnt;
 	}
 	
 }
