@@ -20,6 +20,7 @@
 </head>
 
 <!-- 사용자 위험도 그래프 -->
+<link href="/css/finance/custom-fin.css" rel="stylesheet">
 <script type="text/javascript"> 
 const labels = ['안정형', '안전추구형', '위험중립형', '적극투자형', '공격투자형'];
 const details = ['안정추구형은 원금에 대한 손실을 원하지 않아요. 안정성이 높아 확실한 원금과 환금성을 얻을수 있으나 수익률이 낮아 재무목표 달성에 한계가 있을 수 있어요! CMA, MMF, 예금, 적금, 절세상품등을 추천해요!',
@@ -99,11 +100,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		<!-- header include -->
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp"/>		
 		<section
-			class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+			class="hero-section-f d-flex justify-content-center align-items-center" id="section_1">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 col-12 mx-auto">
-						<h1 class="text-black text-center">${uname }님의 간단 투자 성향</h1>
+						<h1 class="text-black text-center">${uname }님의 투자 성향</h1>
 						<h6 class="text-center">마이데이터를 활용한 상품추천도 둘러보세요!</h6>
 					</div>
 				</div>
@@ -151,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
           </section>
           
           <!-- 탑 마진 줄일 것  -->
-            <section class="section-padding">
+            <section class="section-padding-f">
             <div class="container">
 					<div class="col-12">
 								<div class="row">

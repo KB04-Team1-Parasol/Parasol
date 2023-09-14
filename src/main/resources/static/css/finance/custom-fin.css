@@ -14,6 +14,61 @@
         color: #FF8000;
 }
 
+#aa{
+	margin-right:10px;
+}
+
+.site-header-finance {
+  background-image: linear-gradient(15deg, #FEB900 0%, #FEE191 80%);
+  padding-top: 150px;
+  padding-bottom: 80px;
+}
+
+
+.custom-block-fin {
+  border-radius: var(--border-radius-medium);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+
+.hero-section-f {
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  position: relative;
+  overflow: hidden;
+  padding-top: 200px;
+  padding-bottom: 10px;
+}
+
+
+.section-padding-f {
+  padding-top: 5px;
+  padding-bottom: 100px;
+}
+
+
+.d-flex-f {
+    display: flex;
+    justify-content: space-between;
+	text-align: center;
+}
+
+
+.custom-block-finance {
+  border-radius: var(--border-radius-medium);
+  /* position: relative;
+   */
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+
+
+
+
 
 #bg-1design {
   background-color: #F3E2A9;

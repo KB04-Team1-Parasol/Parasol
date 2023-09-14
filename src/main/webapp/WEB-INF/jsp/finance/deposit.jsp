@@ -21,7 +21,7 @@
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
 
 		<header
-			class="site-header d-flex flex-column justify-content-center align-items-center">
+			class="site-header-finance d-flex flex-column justify-content-center align-items-center">
 			<div class="container">
 				<div class="row align-items-center">
 
@@ -48,7 +48,7 @@
 					<div class=" col-lg-8 col-12 mt-3 mx-auto">
 						<c:forEach var="deposit" items="${depositList.content}">
 							<div
-								class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+								class="custom-block-fin custom-block-topics-listing bg-white shadow-lg mb-5">
 								<div class="d-flex justify-content-between">
 									<!-- 이미지 및 기타 정보 출력 -->
 									<div class="custom-block-topics-listing-info d-flex">
@@ -61,10 +61,13 @@
 												class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
 										</div>
 									</div>
+									
 									<div class="d-flex col-5 justify-content-end">
 										<c:set var="kbcha" value="${deposit.depositNo % 5 + 1}" />
 										<img src="/images/fr${kbcha}.png" alt="">
 									</div>
+									
+									
 								</div>
 							</div>
 						</c:forEach>
