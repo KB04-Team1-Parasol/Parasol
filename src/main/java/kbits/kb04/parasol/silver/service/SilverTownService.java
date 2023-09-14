@@ -156,6 +156,9 @@ public class SilverTownService {
 				List<Bond> bondFiltering = this.getBondFiltering(silverTownDetail, userDto);
 
 				// 추천 금융상품이 존재하는 실버타운 필터링
+				int depositCnt = depositFiltering.size();
+				int savingCnt = savingFiltering.size();
+				int bondCnt = bondFiltering.size();
 				if(depositFiltering.size() > 0 || savingFiltering.size() > 0 || bondFiltering.size() > 0) {
 					Long stdNo = silverTownDetail.getStdNo();
 					String stName = silverTownDetail.getSilverTown().getStName();
@@ -165,7 +168,7 @@ public class SilverTownService {
 					String stImgUrl = silverTownDetail.getSilverTown().getStImgUrl();
 					
 					SilverTownCustomResponseDto silverTownCustomResponseDto = 
-							new SilverTownCustomResponseDto(stdNo, stName, stdRoomType, stdDeposit, stdMonthlyCost, stImgUrl);
+							new SilverTownCustomResponseDto(stdNo, stName, stdRoomType, stdDeposit, stdMonthlyCost, stImgUrl, depositCnt, savingCnt, bondCnt);
 					silverTownDetailList.add(silverTownCustomResponseDto);
 				}
 			}
