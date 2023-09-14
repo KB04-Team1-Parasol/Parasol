@@ -18,7 +18,7 @@
 	</main>
 
 	<h1>실버타운 검색</h1>
-	<section class="section-padding">
+	<section class="section-padding-silver-f">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-30 col-12 mb-4 mb-lg-0">
@@ -132,7 +132,7 @@
 		</div>
 	</section>
 
-	<section class="py-5_silver_list">
+	<section class="py-5_silver_list_ff">
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 	<c:forEach items="${responseDto}" var="sliver">
