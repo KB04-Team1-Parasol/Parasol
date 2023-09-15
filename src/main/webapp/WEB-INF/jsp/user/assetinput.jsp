@@ -14,11 +14,11 @@
 <body id="top">
 	<main>
 
-	<!-- header include -->
-	<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
+		<!-- header include -->
+		<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
 		<section class="section-padding section-bg">
 			<div class="container">
-				<div class="row">
+				<div class="row" style="margin-top:130px">
 					<!-- 자산 정보 기입란 -->
 					<div class="col-lg-6 col-12">
 						<form action="assetinput_action" method="post"
@@ -111,18 +111,27 @@
 									<h3 class="mb-4 pb-2">궁금해요 ! !</h3>
 									<div id="imageContainer">
 
-										<img src="https://i.ibb.co/C50116J/friends-Bibi.png"
+										<a href="#" id="image1-link"
+											style="text-decoration: none; cursor: pointer;"> <img
+											src="https://i.ibb.co/C50116J/friends-Bibi.png"
 											alt="friends-Bibi" border="0" id="image1"
-											style="opacity: 1; margin-left: 73px;"> <img
+											style="opacity: 1; margin-left: 73px;">
+										</a> <a href="#" id="image2-link"
+											style="text-decoration: none; cursor: pointer;"> <img
 											src="https://i.ibb.co/1q2ynH4/friends-Ramu.png"
 											alt="friends-Ramu" border="0" id="image2"
-											style="opacity: 1; margin-left: 28px;"> <img
+											style="opacity: 1; margin-left: 28px;">
+										</a> <a href="#" id="image3-link"
+											style="text-decoration: none; cursor: pointer;"> <img
 											src="https://i.ibb.co/60VVQCn/friends-Kiki.png"
 											alt="friends-Kiki" border="0" id="image3"
-											style="opacity: 1; margin-left: 5px;"><img
+											style="opacity: 1; margin-left: 5px;">
+										</a> <a href="#" id="image4-link"
+											style="text-decoration: none; cursor: pointer;"> <img
 											src="https://i.ibb.co/4JzFLjb/friends-Cauli.png"
 											alt="friends-Cauli" border="0" id="image4"
 											style="opacity: 1; margin-left: 15px;">
+										</a>
 									</div>
 									<!-- 폼 필드 및 내용을 추가하십시오 -->
 								</div>
@@ -154,7 +163,7 @@
 											<b>금융자산</b>은 현금, 은행 예금, 주식, 채권, 투자 펀드 등과 같은 <b>보유 하신
 												금융상품의 재산</b>입니다.
 										</p>
-										<!-- <img src="https://i.ibb.co/BNtVN2D/pure-asset.png" alt="pure-asset" border="0"> -->
+
 									</div>
 									<div class="tab-pane fade" id="tab2" role="tabpanel"
 										aria-labelledby="tab2-tab">
@@ -191,7 +200,7 @@
 
 
 
-		
+
 
 
 		<!-- JAVASCRIPT FILES -->
@@ -212,12 +221,12 @@
 				}
 			}
 		</script>
-		
+
 		<!-- footer include -->
 		<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp" />
-		
+
 		<!-- JAVASCRIPT FILES -->
-		<jsp:include page="/WEB-INF/jsp/settings/js.jsp"/>
+		<jsp:include page="/WEB-INF/jsp/settings/js.jsp" />
 
 
 		<!-- KB 캐릭터 이미지 보여주기 효과 -->
