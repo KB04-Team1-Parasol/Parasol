@@ -21,7 +21,7 @@
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
 
 		<header
-			class="site-header d-flex flex-column justify-content-center align-items-center">
+			class="site-header-finance d-flex flex-column justify-content-center align-items-center">
 			<div class="container">
 				<div class="row align-items-center">
 
@@ -113,18 +113,27 @@
 					<div class="col-lg-12 col-12">
 						<nav aria-label="Page navigation example">
 							<ul class="pagination justify-content-center mb-0">
-								<li class="page-item"><a class="page-link" href="#"
-									aria-label="Previous"> <span aria-hidden="true">Prev</span>
-								</a> <!-- Spring에서 받은 페이지 정보를 활용하여 페이지 번호를 동적으로 생성 --> <c:forEach
-										begin="1" end="${bondList.totalPages}" var="pageNumber">
-										<li
-											class="page-item ${pageNumber == bondList.number + 1 ? 'active' : ''}">
-											<a class="page-link" href="?page=${pageNumber}">${pageNumber}</a>
-										</li>
-									</c:forEach>
-								<li class="page-item"><a class="page-link" href="#"
-									aria-label="Next"> <span aria-hidden="true">Next</span>
-								</a></li>
+								<li
+									class="page-item ${bondList.number == 0 ? 'disabled' : ''}">
+									<a class="page-link" href="?page=${bondList.number}"
+									aria-label="Previous"> <span aria-hidden="true">이전</span>
+								</a>
+								</li>
+								<!-- 페이지 번호 동적 생성 -->
+								<c:forEach begin="1" end="${bondList.totalPages}"
+									var="pageNumber">
+									<li
+										class="page-item ${pageNumber == bondList.number + 1 ? 'active' : ''}">
+										<a class="page-link" href="?page=${pageNumber}">${pageNumber}</a>
+									</li>
+								</c:forEach>
+								<li
+									class="page-item ${bondList.number + 1 == bondList.totalPages ? 'disabled' : ''}">
+									<a class="page-link" href="?page=${bondList.number + 2}"
+									aria-label="Next"> <span aria-hidden="true">다음</span>
+								</a>
+								</li>
+							
 							</ul>
 						</nav>
 					</div>

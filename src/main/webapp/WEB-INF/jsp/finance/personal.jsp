@@ -46,7 +46,7 @@
                     <div class="row">
 
                         <div class="col-lg-12 col-12 text-center">
-                            <h3 class="mb-4">{}님의 투자성향 파악</h3>
+                            <h3 class="mb-4">${uname }님의 성향을 파악해봐요!</h3>
                         </div>
 				       <div class="col-lg-8 col-12 mt-3 mx-auto">
                            
