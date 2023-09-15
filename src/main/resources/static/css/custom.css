@@ -56,7 +56,7 @@
     display: block;
     padding: 15px 38px 13px 18px;
     border-radius: 12px 12px 0 0;
-    background-image: linear-gradient(98deg,#EBC57C,#F5E2BE);
+    background-image: linear-gradient(15deg,#FEB900,#FEE191);
     margin-top:30px;
 }
 
@@ -118,7 +118,7 @@
     display: block;
     padding: 15px 38px 13px 18px;
     border-radius: 12px 12px 0 0;
-    background-image: linear-gradient(98deg,#6E98E7,#D5E1F8);
+    background-image: linear-gradient(98deg,#BAB4A9,#E5E1F8);
 }
 
 .asset_box .title_text {
