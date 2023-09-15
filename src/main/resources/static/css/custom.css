@@ -181,3 +181,8 @@
     font-weight: normal;
     font-style: normal;
 }
+
+.footer_img{
+	max-height: 100px;
+	margin-bottom: 40px;
+}

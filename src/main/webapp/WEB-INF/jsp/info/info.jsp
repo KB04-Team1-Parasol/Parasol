@@ -89,7 +89,7 @@
 					</div>
 
 					<div
-						class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+						class="custom-block custom-block-topics-listing bg-white mb-5">
 						<div class="col-lg-8 col-12 mt-3 mx-auto">
 							<c:forEach var="information" items="${infoList.content}">
 								<div

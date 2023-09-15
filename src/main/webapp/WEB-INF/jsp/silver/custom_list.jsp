@@ -9,12 +9,34 @@
 <!-- css setting -->
 <jsp:include page="/WEB-INF/jsp/settings/css.jsp"/>
 <link href="/css/silver/list.css" rel="stylesheet" />
+<link href="/css/common.css" rel="stylesheet" />
 </head>
 <body id="top">
 	<main>
 	
 		<!-- header include -->
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp"/>
+		
+		<header
+			class="site-header-finance d-flex flex-column justify-content-center align-items-center">
+			<div class="container">
+				<div class="row align-items-center">
+
+					<div class="col-lg-5 col-12">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="/index">HOME</a></li>
+
+								<li class="breadcrumb-item active" aria-current="page">실버타운</li>
+							</ol>
+						</nav>
+
+						<h2 class="text-white">맞춤 실버타운 찾기</h2>
+					</div>
+
+				</div>
+			</div>
+		</header>
 		
 		<!-- Section-->
         <section class="py-5_silver_list">
@@ -30,7 +52,7 @@
 		                            <div class="card-body p-4">
 		                                <div class="text-center">
 		                                    <!-- Product name-->
-		                                    <h5 class="fw-bolder">${ silverTownDetail.stName } ${ silverTownDetail.stRoomType }</h5>
+		                                    <h5 class="fw-bolder">${ silverTownDetail.stName } <br> ${ silverTownDetail.stRoomType }</h5>
 		                                    <!-- Product price-->
 		                                    보증금 : ${ silverTownDetail.stdDeposit }원<br>
 		                                    월세 : ${ silverTownDetail.stdMonthlyCost }원<br>
@@ -55,7 +77,7 @@
 		
 		
 		<!-- footer include -->
-		<jsp:include page="/WEB-INF/jsp/common/footer.jsp"/>
+		<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp"/>
 		
 		<!-- JAVASCRIPT FILES -->
 		<jsp:include page="/WEB-INF/jsp/settings/js.jsp"/>
