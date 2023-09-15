@@ -62,7 +62,7 @@
 				<div class="">
 					<div id="carouselExampleInterval" class="carousel slide h-100"
 						data-bs-ride="carousel">
-						<div class="carousel-indicators">
+						<div class="carousel-indicators ci_custom">
 							<button type="button" data-bs-target="#carouselExampleInterval"
 								data-bs-slide-to="0" class="active" aria-current="true"
 								aria-label="Slide 1"></button>

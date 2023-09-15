@@ -151,28 +151,38 @@
 
 	<section class="py-5_silver_list_ff">
             <div class="container px-9 px-lg-9 mt-2">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                	<c:forEach items="${responseDto}" var="sliver">
-	                	<div class="col mb-5 silver_items">
-		                	<a href="/silver/detail/${sliver.stdNo}">
-		                        <div class="card h-100">
-		                            <!-- Product image-->
-		                            <img class="card-img-top" src=${sliver.imgUrl} alt="..." />
-		                            <!-- Product details-->
-		                            <div class="card-body p-4">
-		                                <div class="text-center">
-		                                    <!-- Product name-->
-		                                    <h5 class="fw-bolder">${sliver.townName} <br> ${sliver.typeName}</h5>
-		                                    <!-- Product price-->
-		                                    보증금 : ${sliver.deposit}원<br>
-		                                    월세 : ${sliver.monCost}원
-		                                </div>
-		                            </div>
-		                        </div>
-		                	</a>
-	                    </div>
-                    </c:forEach>
-              	</div>
+            	<c:choose>
+	            	<c:when test="${ responseDto.size() > 0 }">
+		                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+		                	<c:forEach items="${responseDto}" var="sliver">
+			                	<div class="col mb-5 silver_items">
+				                	<a href="/silver/detail/${sliver.stdNo}">
+				                        <div class="card h-100">
+				                            <!-- Product image-->
+				                            <img class="card-img-top" src=${sliver.imgUrl} alt="..." />
+				                            <!-- Product details-->
+				                            <div class="card-body p-4">
+				                                <div class="text-center">
+				                                    <!-- Product name-->
+				                                    <h5 class="fw-bolder">${sliver.townName} <br> ${sliver.typeName}</h5>
+				                                    <!-- Product price-->
+				                                    보증금 : ${sliver.deposit}원<br>
+				                                    월세 : ${sliver.monCost}원
+				                                </div>
+				                            </div>
+				                        </div>
+				                	</a>
+			                    </div>
+		                    </c:forEach>
+		              	</div>
+	              	</c:when>
+	              	<c:otherwise>
+	              		<div class="text-center mb-5">
+	                    	<img src="/images/silver/nosilver.png">
+	                    	<p class="mt-5">해당하는 실버타운이 없습니다.</p>
+	                   	</div>
+	              	</c:otherwise>
+            	</c:choose>
 	        </div>
 	</section>
 	

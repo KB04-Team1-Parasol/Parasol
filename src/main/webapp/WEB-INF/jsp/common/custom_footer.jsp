@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<footer class="site-footer section-padding pt-0 pb-5">
+<footer class="site-footer section-padding pt-0 pb-0">
 			<div class="container">
 				<div class="row">
 

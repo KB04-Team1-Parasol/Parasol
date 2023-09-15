@@ -69,10 +69,7 @@
 	<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp" />
 
 	<!-- JAVASCRIPT FILES -->
-	<script src="/js/jquery.min.js"></script>
-	<script src="/js/bootstrap.bundle.min.js"></script>
-	<script src="/js/jquery.sticky.js"></script>
-	<script src="/js/custom.js"></script>
+	<jsp:include page="/WEB-INF/jsp/settings/js.jsp"/>
 
 </body>
 </html>
