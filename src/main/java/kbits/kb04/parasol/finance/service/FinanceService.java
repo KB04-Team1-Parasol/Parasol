@@ -209,6 +209,7 @@ public class FinanceService {
                 largeRateBondDto.setBondName(bond.getBondName());
                 largeRateBondDto.setBondRate(bond.getBondRate());
                 largeRateBondDto.setBondRisk(bond.getBondRisk());
+                largeRateBondDto.setBondNo(bond.getBondNo());
                 largeRate = bondRate; // swap
                 }
 		}	
@@ -239,6 +240,7 @@ public class FinanceService {
 					largeRateDepositDto.setDepositPeriod(deposit.getDepositPeriod());
 					largeRateDepositDto.setDepositRate(deposit.getDepositRate());
 					largeRateDepositDto.setDepositLink(deposit.getDepositLink());
+					largeRateDepositDto.setDepositNo(deposit.getDepositNo());
 					largeRate = depositRate; // swap
 					
 				}
@@ -271,6 +273,7 @@ public class FinanceService {
 						largeRateDepositDto.setSavingPeriod(saving.getSavingPeriod());
 						largeRateDepositDto.setSavingRate(saving.getSavingRate());
 						largeRateDepositDto.setSavingLink(saving.getSavingLink());
+						largeRateDepositDto.setSavingNo(saving.getSavingNo());
 						largeRate = savingRate; // swap
 						
 					}

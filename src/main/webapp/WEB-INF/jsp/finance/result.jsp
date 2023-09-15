@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         <div class="col-lg-12 col-12 text-center">
                             <h3 class="mb-4">KB맞춤 상품 추천</h3>
-                            <h6 class="text-center">고객님의 마이데이터를 이용한 결과에요!</h6>
+                            <h6 class="text-center">고객님의 마이데이터를 분석한 추천상품이에요!</h6>
                         </div>
 				       <div class="col-lg-8 col-12 mt-3 mx-auto">
 					 </div>
@@ -166,10 +166,10 @@ document.addEventListener("DOMContentLoaded", function () {
 														<h5 class="mb-2">${recommendedBond.bondName}</h5>
 														<br>
 														<p class="mb-0">채권 위험도 : ${recommendedBond.bondRisk}</p>
-														<p class="mb-0">채권 수익률 : ${recommendedBond.bondRate}</p>
+														<p class="mb-0">채권 수익률 : ${recommendedBond.bondRate} %</p>
 														<br>
 														<div class="">
-														<button onclick="window.open('https://naver.com ')"class="btn custom-btn mt-3 mt-lg-4">채권상세보기</button>
+														<button onclick="window.open('http://localhost:8080/finance/bond/${recommendedBond.bondNo}')"class="btn custom-btn mt-3 mt-lg-4">채권상세보기</button>
 														</div>
 													</div>				
 											</div> 
@@ -184,10 +184,10 @@ document.addEventListener("DOMContentLoaded", function () {
 														<br>
 														<h5 class="mb-2">${recommendedDeposit.depositName}</h5>
 														<br>
-														<p class="mb-0">예금 만기일 : ${recommendedDeposit.depositPeriod}</p>
-														<p class="mb-0">예금 이율 : ${recommendedDeposit.depositRate}</p>
+														<p class="mb-0">예금 만기 : ${recommendedDeposit.depositPeriod} 개월</p>
+														<p class="mb-0">예금 이율 : ${recommendedDeposit.depositRate} %</p>
 														<br>
-														<button onclick="window.open('https://naver.com ')"class="btn custom-btn mt-3 mt-lg-4">예금상세보기</button>
+														<button onclick="window.open('http://localhost:8080/finance/deposit/${recommendedDeposit.depositNo}')"class="btn custom-btn mt-3 mt-lg-4">예금상세보기</button>
 												</div>
 											</div>
 										</div>
@@ -201,10 +201,10 @@ document.addEventListener("DOMContentLoaded", function () {
 														<br>
 														<h5 class="mb-2">${recommendedSaving.savingName}</h5>
 														<br>
-														<p class="mb-0">적금 만기일 : ${recommendedSaving.savingPeriod}</p>
-														<p class="mb-0">적금 이율 : ${recommendedSaving.savingRate}</p>
+														<p class="mb-0">적금 만기 : ${recommendedSaving.savingPeriod} 개월</p>
+														<p class="mb-0">적금 이율 : ${recommendedSaving.savingRate} % </p>
 														<br>
-														<button onclick="window.open('https://naver.com ')"class="btn custom-btn mt-3 mt-lg-4">적금상세보기</button>
+														<button onclick="window.open('http://localhost:8080/finance/saving/${recommendedSaving.savingNo}')" class="btn custom-btn mt-3 mt-lg-4">적금상세보기</button>
 													</div>
 												</div>
 										</div>
@@ -215,6 +215,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		            </section>
 	                        
       </main>
+      
+      	<!-- footer include -->
+		<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp" />
+      
         <!-- JAVASCRIPT FILES -->
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
