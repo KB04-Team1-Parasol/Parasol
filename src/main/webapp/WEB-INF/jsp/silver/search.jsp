@@ -9,6 +9,7 @@
 <!-- css setting -->
 <jsp:include page="/WEB-INF/jsp/settings/css.jsp"/>
 <link href="/css/silver/list.css" rel="stylesheet" />
+<link href="/css/common.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -17,7 +18,23 @@
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
 	</main>
 
-	<h1>실버타운 검색</h1>
+	<header class="site-header-finance d-flex flex-column justify-content-center align-items-center">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-5 col-12">
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/index">HOME</a></li>
+							<li class="breadcrumb-item active" aria-current="page">실버타운</li>
+						</ol>
+					</nav>
+
+					<h2 class="text-white">실버타운 검색</h2>
+				</div>
+			</div>
+		</div>
+	</header>
+	
 	<section class="section-padding-silver-f">
 		<div class="container">
 			<div class="row justify-content-center">
