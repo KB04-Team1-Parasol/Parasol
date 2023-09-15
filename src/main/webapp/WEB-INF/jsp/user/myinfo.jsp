@@ -20,7 +20,9 @@
 <link href="/css/templatemo-topic-listing.css" rel="stylesheet">
 <link href="/css/custom.css" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap"
+	rel="stylesheet">
 
 </head>
 <body id="top">
@@ -31,9 +33,9 @@
 
 
 		<!-- 메인 바디 -->
-	<section class="section-padding"></section>
+		<section class="section-padding"></section>
 		<div
-			style=" margin-bottom: 180px; display: flex; justify-content: space-around;">
+			style="margin-bottom: 180px; display: flex; justify-content: space-around;">
 			<div class="profile_inner" style="margin-left: 120px;">
 				<div
 					style="display: flex; align-items: center; margin-bottom: 20px;">
@@ -65,25 +67,21 @@
 						<span class="info_title_text">내프로필</span>
 					</div>
 
-					<ul class="base_row" style="font-family: 'Nunito', sans-serif;">
-						<li>
-							<div class="row_item id ">
-								<span class="info_item_text"><b>아이디</b> : ${user.userId} </span>
+
+					<div class="d-flex justify-content-between">
+						<!-- 이미지 및 기타 정보 출력 -->
+						<div class="custom-block-topics-listing-info d-flex">
+							<div>
+								<h5 class="mb-2">아이디 : ${user.userId}</h5>
+								<h5 class="mb-2">이름 : ${user.userName}</h5>
+								<h5 class="mb-2">나이 : ${user.userAge}</h5>
+
 							</div>
-						</li>
-						<li>
-							<div class="row_item name">
-								<span class="info_item_text"><b>이름</b> : ${user.userName } </span>
-							</div>
-						</li>
-						<li>
-							<div class="row_item age">
-								<span class="info_item_text"><b>나이</b> : ${user.userAge } </span>
-							</div>
-						</li>
+						</div>
 
 
-					</ul>
+
+					</div>
 
 				</div>
 
@@ -93,163 +91,52 @@
 						onclick="nclk(this,'nid.myprofilego','','',event)"> <span
 						class="asset_title_text">자산정보</span>
 
-					</a>	
+					</a>
 					<!--  신규 회원 가입 시 자산 정보 미기입 상태 -->
 
 
-					<ul class="base_row" style="font-family: 'Nunito', sans-serif;">
 					<c:choose>
-					<c:when test="${empty userAsset.finAsset}">
-						<span class="item_text">맞춤 서비스를 이용하시려면 자산 정보를 기입해주세요.</span>
-					</c:when>
-					<c:otherwise>
-						<li>
-							<div class="row_item phone ">
-								<span class="item_text"> <b>금융자산</b> : ${userAsset.finAsset}</span>
+						<c:when test="${empty userAsset.finAsset}">
+							<span class="item_text">맞춤 서비스를 이용하시려면 자산 정보를 기입해주세요.</span>
+						</c:when>
+						<c:otherwise>
 
+							<!-- 이미지 및 기타 정보 출력 -->
+							<div class="custom-block-topics-listing-info d-flex">
+								<div>
+									<h5 class="mb-2">금융자산 : ${userAsset.finAsset}</h5>
+									<h5 class="mb-2">실물자산 : ${userAsset.realAsset}</h5>
+									<h5 class="mb-2">현금 : ${userAsset.pureAsset - userAsset.realAsset - userAsset.finAsset + userAsset.debt}</h5>
+									<h5 class="mb-2">부채 : ${userAsset.debt}</h5>
+									<h5 class="mb-2">월 소득 : ${userAsset.monthlyIncome}</h5>
+									<h5 class="mb-2">입주 예상 나이 : ${userAsset.annuity}</h5>
+									<h5 class="mb-2">희망 거주 기간 : ${userAsset.hopeAge}</h5>
+
+								</div>
 							</div>
-						</li>
 
-						<li>
-							<div class="row_item phone ">
-								<span class="item_text"> <b>실물자산</b> : ${userAsset.realAsset}</span>
 
-							</div>
-						</li>
 
-						<li>
-							<div class="row_item phone">
-								<span class="item_text"> <b>현금</b> :${userAsset.pureAsset - userAsset.realAsset - userAsset.finAsset + userAsset.debt }
-								</span>
-							</div>
-						</li>
 
-						<li>
-							<div class="row_item phone ">
-								<span class="item_text"> <b>부채</b> : ${userAsset.debt}</span>
-
-							</div>
-						</li>
-						<li>
-							<div class="row_item phone ">
-								<span class="item_text"> <b>월 소득</b> :
-									${userAsset.monthlyIncome}</span>
-
-							</div>
-						</li>
-						<li>
-							<div class="row_item phone ">
-								<span class="item_text"> <b>연금</b> : ${userAsset.annuity}</span>
-
-							</div>
-						</li>
-						<li>
-							<div class="row_item phone ">
-								<span class="item_text"> <b>입주 예상 나이</b> : ${userAsset.hopeAge}</span>
-
-							</div>
-						</li>
-						<li>
-							<div class="row_item phone ">
-								<span class="item_text"> <b>희망 거주 기간</b> :
-									${userAsset.hopePeriod}</span>
-
-							</div>
-						</li>
 						</c:otherwise>
 					</c:choose>
-					</ul>
 				</div>
-
 			</div>
+
+
 		</div>
 
-		<a href="logout" class="form-control btn" id="logoutBtn">Log Out</a>
-
-
-		<footer class="site-footer section-padding">
-			<div class="container">
-				<div class="row">
-
-					<div class="col-lg-3 col-12 mb-4 pb-2">
-						<a class="navbar-brand mb-2" href="index.html"> <i
-							class="bi-back"></i> <span>Topic</span>
-						</a>
-					</div>
-
-					<div class="col-lg-3 col-md-4 col-6">
-						<h6 class="site-footer-title mb-3">Resources</h6>
-
-						<ul class="site-footer-links">
-							<li class="site-footer-link-item"><a href="#"
-								class="site-footer-link">Home</a></li>
-
-							<li class="site-footer-link-item"><a href="#"
-								class="site-footer-link">How it works</a></li>
-
-							<li class="site-footer-link-item"><a href="#"
-								class="site-footer-link">FAQs</a></li>
-
-							<li class="site-footer-link-item"><a href="#"
-								class="site-footer-link">Contact</a></li>
-						</ul>
-					</div>
-
-					<div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
-						<h6 class="site-footer-title mb-3">Information</h6>
-
-						<p class="text-white d-flex mb-1">
-							<a href="tel: 305-240-9671" class="site-footer-link">
-								305-240-9671 </a>
-						</p>
-
-						<p class="text-white d-flex">
-							<a href="mailto:info@company.com" class="site-footer-link">
-								info@company.com </a>
-						</p>
-					</div>
-
-					<div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
-						<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button"
-								data-bs-toggle="dropdown" aria-expanded="false">English</button>
-
-							<ul class="dropdown-menu">
-								<li><button class="dropdown-item" type="button">Thai</button></li>
-
-								<li><button class="dropdown-item" type="button">Myanmar</button></li>
-
-								<li><button class="dropdown-item" type="button">Arabic</button></li>
-							</ul>
-						</div>
-
-						<p class="copyright-text mt-lg-5 mt-4">
-							Copyright © 2048 Topic Listing Center. All rights reserved. <br>
-							<br>Design: <a rel="nofollow" href="https://templatemo.com"
-								target="_blank">TemplateMo</a> Distribution <a
-								href="https://themewagon.com">ThemeWagon</a>
-						</p>
-
-					</div>
-
-				</div>
-			</div>
-		</footer>
-
+		<!-- footer include -->
+		<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp" />
 
 
 
 
 		<!-- JAVASCRIPT FILES -->
-		<script src="/js/jquery.min.js"></script>
-		<script src="/js/bootstrap.bundle.min.js"></script>
-		<script src="/js/jquery.sticky.js"></script>
-		<script src="/js/click-scroll.js"></script>
-		<script src="/js/custom.js"></script>
+
+		<jsp:include page="/WEB-INF/jsp/settings/js.jsp"/>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<script src="/js/asset_info_chart.js"></script>
-
-
 	</main>
 </body>
 </html>
