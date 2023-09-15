@@ -322,49 +322,128 @@
 		</section>
 		
 		<!-- 금융 -->
-		<section class="main-product" style="background-color:#ffe157;">
-			<div class="conTain">	<!-- 수평 유지해주는듯 -->
+		<section class="main-product" style="background-color: #ffe157;">
+			<div class="conTain">
+				<!-- 수평 유지해주는듯 -->
 				<div class="fininside">
 					<div class="tit-area">
-						<h1 class="mb-4" style="color:black">상품</h1>
-						<div>
-						<ul>
-							<li data-tab="prd-tab-1">
-								<a href="javascript:void(0);"><h5>예금</h5></a>
-							</li>
-							<li data-tab="prd-tab-2" class>
-								<a href="javascript:void(0);"><h5>적금</h5></a>
-							</li>
-							<li data-tab="prd-tab-3" class>
-								<a href="javascript:void(0);"><h5>채권</h5></a>
-							</li>
-							<li class="nav-item" class="active" role="presentation">
-                                <button style="background-color: #FFE157; border:none;" class="nav-link active" id="design-tab" data-bs-toggle="tab" data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane" aria-selected="true">Design</button>
-                            </li>
+						<h1 class="mb-4" style="color: black">상품</h1>
 
-                            <li class="nav-item" role="presentation">
-                                <button style="background-color: #FFE157; border:none;" class="nav-link" id="marketing-tab" data-bs-toggle="tab" data-bs-target="#marketing-tab-pane" type="button" role="tab" aria-controls="marketing-tab-pane" aria-selected="false">Marketing</button>
-                            </li>
-
-                            <li class="nav-item" role="presentation">
-                                <button style="background-color: #FFE157; border:none;" class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance-tab-pane" type="button" role="tab" aria-controls="finance-tab-pane" aria-selected="false">Finance</button>
-                            </li>
-						</ul>
-						</div>
-						
 					</div>
-					
-				</div>	
-				
-				
-			</div>       <!-- 이 안에 다 -->
-			
-			<div><img src="/images/hal.png" alt=""></div>
-		
-		
-		
-		
-		
+
+				</div>
+
+
+				<div class="container-fluid">
+					<div class="row">
+						<ul class="nav nav-tabs" id="myTab" role="tablist">
+							<li class="nav-item" role="presentation">
+								<button class="nav-link active" id="design-tab"
+									data-bs-toggle="tab" data-bs-target="#dd-tab-pane"
+									type="button" role="tab" aria-controls="dd-tab-pane"
+									aria-selected="true">예금</button>
+							</li>
+
+							<li class="nav-item" role="presentation">
+								<button class="nav-link" id="marketing-tab" data-bs-toggle="tab"
+									data-bs-target="#cc-tab-pane" type="button" role="tab"
+									aria-controls="cc-tab-pane" aria-selected="false">적금</button>
+							</li>
+
+							<li class="nav-item" role="presentation">
+								<button class="nav-link" id="music-tab" data-bs-toggle="tab"
+									data-bs-target="#music-tab-pane" type="button" role="tab"
+									aria-controls="music-tab-pane" aria-selected="false">채권</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="container">
+					<div class="row">
+
+						<div class="col-12">
+							<div class="tab-content" id="myTabContent">
+
+								<!-- 실버타운 탭 -->
+								<div class="tab-pane fade show active" id="dd-tab-pane"
+									role="tabpanel" aria-labelledby="music-tab-pane" tabindex="0">
+									<div class="row">
+										<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+											<div class="custom-block bg-white shadow-lg">
+												<a href="/info/info/9">
+													<div class="d-flex">
+														<div>
+															<img src="/images/hal.png" alt="">
+														</div>
+													</div> <img
+													src="https://img.etoday.co.kr/pto_db/2023/07/600/20230714114306_1905977_1200_600.jpg"
+													class="custom-block-image img-fluid"
+													onerror="this.src='/images/main.jpg'">
+												</a>
+											</div>
+										</div>
+
+
+									</div>
+								</div>
+								<!-- 금융 탭 -->
+								<div class="tab-pane fade" id="cc-tab-pane"
+									role="tabpanel" aria-labelledby="music-tab-pane" tabindex="0">
+									<div class="row">
+										<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+											<div class="custom-block bg-white shadow-lg">
+												<a href="/info/info/1">
+													<div class="d-flex">
+														<div>
+															<h5 class="mb-2">은퇴 앞두고 있다면 부채관리는 이렇게!</h5>
+														</div>
+													</div> <img
+													src="https://image.ajunews.com/content/image/2021/03/03/20210303074620389150.jpg"
+													class="custom-block-image img-fluid"
+													onerror="this.src='/images/main.jpg'">
+												</a>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<!-- 정보 탭 -->
+								<div class="tab-pane fade" id="music-tab-pane" role="tabpanel"
+									aria-labelledby="music-tab" tabindex="0">
+									<div class="row">
+										<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+											<div class="custom-block bg-white shadow-lg">
+												<a href="/info/info/1">
+													<div class="d-flex">
+														<div>
+															<h5 class="mb-2">고령화 시대 노인 건강…만성질환 늘고 노쇠 줄어</h5>
+														</div>
+													</div> <img
+													src="https://cdn.docdocdoc.co.kr/news/photo/202308/3008308_3009394_5856.jpg"
+													class="custom-block-image img-fluid"
+													onerror="this.src='/images/main.jpg'">
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+
+			</div>
+			<!-- 이 안에 다 -->
+
+
+
+
+
 		</section>
 
 		<section class="faq-section section-padding" id="section_4">
