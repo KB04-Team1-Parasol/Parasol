@@ -11,7 +11,7 @@ https://templatemo.com/tm-590-topic-listing
 -----------------------------------------*/
 :root {
   --white-color: #ffffff;
-  --primary-color: #13547a;
+  --primary-color: #000;
   --secondary-color: #FEB900;
   --section-bg-color: #FEE191;
   --custom-btn-bg-color: #FEB900;			/* TODO */
@@ -1003,10 +1003,19 @@ blockquote {
 }
 
 .site-footer-link {
+  color: var(--p-color);
+  font-size: var(--copyright-font-size);
+  font-weight: var(--font-weight-medium);
+  line-height: normal;
+}
+
+.site-footer-link-main {
   color: var(--secondary-color);
   font-size: var(--copyright-font-size);
   font-weight: var(--font-weight-medium);
   line-height: normal;
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-weight-bold);
 }
 
 .copyright-text {

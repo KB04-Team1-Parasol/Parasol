@@ -36,7 +36,7 @@
 							</p>
 							<div
 								class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-								<a class="btn btn-light btn-lg px-4 me-sm-3"
+								<a class="btn btn-warning btn-lg px-4 me-sm-3"
 									href="${ dto.stUrl }" target="_blank">홈페이지 이동</a>
 							</div>
 						</div>
@@ -48,7 +48,7 @@
 				</div>
 			</div>
 		</header>
-		<hr>
+		<hr class="mt-0">
 
 		<!-- Page Content-->
 		<section class="pt-5">
@@ -188,7 +188,7 @@
 				<c:if test="${ dto.depositList.size() > 0 }">
 				<div class="row gx-5 mb-5">
 					<div class="col-lg-2 mb-5 mb-lg-0 mt-3">
-						<h2 class="fw-bolder mb-0">예금</h2>
+						<h3 class="fw-bolder mb-0">예금</h3>
 					</div>
 					<div class="col-lg-8">
 						<c:forEach var="deposit" items="${dto.depositList}">
@@ -218,7 +218,7 @@
 				<c:if test="${ dto.savingList.size() > 0 }">
 				<div class="row gx-5 mb-5">
 					<div class="col-lg-2 mb-5 mb-lg-0 mt-3">
-						<h2 class="fw-bolder mb-0">적금</h2>
+						<h3 class="fw-bolder mb-0">적금</h3>
 					</div>
 					<div class="col-lg-8">
 						<c:forEach var="saving" items="${dto.savingList}">
@@ -243,7 +243,7 @@
 				<c:if test="${ dto.bondList.size() > 0 }">
 				<div class="row gx-5 mb-5">
 					<div class="col-lg-2 mb-5 mb-lg-0 mt-3">
-						<h2 class="fw-bolder mb-0">채권</h2>
+						<h3 class="fw-bolder mb-0">채권</h3>
 					</div>
 					<div class="col-lg-8">
 						<c:forEach var="bond" items="${dto.bondList}">

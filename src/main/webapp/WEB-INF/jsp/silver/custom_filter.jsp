@@ -21,11 +21,13 @@
             		<form method="post" action="custom">
 	            		<div class="col-lg-8 col-12 mt-3 mx-auto">
 					        <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-					            <div class="d-flex">
+					        	<h5 class="text-center text-black">필터</h5>
+					        	<hr>
+					            <div class="text-center">
 					                <!-- 이미지 및 기타 정보 출력 -->
-					                <div class="custom-block-topics-listing-info d-flex">
+					                <div class="custom-block-topics-listing-info d-flex mb-6">
 					                    <div>
-					                        <h5 class="mb-4">지역 선택</h5>
+					                        <h5 class="mb-4 text-center">지역</h5>
 					                        <input type="radio" class="btn-check" name="city" id="1" autocomplete="off" value="서울">
 											<label class="btn btn-outline-dark mb-2" for="1">서울</label>
 					                        <input type="radio" class="btn-check" name="city" id="2" autocomplete="off" value="경기">
@@ -58,14 +60,9 @@
 											<label class="btn btn-outline-dark mb-2" for="15">제주</label>
 	      								</div>
 					                </div>
-					            </div>
-					        </div>
-					        <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-					            <div class="d-flex">
-					                <!-- 이미지 및 기타 정보 출력 -->
-					                <div class="custom-block-topics-listing-info d-flex">
+					                <div class="custom-block-topics-listing-info">
 					                    <div>
-					                        <h5 class="mb-4">유형 선택</h5>
+					                        <h5 class="mb-4 text-center">유형</h5>
 					                        <input type="radio" class="btn-check" name="stType" id="s1" autocomplete="off" value="1">
 											<label class="btn btn-outline-dark mb-2" for="s1">도심형</label>
 					                        <input type="radio" class="btn-check" name="stType" id="s2" autocomplete="off" value="2">
@@ -73,7 +70,7 @@
 					                        <input type="radio" class="btn-check" name="stType" id="s3" autocomplete="off" value="3">
 											<label class="btn btn-outline-dark mb-2" for="s3">전원형</label>
 	      								</div>
-					                </div>
+      								</div>
 					            </div>
 					        </div>
 					        <div class="text-center">

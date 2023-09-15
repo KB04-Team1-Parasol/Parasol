@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<footer class="site-footer section-padding">
+<footer class="site-footer section-padding pt-0 pb-5">
 			<div class="container">
 				<div class="row">
 
 					<div class="col-lg-3 col-12 mb-4 pb-2">
 						<a href="/" class="logo d-flex align-items-center">
-      						<h1>Parasol<span>.</span></h1>
+      						<h1>Parasol<span class="site-footer-link-main">.</span></h1>
     					</a>
 					</div>
 
-					<div class="col-lg-3 col-md-4 col-6">
+					<div class="col-lg-3 col-md-4 col-6 ps-5">
 						<h6 class="site-footer-title mb-3">Resources</h6>
 
 						<ul class="site-footer-links">
@@ -41,7 +41,7 @@
 					</div>
 
 					<div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
-						<p class="copyright-text mt-lg-5 mt-4">
+						<p class="copyright-text">
 							Copyright © 2048 Parasol. All rights reserved.
 						</p>
 
