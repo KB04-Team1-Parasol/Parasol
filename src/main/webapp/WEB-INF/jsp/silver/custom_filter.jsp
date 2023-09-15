@@ -24,13 +24,13 @@
 					<div class="col-lg-5 col-12">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">금융상품둘러보기</a></li>
+								<li class="breadcrumb-item"><a href="/index">HOME</a></li>
 
-								<li class="breadcrumb-item active" aria-current="page">KB예금상품</li>
+								<li class="breadcrumb-item active" aria-current="page">실버타운</li>
 							</ol>
 						</nav>
 
-						<h2 class="text-white">KB예금상품</h2>
+						<h2 class="text-white">맞춤 실버타운 찾기</h2>
 					</div>
 
 				</div>
@@ -105,7 +105,7 @@
         </section>
 		
 		<!-- footer include -->
-		<jsp:include page="/WEB-INF/jsp/common/footer.jsp"/>
+		<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp"/>
 		
 		<!-- JAVASCRIPT FILES -->
 		<jsp:include page="/WEB-INF/jsp/settings/js.jsp"/>

@@ -200,7 +200,7 @@
 						                        <h5 class="mb-2">${deposit.depositName}</h5>
 						                        <p class="mb-0">최대 기간: ${deposit.depositPeriod}개월</p>
 						                        <p class="mb-0">만기 이자율: ${deposit.depositRate}%</p>
-						                        <a href="<c:url value="/finance/deposit/${deposit.depositNo}" />" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+						                        <a href="<c:url value="/finance/deposit/${deposit.depositNo}" />" class="btn custom-btn mt-3 mt-lg-4">자세히 보기</a>
 
             								</div>
 						                </div>
@@ -230,7 +230,7 @@
 						                        <h5 class="mb-2">${saving.savingName}</h5>
 						                        <p class="mb-0">최대 기간: ${saving.savingPeriod}개월</p>
 						                        <p class="mb-0">이율 : ${saving.savingRate}%</p>
-						                        <a href="<c:url value="/finance/saving/${saving.savingNo}"/>" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+						                        <a href="<c:url value="/finance/saving/${saving.savingNo}"/>" class="btn custom-btn mt-3 mt-lg-4">자세히 보기</a>
 						                    </div>
 						                </div>
 						            </div>
@@ -267,7 +267,7 @@
 						                        <p class="mb-0">만기일 : ${bond.bondDate}</p>
 						                        <p class="mb-0">3년 수익률 : <span style="color:red;">${bond.bondRate}%</span></p>
 						                        <p class="mb-0">위험도: ${bond.bondRisk}</p>
-						                        <a href="<c:url value="/finance/bond/${bond.bondNo}" />" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+						                        <a href="<c:url value="/finance/bond/${bond.bondNo}" />" class="btn custom-btn mt-3 mt-lg-4">자세히 보기</a>
 						                    </div>
 						                </div>
 						            </div>
@@ -281,7 +281,7 @@
 		</c:if>
 
 		<!-- footer include -->
-		<jsp:include page="/WEB-INF/jsp/common/footer.jsp" />
+		<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp" />
 
 		<!-- JAVASCRIPT FILES -->
 		<jsp:include page="/WEB-INF/jsp/settings/js.jsp" />

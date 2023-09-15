@@ -175,6 +175,9 @@
               	</div>
 	        </div>
 	</section>
+	
+	<!-- footer include -->
+	<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp"/>
 
 </body>
 

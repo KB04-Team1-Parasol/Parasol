@@ -721,8 +721,10 @@ blockquote {
 
 .page-item:first-child .page-link,
 .page-item:last-child .page-link {
-  background-color: var(--section-bg-color);
+  background-color: var(--white-color);
   border-radius: var(--border-radius-small);
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
 }
 
 .active>.page-link,
