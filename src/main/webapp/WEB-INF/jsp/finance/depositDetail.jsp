@@ -30,6 +30,7 @@ function calculateSum() {
 
 	<!-- CSS FILES -->        
     <link href="/css/finance/custom-fin.css" rel="stylesheet">
+    <link href="/css/common.css" rel="stylesheet">
     <jsp:include page="/WEB-INF/jsp/settings/css.jsp" />
 </head>
 

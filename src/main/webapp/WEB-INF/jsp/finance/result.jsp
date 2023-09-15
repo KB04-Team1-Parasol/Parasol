@@ -15,6 +15,7 @@
 		</script>		
         <!-- css setting -->
 		<link href="/css/silver/detail.css" rel="stylesheet" />
+		<link href="/css/common.css" rel="stylesheet">
 		<jsp:include page="/WEB-INF/jsp/settings/css.jsp" />
 
 </head>

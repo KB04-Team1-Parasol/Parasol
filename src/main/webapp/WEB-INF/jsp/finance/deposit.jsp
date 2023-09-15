@@ -14,6 +14,7 @@
 <title>예금상품</title>
 <!-- CSS FILES -->
 <link href="/css/finance/custom-fin.css" rel="stylesheet">
+<link href="/css/common.css" rel="stylesheet">
 <jsp:include page="/WEB-INF/jsp/settings/css.jsp" />
 </head>
 <body class="topics-listing-page" id="top">
@@ -63,7 +64,7 @@
 									</div>
 									
 									<div class="d-flex col-5 justify-content-end">
-										<c:set var="kbcha" value="${deposit.depositNo % 5 + 1}" />
+										<c:set var="kbcha" value="${deposit.depositNo % 7 + 1}" />
 										<img src="/images/fr${kbcha}.png" alt="">
 									</div>
 									

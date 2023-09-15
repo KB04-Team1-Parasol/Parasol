@@ -20,6 +20,7 @@
 <title>파라다이스 라이프 솔루션</title>
 <!-- css setting -->
 <jsp:include page="/WEB-INF/jsp/settings/css.jsp"/>
+<link href="/css/finance/custom-fin.css" rel="stylesheet">
 
 </head>
 <body id="top">
@@ -318,6 +319,52 @@
 
 				</div>
 			</div>
+		</section>
+		
+		<!-- 금융 -->
+		<section class="main-product" style="background-color:#ffe157;">
+			<div class="conTain">	<!-- 수평 유지해주는듯 -->
+				<div class="fininside">
+					<div class="tit-area">
+						<h1 class="mb-4" style="color:black">상품</h1>
+						<div>
+						<ul>
+							<li data-tab="prd-tab-1">
+								<a href="javascript:void(0);"><h5>예금</h5></a>
+							</li>
+							<li data-tab="prd-tab-2" class>
+								<a href="javascript:void(0);"><h5>적금</h5></a>
+							</li>
+							<li data-tab="prd-tab-3" class>
+								<a href="javascript:void(0);"><h5>채권</h5></a>
+							</li>
+							<li class="nav-item" class="active" role="presentation">
+                                <button style="background-color: #FFE157; border:none;" class="nav-link active" id="design-tab" data-bs-toggle="tab" data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane" aria-selected="true">Design</button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button style="background-color: #FFE157; border:none;" class="nav-link" id="marketing-tab" data-bs-toggle="tab" data-bs-target="#marketing-tab-pane" type="button" role="tab" aria-controls="marketing-tab-pane" aria-selected="false">Marketing</button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button style="background-color: #FFE157; border:none;" class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance-tab-pane" type="button" role="tab" aria-controls="finance-tab-pane" aria-selected="false">Finance</button>
+                            </li>
+						</ul>
+						</div>
+						
+					</div>
+					
+				</div>	
+				
+				
+			</div>       <!-- 이 안에 다 -->
+			
+			<div><img src="/images/hal.png" alt=""></div>
+		
+		
+		
+		
+		
 		</section>
 
 		<section class="faq-section section-padding" id="section_4">
