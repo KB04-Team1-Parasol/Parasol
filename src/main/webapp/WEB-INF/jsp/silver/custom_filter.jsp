@@ -8,12 +8,34 @@
 <!-- css setting -->
 <jsp:include page="/WEB-INF/jsp/settings/css.jsp"/>
 <link href="/css/silver/list.css" rel="stylesheet" />
+<link href="/css/common.css" rel="stylesheet">
 </head>
 <body id="top">
 	<main>
 	
 		<!-- header include -->
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp"/>
+		
+		<header
+			class="site-header-finance d-flex flex-column justify-content-center align-items-center">
+			<div class="container">
+				<div class="row align-items-center">
+
+					<div class="col-lg-5 col-12">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="index.html">금융상품둘러보기</a></li>
+
+								<li class="breadcrumb-item active" aria-current="page">KB예금상품</li>
+							</ol>
+						</nav>
+
+						<h2 class="text-white">KB예금상품</h2>
+					</div>
+
+				</div>
+			</div>
+		</header>
 		
 		<section class="section-padding section_custum_filter">
 			<div class="container">
