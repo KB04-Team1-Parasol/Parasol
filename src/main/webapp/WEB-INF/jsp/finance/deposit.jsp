@@ -74,7 +74,6 @@
 						</c:forEach>
 					</div>
 					<div class="col-lg-12 col-12">
-
 						<!-- 페이징 처리, 다른 jsp 에도 동일하게 적용할 것 -->
 						<nav aria-label="Page navigation example">
 							<ul class="pagination justify-content-center mb-0">

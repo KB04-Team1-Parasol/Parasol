@@ -165,10 +165,13 @@ public class FinanceController {
      */
     
     @GetMapping("/personal")
-    public String personalInvest(Model model) {	
+    public String personalInvest(Model model, UsersDto usersdto) {	
     	// 토큰 있으면 넘기고 , 없으면 로그인으로 그냥 보내기
+    	Users user = userService.findByUserId(SecurityUtil.getCurrentUserId()); 
+    	String uname = user.getUserName();
+    	
     	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
+    	model.addAttribute("uname", uname);
 		// 토큰 없을때
 		if (!isUserLoggedIn(authentication, model)) {
 			return "common/confirm";

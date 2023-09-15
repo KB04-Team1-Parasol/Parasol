@@ -23,6 +23,13 @@
 }
 
 
+.featured-section-fin {
+  background-color:#F5f6f7;
+  padding-bottom: 100px;
+  height: 500px;
+}
+
+
 .hero-section-f {
   background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
   position: relative;
@@ -32,8 +39,12 @@
 }
 
 
-.section-padding-f {
-  padding-top: 5px;
+.section-padding-f1 {
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+.section-padding-f2 {
+  padding-top: 10px;
   padding-bottom: 100px;
 }
 
@@ -57,8 +68,8 @@
 
 .section-background-image {
     background-image: url('../../images/bg-section-1.png');
-    background-size: cover;  /* 이미지를 섹션의 크기에 맞게 조절 */
-    background-repeat: no-repeat; /* 이미지 반복 방지 */
+    background-size: cover;  /* �씠誘몄�瑜� �꽮�뀡�쓽 �겕湲곗뿉 留욊쾶 議곗젅 */
+    background-repeat: no-repeat; /* �씠誘몄� 諛섎났 諛⑹� */
     background-size: 530px 448px;
     background-attachment: fixed;
     background-position: right bottom;
@@ -73,7 +84,7 @@
     margin: 0 auto;
 }
 
-/* 메인 - 상품 */
+/* 硫붿씤 - �긽�뭹 */
 section.main-product { height:870px; -webkit-transform: skewY(3deg); -moz-transform: skewY(3deg); -ms-transform: skewY(3deg); -o-transform: skewY(3deg); transform: skewY(3deg); }
 section.main-product .conTain { padding:55px 0; -webkit-transform: skewY(-3deg); -moz-transform: skewY(-3deg); -ms-transform: skewY(-3deg); -o-transform: skewY(-3deg); transform: skewY(-3deg); }
 section.main-product .tit-area { margin:0 0 80px }
