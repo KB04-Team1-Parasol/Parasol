@@ -96,7 +96,7 @@
 
 					<div
 						class="custom-block custom-block-topics-listing bg-white mb-5">
-						<div class="col-lg-8 col-12 mt-3 mx-auto">
+						<div class="col-lg-12 col-12 mt-3 mx-auto">
 							<c:forEach var="information" items="${infoList.content}">
 								<div
 									class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
@@ -156,13 +156,9 @@
 	</main>
 
 	<!-- footer include -->
-	<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp" />
-
+	<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp"/>
+		
 	<!-- JAVASCRIPT FILES -->
-	<script src="/js/jquery.min.js"></script>
-	<script src="/js/bootstrap.bundle.min.js"></script>
-	<script src="/js/jquery.sticky.js"></script>
-	<script src="/js/custom.js"></script>
-	<script src="/js/info_date_setting.js"></script>
+	<jsp:include page="/WEB-INF/jsp/settings/js.jsp"/>
 </body>
 </html>

@@ -144,7 +144,7 @@ strong {
 
 .user-section-padding {
   padding-top: 250px;
-  padding-bottom: 100px;
+  padding-bottom: 241px;
 }
 
 .section-padding-silver-f{
@@ -711,7 +711,7 @@ blockquote {
 .page-link:hover,
 .page-item:first-child .page-link:hover,
 .page-item:last-child .page-link:hover {
-  background-color: var(--secondary-color);
+  background-color: var(--p-color);
   color: var(--white-color);
 }
 
@@ -723,14 +723,14 @@ blockquote {
 .page-item:last-child .page-link {
   background-color: var(--white-color);
   border-radius: var(--border-radius-small);
-  color: var(--secondary-color);
-  border: 1px solid var(--secondary-color);
+  color: var(--p-color);
+  border: 1px solid var(--p-color);
 }
 
 .active>.page-link,
 .page-link.active {
-  background-color: var(--secondary-color);
-  border-color: var(--secondary-color);
+  background-color: var(--p-color);
+  border-color: var(--p-color);
 }
 
 
