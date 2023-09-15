@@ -8,23 +8,32 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>Topic Listing Contact Page</title>
-<!-- CSS FILES -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap"
-	rel="stylesheet">
-<link href="/css/bootstrap.min.css" rel="stylesheet">
-<link href="/css/bootstrap-icons.css" rel="stylesheet">
-<link href="/css/templatemo-topic-listing.css" rel="stylesheet">
-<link href="/css/custom.css" rel="stylesheet">
+<jsp:include page="/WEB-INF/jsp/settings/css.jsp"/>
+<link href="/css/common.css" rel="stylesheet">
 </head>
 <body id="top">
 	<main>
 
 		<!-- header include -->
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
+		
+		<header class="site-header-finance d-flex flex-column justify-content-center align-items-center">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-5 col-12">
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/index">HOME</a></li>
+							<li class="breadcrumb-item active" aria-current="page">정보</li>
+						</ol>
+					</nav>
 
+					<h2 class="text-white">추천 정보</h2>
+				</div>
+			</div>
+		</div>
+	</header>
+		
 		<!-- <nav class="navbar navbar-expand-lg">
 			<div class="container">
 				<a class="navbar-brand" href="/"> <i class="bi-back"></i> <span>Parasol</span>
@@ -84,9 +93,6 @@
 		<section class="section-padding">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-12 col-12 text-center">
-						<h3 class="mb-4">Information</h3>
-					</div>
 
 					<div
 						class="custom-block custom-block-topics-listing bg-white mb-5">
