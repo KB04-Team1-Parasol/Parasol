@@ -224,11 +224,8 @@
 		<!-- footer include -->
 		<jsp:include page="/WEB-INF/jsp/common/footer.jsp" />
 		
-		
-		<script src="/js/bootstrap.bundle.min.js"></script>
-		<script src="/js/jquery.sticky.js"></script>
-		<script src="/js/click-scroll.js"></script>
-		<script src="/js/custom.js"></script>
+		<!-- JAVASCRIPT FILES -->
+		<jsp:include page="/WEB-INF/jsp/settings/js.jsp"/>
 
 
 		<!-- KB 캐릭터 이미지 보여주기 효과 -->
