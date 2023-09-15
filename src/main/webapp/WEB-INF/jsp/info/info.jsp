@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Topic Listing Contact Page</title>
+<title>파라솔 정보</title>
 <jsp:include page="/WEB-INF/jsp/settings/css.jsp"/>
 <link href="/css/common.css" rel="stylesheet">
 </head>
@@ -124,12 +124,14 @@
 						<div class="col-lg-12 col-12">
 							<nav aria-label="Page navigation example">
 								<ul class="pagination justify-content-center mb-0">
-									<li class="page-item"><a class="page-link" href="#"
-										aria-label="Previous"> <span aria-hidden="true">Prev</span>
-									</a></li>
-
-									<!-- Spring에서 받은 페이지 정보를 활용하여 페이지 번호를 동적으로 생성 -->
-									<c:forEach begin="1" end="${infoList.totalPages}"
+									<li
+									class="page-item ${infoList.number == 0 ? 'disabled' : ''}">
+									<a class="page-link" href="?page=${infoList.number}"
+									aria-label="Previous"> <span aria-hidden="true">이전</span>
+								</a>
+								</li>
+								
+								   <c:forEach begin="1" end="${infoList.totalPages}"
 										var="pageNumber">
 										<li
 											class="page-item ${pageNumber == infoList.number + 1 ? 'active' : ''}">
@@ -137,9 +139,12 @@
 										</li>
 									</c:forEach>
 
-									<li class="page-item"><a class="page-link" href="#"
-										aria-label="Next"> <span aria-hidden="true">Next</span>
-									</a></li>
+									<li
+									class="page-item ${infoList.number + 1 == infoList.totalPages ? 'disabled' : ''}">
+									<a class="page-link" href="?page=${infoList.number + 2}"
+									aria-label="Next"> <span aria-hidden="true">다음</span>
+									</a>
+									</li>
 								</ul>
 							</nav>
 						</div>
