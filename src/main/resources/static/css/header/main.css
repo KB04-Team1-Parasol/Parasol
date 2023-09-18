@@ -65,12 +65,12 @@ h6 {
 # Sections & Section Header
 --------------------------------------------------------------*/
 section {
-  padding: 80px 0;
+  padding: 50px 0;
   overflow: hidden;
 }
 
 .section-bg {
-  background-color: #f5f6f7;
+  background-color: #ffffff;
 }
 
 .section-header {
@@ -272,7 +272,7 @@ section {
 
 .header .logo img {
   max-height: 40px;
-  margin-right: 6px;
+  margin-bottom: 6px;
 }
 
 .header .logo h1 {

@@ -8,18 +8,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>맞춤형 결과</title>
+        <title>투자 성향 결과</title>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<script>
 		  const Utils = Chart.helpers;
 		</script>		
         <!-- css setting -->
 		<link href="/css/silver/detail.css" rel="stylesheet" />
+		<link href="/css/common.css" rel="stylesheet">
 		<jsp:include page="/WEB-INF/jsp/settings/css.jsp" />
 
 </head>
 
 <!-- 사용자 위험도 그래프 -->
+<link href="/css/finance/custom-fin.css" rel="stylesheet">
 <script type="text/javascript"> 
 const labels = ['안정형', '안전추구형', '위험중립형', '적극투자형', '공격투자형'];
 const details = ['안정추구형은 원금에 대한 손실을 원하지 않아요. 안정성이 높아 확실한 원금과 환금성을 얻을수 있으나 수익률이 낮아 재무목표 달성에 한계가 있을 수 있어요! CMA, MMF, 예금, 적금, 절세상품등을 추천해요!',
@@ -99,17 +101,17 @@ document.addEventListener("DOMContentLoaded", function () {
 		<!-- header include -->
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp"/>		
 		<section
-			class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+			class="hero-section-f d-flex justify-content-center align-items-center" id="section_1">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 col-12 mx-auto">
-						<h1 class="text-black text-center">${uname }님의 간단 투자 성향</h1>
+						<h1 class="text-black text-center">${uname }님의 투자 성향</h1> <br>
 						<h6 class="text-center">마이데이터를 활용한 상품추천도 둘러보세요!</h6>
 					</div>
 				</div>
 			</div>
 		</section>
-		<section class="featured-section">
+		<section class="featured-section-fin">
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-lg-6 col-12">			
@@ -125,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
 					<div class="custom-block bg-white shadow-lg">
 							<div class="d-flex">
 								<div>
-									  <h6 class="mb-2" id="resultLabel"></h6>	
+									  <h6 class="mb-2 text-center" id="resultLabel" ></h6>	
 									  <br>
 									  <p id="detail" class="mb-0">Detail will be shown here.</p>			
 					           </div>
@@ -136,13 +138,13 @@ document.addEventListener("DOMContentLoaded", function () {
 				</div>
 			</div>
 		</section>
-        <section class="section-padding">
+        <section class="section-padding-f1">
                 <div class="container">
                     <div class="row">
 
                         <div class="col-lg-12 col-12 text-center">
                             <h3 class="mb-4">KB맞춤 상품 추천</h3>
-                            <h6 class="text-center">고객님의 마이데이터를 이용한 결과에요!</h6>
+                            <h6 class="text-center">고객님의 마이데이터를 분석한 추천상품이에요!</h6>
                         </div>
 				       <div class="col-lg-8 col-12 mt-3 mx-auto">
 					 </div>
@@ -151,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
           </section>
           
           <!-- 탑 마진 줄일 것  -->
-            <section class="section-padding">
+            <section class="section-padding-f2">
             <div class="container">
 					<div class="col-12">
 								<div class="row">
@@ -164,10 +166,10 @@ document.addEventListener("DOMContentLoaded", function () {
 														<h5 class="mb-2">${recommendedBond.bondName}</h5>
 														<br>
 														<p class="mb-0">채권 위험도 : ${recommendedBond.bondRisk}</p>
-														<p class="mb-0">채권 수익률 : ${recommendedBond.bondRate}</p>
+														<p class="mb-0">채권 수익률 : ${recommendedBond.bondRate} %</p>
 														<br>
 														<div class="">
-														<button onclick="window.open('https://naver.com ')"class="btn custom-btn mt-3 mt-lg-4">채권상세보기</button>
+														<button onclick="window.open('http://localhost:8080/finance/bond/${recommendedBond.bondNo}')"class="btn custom-btn mt-3 mt-lg-4">채권상세보기</button>
 														</div>
 													</div>				
 											</div> 
@@ -182,10 +184,10 @@ document.addEventListener("DOMContentLoaded", function () {
 														<br>
 														<h5 class="mb-2">${recommendedDeposit.depositName}</h5>
 														<br>
-														<p class="mb-0">예금 만기일 : ${recommendedDeposit.depositPeriod}</p>
-														<p class="mb-0">예금 이율 : ${recommendedDeposit.depositRate}</p>
+														<p class="mb-0">예금 만기 : ${recommendedDeposit.depositPeriod} 개월</p>
+														<p class="mb-0">예금 이율 : ${recommendedDeposit.depositRate} %</p>
 														<br>
-														<button onclick="window.open('https://naver.com ')"class="btn custom-btn mt-3 mt-lg-4">예금상세보기</button>
+														<button onclick="window.open('http://localhost:8080/finance/deposit/${recommendedDeposit.depositNo}')"class="btn custom-btn mt-3 mt-lg-4">예금상세보기</button>
 												</div>
 											</div>
 										</div>
@@ -199,19 +201,24 @@ document.addEventListener("DOMContentLoaded", function () {
 														<br>
 														<h5 class="mb-2">${recommendedSaving.savingName}</h5>
 														<br>
-														<p class="mb-0">적금 만기일 : ${recommendedSaving.savingPeriod}</p>
-														<p class="mb-0">적금 이율 : ${recommendedSaving.savingRate}</p>
+														<p class="mb-0">적금 만기 : ${recommendedSaving.savingPeriod} 개월</p>
+														<p class="mb-0">적금 이율 : ${recommendedSaving.savingRate} % </p>
 														<br>
-														<button onclick="window.open('https://naver.com ')"class="btn custom-btn mt-3 mt-lg-4">적금상세보기</button>
+														<button onclick="window.open('http://localhost:8080/finance/saving/${recommendedSaving.savingNo}')" class="btn custom-btn mt-3 mt-lg-4">적금상세보기</button>
 													</div>
 												</div>
 										</div>
 									</div>
 								</div>
-					</div>
-			</div>
-            </section>
+							</div>
+						</div>
+		            </section>
+	                        
       </main>
+      
+      	<!-- footer include -->
+		<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp" />
+      
         <!-- JAVASCRIPT FILES -->
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>

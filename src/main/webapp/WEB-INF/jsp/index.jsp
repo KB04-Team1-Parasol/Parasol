@@ -20,6 +20,7 @@
 <title>파라다이스 라이프 솔루션</title>
 <!-- css setting -->
 <jsp:include page="/WEB-INF/jsp/settings/css.jsp"/>
+<link href="/css/finance/custom-fin.css" rel="stylesheet">
 
 </head>
 <body id="top">
@@ -56,12 +57,12 @@
 		<!-- header include -->
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp"/>
 		
-		<section class="featured-section pb-0">
+		<section class="pb-0">
 			<div class="row justify-content-center text-center h-100">
-				<div class="col-lg-8 col-12 mb-4 mb-lg-0 h-100">
-					<div id="carouselExampleInterval" class="carousel slide"
+				<div class="">
+					<div id="carouselExampleInterval" class="carousel slide h-100"
 						data-bs-ride="carousel">
-						<div class="carousel-indicators">
+						<div class="carousel-indicators ci_custom">
 							<button type="button" data-bs-target="#carouselExampleInterval"
 								data-bs-slide-to="0" class="active" aria-current="true"
 								aria-label="Slide 1"></button>
@@ -72,15 +73,15 @@
 						</div>
 						<div class="carousel-inner">
 							<div class="carousel-item active" data-bs-interval="3000">
-								<img src="images/main/main4.png"
+								<img src="images/main/배너1.png"
 									class="custom-block-image img-fluid">
 							</div>
 							<div class="carousel-item" data-bs-interval="3000">
-								<img src="images/main/main.jpg"
+								<img src="images/main/배너2.png"
 									class="custom-block-image img-fluid">
 							</div>
 							<div class="carousel-item" data-bs-interval="3000">
-								<img src="images/main/main2.png"
+								<img src="images/main/배너3.png"
 									class="custom-block-image img-fluid">
 							</div>
 						</div>
@@ -318,6 +319,131 @@
 
 				</div>
 			</div>
+		</section>
+		
+		<!-- 금융 -->
+		<section class="main-product" style="background-color: #ffe157;">
+			<div class="conTain">
+				<!-- 수평 유지해주는듯 -->
+				<div class="fininside">
+					<div class="tit-area">
+						<h1 class="mb-4" style="color: black">상품</h1>
+
+					</div>
+
+				</div>
+
+
+				<div class="container-fluid">
+					<div class="row">
+						<ul class="nav nav-tabs" id="myTab" role="tablist">
+							<li class="nav-item" role="presentation">
+								<button class="nav-link active" id="design-tab"
+									data-bs-toggle="tab" data-bs-target="#dd-tab-pane"
+									type="button" role="tab" aria-controls="dd-tab-pane"
+									aria-selected="true">예금</button>
+							</li>
+
+							<li class="nav-item" role="presentation">
+								<button class="nav-link" id="marketing-tab" data-bs-toggle="tab"
+									data-bs-target="#cc-tab-pane" type="button" role="tab"
+									aria-controls="cc-tab-pane" aria-selected="false">적금</button>
+							</li>
+
+							<li class="nav-item" role="presentation">
+								<button class="nav-link" id="music-tab" data-bs-toggle="tab"
+									data-bs-target="#music-tab-pane" type="button" role="tab"
+									aria-controls="music-tab-pane" aria-selected="false">채권</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="container">
+					<div class="row">
+
+						<div class="col-12">
+							<div class="tab-content" id="myTabContent">
+
+								<!-- 실버타운 탭 -->
+								<div class="tab-pane fade show active" id="dd-tab-pane"
+									role="tabpanel" aria-labelledby="music-tab-pane" tabindex="0">
+									<div class="row">
+										<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+											<div class="custom-block bg-white shadow-lg">
+												<a href="/info/info/9">
+													<div class="d-flex">
+														<div>
+															<img src="/images/hal.png" alt="">
+														</div>
+													</div> <img
+													src="https://img.etoday.co.kr/pto_db/2023/07/600/20230714114306_1905977_1200_600.jpg"
+													class="custom-block-image img-fluid"
+													onerror="this.src='/images/main.jpg'">
+												</a>
+											</div>
+										</div>
+
+
+									</div>
+								</div>
+								<!-- 금융 탭 -->
+								<div class="tab-pane fade" id="cc-tab-pane"
+									role="tabpanel" aria-labelledby="music-tab-pane" tabindex="0">
+									<div class="row">
+										<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+											<div class="custom-block bg-white shadow-lg">
+												<a href="/info/info/1">
+													<div class="d-flex">
+														<div>
+															<h5 class="mb-2">은퇴 앞두고 있다면 부채관리는 이렇게!</h5>
+														</div>
+													</div> <img
+													src="https://image.ajunews.com/content/image/2021/03/03/20210303074620389150.jpg"
+													class="custom-block-image img-fluid"
+													onerror="this.src='/images/main.jpg'">
+												</a>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<!-- 정보 탭 -->
+								<div class="tab-pane fade" id="music-tab-pane" role="tabpanel"
+									aria-labelledby="music-tab" tabindex="0">
+									<div class="row">
+										<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+											<div class="custom-block bg-white shadow-lg">
+												<a href="/info/info/1">
+													<div class="d-flex">
+														<div>
+															<h5 class="mb-2">고령화 시대 노인 건강…만성질환 늘고 노쇠 줄어</h5>
+														</div>
+													</div> <img
+													src="https://cdn.docdocdoc.co.kr/news/photo/202308/3008308_3009394_5856.jpg"
+													class="custom-block-image img-fluid"
+													onerror="this.src='/images/main.jpg'">
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+
+			</div>
+			<!-- 이 안에 다 -->
+
+
+
+
+
 		</section>
 
 		<section class="faq-section section-padding" id="section_4">

@@ -7,24 +7,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Topic Listing Contact Page</title>
-<!-- CSS FILES -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap"
-	rel="stylesheet">
-<link href="/css/bootstrap.min.css" rel="stylesheet">
-<link href="/css/bootstrap-icons.css" rel="stylesheet">
-<link href="/css/templatemo-topic-listing.css" rel="stylesheet">
-<link href="/css/custom.css" rel="stylesheet">
+<title>파라솔 정보</title>
+<jsp:include page="/WEB-INF/jsp/settings/css.jsp"/>
+<link href="/css/common.css" rel="stylesheet">
 </head>
 <body id="top">
 	<main>
 
 		<!-- header include -->
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
+		
+		<header class="site-header-finance d-flex flex-column justify-content-center align-items-center">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-5 col-12">
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/index">HOME</a></li>
+							<li class="breadcrumb-item active" aria-current="page">정보</li>
+						</ol>
+					</nav>
 
+					<h2 class="text-white">추천 정보</h2>
+				</div>
+			</div>
+		</div>
+	</header>
+		
 		<!-- <nav class="navbar navbar-expand-lg">
 			<div class="container">
 				<a class="navbar-brand" href="/"> <i class="bi-back"></i> <span>Parasol</span>
@@ -84,13 +93,10 @@
 		<section class="section-padding">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-12 col-12 text-center">
-						<h3 class="mb-4">Information</h3>
-					</div>
 
 					<div
-						class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-						<div class="col-lg-8 col-12 mt-3 mx-auto">
+						class="custom-block custom-block-topics-listing bg-white mb-5">
+						<div class="col-lg-12 col-12 mt-3 mx-auto">
 							<c:forEach var="information" items="${infoList.content}">
 								<div
 									class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
@@ -118,12 +124,14 @@
 						<div class="col-lg-12 col-12">
 							<nav aria-label="Page navigation example">
 								<ul class="pagination justify-content-center mb-0">
-									<li class="page-item"><a class="page-link" href="#"
-										aria-label="Previous"> <span aria-hidden="true">Prev</span>
-									</a></li>
-
-									<!-- Spring에서 받은 페이지 정보를 활용하여 페이지 번호를 동적으로 생성 -->
-									<c:forEach begin="1" end="${infoList.totalPages}"
+									<li
+									class="page-item ${infoList.number == 0 ? 'disabled' : ''}">
+									<a class="page-link" href="?page=${infoList.number}"
+									aria-label="Previous"> <span aria-hidden="true">이전</span>
+								</a>
+								</li>
+								
+								   <c:forEach begin="1" end="${infoList.totalPages}"
 										var="pageNumber">
 										<li
 											class="page-item ${pageNumber == infoList.number + 1 ? 'active' : ''}">
@@ -131,9 +139,12 @@
 										</li>
 									</c:forEach>
 
-									<li class="page-item"><a class="page-link" href="#"
-										aria-label="Next"> <span aria-hidden="true">Next</span>
-									</a></li>
+									<li
+									class="page-item ${infoList.number + 1 == infoList.totalPages ? 'disabled' : ''}">
+									<a class="page-link" href="?page=${infoList.number + 2}"
+									aria-label="Next"> <span aria-hidden="true">다음</span>
+									</a>
+									</li>
 								</ul>
 							</nav>
 						</div>
@@ -145,13 +156,9 @@
 	</main>
 
 	<!-- footer include -->
-	<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp" />
-
+	<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp"/>
+		
 	<!-- JAVASCRIPT FILES -->
-	<script src="/js/jquery.min.js"></script>
-	<script src="/js/bootstrap.bundle.min.js"></script>
-	<script src="/js/jquery.sticky.js"></script>
-	<script src="/js/custom.js"></script>
-	<script src="/js/info_date_setting.js"></script>
+	<jsp:include page="/WEB-INF/jsp/settings/js.jsp"/>
 </body>
 </html>

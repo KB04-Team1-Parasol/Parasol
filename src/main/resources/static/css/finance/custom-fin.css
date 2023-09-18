@@ -14,6 +14,104 @@
         color: #FF8000;
 }
 
+.custom-block-fin {
+  border-radius: var(--border-radius-medium);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+
+.featured-section-fin {
+  background-color:#F5f6f7;
+  padding-bottom: 100px;
+  height: 500px;
+}
+
+
+.hero-section-f {
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  position: relative;
+  overflow: hidden;
+  padding-top: 200px;
+  padding-bottom: 10px;
+}
+
+
+.section-padding-f1 {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+.section-padding-f2 {
+
+  padding-top: 60px;
+  padding-bottom: 250px;
+
+
+}
+
+
+.d-flex-f {
+    display: flex;
+    justify-content: space-between;
+	text-align: center;
+}
+
+
+.custom-block-finance {
+  border-radius: var(--border-radius-medium);
+  /* position: relative;
+   */
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+
+.section-background-image {
+    background-image: url('../../images/bg-section-1.png');
+    background-size: cover;  /* �씠誘몄�瑜� �꽮�뀡�쓽 �겕湲곗뿉 留욊쾶 議곗젅 */
+    background-repeat: no-repeat; /* �씠誘몄� 諛섎났 諛⑹� */
+    background-size: 530px 448px;
+    background-attachment: fixed;
+    background-position: right bottom;
+}
+
+#concon{
+	width:100%; margin:0 auto; position:relative;
+}
+
+.fininside {
+    width: 960px;
+    margin: 0 auto;
+}
+
+
+section.main-product { height:870px; -webkit-transform: skewY(3deg); -moz-transform: skewY(3deg); -ms-transform: skewY(3deg); -o-transform: skewY(3deg); transform: skewY(3deg); }
+section.main-product .conTain { padding:55px 0; -webkit-transform: skewY(-3deg); -moz-transform: skewY(-3deg); -ms-transform: skewY(-3deg); -o-transform: skewY(-3deg); transform: skewY(-3deg); }
+section.main-product .tit-area { margin:0 0 80px }
+section.main-product .tit-area h2 { font-size:28px; color:#222; margin:0 0 30px;font-family: KBFGDisplayB; }
+section.main-product .tit-area li { position: relative;font-weight:100;cursor:pointer; display:inline-block; vertical-align:top; margin-right:36px; letter-spacing:-1px; font-size:18px; padding:0 0 5px; color:#4d4d4f }
+section.main-product .tit-area li:hover { color:#000; }
+section.main-product .tit-area li a{color:#000;font-family: KBFGDisplayL;}
+section.main-product .tit-area li a:after {content: '';display: none;position: absolute;bottom: 0;left: 0;width: 100%;height: 2px;background: #4d4d4f;}
+section.main-product .tit-area li.active {font-weight:400;/*border-bottom:2px solid #4d4d4f*/ }
+section.main-product .tit-area li.active a {font-family: KBFGDisplayM;}
+section.main-product .tit-area li a:hover:after {content: '';display: none;position: absolute;bottom: 0;left: 0;width: 100%;height: 2px;background: #4d4d4f;}
+section.main-product .tit-area li.active a:after,  section.main-product .tit-area li:hover a:after {content: '';position: absolute;bottom: 0;left: 0;width: 100%;height: 2px;background: #222222;display: inline-block;border-radius: 30px;}
+section.main-product .con-area { display:none; position:relative }
+section.main-product .con-area.active { display:block }
+section.main-product .con-area:after { clear:both; display:block; content:"" }
+section.main-product .con-area .img {position:absolute; top:0; left:-85px; width:568px; height:545px;background-repeat: no-repeat; background-position: 0 0;}
+section.main-product .con-area .img img{width:100%;}
+section.main-product .con-area .txt { float:right; text-align:left; margin:40px 0 0; width: 390px; }
+section.main-product .con-area .txt .ico-ticker { width:119px; line-height:35px;text-align:center; background:#fff4ad;font-family: KBFGDisplayM;border-radius:30px; font-size:20px; color:#555555; }
+section.main-product .con-area .txt h3 {font-size:44px;line-height:1.25;color: #222;margin:15px 0 25px;font-family: KBFGDisplayB;}
+section.main-product .con-area .txt strong { display:block; margin:0 0 15px; font-size:24px; color:#555555;line-height: 1.4; }
+section.main-product .con-area .txt p { margin:0 0 30px; font-size:20px; line-height: 1.4; color:#555555; }
+section.main-product .con-area .txt a.more {display:inline-block;margin-right:10px;width: 118px;line-height:40px;background:#555555;border-radius: 21px;font-size:16px;text-align:center;color:#ffe157;background: #555555;border: 1px solid #555555;}
+section.main-product .con-area .txt a.all-more {display:inline-block;width: 154px;line-height:40px;border: 1px solid #555555;border-radius: 21px;font-size:16px;text-align:center;color:#4d4d4f;box-sizing: border-box;}
 
 #bg-1design {
   background-color: #F3E2A9;

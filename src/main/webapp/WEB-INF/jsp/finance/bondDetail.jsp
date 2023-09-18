@@ -17,6 +17,7 @@
 
 <!-- CSS FILES -->
 <link href="/css/finance/custom-fin.css" rel="stylesheet">
+<link href="/css/common.css" rel="stylesheet">
 <jsp:include page="/WEB-INF/jsp/settings/css.jsp" />
 
 </head>
@@ -25,21 +26,21 @@
 	<main>
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
 		<header
-			class="site-header d-flex flex-column justify-content-center align-items-center">
+			class="site-header-finance d-flex flex-column justify-content-center align-items-center">
 			<div class="container">
 				<div class="row align-items-center">
 
 					<div class="col-lg-5 col-12">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">Homepage</a></li>
+								<li class="breadcrumb-item"><a href="index.html">HOME</a></li>
 
-								<li class="breadcrumb-item active" aria-current="page">Topics
-									Listing</li>
+								<li class="breadcrumb-item active" aria-current="page">금융상품
+								</li>
 							</ol>
 						</nav>
 
-						<h2 class="text-white">Topics Listing</h2>
+						<h2 class="text-white">KB채권상품</h2>
 					</div>
 
 				</div>

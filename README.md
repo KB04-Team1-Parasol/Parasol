@@ -1,7 +1,6 @@
 <div align=center>
    
-![image](https://github.com/KB04-Team1-Parasol/Parasol/assets/22187692/4c87b9ff-04e2-464b-bc4f-27b9237965ec)
-
+![파라솔-removebg-preview](https://github.com/KB04-Team1-Parasol/Parasol/assets/85729858/3f57544d-2b4d-4cd7-ad36-fc2d24592301)
 </div>
 
 # 파라솔 (파라다이스 라이프 솔루션)

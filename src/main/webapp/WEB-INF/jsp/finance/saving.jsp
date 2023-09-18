@@ -15,6 +15,7 @@
 
         <!-- CSS FILES -->        
         <link href="/css/finance/custom-fin.css" rel="stylesheet">
+        <link href="/css/common.css" rel="stylesheet">
         <jsp:include page="/WEB-INF/jsp/settings/css.jsp" />
         
 <!--
@@ -26,16 +27,16 @@ https://templatemo.com/tm-590-topic-listing
         <main>
 			<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
 
-            <header class="site-header d-flex flex-column justify-content-center align-items-center">
+            <header class="site-header-finance d-flex flex-column justify-content-center align-items-center">
                 <div class="container">
                     <div class="row align-items-center">
 
                         <div class="col-lg-5 col-12">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">금융상품둘러보기</a></li>
+                                    <li class="breadcrumb-item"><a href="index.html">HOME</a></li>
 
-                                    <li class="breadcrumb-item active" aria-current="page">KB적금상품</li>
+                                    <li class="breadcrumb-item active" aria-current="page">금융상품</li>
                                 </ol>
                             </nav>
 
@@ -50,17 +51,24 @@ https://templatemo.com/tm-590-topic-listing
                     <div class="row">
 						<div class="col-lg-8 col-12 mt-3 mx-auto">
 						    <c:forEach var="saving" items="${savingList.content}">
-						        <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-						            <div class="d-flex">
+						        <div class="custom-block-fin custom-block-topics-listing bg-white shadow-lg mb-5">
+						            <div class="d-flex justify-content-between">
 						                <!-- 이미지 및 기타 정보 출력 -->
 						                <div class="custom-block-topics-listing-info d-flex">
 						                    <div>
 						                        <h5 class="mb-2"> ${saving.savingName}</h5>
 						                        <p class="mb-0">최대 기간: ${saving.savingPeriod}개월</p>
 						                        <p class="mb-0">이율 : ${saving.savingRate}%</p>
-						                        <a href="<c:url value="/finance/saving/${saving.savingNo}"/>" class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+						                        <a href="<c:url value="/finance/saving/${saving.savingNo}"/>"
+						                         class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
 						                    </div>
 						                </div>
+						                
+						                <div class="d-flex col-5 justify-content-end">
+										<c:set var="kbcha" value="${saving.savingNo % 7 + 1}" />
+										<img src="/images/fr${kbcha}.png" alt="">
+									</div>
+						            
 						            </div>
 						        </div>
 						    </c:forEach>

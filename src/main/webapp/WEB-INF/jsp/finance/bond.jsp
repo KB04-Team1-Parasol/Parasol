@@ -12,6 +12,7 @@
 <title>채권상품</title>
 <!-- CSS FILES -->
 <link href="/css/finance/custom-fin.css" rel="stylesheet">
+<link href="/css/common.css" rel="stylesheet">
 <jsp:include page="/WEB-INF/jsp/settings/css.jsp" />
 
 </head>
@@ -20,16 +21,16 @@
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
 
 		<header
-			class="site-header d-flex flex-column justify-content-center align-items-center">
+			class="site-header-finance d-flex flex-column justify-content-center align-items-center">
 			<div class="container">
 				<div class="row align-items-center">
 
 					<div class="col-lg-5 col-12">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">금융상품둘러보기</a></li>
+								<li class="breadcrumb-item"><a href="index.html">HOME</a></li>
 
-								<li class="breadcrumb-item active" aria-current="page">KB채권상품</li>
+								<li class="breadcrumb-item active" aria-current="page">금융상품</li>
 							</ol>
 						</nav>
 
@@ -95,9 +96,8 @@
 											<h5 class="mb-2">${bond.bondName}</h5>
 											<p class="mb-0">만기일 : ${bond.bondDate}</p>
 											<p class="mb-0">
-												3년 수익률 : <span style="color: red;">${bond.bondRate}%</span>
+												3년 수익률 : <span style="color: red; font-weight: bold; ">${bond.bondRate}%</span>
 											</p>
-											<p class="mb-0">위험도: ${bond.bondRisk}</p>
 											<a href="<c:url value="/finance/bond/${bond.bondNo}" />"
 												class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
 										</div>
@@ -113,18 +113,27 @@
 					<div class="col-lg-12 col-12">
 						<nav aria-label="Page navigation example">
 							<ul class="pagination justify-content-center mb-0">
-								<li class="page-item"><a class="page-link" href="#"
-									aria-label="Previous"> <span aria-hidden="true">Prev</span>
-								</a> <!-- Spring에서 받은 페이지 정보를 활용하여 페이지 번호를 동적으로 생성 --> <c:forEach
-										begin="1" end="${bondList.totalPages}" var="pageNumber">
-										<li
-											class="page-item ${pageNumber == bondList.number + 1 ? 'active' : ''}">
-											<a class="page-link" href="?page=${pageNumber}">${pageNumber}</a>
-										</li>
-									</c:forEach>
-								<li class="page-item"><a class="page-link" href="#"
-									aria-label="Next"> <span aria-hidden="true">Next</span>
-								</a></li>
+								<li
+									class="page-item ${bondList.number == 0 ? 'disabled' : ''}">
+									<a class="page-link" href="?page=${bondList.number}"
+									aria-label="Previous"> <span aria-hidden="true">이전</span>
+								</a>
+								</li>
+								<!-- 페이지 번호 동적 생성 -->
+								<c:forEach begin="1" end="${bondList.totalPages}"
+									var="pageNumber">
+									<li
+										class="page-item ${pageNumber == bondList.number + 1 ? 'active' : ''}">
+										<a class="page-link" href="?page=${pageNumber}">${pageNumber}</a>
+									</li>
+								</c:forEach>
+								<li
+									class="page-item ${bondList.number + 1 == bondList.totalPages ? 'disabled' : ''}">
+									<a class="page-link" href="?page=${bondList.number + 2}"
+									aria-label="Next"> <span aria-hidden="true">다음</span>
+								</a>
+								</li>
+							
 							</ul>
 						</nav>
 					</div>
