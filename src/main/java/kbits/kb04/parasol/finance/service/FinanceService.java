@@ -18,6 +18,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import kbits.kb04.parasol.auth.SecurityUtil;
 import kbits.kb04.parasol.finance.dto.*;
@@ -27,6 +29,7 @@ import kbits.kb04.parasol.users.dto.AssetInputRequestDto;
 import kbits.kb04.parasol.users.dto.UsersDto;
 import kbits.kb04.parasol.users.entity.UserAsset;
 import kbits.kb04.parasol.users.entity.Users;
+import kbits.kb04.parasol.users.enums.UserAssetStatus;
 import kbits.kb04.parasol.users.repository.UsersRepository;
 import kbits.kb04.parasol.users.service.UsersService;
 import lombok.RequiredArgsConstructor;
@@ -135,7 +138,7 @@ public class FinanceService {
 		return bondRepository.findBybondNo(bondNo);
 	}
 	
-	
+
 	
 	
 

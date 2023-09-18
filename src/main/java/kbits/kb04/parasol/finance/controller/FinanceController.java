@@ -164,15 +164,12 @@ public class FinanceController {
      * @return
      */
     
-    @GetMapping("/personal")
-    public String personalInvest(Model model, UsersDto usersdto) {	
-    	// 토큰 있으면 넘기고 , 없으면 로그인으로 그냥 보내기
-    	Users user = userService.findByUserId(SecurityUtil.getCurrentUserId()); 
-    	String uname = user.getUserName();
-    	
-    	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-    	model.addAttribute("uname", uname);
-		// 토큰 없을때
+	// 맞춤 실버타운 찾기(필터링)
+	@GetMapping("/personal")
+	public String finance_custom(Model model) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+		// 로그인 정보 없을 때
 		if (!isUserLoggedIn(authentication, model)) {
 			return "common/confirm";
 		}
@@ -181,9 +178,9 @@ public class FinanceController {
 		if (!isUserAssetInputComplete(authentication, model)) {
 			return "common/confirm";
 		}
-    	
-    	return "finance/personal";
-    }
+
+		return "finance/personal";
+	}
     
     
     /**
