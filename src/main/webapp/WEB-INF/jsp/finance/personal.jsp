@@ -213,7 +213,7 @@
                                 </div>
                             </div>
                           	<div class="d-flex justify-content-center mb-3">						
-							<input type="submit" value="제출" class="btn custom-btn mt-3 mt-lg-4">
+							<input type="submit" value="제출" class="btn btn-dark mt-3 mt-lg-0">
 							</div>											    
 						   </form>    	    
                        </div>

@@ -49,17 +49,17 @@
 					<div class=" col-lg-8 col-12 mt-3 mx-auto">
 						<c:forEach var="deposit" items="${depositList.content}">
 							<div
-								class="custom-block-fin custom-block-topics-listing bg-white shadow-lg mb-5">
+								class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
 								<div class="d-flex justify-content-between">
 									<!-- 이미지 및 기타 정보 출력 -->
 									<div class="custom-block-topics-listing-info d-flex">
 										<div>
-											<h5 class="mb-2">상품 명: ${deposit.depositName}</h5>
-											<p class="mb-0">최대 기간: ${deposit.depositPeriod}</p>
-											<p class="mb-0">만기 이자율: ${deposit.depositRate}</p>
+											<h5 class="mb-2">${deposit.depositName}</h5>
+											<p class="mb-0">최대 기간: ${deposit.depositPeriod}개월</p>
+											<p class="mb-0">만기 이자율: ${deposit.depositRate}%</p>
 											<a
 												href="<c:url value="/finance/deposit/${deposit.depositNo}" />"
-												class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+												class="btn custom-btn mt-3 mt-lg-4">자세히 보기</a>
 										</div>
 									</div>
 									
