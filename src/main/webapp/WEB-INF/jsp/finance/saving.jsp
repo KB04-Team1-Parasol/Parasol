@@ -51,7 +51,7 @@ https://templatemo.com/tm-590-topic-listing
                     <div class="row">
 						<div class="col-lg-8 col-12 mt-3 mx-auto">
 						    <c:forEach var="saving" items="${savingList.content}">
-						        <div class="custom-block-fin custom-block-topics-listing bg-white shadow-lg mb-5">
+						        <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
 						            <div class="d-flex justify-content-between">
 						                <!-- 이미지 및 기타 정보 출력 -->
 						                <div class="custom-block-topics-listing-info d-flex">
@@ -60,7 +60,7 @@ https://templatemo.com/tm-590-topic-listing
 						                        <p class="mb-0">최대 기간: ${saving.savingPeriod}개월</p>
 						                        <p class="mb-0">이율 : ${saving.savingRate}%</p>
 						                        <a href="<c:url value="/finance/saving/${saving.savingNo}"/>"
-						                         class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+						                         class="btn custom-btn mt-3 mt-lg-4">자세히 보기</a>
 						                    </div>
 						                </div>
 						                

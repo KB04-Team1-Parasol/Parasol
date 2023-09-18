@@ -99,7 +99,7 @@
 												3년 수익률 : <span style="color: red; font-weight: bold; ">${bond.bondRate}%</span>
 											</p>
 											<a href="<c:url value="/finance/bond/${bond.bondNo}" />"
-												class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+												class="btn custom-btn mt-3 mt-lg-4">자세히 보기</a>
 										</div>
 									</div>
 									<div class="d-flex col-5 justify-content-end">
