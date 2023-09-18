@@ -129,8 +129,9 @@
 									<h5 class="mb-2">현금 : ${userAsset.pureAsset - userAsset.realAsset - userAsset.finAsset + userAsset.debt} (만원)</h5>
 									<h5 class="mb-2">부채 : ${userAsset.debt} (만원)</h5>
 									<h5 class="mb-2">월 소득 : ${userAsset.monthlyIncome} (만원)</h5>
-									<h5 class="mb-2">입주 예상 나이 : ${userAsset.annuity} (살) </h5>
-									<h5 class="mb-2">희망 거주 기간 : ${userAsset.hopeAge} (년)</h5>
+									<h5 class="mb-2">연금 : ${userAsset.annuity} (만원) </h5>
+									<h5 class="mb-2">예상 입주 나이 : ${userAsset.hopeAge} (만원) </h5>
+									<h5 class="mb-2">희망 거주 기간 : ${userAsset.hopePeriod} (년)</h5>
 
 								</div>
 							</div>
