@@ -198,12 +198,12 @@
 									<!-- 이미지 및 기타 정보 출력 -->
 									<div class="custom-block-topics-listing-info d-flex">
 										<div>
-											<h5 class="mb-2">상품 명: ${deposit.depositName}</h5>
-											<p class="mb-0">최대 기간: ${deposit.depositPeriod}</p>
-											<p class="mb-0">만기 이자율: ${deposit.depositRate}</p>
+											<h5 class="mb-2">${deposit.depositName}</h5>
+											<p class="mb-0">최대 기간: ${deposit.depositPeriod}개월</p>
+											<p class="mb-0">만기 이자율: ${deposit.depositRate}%</p>
 											<a
 												href="<c:url value="/finance/deposit/${deposit.depositNo}" />"
-												class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+												class="btn custom-btn mt-3 mt-lg-4">자세히 보기</a>
 										</div>
 									</div>
 									
@@ -236,7 +236,7 @@
 					                        <p class="mb-0">최대 기간: ${saving.savingPeriod}개월</p>
 					                        <p class="mb-0">이율 : ${saving.savingRate}%</p>
 					                        <a href="<c:url value="/finance/saving/${saving.savingNo}"/>"
-					                         class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+					                         class="btn custom-btn mt-3 mt-lg-4">자세히 보기</a>
 					                    </div>
 					                </div>
 					                
@@ -309,11 +309,11 @@
 												3년 수익률 : <span style="color: red; font-weight: bold; ">${bond.bondRate}%</span>
 											</p>
 											<a href="<c:url value="/finance/bond/${bond.bondNo}" />"
-												class="btn custom-btn mt-3 mt-lg-4">상품자세히보기</a>
+												class="btn custom-btn mt-3 mt-lg-4">자세히 보기</a>
 										</div>
 									</div>
 									<div class="d-flex col-5 justify-content-end">
-										<c:set var="kbcha" value="${bond.bondNo % 5 + 1}" />
+										<c:set var="kbcha" value="${bond.bondNo % 7 + 1}" />
 										<img src="/images/fr${kbcha}.png" alt="">
 									</div>
 								</div>
