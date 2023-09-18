@@ -59,7 +59,7 @@
 		<section class="featured-section pb-0">
 			<div class="row justify-content-center text-center h-100">
 				<div class="col-lg-8 col-12 mb-4 mb-lg-0 h-100">
-					<div id="carouselExampleInterval" class="carousel slide h-100"
+					<div id="carouselExampleInterval" class="carousel slide"
 						data-bs-ride="carousel">
 						<div class="carousel-indicators">
 							<button type="button" data-bs-target="#carouselExampleInterval"
@@ -70,7 +70,7 @@
 							<button type="button" data-bs-target="#carouselExampleInterval"
 								data-bs-slide-to="2" aria-label="Slide 3"></button>
 						</div>
-						<div class="carousel-inner h-100">
+						<div class="carousel-inner">
 							<div class="carousel-item active" data-bs-interval="3000">
 								<img src="images/main/main4.png"
 									class="custom-block-image img-fluid">
