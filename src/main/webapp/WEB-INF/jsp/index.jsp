@@ -327,7 +327,7 @@
 				<!-- 수평 유지해주는듯 -->
 				<div class="fininside">
 					<div class="tit-area">
-						<h1 class="mb-4" style="color: black">상품</h1>
+						<h1 style="margin-bottom: -4.5rem !important; color: black; font-size: 30pt;">상품</h1>
 
 					</div>
 
@@ -336,12 +336,12 @@
 
 				<div class="container-fluid">
 					<div class="row">
-						<ul class="nav nav-tabs" id="myTab" role="tablist">
+						<ul class="nav nav-tabs" id="myTab" role="tablist" style="border-bottom: none;">
 							<li class="nav-item" role="presentation">
 								<button class="nav-link active" id="design-tab"
 									data-bs-toggle="tab" data-bs-target="#dd-tab-pane"
 									type="button" role="tab" aria-controls="dd-tab-pane"
-									aria-selected="true">예금</button>
+									aria-selected="true" style="background-color: #ffe157;" >예금</button>
 							</li>
 
 							<li class="nav-item" role="presentation">
@@ -359,35 +359,55 @@
 					</div>
 				</div>
 
-				<div class="container">
+				<div class="container" >
 					<div class="row">
 
 						<div class="col-12">
 							<div class="tab-content" id="myTabContent">
 
-								<!-- 실버타운 탭 -->
+								<!-- 예금 탭 -->
 								<div class="tab-pane fade show active" id="dd-tab-pane"
-									role="tabpanel" aria-labelledby="music-tab-pane" tabindex="0">
+									role="tabpanel" aria-labelledby="music-tab-pane" tabindex="0" style="background-color: #ffe157;">
 									<div class="row">
-										<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-											<div class="custom-block bg-white shadow-lg">
-												<a href="/info/info/9">
+										<div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-3">
+											<div class="">
 													<div class="d-flex">
 														<div>
-															<img src="/images/hal.png" alt="">
+															<img src="/images/hal1.png" alt="">
 														</div>
-													</div> <img
-													src="https://img.etoday.co.kr/pto_db/2023/07/600/20230714114306_1905977_1200_600.jpg"
-													class="custom-block-image img-fluid"
-													onerror="this.src='/images/main.jpg'">
-												</a>
+														<div class="col-2">
+														</div>
+														<div class="col-12" style="background-color: #ffe157;">
+															<div class="mt-5">
+																<h2 class="md-3">KB Star 정기예금</h2>
+															</div>
+																<div style="font-size: 20pt;" class="mt-5">
+																	목돈 불리는 예금, 만기되면
+																</div>
+																<div style="font-size: 20pt;" class="mt-3 mb-3">
+																	자동으로 재예치!
+																</div>
+																<div id="vv">
+																
+																
+																<a href="<c:url value="/finance/deposit/2"/>"
+						                         class="btn custom-btn mt-5 mt-lg-4 pt-2.5" style="background-color:#555555; margin-right: 50px; text-color:#ffe157;">자세히 보기</a>
+															<a href="<c:url value="/finance/saving/${saving.savingNo}"/>"
+						                         class="btn custom-btn mt-5 mt-lg-4" style="background-color:#ffe157; border-width: medium; color: #555555; border-color: #555555;">전체 상품 보기</a>
+															
+															
+															</div>
+														</div>	
+													</div> 
 											</div>
 										</div>
 
 
 									</div>
 								</div>
-								<!-- 금융 탭 -->
+								
+								
+								<!-- 적금 탭 -->
 								<div class="tab-pane fade" id="cc-tab-pane"
 									role="tabpanel" aria-labelledby="music-tab-pane" tabindex="0">
 									<div class="row">
@@ -408,7 +428,7 @@
 
 									</div>
 								</div>
-								<!-- 정보 탭 -->
+								<!-- 채권 탭 -->
 								<div class="tab-pane fade" id="music-tab-pane" role="tabpanel"
 									aria-labelledby="music-tab" tabindex="0">
 									<div class="row">

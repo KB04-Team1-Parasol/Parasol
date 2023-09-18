@@ -27,13 +27,15 @@
                     <div class="row align-items-center">
 
                         <div class="col-lg-5 col-12">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">메인으로가기</a></li>
-                                </ol>
-                            </nav>
+                           	<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">HOME</a></li>
+	
+									<li class="breadcrumb-item active" aria-current="page">금융상품</li>
+								</ol>
+							</nav>
 
-                            <h2 class="text-white">투자 성향 파악</h2>
+							<h2 class="text-white">투자 성향 파악</h2>
                         </div>
 
                     </div>
