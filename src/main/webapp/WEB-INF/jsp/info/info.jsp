@@ -8,7 +8,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>파라솔 정보</title>
-<jsp:include page="/WEB-INF/jsp/settings/css.jsp"/>
+<jsp:include page="/WEB-INF/jsp/settings/css.jsp" />
 <link href="/css/common.css" rel="stylesheet">
 </head>
 <body id="top">
@@ -16,86 +16,33 @@
 
 		<!-- header include -->
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
-		
-		<header class="site-header-finance d-flex flex-column justify-content-center align-items-center">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-5 col-12">
-					<nav aria-label="breadcrumb">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="/index">HOME</a></li>
-							<li class="breadcrumb-item active" aria-current="page">정보</li>
-						</ol>
-					</nav>
 
-					<h2 class="text-white">추천 정보</h2>
-				</div>
-			</div>
-		</div>
-	</header>
-		
-		<!-- <nav class="navbar navbar-expand-lg">
+		<header
+			class="site-header-finance d-flex flex-column justify-content-center align-items-center">
 			<div class="container">
-				<a class="navbar-brand" href="/"> <i class="bi-back"></i> <span>Parasol</span>
-				</a>
+				<div class="row align-items-center">
+					<div class="col-lg-5 col-12">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="/index">HOME</a></li>
+								<li class="breadcrumb-item active" aria-current="page">정보</li>
+							</ol>
+						</nav>
 
-				<div class="d-lg-none ms-auto me-4">
-					<a href="#top" class="navbar-icon bi-person smoothscroll"></a>
-				</div>
-
-				<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarNav"
-					aria-controls="navbarNav" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav ms-lg-5 me-lg-auto">
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="index.html#section_1">Home</a></li>
-
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="index.html#section_2">Browse Topics</a></li>
-
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="index.html#section_3">How it works</a></li>
-
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="index.html#section_4">FAQs</a></li>
-
-						<li class="nav-item"><a class="nav-link click-scroll"
-							href="index.html#section_5">Contact</a></li>
-
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#section_5"
-							id="navbarLightDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-
-							<ul class="dropdown-menu dropdown-menu-light"
-								aria-labelledby="navbarLightDropdownMenuLink">
-								<li><a class="dropdown-item active"
-									href="topics-listing.html">Topics Listing</a></li>
-
-								<li><a class="dropdown-item" href="contact.html">Contact
-										Form</a></li>
-							</ul></li>
-					</ul>
-
-					<div class="d-none d-lg-block">
-						<a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+						<h2 class="text-white">추천 정보</h2>
 					</div>
 				</div>
 			</div>
-		</nav> -->
+		</header>
+
+
 
 
 		<section class="section-padding">
 			<div class="container">
 				<div class="row">
 
-					<div
-						class="custom-block custom-block-topics-listing bg-white mb-5">
+					<div class="custom-block custom-block-topics-listing bg-white mb-5">
 						<div class="col-lg-12 col-12 mt-3 mx-auto">
 							<c:forEach var="information" items="${infoList.content}">
 								<div
@@ -124,14 +71,13 @@
 						<div class="col-lg-12 col-12">
 							<nav aria-label="Page navigation example">
 								<ul class="pagination justify-content-center mb-0">
-									<li
-									class="page-item ${infoList.number == 0 ? 'disabled' : ''}">
-									<a class="page-link" href="?page=${infoList.number}"
-									aria-label="Previous"> <span aria-hidden="true">이전</span>
-								</a>
-								</li>
-								
-								   <c:forEach begin="1" end="${infoList.totalPages}"
+									<li class="page-item ${infoList.number == 0 ? 'disabled' : ''}">
+										<a class="page-link" href="?page=${infoList.number}"
+										aria-label="Previous"> <span aria-hidden="true">이전</span>
+									</a>
+									</li>
+
+									<c:forEach begin="1" end="${infoList.totalPages}"
 										var="pageNumber">
 										<li
 											class="page-item ${pageNumber == infoList.number + 1 ? 'active' : ''}">
@@ -140,9 +86,9 @@
 									</c:forEach>
 
 									<li
-									class="page-item ${infoList.number + 1 == infoList.totalPages ? 'disabled' : ''}">
-									<a class="page-link" href="?page=${infoList.number + 2}"
-									aria-label="Next"> <span aria-hidden="true">다음</span>
+										class="page-item ${infoList.number + 1 == infoList.totalPages ? 'disabled' : ''}">
+										<a class="page-link" href="?page=${infoList.number + 2}"
+										aria-label="Next"> <span aria-hidden="true">다음</span>
 									</a>
 									</li>
 								</ul>
@@ -156,9 +102,9 @@
 	</main>
 
 	<!-- footer include -->
-	<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp"/>
-		
+	<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp" />
+
 	<!-- JAVASCRIPT FILES -->
-	<jsp:include page="/WEB-INF/jsp/settings/js.jsp"/>
+	<jsp:include page="/WEB-INF/jsp/settings/js.jsp" />
 </body>
 </html>
