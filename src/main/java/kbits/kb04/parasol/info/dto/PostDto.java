@@ -1,6 +1,8 @@
 package kbits.kb04.parasol.info.dto;
 
-import java.util.Date;
+//import java.util.Date;
+import java.sql.Date;
+
 
 import lombok.Getter;
 
@@ -20,4 +22,6 @@ public class PostDto {
 		this.infoDate = infoDate;
 		this.infoImg = infoImg;
 	}
+
 }
+

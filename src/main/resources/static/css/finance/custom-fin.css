@@ -70,9 +70,8 @@
 
 
 .section-background-image {
-    background-image: url('../../images/bg-section-1.png');
-    background-size: cover;  /* �씠誘몄�瑜� �꽮�뀡�쓽 �겕湲곗뿉 留욊쾶 議곗젅 */
-    background-repeat: no-repeat; /* �씠誘몄� 諛섎났 諛⑹� */
+    background-size: cover; 
+    background-repeat: no-repeat; 
     background-size: 530px 448px;
     background-attachment: fixed;
     background-position: right bottom;
