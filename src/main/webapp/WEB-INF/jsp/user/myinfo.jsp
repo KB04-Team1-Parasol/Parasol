@@ -38,13 +38,13 @@
 
 				<c:choose>
 					<c:when test="${empty userAsset.finAsset}">
-						<div class="custom-block-topics-listing-info d-flex text-center">
-							<div style="margin-top: 50px;" class="now_asset_text">앗 !
+						<div class="custom-block-topics-listing-info d-flex text-center row ">
+							<div style="margin-top: 50px; margin-bottom: 50px;" class="now_asset_text">앗 !
 								등록된 자산 정보가 없어요</div>
-							<div class="mx-auto">
+							<div class="mx-auto ">
 								<a href="/user/assetinput"> <img
 									src="https://i.ibb.co/g45wnwk/loading.gif" alt="loading"
-									border="0" width="200" height="200">
+									border="0" width="250" height="250">
 								</a>
 							</div>
 						</div>

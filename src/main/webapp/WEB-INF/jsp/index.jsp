@@ -62,7 +62,7 @@
     		<ul>
     			<li style="list-style:none;">
     				<img src="images/char1.png" style="width: 60px; height: 60px;">
-    			<a class="nav-link click-scroll active" href="#section_4">실버타운</a>
+    			<a class="nav-link click-scroll active" href="#section_1">실버타운</a>
     			</li>
     			<li style="list-style:none;">
     				<img src="images/char3.png" style="width: 60px; height: 60px;">
@@ -70,11 +70,11 @@
     			</li>
     			<li style="list-style:none;">
     				<img src="images/char4.png" style="width: 60px; height: 60px;">
-    			<a class="nav-link click-scroll active" href="#section_4">금융</a>
+    			<a class="nav-link click-scroll active" href="#section_3">금융</a>
     			</li>
     			<li style="list-style:none;">
     				<img src="images/char5.png" style="width: 60px; height: 60px;">
-    			<a class="nav-link click-scroll active" href="#section_6">금융</a>
+    			<a class="nav-link click-scroll active" href="#section_4">금융</a>
     			</li>
     			
     		</ul>
@@ -349,7 +349,7 @@
 		</section>
 		
 		<!-- 금융 -->
-		<section class="main-product" style="background-color: #ffe157;" id="section_4">
+		<section class="main-product" style="background-color: #ffe157;" id="section_3">
 			<div class="conTain">
 				<!-- 수평 유지해주는듯 -->
 				<div class="fininside">
@@ -532,7 +532,7 @@
 
 		</section>
 
-		<section class="faq-section section-padding" id="section_6">
+		<section class="faq-section section-padding" id="section_4">
 			<div class="container">
 				<div class="row">
 
