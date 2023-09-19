@@ -143,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="row">
 
                         <div class="col-lg-12 col-12 text-center">
+                        	<iframe src="https://giphy.com/embed/yWzaP4UGjYVzFXjlyw" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
                             <h3 class="mb-4">KB맞춤 상품 추천</h3>
                             <h6 class="text-center">고객님의 마이데이터를 분석한 추천상품이에요!</h6>
                         </div>
