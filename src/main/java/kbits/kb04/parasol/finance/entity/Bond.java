@@ -68,7 +68,7 @@ public class Bond {
 	}
 	
 	public int getMonth() {
-		return bondDate.getMonth() + 4 - LocalDate.now().getDayOfMonth();
+		return bondDate.getMonth() + 1 - LocalDate.now().getMonthValue();
 	}
 	
 }
