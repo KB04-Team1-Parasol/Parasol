@@ -61,20 +61,20 @@
     	<aside class="quick-nav">
     		<ul>
     			<li style="list-style:none;">
-    				<img src="images/char2.png" style="width: 60px; height: 60px;">
-    			<a href="/insurance-loan/requestLoanInquireAmountToRequest.do" >실버타운</a>
+    				<img src="images/char1.png" style="width: 60px; height: 60px;">
+    			<a class="nav-link click-scroll active" href="#section_4">실버타운</a>
     			</li>
     			<li style="list-style:none;">
     				<img src="images/char3.png" style="width: 60px; height: 60px;">
-    			<a href="/insurance-loan/requestLoanInquireAmountToRequest.do" >금융</a>
+    			<a class="nav-link click-scroll active" href="#section_2">금융</a>
     			</li>
     			<li style="list-style:none;">
     				<img src="images/char4.png" style="width: 60px; height: 60px;">
-    			<a href="/insurance-loan/requestLoanInquireAmountToRequest.do" >정보</a>
+    			<a class="nav-link click-scroll active" href="#section_4">금융</a>
     			</li>
     			<li style="list-style:none;">
     				<img src="images/char5.png" style="width: 60px; height: 60px;">
-    			<a href="/insurance-loan/requestLoanInquireAmountToRequest.do">실버타운</a>
+    			<a class="nav-link click-scroll active" href="#section_6">금융</a>
     			</li>
     			
     		</ul>
@@ -200,7 +200,7 @@
 								role="tabpanel" aria-labelledby="marketing-tab" tabindex="0" style="background-color: #1BB2DD;">
 								<div class="row" >
 									<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-										<div class="custom-block ">
+										<div class="custom-block bg-white shadow-lg">
 											<a href="/info/info/9">
 												<div class="d-flex">
 													<div>
@@ -214,7 +214,7 @@
 									</div>
 
 									<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-										<div class="custom-block shadow-lg">
+										<div class="custom-block bg-white shadow-lg">
 											<a href="/info/info/1">
 												<div class="d-flex">
 													<div>
@@ -247,7 +247,7 @@
 								role="tabpanel" aria-labelledby="marketing-tab" tabindex="0" style="background-color: #1BB2DD;">
 								<div class="row">
 									<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-										<div class="custom-block">
+										<div class="custom-block bg-white shadow-lg">
 											<a href="/info/info/1">
 												<div class="d-flex">
 													<div>
@@ -291,7 +291,7 @@
 							</div>
 							<!-- 정보 탭 -->
 							<div class="tab-pane fade" id="finance-tab-pane"
-								role="tabpanel" aria-labelledby="marketing-tab" tabindex="0">
+								role="tabpanel" aria-labelledby="marketing-tab" tabindex="0" style="background-color: #1BB2DD;">
 								<div class="row">
 									<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
 										<div class="custom-block bg-white shadow-lg">
@@ -349,12 +349,12 @@
 		</section>
 		
 		<!-- 금융 -->
-		<section class="main-product" style="background-color: #ffe157;">
+		<section class="main-product" style="background-color: #ffe157;" id="section_4">
 			<div class="conTain">
 				<!-- 수평 유지해주는듯 -->
 				<div class="fininside">
 					<div class="tit-area">
-						<h1 style="margin-bottom: -4.5rem !important; color: black; font-size: 30pt;">상품</h1>
+						<h1 style="margin-bottom: -4.5rem !important; color: black; font-size: 30pt;">BEST 상품</h1>
 
 					</div>
 
@@ -532,7 +532,7 @@
 
 		</section>
 
-		<section class="faq-section section-padding" id="section_4">
+		<section class="faq-section section-padding" id="section_6">
 			<div class="container">
 				<div class="row">
 
