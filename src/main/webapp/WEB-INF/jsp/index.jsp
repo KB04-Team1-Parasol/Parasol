@@ -57,6 +57,29 @@
 		<!-- header include -->
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp"/>
 		
+		<!-- 퀵메뉴 -->
+    	<aside class="quick-nav">
+    		<ul>
+    			<li style="list-style:none;">
+    				<img src="images/char1.png" style="width: 60px; height: 60px;">
+    			<a class="nav-link click-scroll active" href="#section_4">실버타운</a>
+    			</li>
+    			<li style="list-style:none;">
+    				<img src="images/char3.png" style="width: 60px; height: 60px;">
+    			<a class="nav-link click-scroll active" href="#section_2">금융</a>
+    			</li>
+    			<li style="list-style:none;">
+    				<img src="images/char4.png" style="width: 60px; height: 60px;">
+    			<a class="nav-link click-scroll active" href="#section_4">금융</a>
+    			</li>
+    			<li style="list-style:none;">
+    				<img src="images/char5.png" style="width: 60px; height: 60px;">
+    			<a class="nav-link click-scroll active" href="#section_6">금융</a>
+    			</li>
+    			
+    		</ul>
+    	</aside>
+		
 		<section class="pb-0">
 			<div class="row justify-content-center text-center h-100">
 				<div class="">
@@ -127,37 +150,40 @@
 			</div>
 		</section>
 
-		<section class="explore-section section-padding" id="section_2">
+		<section  class="main-product explore-section section-padding" id="section_2" style="background-color: #1BB2DD; padding-top: 60px;
+		background-image: url('/images/main-life-bg.png');">
+		<div class="conTain" style="padding: 20px;">
 			<div class="container">
 				<div class="col-12 text-center">
-					<h2 class="mb-4">
+					<h2 class="mb-0" style="color: white;">
 						이달의 추천 정보
-						</h1>
+						</h2>
 				</div>
 
 			</div>
 			</div>
+			<div class="conTain">
 
 			<div class="container-fluid">
 				<div class="row">
-					<ul class="nav nav-tabs" id="myTab" role="tablist">
+					<ul class="nav nav-tabs" id="myTab" role="tablist" style="border-bottom: none;">
 						<li class="nav-item" role="presentation">
 							<button class="nav-link active" id="design-tab"
 								data-bs-toggle="tab" data-bs-target="#design-tab-pane"
 								type="button" role="tab" aria-controls="design-tab-pane"
-								aria-selected="true">실버타운</button>
+								aria-selected="true" style="background-color: #1BB2DD; color: white;">실버타운</button>
 						</li>
 
 						<li class="nav-item" role="presentation">
 							<button class="nav-link" id="marketing-tab" data-bs-toggle="tab"
 								data-bs-target="#marketing-tab-pane" type="button" role="tab"
-								aria-controls="marketing-tab-pane" aria-selected="false">금융</button>
+								aria-controls="marketing-tab-pane" aria-selected="false" style="background-color: #1BB2DD; color: white;">금융</button>
 						</li>
 
 						<li class="nav-item" role="presentation">
 							<button class="nav-link" id="finance-tab" data-bs-toggle="tab"
 								data-bs-target="#finance-tab-pane" type="button" role="tab"
-								aria-controls="finance-tab-pane" aria-selected="false">건강정보</button>
+								aria-controls="finance-tab-pane" aria-selected="false" style="background-color: #1BB2DD; color: white;">건강정보</button>
 						</li>
 					</ul>
 				</div>
@@ -171,8 +197,8 @@
 
 							<!-- 실버타운 탭 -->
 							<div class="tab-pane fade show active" id="design-tab-pane"
-								role="tabpanel" aria-labelledby="marketing-tab" tabindex="0">
-								<div class="row">
+								role="tabpanel" aria-labelledby="marketing-tab" tabindex="0" style="background-color: #1BB2DD;">
+								<div class="row" >
 									<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
 										<div class="custom-block bg-white shadow-lg">
 											<a href="/info/info/9">
@@ -218,7 +244,7 @@
 							</div>
 							<!-- 금융 탭 -->
 							<div class="tab-pane fade" id="marketing-tab-pane"
-								role="tabpanel" aria-labelledby="marketing-tab" tabindex="0">
+								role="tabpanel" aria-labelledby="marketing-tab" tabindex="0" style="background-color: #1BB2DD;">
 								<div class="row">
 									<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
 										<div class="custom-block bg-white shadow-lg">
@@ -265,7 +291,7 @@
 							</div>
 							<!-- 정보 탭 -->
 							<div class="tab-pane fade" id="finance-tab-pane"
-								role="tabpanel" aria-labelledby="marketing-tab" tabindex="0">
+								role="tabpanel" aria-labelledby="marketing-tab" tabindex="0" style="background-color: #1BB2DD;">
 								<div class="row">
 									<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
 										<div class="custom-block bg-white shadow-lg">
@@ -319,15 +345,16 @@
 
 				</div>
 			</div>
+			</div>
 		</section>
 		
 		<!-- 금융 -->
-		<section class="main-product" style="background-color: #ffe157;">
+		<section class="main-product" style="background-color: #ffe157;" id="section_4">
 			<div class="conTain">
 				<!-- 수평 유지해주는듯 -->
 				<div class="fininside">
 					<div class="tit-area">
-						<h1 class="mb-4" style="color: black">상품</h1>
+						<h1 style="margin-bottom: -4.5rem !important; color: black; font-size: 30pt;">BEST 상품</h1>
 
 					</div>
 
@@ -336,96 +363,155 @@
 
 				<div class="container-fluid">
 					<div class="row">
-						<ul class="nav nav-tabs" id="myTab" role="tablist">
+						<ul class="nav nav-tabs" id="myTab" role="tablist" style="border-bottom: none;">
 							<li class="nav-item" role="presentation">
 								<button class="nav-link active" id="design-tab"
 									data-bs-toggle="tab" data-bs-target="#dd-tab-pane"
 									type="button" role="tab" aria-controls="dd-tab-pane"
-									aria-selected="true">예금</button>
+									aria-selected="true" style="background-color: #ffe157; color: black;" >예금</button>
 							</li>
 
 							<li class="nav-item" role="presentation">
 								<button class="nav-link" id="marketing-tab" data-bs-toggle="tab"
 									data-bs-target="#cc-tab-pane" type="button" role="tab"
-									aria-controls="cc-tab-pane" aria-selected="false">적금</button>
+									aria-controls="cc-tab-pane" aria-selected="false" style="background-color: #ffe157; color: black;">적금</button>
 							</li>
 
 							<li class="nav-item" role="presentation">
 								<button class="nav-link" id="music-tab" data-bs-toggle="tab"
 									data-bs-target="#music-tab-pane" type="button" role="tab"
-									aria-controls="music-tab-pane" aria-selected="false">채권</button>
+									aria-controls="music-tab-pane" aria-selected="false" style="background-color: #ffe157; color: black;">채권</button>
 							</li>
 						</ul>
 					</div>
 				</div>
 
-				<div class="container">
+				<div class="container" >
 					<div class="row">
 
 						<div class="col-12">
 							<div class="tab-content" id="myTabContent">
 
-								<!-- 실버타운 탭 -->
+								<!-- 예금 탭 -->
 								<div class="tab-pane fade show active" id="dd-tab-pane"
-									role="tabpanel" aria-labelledby="music-tab-pane" tabindex="0">
+									role="tabpanel" aria-labelledby="music-tab-pane" tabindex="0" style="background-color: #ffe157;">
 									<div class="row">
-										<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-											<div class="custom-block bg-white shadow-lg">
-												<a href="/info/info/9">
+										<div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-3">
+											<div class="">
 													<div class="d-flex">
 														<div>
-															<img src="/images/hal.png" alt="">
+															<img src="/images/hal1.png" alt="">
 														</div>
-													</div> <img
-													src="https://img.etoday.co.kr/pto_db/2023/07/600/20230714114306_1905977_1200_600.jpg"
-													class="custom-block-image img-fluid"
-													onerror="this.src='/images/main.jpg'">
-												</a>
+														<div class="col-2">
+														</div>
+														<div class="col-12" style="background-color: #ffe157;">
+															<div class="mt-5">
+																<h2 class="md-3">KB Star 정기예금</h2>
+															</div>
+																<div style="font-size: 20pt;" class="mt-5">
+																	목돈 불리는 예금, 만기되면
+																</div>
+																<div style="font-size: 20pt;" class="mt-3 mb-3">
+																	자동으로 재예치!
+																</div>
+																<div id="vv">
+																
+																
+																<a href="<c:url value="/finance/deposit/2"/>"
+						                         class="btn custom-btn mt-5 mt-lg-4 pt-2.5" style="background-color:#555555; margin-right: 50px; color:#ffe157;">자세히 보기</a>
+															<a href="<c:url value="/finance/deposit"/>"
+						                         class="btn custom-btn mt-5 mt-lg-4" style="background-color:#ffe157; border-width: medium; color: #555555; border-color: #555555;">전체 상품 보기</a>
+															
+															
+															</div>
+														</div>	
+													</div> 
 											</div>
 										</div>
 
 
 									</div>
 								</div>
-								<!-- 금융 탭 -->
+								
+								
+								<!-- 적금 탭 -->
 								<div class="tab-pane fade" id="cc-tab-pane"
-									role="tabpanel" aria-labelledby="music-tab-pane" tabindex="0">
+									role="tabpanel" aria-labelledby="music-tab-pane" tabindex="0" style="background-color: #ffe157;">
 									<div class="row">
-										<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-											<div class="custom-block bg-white shadow-lg">
-												<a href="/info/info/1">
+										<div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-3">
+											<div class="">
 													<div class="d-flex">
 														<div>
-															<h5 class="mb-2">은퇴 앞두고 있다면 부채관리는 이렇게!</h5>
+															<img src="/images/hal2.png" alt="">
 														</div>
-													</div> <img
-													src="https://image.ajunews.com/content/image/2021/03/03/20210303074620389150.jpg"
-													class="custom-block-image img-fluid"
-													onerror="this.src='/images/main.jpg'">
-												</a>
+														<div class="col-2">
+														</div>
+														<div class="col-12" style="background-color: #ffe157;">
+															<div class="mt-5">
+																<h2 class="md-3">KB 내맘대로 적금</h2>
+															</div>
+																<div style="font-size: 20pt;" class="mt-5">
+																	내 맘대로 선택하는
+																</div>
+																<div style="font-size: 20pt;" class="mt-3 mb-3">
+																	우대 이율 조건!
+																</div>
+																<div id="vv">
+																
+																
+																<a href="<c:url value="/finance/saving/1"/>"
+						                         class="btn custom-btn mt-5 mt-lg-4 pt-2.5" style="background-color:#555555; margin-right: 50px; color:#ffe157;">자세히 보기</a>
+															<a href="<c:url value="/finance/saving"/>"
+						                         class="btn custom-btn mt-5 mt-lg-4" style="background-color:#ffe157; border-width: medium; color: #555555; border-color: #555555;">전체 상품 보기</a>
+															
+															
+															</div>
+														</div>	
+													</div> 
 											</div>
 										</div>
 
+
 									</div>
 								</div>
-								<!-- 정보 탭 -->
+								<!-- 채권 탭 -->
 								<div class="tab-pane fade" id="music-tab-pane" role="tabpanel"
 									aria-labelledby="music-tab" tabindex="0">
-									<div class="row">
-										<div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-											<div class="custom-block bg-white shadow-lg">
-												<a href="/info/info/1">
+									<div class="row" style="background-color: #ffe157;">
+										<div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-3">
+											<div class="">
 													<div class="d-flex">
 														<div>
-															<h5 class="mb-2">고령화 시대 노인 건강…만성질환 늘고 노쇠 줄어</h5>
+															<img src="/images/hal3.png" alt="">
 														</div>
-													</div> <img
-													src="https://cdn.docdocdoc.co.kr/news/photo/202308/3008308_3009394_5856.jpg"
-													class="custom-block-image img-fluid"
-													onerror="this.src='/images/main.jpg'">
-												</a>
+														<div class="col-2" style="background-color: #ffe157;">
+														</div>
+														<div class="col-12" style="background-color: #ffe157;">
+															<div class="mt-5">
+																<h2 class="md-3">롯데캐피탈 438-3</h2>
+															</div>
+																<div style="font-size: 20pt;" class="mt-5">
+																	A+ 등급!
+																</div>
+																<div style="font-size: 20pt;" class="mt-3 mb-3">
+																	1개월마다 이자 지급!!
+																</div>
+																<div id="vv">
+																
+																
+																<a href="<c:url value="/finance/saving/1"/>"
+						                         class="btn custom-btn mt-5 mt-lg-4 pt-2.5" style="background-color:#555555; margin-right: 50px; color:#ffe157;">자세히 보기</a>
+															<a href="<c:url value="/finance/saving"/>"
+						                         class="btn custom-btn mt-5 mt-lg-4" style="background-color:#ffe157; border-width: medium; color: #555555; border-color: #555555;">전체 상품 보기</a>
+															
+															
+															</div>
+														</div>	
+													</div> 
 											</div>
 										</div>
+
+
 									</div>
 								</div>
 
@@ -446,7 +532,7 @@
 
 		</section>
 
-		<section class="faq-section section-padding" id="section_4">
+		<section class="faq-section section-padding" id="section_6">
 			<div class="container">
 				<div class="row">
 

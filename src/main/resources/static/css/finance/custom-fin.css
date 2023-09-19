@@ -70,9 +70,8 @@
 
 
 .section-background-image {
-    background-image: url('../../images/bg-section-1.png');
-    background-size: cover;  /* �씠誘몄�瑜� �꽮�뀡�쓽 �겕湲곗뿉 留욊쾶 議곗젅 */
-    background-repeat: no-repeat; /* �씠誘몄� 諛섎났 諛⑹� */
+    background-size: cover; 
+    background-repeat: no-repeat; 
     background-size: 530px 448px;
     background-attachment: fixed;
     background-position: right bottom;
@@ -86,6 +85,24 @@
     width: 960px;
     margin: 0 auto;
 }
+
+
+/* 퀵메뉴 chatbot */
+.quick-nav{position: fixed; bottom: 173px; left: 65%; z-index: 999; margin-left: 513px;}
+.quick-nav ul{width: 110px; padding-top: 25px; padding-bottom: 25px; padding-right: 20px; background-color: #fff; border: 1px solid #ccc; border-radius: 8px; text-align: center;}
+.quick-nav ul li{padding-bottom: 20px; font-size: 14px;}
+.quick-nav ul li a::before{content:""; display: block; margin: 0 auto 5px; background: url(/res/pc/img/main/sp-quick.png) no-repeat;}
+.quick-nav ul .quick-list01::before{width: 26px; height: 32px; background-position: 0 0;}
+.quick-nav ul .quick-list02::before{width: 24px; height: 30px; background-position: -50px 0;}
+.quick-nav ul .quick-list03::before{width: 31px; height: 32px; background-position: -100px 0;}
+.quick-nav ul .quick-list04::before{width: 27px; height: 33px; background-position: -150px 0;}
+.quick-nav ul .qr-life{padding: 16px 0 20px; border-top:1px solid #ccc; border-radius: 0 0 8px 8px; background-color: #fff8e5;}
+.quick-nav ul .qr-life{line-height: 18px;}
+.quick-nav ul .qr-life small{display:block; font-family: KBFGDisplayL; font-size: 12px;}
+.quick-nav ul .qr-life::after{content:"";display: block; width: 59px; height: 59px; margin: 3px auto 0;background: url(/res/pc/img/main/sp-quick.png) no-repeat; background-position: -200px 0;}
+
+
+
 
 
 section.main-product { height:870px; -webkit-transform: skewY(3deg); -moz-transform: skewY(3deg); -ms-transform: skewY(3deg); -o-transform: skewY(3deg); transform: skewY(3deg); }

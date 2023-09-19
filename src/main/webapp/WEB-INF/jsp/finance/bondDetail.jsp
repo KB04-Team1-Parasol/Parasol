@@ -199,7 +199,9 @@
 							<div class="d-flex justify-content-center align-items-center">
 								<h2 class="text-detail">1000만원</h2>
 								<h4>을</h4>
-								<h2 class="text-detail">${(bond.year - currentYear) * 12 + bond.month }개월간</h2>
+							</div>	
+							<div class="d-flex justify-content-center align-items-center">
+								<h2 class="text-detail" style="color:#58D3F7;">${(bond.year - currentYear) * 12 + bond.month }개월간</h2>
 								<h4>투자한다면,</h4>
 							</div>
 							<div class="d-flex justify-content-center align-items-center">

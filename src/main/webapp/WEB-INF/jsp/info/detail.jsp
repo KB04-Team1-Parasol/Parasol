@@ -2,27 +2,44 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
+<html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Topic Listing Contact Page</title>
+<title>정보 상세</title>
 <!-- CSS FILES -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap"
-	rel="stylesheet">
-<link href="/css/bootstrap.min.css" rel="stylesheet">
-<link href="/css/bootstrap-icons.css" rel="stylesheet">
-<link href="/css/templatemo-topic-listing.css" rel="stylesheet">
-<link href="/css/custom.css" rel="stylesheet">
+<jsp:include page="/WEB-INF/jsp/settings/css.jsp" />
+<link href="/css/common.css" rel="stylesheet">
+<link href="/css/finance/custom-fin.css" rel="stylesheet">
 </head>
+
 <body id="top">
 	<main>
-		<!-- header include -->
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
+		<header
+			class="site-header-finance d-flex flex-column justify-content-center align-items-center">
+			<div class="container">
+				<div class="row align-items-center">
+
+					<div class="col-lg-5 col-12">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="/index">HOME</a></li>
+
+								<li class="breadcrumb-item active" aria-current="page">정보</li>
+							</ol>
+						</nav>
+
+						<h2 class="text-white">상세정보</h2>
+					</div>
+
+				</div>
+			</div>
+		</header>
+
+
 
 		<section class="section-padding">
 			<div class="container col-lg-8 col-8">

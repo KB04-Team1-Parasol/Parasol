@@ -1,6 +1,6 @@
 package kbits.kb04.parasol.info.entity;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -40,5 +40,6 @@ public class Information {
 		this.infoContent = infoContent;
 		this.infoDate = infoDate;
 		this.infoImg = infoImg;
+
 	}
 }

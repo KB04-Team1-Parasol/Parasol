@@ -1,5 +1,8 @@
 package kbits.kb04.parasol.info.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,10 +34,12 @@ public class InfoService {
 		return InfoPage.map(this::convertToDto);
 	}
 
+	
+	
 	private PostDto convertToDto(Information info) {
 		return new PostDto(info.getInfoNo(), 
 				info.getInfoTitle(), 
-				info.getInfoContent(), 
+				info.getInfoContent(),
 				info.getInfoDate(),
 				info.getInfoImg());
 	}

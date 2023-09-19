@@ -3658,7 +3658,7 @@ fieldset:disabled .btn {
 }
 
 .fade:not(.show) {
-    opacity: 0
+    opacity: 1 /* 여기임 */
 }
 
 .collapse:not(.show) {

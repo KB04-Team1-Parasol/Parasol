@@ -507,6 +507,7 @@ strong {
   background-color: var(--white-color);
   border-radius: var(--border-radius-large);
   padding: 10px 15px;
+  border: 1px solid #feb900;
 }
 
 .hero-section .input-group-text {

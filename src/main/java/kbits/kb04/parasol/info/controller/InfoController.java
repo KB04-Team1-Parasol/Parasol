@@ -34,6 +34,7 @@ public class InfoController {
     	Page<PostDto> infoList = infoService.getPosts(page, pageSize);
         ModelAndView modelAndView = new ModelAndView("info/info");
         modelAndView.addObject("infoList", infoList); // 데이터를 모델에 추가
+        System.out.println(infoList);
         return modelAndView;
     }
     

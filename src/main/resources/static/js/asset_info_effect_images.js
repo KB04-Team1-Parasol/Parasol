@@ -43,7 +43,45 @@ document.addEventListener("DOMContentLoaded", function() {
         fadeOut(image3);
         fadeIn(image4);
     });
+	
+	
+	 // 이미지 클릭 이벤트 핸들러
+  image1.addEventListener("click", function () {
+    // 1번 이미지를 서서히 나타나게 하고 연결된 탭을 클릭
+    fadeIn(image1);
+    fadeOut(image2);
+    fadeOut(image3);
+    fadeOut(image4);
+    tab1.click();
+  });
 
+  image2.addEventListener("click", function () {
+    // 2번 이미지를 서서히 나타나게 하고 연결된 탭을 클릭
+    fadeOut(image1);
+    fadeIn(image2);
+    fadeOut(image3);
+    fadeOut(image4);
+    tab2.click();
+  });
+
+  image3.addEventListener("click", function () {
+    // 3번 이미지를 서서히 나타나게 하고 연결된 탭을 클릭
+    fadeOut(image1);
+    fadeOut(image2);
+    fadeIn(image3);
+    fadeOut(image4);
+    tab3.click();
+  });
+
+  image4.addEventListener("click", function () {
+    // 4번 이미지를 서서히 나타나게 하고 연결된 탭을 클릭
+    fadeOut(image1);
+    fadeOut(image2);
+    fadeOut(image3);
+    fadeIn(image4);
+    tab4.click();
+  });
+	
     // 서서히 나타나게 하는 함수
     function fadeIn(element) {
         element.style.transition = "opacity 0.6s linear"; // 원하는 지속 시간 설정
@@ -55,4 +93,15 @@ document.addEventListener("DOMContentLoaded", function() {
         element.style.transition = "opacity 0.1s linear"; // 원하는 지속 시간 설정
         element.style.opacity = "0"; // 투명도를 0으로 설정하여 사라지게 함
     }
+    
+    function selectTabOnImageClick() {
+    // 이미지 클릭 이벤트 핸들러
+    document.getElementById('image1').addEventListener('click', function() {
+    // 탭을 선택한 것처럼 클릭
+    document.getElementById('tab1-tab').click();
+  });
+}
+    
 });
+
+

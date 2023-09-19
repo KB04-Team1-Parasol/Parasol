@@ -27,13 +27,15 @@
                     <div class="row align-items-center">
 
                         <div class="col-lg-5 col-12">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">메인으로가기</a></li>
-                                </ol>
-                            </nav>
+                           	<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">HOME</a></li>
+	
+									<li class="breadcrumb-item active" aria-current="page">금융상품</li>
+								</ol>
+							</nav>
 
-                            <h2 class="text-white">투자 성향 파악</h2>
+							<h2 class="text-white">투자 성향 파악</h2>
                         </div>
 
                     </div>
@@ -213,7 +215,7 @@
                                 </div>
                             </div>
                           	<div class="d-flex justify-content-center mb-3">						
-							<input type="submit" value="제출" class="btn custom-btn mt-3 mt-lg-4">
+							<input type="submit" value="제출" class="btn btn-dark mt-3 mt-lg-0">
 							</div>											    
 						   </form>    	    
                        </div>
