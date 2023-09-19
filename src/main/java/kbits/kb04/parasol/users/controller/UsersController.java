@@ -1,6 +1,7 @@
 package kbits.kb04.parasol.users.controller;
 
 import java.io.BufferedReader;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -8,8 +9,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +29,9 @@ import kbits.kb04.parasol.users.dto.LoginRequestDto;
 import kbits.kb04.parasol.users.dto.SignUpRequestDto;
 import kbits.kb04.parasol.users.entity.UserAsset;
 import kbits.kb04.parasol.users.entity.Users;
+import kbits.kb04.parasol.users.exception.FindUserWithUserIdNotFoundException;
 import kbits.kb04.parasol.users.exception.UsersNotFoundException;
+import kbits.kb04.parasol.users.repository.UsersRepository;
 import kbits.kb04.parasol.users.service.UsersService;
 import lombok.RequiredArgsConstructor;
 
@@ -36,6 +41,7 @@ import lombok.RequiredArgsConstructor;
 public class UsersController {
 
     private final UsersService userService;
+    private final UsersRepository userRepository;
 
     // 마이페이지에서 기본 정보, 자산 정보 조회
     @GetMapping("/myinfo")
@@ -96,7 +102,12 @@ public class UsersController {
     // 회원가입 처리
     @PostMapping("/signup_action")
 	public String signup_action(@ModelAttribute SignUpRequestDto signupDto, Model model) {
-		userService.signUp(signupDto);
+		String check = userService.signUp(signupDto);
+		if(check == "used") {
+			model.addAttribute("msg", "회원 아이디가 중복됩니다.");
+			model.addAttribute("url", "/user/signup");
+			return "common/confirm";
+		}
 		return "redirect:/user/login";
 	}
     
@@ -109,9 +120,17 @@ public class UsersController {
 		TokenDto tokenDto = userService.login(loginDto);
 		session.setAttribute("tokenDto", tokenDto);
 		model.addAttribute("tokenDto", tokenDto);
-		
 		return "redirect:/";
 	}
+    
+    @ExceptionHandler(FindUserWithUserIdNotFoundException.class)
+    public ModelAndView handleCustomException(FindUserWithUserIdNotFoundException ex) {
+        ModelAndView model = new ModelAndView("common/confirm"); 
+        // 예외 처리 페이지에 예외 정보를 전달할 수도 있습니다.
+        model.addObject("msg", "등록되지 않은 사용자입니다. 아이디와 비밀번호를 확인해주세요");
+        model.addObject("url", "/user/login");
+        return model;
+    }
     
     @PostMapping("/reissue")
     public ResponseEntity<String> reissue(HttpServletRequest request) throws java.io.IOException {

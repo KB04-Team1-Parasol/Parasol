@@ -1,5 +1,8 @@
 package kbits.kb04.parasol.auth;
 
+import java.util.Optional;
+
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,7 +23,12 @@ public class CustomUserDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-        Users user = userRepository.findByUserId(id).orElseThrow(FindUserWithUserIdNotFoundException::new);
-        return new CustomUserDetails(user);
+    	Optional<Users> userOptional = userRepository.findByUserId(id);
+        if (userOptional.isPresent()) {
+            Users user = userOptional.get();
+            return new CustomUserDetails(user);
+        } else {
+            throw new FindUserWithUserIdNotFoundException();
+        }
     }
 }
