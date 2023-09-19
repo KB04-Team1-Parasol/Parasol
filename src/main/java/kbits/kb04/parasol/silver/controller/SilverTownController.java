@@ -1,7 +1,9 @@
-	package kbits.kb04.parasol.silver.controller;
+package kbits.kb04.parasol.silver.controller;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -51,6 +53,8 @@ public class SilverTownController {
 			SearchResponseDto responseDto = new SearchResponseDto(townName, typeName, deposit, monCost, imgUrl, stdNo);
 			response.add(responseDto);
 		}
+		response = response.stream().sorted(Comparator.comparing(SearchResponseDto::getMonCost))
+				.collect(Collectors.toList());
 		model.addAttribute("responseDto", response);
 
 		return "silver/search";
