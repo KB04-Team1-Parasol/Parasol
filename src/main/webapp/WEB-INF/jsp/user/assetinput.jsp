@@ -128,7 +128,7 @@
 					<!-- 자산 정보 기입란 -->
 					<div class="col-lg-6 col-12">
 						<form action="assetinput_action" method="post"
-							class="custom-form contact-form" role="form">
+							class="custom-form contact-form" role="form" id="asset_form">
 							<div>
 								<div class="col-lg-9 mx-auto">
 									<div class="form-floating">
@@ -198,7 +198,7 @@
 						</form>
 					</div>
 					<div class="col-lg-2 mx-auto mt-4" id="asset_input_bt">
-						<button type="submit" class="form-control custom_submit">등록하기</button>
+						<button type="button" class="form-control custom_submit">등록하기</button>
 					</div>
 				</div>
 			</div>
@@ -225,6 +225,11 @@
 					input.value = input.defaultValue;
 				}
 			}
+			
+			var btn = $('#asset_input_bt > button');
+			btn.on('click', function(){
+				$('#asset_form').submit();
+			});
 		</script>
 
 		<!-- KB 캐릭터 이미지 보여주기 효과 -->
