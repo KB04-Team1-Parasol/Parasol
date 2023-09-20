@@ -210,4 +210,10 @@
   font-weight: var(--font-weight-semibold);
   transition: all 0.3s;
   margin-bottom: 0;
+
+}
+
+.img_class{
+	padding-left: 10px;
+
 }

@@ -91,7 +91,7 @@
 						</svg></span> <i
               class="bi bi-chevron-down dropdown-indicator"></i></a>
           <ul>
-            <li><a href="/user/myinfo">내 정보 조회</a></li>
+            <li><a href="/user/myinfo">자산정보 조회</a></li>
             <li><a href="/user/assetinput">자산정보 기입</a></li>
 			<li><a href="../../../../user/logout" class="form-control btn" id="logoutBtn">로그아웃</a></li>
           </ul>
