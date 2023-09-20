@@ -10,6 +10,61 @@
 <link href="/css/silver/detail.css" rel="stylesheet" />
 <jsp:include page="/WEB-INF/jsp/settings/css.jsp" />
 <link href="/css/finance/custom-fin.css" rel="stylesheet">
+
+<script
+  defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXBhJXpX0BRIfdw0YxPveD1EoCn31ISzI&callback=initMap"
+></script>
+<script>
+	window.initMap = function () {
+	   var faddr = `${ dto.address }`;
+	   var geocoder;
+	   geocoder = new google.maps.Geocoder();
+	   faddr_lat = "";
+	   faddr_lng = "";
+	   geocoder.geocode( { 'address': faddr}, function(results, status) {
+	     if (status == google.maps.GeocoderStatus.OK) {
+	        faddr_lat = results[0].geometry.location.lat();   //위도
+	        faddr_lng = results[0].geometry.location.lng();   //경도
+	     }
+	      
+	     const map = new google.maps.Map(document.getElementById("map"), {
+	       center: { lat: faddr_lat, lng: faddr_lng },
+	       zoom: 13
+	     });
+	   
+	     const malls = [
+	       { label: ' ', name: faddr, lat: faddr_lat, lng: faddr_lng },
+	     ];
+	     
+	     const bounds = new google.maps.LatLngBounds();
+	     const infoWindow = new google.maps.InfoWindow();
+	   
+	     malls.forEach(({ label, name, lat, lng }) => {
+	       const marker = new google.maps.Marker({
+	         position: { lat, lng },
+	         label,
+	         map
+	       });
+	       bounds.extend(marker.position);
+	   
+	       marker.addListener("click", () => {
+	         map.panTo(marker.position);
+	         infoWindow.setContent(name);
+	         infoWindow.open({
+	           anchor: marker,
+	           map
+	         });
+	       });
+	     });
+	     
+	   
+	     bounds.extend(marker.position);
+	   
+	     map.fitBounds(bounds);
+	   });
+	};
+</script>
 </head>
 <body id="top">
 	<main>
@@ -325,6 +380,20 @@
 			</div>
 		</section>
 		</c:if>
+		
+		<section class="pt-5">
+			<div class="row gx-5 justify-content-center mb-5">
+				<div class="col-lg-8 col-xl-6">
+					<div class="text-center">
+						<h2 class="fw-bolder">상세 위치</h2>
+					</div>
+				</div>
+			</div>
+			
+			<div class="text-center">
+				<div id="map"></div>
+			</div>
+		</section>
 
 		<!-- footer include -->
 		<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp" />
