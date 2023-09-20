@@ -146,7 +146,9 @@ public class SilverTownController {
 		List<SilverTownCustomResponseDto> silverTownCustomList = silverTownService.getSilverTownFiltering(user,
 				requestDto);
 		model.addAttribute("silverTownCustomList", silverTownCustomList);
-
+		
+		model.addAttribute("uname", user.getUserName());
+		
 		return "silver/custom_list";
 	}
 

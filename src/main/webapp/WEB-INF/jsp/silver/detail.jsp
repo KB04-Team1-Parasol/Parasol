@@ -227,23 +227,26 @@
 				</div>
 			</div>
 		</section>
-		<hr>
 		
 		<c:if test="${ dto.isCustom() }">
+		<hr>
 		<!-- Features section-->
 		<section class="py-5" id="features">
 			<div class="row gx-5 justify-content-center mb-5">
 				<div class="col-lg-8 col-xl-6">
 					<div class="text-center">
 						<h2 class="fw-bolder">맞춤 금융상품</h2>
+						<p class="mb-0">예치금 : 순자산의 80% 기준</p>
+						<p class="mb-0">물가상승률 : 최근 10년 평균 기준 (=1.67%)</p>
 					</div>
 				</div>
 			</div>
 			<div class="container px-5 my-5">
 				<c:if test="${ dto.depositList.size() > 0 }">
 				<div class="row gx-5 mb-5">
-					<div class="col-lg-2 mb-5 mb-lg-0 mt-3">
+					<div class="col-lg-3 mb-5 mb-lg-0 mt-3">
 						<h3 class="fw-bolder mb-0">예금</h3>
+						<p>(단리, 최대기간 기준)</p>
 					</div>
 					<div class="col-lg-8">
 						<c:forEach var="deposit" items="${dto.depositList}">
@@ -277,8 +280,9 @@
 
 				<c:if test="${ dto.savingList.size() > 0 }">
 				<div class="row gx-5 mb-5">
-					<div class="col-lg-2 mb-5 mb-lg-0 mt-3">
+					<div class="col-lg-3 mb-5 mb-lg-0 mt-3">
 						<h3 class="fw-bolder mb-0">적금</h3>
+						<p>(단리, 최대 기간 기준)</p>
 					</div>
 					<div class="col-lg-8">
 						<c:forEach var="saving" items="${dto.savingList}">
@@ -308,8 +312,9 @@
 
 				<c:if test="${ dto.bondList.size() > 0 }">
 				<div class="row gx-5 mb-5">
-					<div class="col-lg-2 mb-5 mb-lg-0 mt-3">
+					<div class="col-lg-3 mb-5 mb-lg-0 mt-3">
 						<h3 class="fw-bolder mb-0">채권</h3>
+						<p>(만기일, 1년 수익률 기준)</p>
 					</div>
 					<div class="col-lg-8">
 						<c:forEach var="bond" items="${dto.bondList}">
@@ -361,7 +366,7 @@
 											<h5 class="mb-2">${bond.bondName}</h5>
 											<p class="mb-0">만기일 : ${bond.bondDate}</p>
 											<p class="mb-0">
-												3년 수익률 : <span style="color: red; font-weight: bold; ">${bond.bondRate}%</span>
+												수익률 : <span style="color: red; font-weight: bold; ">${bond.bondRate}%</span>
 											</p>
 											<a href="<c:url value="/finance/bond/${bond.bondNo}" />"
 												class="btn custom-btn mt-3 mt-lg-4">자세히 보기</a>
@@ -381,6 +386,7 @@
 		</section>
 		</c:if>
 		
+		<hr>
 		<section class="pt-5">
 			<div class="row gx-5 justify-content-center mb-5">
 				<div class="col-lg-8 col-xl-6">

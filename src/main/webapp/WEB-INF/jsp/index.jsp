@@ -62,19 +62,19 @@
     		<ul>
     			<li style="list-style:none;">
     				<a class="nav-link click-scroll active" href="#section_1"><img src="images/char1.png" style="width: 60px; height: 60px;"></a>
-    			<a class="nav-link click-scroll active" href="#section_1">검색</a>
+    			<a>검색</a>
     			</li>
     			<li style="list-style:none;">
     				<a class="nav-link click-scroll active" href="#section_2"><img src="images/char3.png" style="width: 60px; height: 60px;"></a>
-    			<a class="nav-link click-scroll active" href="#section_2">추천정보</a>
+    			<a>추천정보</a>
     			</li>
     			<li style="list-style:none;">
     				<a class="nav-link click-scroll active" href="#section_3"><img src="images/char4.png" style="width: 60px; height: 60px;"></a>
-    			<a class="nav-link click-scroll active" href="#section_3">금융</a>
+    			<a>금융</a>
     			</li>
     			<li style="list-style:none;">
     				<a class="nav-link click-scroll active" href="#section_4"><img src="images/char5.png" style="width: 60px; height: 60px;"></a>
-    			<a class="nav-link click-scroll active" href="#section_4">Q&A</a>
+    			<a>Q&A</a>
     			</li>
     			
     		</ul>

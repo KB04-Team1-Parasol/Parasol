@@ -10,127 +10,63 @@
 <title>자산 기입 페이지</title>
 <!-- CSS FILES -->
 <jsp:include page="/WEB-INF/jsp/settings/css.jsp"/>
+<link href="/css/common.css" rel="stylesheet">
 </head>
 <body id="top">
 	<main>
 
 		<!-- header include -->
 		<jsp:include page="/WEB-INF/jsp/common/header2.jsp" />
-		<section class="section-padding section-bg">
+		
+		<header
+			class="site-header-finance d-flex flex-column justify-content-center align-items-center">
 			<div class="container">
-				<div class="row" style="margin-top:130px">
-					<!-- 자산 정보 기입란 -->
-					<div class="col-lg-6 col-12">
-						<form action="assetinput_action" method="post"
-							class="custom-form contact-form" role="form">
-							<div class="row">
-								<div class="col-lg-12 col-12">
-									<h3 class="mb-4 pb-2">자산 정보를 입력하세요</h3>
-									<h6 class="mb-4 pb-2">단, 모르는 정보는 입력하지 마세요 (연금은 현재 기준으로 작성)</h6>
+				<div class="row align-items-center">
+					<div class="col-lg-5 col-12">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="/index">HOME</a></li>
+								<li class="breadcrumb-item active" aria-current="page">마이페이지</li>
+							</ol>
+						</nav>
 
-								</div>
-
-								<div class="col-lg-10 col-12">
-									<div class="form-floating">
-										<input type="text" name="fin_asset" class="form-control"
-											required="" value=0 onfocus="clearDefaultValue(this)"
-											onblur="restoreDefaultValue(this)" /> <label
-											for="floatingInput"><b>금융자산(만원)</b></label>
-									</div>
-								</div>
-								<div class="col-lg-10 col-12">
-									<div class="form-floating">
-										<input type="text" name="real_asset" class="form-control"
-											required="" value=0 onfocus="clearDefaultValue(this)"
-											onblur="restoreDefaultValue(this)" /> <label
-											for="floatingInput"><b>실물자산(만원)</b></label>
-									</div>
-								</div>
-								<div class="col-lg-10 col-12">
-									<div class="form-floating">
-										<input type="text" name="pure_asset" class="form-control"
-											required="" value=0 onfocus="clearDefaultValue(this)"
-											onblur="restoreDefaultValue(this)" /> <label
-											for="floatingInput"><b>현금(만원)</b></label>
-									</div>
-								</div>
-								<div class="col-lg-10 col-12">
-									<div class="form-floating">
-										<input type="text" name="debt" class="form-control"
-											required="" value=0 onfocus="clearDefaultValue(this)"
-											onblur="restoreDefaultValue(this)" /> <label
-											for="floatingInput"><b>부채(만원)</b></label>
-									</div>
-								</div>
-								<div class="col-lg-10 col-12">
-									<div class="form-floating">
-										<input type="text" name="monthly_income" class="form-control"
-											required="" value=0 onfocus="clearDefaultValue(this)"
-											onblur="restoreDefaultValue(this)" /> <label
-											for="floatingInput"><b>월 소득(만원)</b></label>
-									</div>
-								</div>
-								<div class="col-lg-10 col-12">
-									<div class="form-floating">
-										<input type="text" name="annuity" class="form-control"
-											required="" value=0 onfocus="clearDefaultValue(this)"
-											onblur="restoreDefaultValue(this)" /> <label
-											for="floatingInput"><b>연금(만원)</b></label>
-									</div>
-								</div>
-								<div class="col-lg-10 col-12">
-									<div class="form-floating">
-										<input type="text" name="hope_age" class="form-control"
-											required="" value=60 onfocus="clearDefaultValue(this)"
-											onblur="restoreDefaultValue(this)" /> <label
-											for="floatingInput"><b>입주 예상 (만)나이</b></label>
-									</div>
-								</div>
-								<div class="col-lg-10 col-12">
-									<div class="form-floating">
-										<input type="text" name="hope_period" class="form-control"
-											required="" value=1 onfocus="clearDefaultValue(this)"
-											onblur="restoreDefaultValue(this)" /> <label
-											for="floatingInput"><b>희망 거주 기간(년)</b></label>
-									</div>
-								</div>
-
-
-								<div class="col-lg-6 col-12" id="asset_input_bt">
-									<button type="submit" class="form-control">등록하기</button>
-								</div>
-							</div>
-						</form>
+						<h2 class="text-white">자산정보 기입</h2>
 					</div>
-
+				</div>
+			</div>
+		</header>
+		
+		<section class="section-padding section-bg">
+			<div class="container shadow-lg custom-block1">
+				<div class="row align-items-center">
+					<h3 class="text-center mb-5">자산정보 입력</h3>
 					<!-- 상세 보기란 -->
 					<div class="col-lg-6 col-12">
 						<form class="custom-form contact-form" role="form">
 							<div class="row">
-								<div class="col-lg-12 col-12">
-									<h3 class="mb-4 pb-2">궁금해요 ! !</h3>
+								<div class="col-lg-12 col-12 text-center">
 									<div id="imageContainer">
 
-										<a href="#" id="image1-link"
+										<a href="#;" id="image1-link" class="img_class"
 											style="text-decoration: none; cursor: pointer;"> <img
 											src="https://i.ibb.co/C50116J/friends-Bibi.png"
 											alt="friends-Bibi" border="0" id="image1"
-											style="opacity: 1; margin-left: 73px;">
-										</a> <a href="#" id="image2-link"
+											style="opacity: 1; margin-left: 5px;">
+										</a> <a href="#;" id="image2-link" class="img_class"
 											style="text-decoration: none; cursor: pointer;"> <img
-											src="https://i.ibb.co/1q2ynH4/friends-Ramu.png"
-											alt="friends-Ramu" border="0" id="image2"
-											style="opacity: 1; margin-left: 28px;">
-										</a> <a href="#" id="image3-link"
+											src="https://i.ibb.co/4JzFLjb/friends-Cauli.png"
+											alt="friends-Cauli" border="0" id="image2"
+											style="opacity: 0.3; margin-left: 42px;">
+										</a> <a href="#;" id="image3-link" class="img_class"
 											style="text-decoration: none; cursor: pointer;"> <img
 											src="https://i.ibb.co/60VVQCn/friends-Kiki.png"
 											alt="friends-Kiki" border="0" id="image3"
-											style="opacity: 1; margin-left: 5px;">
-										</a> <a href="#" id="image4-link"
+											style="opacity: 0.3; margin-left: 20px;">
+										</a> <a href="#;" id="image4-link" class="img_class"
 											style="text-decoration: none; cursor: pointer;"> <img
-											src="https://i.ibb.co/4JzFLjb/friends-Cauli.png"
-											alt="friends-Cauli" border="0" id="image4"
-											style="opacity: 1; margin-left: 15px;">
+											src="https://i.ibb.co/1q2ynH4/friends-Ramu.png"
+											alt="friends-Ramu" border="0" id="image4"
+											style="opacity: 0.3;">
 										</a>
 									</div>
 									<!-- 폼 필드 및 내용을 추가하십시오 -->
@@ -140,7 +76,7 @@
 								<ul class="nav nav-tabs" id="myTabs" role="tablist">
 									<li class="nav-item" role="presentation"><a
 										class="nav-link" id="tab1-tab" data-toggle="tab" href="#tab1"
-										role="tab" aria-controls="tab1" aria-selected="false"><b>금융자산</b></a>
+										role="tab" aria-controls="tab1" aria-selected="true"><b>금융자산</b></a>
 									</li>
 									<li class="nav-item" role="presentation"><a
 										class="nav-link" id="tab2-tab" data-toggle="tab" href="#tab2"
@@ -159,7 +95,6 @@
 									<div class="tab-pane fade" id="tab1" role="tabpanel"
 										aria-labelledby="tab1-tab">
 										<p>
-
 											<b>금융자산</b>은 현금, 은행 예금, 주식, 채권, 투자 펀드 등과 같은 <b>보유 하신
 												금융상품의 재산</b>입니다.
 										</p>
@@ -186,26 +121,96 @@
 										</p>
 									</div>
 								</div>
-
-
-								<!-- 다른 폼 필드도 유사하게 추가하십시오 -->
-								<div></div>
-
 							</div>
 						</form>
+					</div>
+				
+					<!-- 자산 정보 기입란 -->
+					<div class="col-lg-6 col-12">
+						<form action="assetinput_action" method="post"
+							class="custom-form contact-form" role="form">
+							<div>
+								<div class="col-lg-9 mx-auto">
+									<div class="form-floating">
+										<input type="text" name="fin_asset" class="form-control"
+											required="" value=0 onfocus="clearDefaultValue(this)"
+											onblur="restoreDefaultValue(this)" /> <label
+											for="floatingInput"><b>금융자산(만원)</b></label>
+									</div>
+								</div>
+								<div class="col-lg-9 mx-auto">
+									<div class="form-floating">
+										<input type="text" name="real_asset" class="form-control"
+											required="" value=0 onfocus="clearDefaultValue(this)"
+											onblur="restoreDefaultValue(this)" /> <label
+											for="floatingInput"><b>실물자산(만원)</b></label>
+									</div>
+								</div>
+								<div class="col-lg-9 mx-auto">
+									<div class="form-floating">
+										<input type="text" name="pure_asset" class="form-control"
+											required="" value=0 onfocus="clearDefaultValue(this)"
+											onblur="restoreDefaultValue(this)" /> <label
+											for="floatingInput"><b>현금(만원)</b></label>
+									</div>
+								</div>
+								<div class="col-lg-9 mx-auto">
+									<div class="form-floating">
+										<input type="text" name="debt" class="form-control"
+											required="" value=0 onfocus="clearDefaultValue(this)"
+											onblur="restoreDefaultValue(this)" /> <label
+											for="floatingInput"><b>부채(만원)</b></label>
+									</div>
+								</div>
+								<div class="col-lg-9 mx-auto">
+									<div class="form-floating">
+										<input type="text" name="monthly_income" class="form-control"
+											required="" value=0 onfocus="clearDefaultValue(this)"
+											onblur="restoreDefaultValue(this)" /> <label
+											for="floatingInput"><b>월 소득(만원)</b></label>
+									</div>
+								</div>
+								<div class="col-lg-9 mx-auto">
+									<div class="form-floating">
+										<input type="text" name="annuity" class="form-control"
+											required="" value=0 onfocus="clearDefaultValue(this)"
+											onblur="restoreDefaultValue(this)" /> <label
+											for="floatingInput"><b>연금(만원) * 현재 기준</b></label>
+									</div>
+								</div>
+								<div class="col-lg-9 mx-auto">
+									<div class="form-floating">
+										<input type="text" name="hope_age" class="form-control"
+											required="" value=60 onfocus="clearDefaultValue(this)"
+											onblur="restoreDefaultValue(this)" /> <label
+											for="floatingInput"><b>입주 예상 (만)나이</b></label>
+									</div>
+								</div>
+								<div class="col-lg-9 mx-auto">
+									<div class="form-floating">
+										<input type="text" name="hope_period" class="form-control"
+											required="" value=1 onfocus="clearDefaultValue(this)"
+											onblur="restoreDefaultValue(this)" /> <label
+											for="floatingInput"><b>희망 거주 기간(년)</b></label>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-lg-2 mx-auto mt-4" id="asset_input_bt">
+						<button type="submit" class="form-control custom_submit">등록하기</button>
 					</div>
 				</div>
 			</div>
 		</section>
 
-
-
-
-
+		<!-- footer include -->
+		<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp" />
 
 		<!-- JAVASCRIPT FILES -->
-		<script src="/js/jquery.min.js"></script>
-		<!--  자산 정보 기입란에 사용 -->
+		<jsp:include page="/WEB-INF/jsp/settings/js.jsp" />
+		
+		<!-- 자산 정보 기입란에 사용 -->
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<script
 			src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -221,13 +226,6 @@
 				}
 			}
 		</script>
-
-		<!-- footer include -->
-		<jsp:include page="/WEB-INF/jsp/common/custom_footer.jsp" />
-
-		<!-- JAVASCRIPT FILES -->
-		<jsp:include page="/WEB-INF/jsp/settings/js.jsp" />
-
 
 		<!-- KB 캐릭터 이미지 보여주기 효과 -->
 		<script src="/js/asset_info_effect_images.js"></script>
