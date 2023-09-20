@@ -167,7 +167,7 @@
 										<input type="text" name="monthly_income" class="form-control"
 											required="" value=0 onfocus="clearDefaultValue(this)"
 											onblur="restoreDefaultValue(this)" /> <label
-											for="floatingInput"><b>월 소득(만원)</b></label>
+											for="floatingInput"><b>월 저축가능금액(만원)</b></label>
 									</div>
 								</div>
 								<div class="col-lg-9 mx-auto">
