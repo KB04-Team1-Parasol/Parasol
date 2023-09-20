@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var tab2 = document.getElementById("tab2-tab");
     var tab3 = document.getElementById("tab3-tab");
     var tab4 = document.getElementById("tab4-tab");
+    
 
     // 각 이미지 엘리먼트를 가져옵니다.
     var image1 = document.getElementById("image1");
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         fadeOut(image2);
         fadeOut(image3);
         fadeOut(image4);
+        console.log('test');
     });
 
     tab2.addEventListener("click", function() {
@@ -86,22 +88,23 @@ document.addEventListener("DOMContentLoaded", function() {
     function fadeIn(element) {
         element.style.transition = "opacity 0.6s linear"; // 원하는 지속 시간 설정
         element.style.opacity = "1"; // 투명도를 1로 설정하여 나타나게 함
+        
     }
 
     // 서서히 사라지게 하는 함수
     function fadeOut(element) {
         element.style.transition = "opacity 0.1s linear"; // 원하는 지속 시간 설정
-        element.style.opacity = "0"; // 투명도를 0으로 설정하여 사라지게 함
+        element.style.opacity = "0.3"; // 투명도를 0으로 설정하여 사라지게 함
     }
     
     function selectTabOnImageClick() {
-    // 이미지 클릭 이벤트 핸들러
-    document.getElementById('image1').addEventListener('click', function() {
-    // 탭을 선택한 것처럼 클릭
-    document.getElementById('tab1-tab').click();
-  });
-}
-    
+	    // 이미지 클릭 이벤트 핸들러
+	    document.getElementById('image1').addEventListener('click', function() {
+		    // 탭을 선택한 것처럼 클릭
+		    document.getElementById('tab1-tab').click();
+	    });
+    }
 });
-
-
+  
+var tab1 = document.getElementById("tab1-tab");
+tab1.click();

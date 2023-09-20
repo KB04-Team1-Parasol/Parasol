@@ -190,3 +190,24 @@
 .ci_custom{
 	bottom: 0px;
 }
+
+.custom-block1 {
+  border-radius: var(--border-radius-medium);
+  position: relative;
+  overflow: hidden;
+  padding: 60px;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.custom_submit{
+  background: var(--custom-btn-bg-color);
+  border: none;
+  border-radius: var(--border-radius-large);
+  color: var(--white-color);
+  font-family: var(--title-font-family);
+  font-size: var(--p-font-size);
+  font-weight: var(--font-weight-semibold);
+  transition: all 0.3s;
+  margin-bottom: 0;
+}

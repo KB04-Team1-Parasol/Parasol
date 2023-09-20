@@ -40,6 +40,10 @@
 		
 		<!-- Section-->
         <section class="py-5_silver_list">
+        	<div class="text-center mt-5">
+	        	<h3>${ uname }님의 맞춤 실버타운</h3>
+	        	<span>(자산정보 기반)</span>
+        	</div>
             <div class="container px-4 px-lg-5 mt-5">
                	<c:choose>
                		<c:when test="${silverTownCustomList.size() > 0}">
