@@ -10,6 +10,9 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+
+import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -29,7 +32,11 @@ import kbits.kb04.parasol.users.dto.LoginRequestDto;
 import kbits.kb04.parasol.users.dto.SignUpRequestDto;
 import kbits.kb04.parasol.users.entity.UserAsset;
 import kbits.kb04.parasol.users.entity.Users;
+
 import kbits.kb04.parasol.users.exception.FindUserWithUserIdNotFoundException;
+
+import kbits.kb04.parasol.users.enums.UserAssetStatus;
+
 import kbits.kb04.parasol.users.exception.UsersNotFoundException;
 import kbits.kb04.parasol.users.repository.UsersRepository;
 import kbits.kb04.parasol.users.service.UsersService;
@@ -43,9 +50,22 @@ public class UsersController {
     private final UsersService userService;
     private final UsersRepository userRepository;
 
-    // 마이페이지에서 기본 정보, 자산 정보 조회
-    @GetMapping("/myinfo")
-    public String getUserInfo(Model model) throws UsersNotFoundException {
+    
+	@GetMapping("/myinfo")
+	public String finance_custom(Model model) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+		// 로그인 정보 없을 때
+		if (!isUserLoggedIn(authentication, model)) {
+			return "common/confirm";
+		}
+
+		// 자산 정보 없을 때
+		if (!isUserAssetInputComplete(authentication, model)) {
+			return "common/confirm";
+		}
+		
+		
         // UserService를 통해 사용자 정보를 조회
         Users user = userService.findByUserId(SecurityUtil.getCurrentUserId()); 
         UserAsset userAsset = userService.findByUserNo(user.getUserNo());
@@ -53,10 +73,10 @@ public class UsersController {
     	// Model에 사용자 정보를 추가
         model.addAttribute("user", user);
         model.addAttribute("userAsset", userAsset);
-        
-        // 사용자 정보를 보여줄 JSP 페이지로 이동
-        return "user/myinfo"; // myinfo.jsp로 이동
-    }
+		
+        return "user/myinfo";
+	}
+    
     
     // 마이페이지 -> 자산정보 기입 페이지로 이동
     @GetMapping("/assetinput")
@@ -151,4 +171,27 @@ public class UsersController {
 
         return ResponseEntity.ok("Request body received: " + json);
     }
+    
+    // 로그인 상태를 확인하고 필요한 메시지 및 URL을 설정하여 처리하는 함수
+ 	private boolean isUserLoggedIn(Authentication authentication, Model model) {
+ 		if (authentication.getName().equals("anonymousUser")) {
+ 			model.addAttribute("msg", "로그인이 필요한 서비스입니다. 로그인 창으로 이동하시겠습니까?");
+ 			model.addAttribute("url", "/user/login");
+ 			return false;
+ 		}
+ 		return true;
+ 	}
+ 	
+ 	// 사용자 자산 정보 상태를 확인하고 필요한 메시지 및 URL을 설정하여 처리하는 함수
+ 	private boolean isUserAssetInputComplete(Authentication authentication, Model model) {
+ 		Users user = userService.findByUserId(authentication.getName());
+ 		if (user.getUserAssetStatus() == UserAssetStatus.INPUT_NO) {
+ 			model.addAttribute("msg", "자산 정보 입력이 필요한 서비스입니다. 자산 정보 기입창으로 이동하시겠습니까?");
+ 			model.addAttribute("url", "/user/assetinput");
+ 			return false;
+ 		}
+ 		return true;
+ 	}
+    
+    
 }
