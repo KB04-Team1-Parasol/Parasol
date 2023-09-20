@@ -43,7 +43,9 @@
             		<form method="post" action="custom">
 	            		<div class="col-lg-8 col-12 mt-3 mx-auto">
 					        <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-					        	<h5 class="text-center text-black">필터</h5>
+					        	<h5 class="text-center text-black">
+					        		${ userName }님이 ${ userYear }년 후 입주할 실버타운을 찾아보세요!
+					        	</h5>
 					        	<hr>
 					            <div class="text-center">
 					                <!-- 이미지 및 기타 정보 출력 -->
