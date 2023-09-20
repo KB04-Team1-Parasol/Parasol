@@ -217,14 +217,16 @@ function calculateSum() {
 								<h4>을</h4>
 							</div>	
 							<div class="d-flex justify-content-center align-items-center">
-								<h2 class="text-detail" style="color:#58D3F7;">${(bond.year - currentYear) * 12 + bond.month }개월간</h2>
-								<h4>투자한다면,</h4>
+								<h4>만기까지&nbsp;</h4>
+								<h2 class="text-detail" style="color:#58D3F7;">${(bond.year - currentYear) * 12 + bond.month }개월간&nbsp;</h2>
+								
 							</div>
 							<div class="d-flex justify-content-center align-items-center">
+								<h4> 투자한다면, </h4>
 								<h4>만기 예상 금액은(세전)</h4>
 							</div>
 							<div class="d-flex justify-content-center align-items-center mb-3">
-								<h2 class="text-detail"> ${ Math.round((((bond.year - currentYear) * 12 + bond.month) / 12 * bond.bondRate +100) * 100000) }원</h2>
+								<h2 class="text-detail"> ${ money }원</h2>
 								 <h4>입니다.</h4>
 							</div>
 							<hr>

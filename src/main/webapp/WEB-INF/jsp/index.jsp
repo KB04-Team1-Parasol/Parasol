@@ -61,20 +61,20 @@
     	<aside class="quick-nav">
     		<ul>
     			<li style="list-style:none;">
-    				<img src="images/char1.png" style="width: 60px; height: 60px;">
-    			<a class="nav-link click-scroll active" href="#section_1">실버타운</a>
+    				<a class="nav-link click-scroll active" href="#section_1"><img src="images/char1.png" style="width: 60px; height: 60px;"></a>
+    			<a class="nav-link click-scroll active" href="#section_1">검색</a>
     			</li>
     			<li style="list-style:none;">
-    				<img src="images/char3.png" style="width: 60px; height: 60px;">
-    			<a class="nav-link click-scroll active" href="#section_2">금융</a>
+    				<a class="nav-link click-scroll active" href="#section_2"><img src="images/char3.png" style="width: 60px; height: 60px;"></a>
+    			<a class="nav-link click-scroll active" href="#section_2">추천정보</a>
     			</li>
     			<li style="list-style:none;">
-    				<img src="images/char4.png" style="width: 60px; height: 60px;">
+    				<a class="nav-link click-scroll active" href="#section_3"><img src="images/char4.png" style="width: 60px; height: 60px;"></a>
     			<a class="nav-link click-scroll active" href="#section_3">금융</a>
     			</li>
     			<li style="list-style:none;">
-    				<img src="images/char5.png" style="width: 60px; height: 60px;">
-    			<a class="nav-link click-scroll active" href="#section_4">금융</a>
+    				<a class="nav-link click-scroll active" href="#section_4"><img src="images/char5.png" style="width: 60px; height: 60px;"></a>
+    			<a class="nav-link click-scroll active" href="#section_4">Q&A</a>
     			</li>
     			
     		</ul>
@@ -499,9 +499,9 @@
 																<div id="vv">
 																
 																
-																<a href="<c:url value="/finance/saving/1"/>"
+																<a href="<c:url value="/finance/bond/6"/>"
 						                         class="btn custom-btn mt-5 mt-lg-4 pt-2.5" style="background-color:#555555; margin-right: 50px; color:#ffe157;">자세히 보기</a>
-															<a href="<c:url value="/finance/saving"/>"
+															<a href="<c:url value="/finance/bond"/>"
 						                         class="btn custom-btn mt-5 mt-lg-4" style="background-color:#ffe157; border-width: medium; color: #555555; border-color: #555555;">전체 상품 보기</a>
 															
 															

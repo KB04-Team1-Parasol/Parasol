@@ -213,6 +213,7 @@ public class FinanceService {
                 largeRateBondDto.setBondRate(bond.getBondRate());
                 largeRateBondDto.setBondRisk(bond.getBondRisk());
                 largeRateBondDto.setBondNo(bond.getBondNo());
+                largeRateBondDto.setBondCredit(bond.getBondCredit());
                 largeRate = bondRate; // swap
                 }
 		}	

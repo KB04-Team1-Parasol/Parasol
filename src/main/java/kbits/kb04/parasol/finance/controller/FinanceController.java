@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -140,12 +141,21 @@ public class FinanceController {
         LocalDate now = LocalDate.now();
         int nyear = (now.getYear()-2000) * 12;	// 23년 X 12월 = 276년
         int nmonth = now.getMonthValue();
+        int nnyear = now.getYear();
         int summonth = nyear + nmonth;	// OO년 X 12 + OO월  ex) 23*12 + 9
-        System.out.println(nyear +"년" + nmonth+"월");
+        
         
         if (optionalBond.isPresent()) {
             Bond bond = optionalBond.get();
-            System.out.println("년도"+(bond.getBondDate().getYear()-100) ); 
+            
+            int money = Math.round(( (((bond.getYear() - nnyear) * 12 + bond.getMonth() ) / 12 * bond.getBondRate() ) +100) * 100000 );
+            NumberFormat format = NumberFormat.getInstance();
+            String formattedMoney = format.format(money);
+            model.addAttribute("money", formattedMoney);
+            
+            System.out.println( Math.round(( (((bond.getYear() - nnyear) * 12 + bond.getMonth() ) / 12 * bond.getBondRate() ) +100) * 100000 ));
+//            Math.round(( ((bond.year - currentYear) * 12 + bond.month)  / 12 * bond.bondRate +100) * 100000)
+//            ${(bond.year - currentYear) * 12 + bond.month }
             model.addAttribute("bond", bond);
             model.addAttribute("currentYear", LocalDate.now().getYear());
             model.addAttribute("nyear", nyear);
