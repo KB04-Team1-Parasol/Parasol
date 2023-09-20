@@ -139,14 +139,14 @@
 													<td>금융자산</td>
 													<td><fmt:formatNumber value="${userAsset.finAsset}"
 															type="number" pattern="#,##0" /></td>
-													<td>28,000</td>
+													<td>7,450</td>
 												</tr>
 												<tr>
 
 													<td>실물자산</td>
 													<td><fmt:formatNumber value="${userAsset.realAsset}"
 															type="number" pattern="#,##0" /></td>
-													<td>22,000</td>
+													<td>38,161</td>
 												</tr>
 												<tr>
 
@@ -194,11 +194,11 @@
 					var annuity = "${userAsset.annuity}";
 
 					// 60대 자산 평균 (비율 맞추기 위해 값 수정)
-					var averageFinAsset = 28000;
+					var averageFinAsset = 18000;
 					var averageRealAsset = 22000;
 					var averageCash = 14000;
-					var averageDebt = 12000;
-					var averageMonthlySum = 11100;
+					var averageDebt = 18000;
+					var averageMonthlySum = 21100;
 				</script>
 			</c:otherwise>
 		</c:choose>

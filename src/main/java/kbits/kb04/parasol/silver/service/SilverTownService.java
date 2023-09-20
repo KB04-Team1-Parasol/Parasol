@@ -41,7 +41,7 @@ public class SilverTownService {
 	// 평균 물가 상승률(최근 10년 평균)
 	private final double inflationRate = 0.0167;
 	// 투자 가능 비율(임시)
-	private final double investRate = 0.8;
+	private final double investRate = 0.7;
 	// 이자 과세율
 	private final double interestTaxRate = 0.154;
 
@@ -113,8 +113,9 @@ public class SilverTownService {
 		int monthlyIncome = (int)(user.getUserAsset().getMonthlyIncome() + user.getUserAsset().getAnnuity());
 		int hopeAge = user.getUserAsset().getHopeAge().intValue();
 		int userAge = user.getUserAge();
+		int hopePeriod = user.getUserAsset().getHopePeriod().intValue();
 		
-		return new SilverTownCustomUserDto(pureAsset, monthlyIncome, hopeAge, userAge);
+		return new SilverTownCustomUserDto(pureAsset, monthlyIncome, hopeAge, userAge, hopePeriod);
 	}
 	
 	// 총 자산(미래 기준, 금융상품 x) 구하기
@@ -147,10 +148,10 @@ public class SilverTownService {
 		List<SilverTownCustomResponseDto> silverTownDetailList = new ArrayList<SilverTownCustomResponseDto>();
 		for (SilverTownDetail silverTownDetail : silverTownDetailList_total) {
 			// 총 필요 비용
-			int totalCost = this.getTotalCost(silverTownDetail);
+			int totalCost = this.getTotalCost(silverTownDetail, userDto.getHopePeriod());
 			
 			// 총 필요 비용 > 총 자산(금융상품 x)인 실버타운 필터링
-			if(totalCost > futureAsset) { 
+			if(totalCost > futureAsset/2) { 
 				List<Deposit> depositFiltering = this.getDepositFiltering(silverTownDetail, userDto);
 				List<Saving> savingFiltering = this.getSavingFiltering(silverTownDetail, userDto);
 				List<Bond> bondFiltering = this.getBondFiltering(silverTownDetail, userDto);
@@ -199,7 +200,7 @@ public class SilverTownService {
 			SilverTownDetail silverTownDetail, 
 			SilverTownCustomUserDto userDto){
 		int yechigeum = this.getYechigeum(userDto);
-		int totalCost = this.getTotalCost(silverTownDetail);
+		int totalCost = this.getTotalCost(silverTownDetail, userDto.getHopePeriod());
 		
 		List<Deposit> depositList_total = depositRepository.findAll();
 		List<Deposit> depositList = new ArrayList<Deposit>();
@@ -224,7 +225,7 @@ public class SilverTownService {
 			SilverTownDetail silverTownDetail, 
 			SilverTownCustomUserDto userDto){
 		int yechigeum = this.getYechigeum(userDto);
-		int totalCost = this.getTotalCost(silverTownDetail);
+		int totalCost = this.getTotalCost(silverTownDetail, userDto.getHopePeriod());
 		
 		List<Saving> savingList_total = savingRepository.findAll();
 		List<Saving> savingList = new ArrayList<Saving>();
@@ -253,7 +254,7 @@ public class SilverTownService {
 			SilverTownDetail silverTownDetail, 
 			SilverTownCustomUserDto userDto){
 		int yechigeum = this.getYechigeum(userDto);
-		int totalCost = this.getTotalCost(silverTownDetail);
+		int totalCost = this.getTotalCost(silverTownDetail, userDto.getHopePeriod());
 		
 		List<Bond> bondList_total = bondRepository.findAll();
 		List<Bond> bondList = new ArrayList<Bond>();
@@ -286,12 +287,12 @@ public class SilverTownService {
 	}
 
 	// 실버타운 총 필요 비용 계산
-	public int getTotalCost(SilverTownDetail silverTownDetail) {
-		// (보증금 + 월세 * 12 * 계약거주기간 ) * ( 1 + 평균물가상승률 )
+	public int getTotalCost(SilverTownDetail silverTownDetail, int hopePeriod) {
+		// (보증금 + 월세 * 12 * 희망거주기간 ) * ( 1 + 평균물가상승률 )
 		int stdDeposit = silverTownDetail.getStdDeposit();
 		int stdMonthlyCost = silverTownDetail.getStdMonthlyCost();
-		int stPeriod = silverTownDetail.getSilverTown().getStPeriod();
-		return (int)((stdDeposit + stdMonthlyCost*12*stPeriod) * (1 + inflationRate));
+		System.out.println(hopePeriod);
+		return (int)((stdDeposit + stdMonthlyCost*12*hopePeriod) * (1 + inflationRate));
 	}
 	
 }
