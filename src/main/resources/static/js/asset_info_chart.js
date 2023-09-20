@@ -31,7 +31,7 @@ function loadAssetData() {
       datasets: [
         {
           label: "나의 자산",
-          data: [finAsset, realAsset, cash * 2, debt * 3,monthlySum*8  ],
+          data: [finAsset, realAsset*0.7, cash, debt * 10,monthlySum*30  ],
           backgroundColor: 'rgba(54, 162, 235, 0.2)',
           borderColor: 'rgb(54, 162, 235)',
           pointBackgroundColor: 'rgb(54, 162, 235)',

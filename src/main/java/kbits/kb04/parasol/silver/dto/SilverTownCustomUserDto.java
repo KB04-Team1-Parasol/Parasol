@@ -8,13 +8,15 @@ public class SilverTownCustomUserDto {
 	private int monthlyIncome;
 	private int hopeAge;
 	private int userAge;
+	private int hopePeriod;
 	
-	public SilverTownCustomUserDto(int pureAsset, int monthlyIncome, int hopeAge, int userAge) {
+	public SilverTownCustomUserDto(int pureAsset, int monthlyIncome, int hopeAge, int userAge, int hopePeriod) {
 		super();
 		this.pureAsset = pureAsset;
 		this.monthlyIncome = monthlyIncome;
 		this.hopeAge = hopeAge;
 		this.userAge = userAge;
+		this.hopePeriod = hopePeriod;
 	}
 	
 	
