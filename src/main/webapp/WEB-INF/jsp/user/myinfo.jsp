@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>마이페이지</title>
+<title>자산정보 조회</title>
 <!-- CSS FILES -->
 <jsp:include page="/WEB-INF/jsp/settings/css.jsp" />
 
@@ -36,7 +36,7 @@
 							</ol>
 						</nav>
 
-						<h4 class="text-white">${user.userName}님의 자산정보</h4>
+						<h2 class="text-white">자산정보 조회</h4>
 					</div>
 				</div>
 			</div>
@@ -71,6 +71,7 @@
 <!-- 						<button type="button" onclick="location.href='/user/assetinput'"
 							class="btn btn-secondary m-2">자산정보 수정</button> -->
 						<div class="row">
+							<h3 class="text-center mb-5">${user.userName}님의 자산정보</h3>
 							<!-- 왼쪽 위에 myChart -->
 							<div class="col-md-6" style="padding-left: 75px; padding-right:75px">
 								<div class="text-center" style="padding-bottom: 40px; padding-left:30px">
@@ -121,7 +122,7 @@
 								</div>
 								<canvas id="myChart2" class="mb-5" ></canvas>
 								<!-- 오른쪽 아래에 자산 비교 -->
-								<div class="col-md-12" style="padding-bottom:300px; padding-top:40px">
+								<div class="col-md-12" style="padding-top:40px">
 									<div class="bg-light rounded h-100 p-4">
 										<table class="table">
 											<thead>
@@ -179,7 +180,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row" style="padding-bottom: 200px; padding-top: 100px">
+					<div class="row" style="padding-bottom: 100px; padding-top: 100px">
 					</div>
 				</div>
 				<script>
