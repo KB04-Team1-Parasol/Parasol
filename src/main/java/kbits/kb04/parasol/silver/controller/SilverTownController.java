@@ -81,7 +81,8 @@ public class SilverTownController {
 				response.add(responseDto);
 			}
 		}
-
+		response = response.stream().sorted(Comparator.comparing(SearchResponseDto::getMonCost))
+				.collect(Collectors.toList());
 		model.addAttribute("responseDto", response);
 
 		return "silver/search";
@@ -104,6 +105,8 @@ public class SilverTownController {
 			SearchResponseDto responseDto = new SearchResponseDto(townName, typeName, deposit, monCost, imgUrl, stdNo);
 			response.add(responseDto);
 		}
+		response = response.stream().sorted(Comparator.comparing(SearchResponseDto::getMonCost))
+				.collect(Collectors.toList());
 		model.addAttribute("responseDto", response);
 
 		return "silver/search";
@@ -146,9 +149,9 @@ public class SilverTownController {
 		List<SilverTownCustomResponseDto> silverTownCustomList = silverTownService.getSilverTownFiltering(user,
 				requestDto);
 		model.addAttribute("silverTownCustomList", silverTownCustomList);
-		
+
 		model.addAttribute("uname", user.getUserName());
-		
+
 		return "silver/custom_list";
 	}
 
