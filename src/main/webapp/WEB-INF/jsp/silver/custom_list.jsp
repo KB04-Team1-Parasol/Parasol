@@ -41,7 +41,10 @@
 		<!-- Section-->
         <section class="py-5_silver_list">
         	<div class="text-center mt-5">
-	        	<h3>${ uname }님의 맞춤 실버타운</h3>
+        		<div class="d-flex justify-content-center align-items-center">
+					<h2>${ uname }</h2>
+					<h3>님의 맞춤 실버타운</h3>
+				</div>
 	        	<span>(자산정보 기반)</span>
         	</div>
             <div class="container px-4 px-lg-5 mt-5">
