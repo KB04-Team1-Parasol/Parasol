@@ -188,6 +188,11 @@ public class FinanceController {
 		if (!isUserAssetInputComplete(authentication, model)) {
 			return "common/confirm";
 		}
+		
+		Users user = userService.findByUserId(SecurityUtil.getCurrentUserId()); 
+    	String uname = user.getUserName();
+    	
+    	model.addAttribute("uname", uname);
 
 		return "finance/personal";
 	}

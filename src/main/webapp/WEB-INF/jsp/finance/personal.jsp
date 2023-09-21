@@ -47,9 +47,13 @@
                 <div class="container">
                     <div class="row">
 
-                        <div class="col-lg-12 col-12 text-center">
-                            <h3 class="mb-4">${uname }님의 성향을 파악해봐요!</h3>
-                        </div>
+
+						<div class="d-flex justify-content-center align-items-center">
+								<h2>${uname }</h2>
+								<h3 >님의 성향을 파악해봐요!</h3>
+								
+							</div>
+						
 				       <div class="col-lg-8 col-12 mt-3 mx-auto">
                            
                            
