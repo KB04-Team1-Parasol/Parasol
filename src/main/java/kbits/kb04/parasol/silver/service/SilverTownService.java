@@ -4,12 +4,15 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import kbits.kb04.parasol.silver.dto.SearchRequestDto;
+import kbits.kb04.parasol.silver.dto.SearchResponseDto;
 import kbits.kb04.parasol.finance.entity.Bond;
 import kbits.kb04.parasol.finance.entity.Deposit;
 import kbits.kb04.parasol.finance.entity.Saving;
@@ -175,6 +178,11 @@ public class SilverTownService {
 			}
 		}
 		
+		silverTownDetailList = 
+				silverTownDetailList.stream()
+				.sorted(Comparator.comparing(SilverTownCustomResponseDto::getStdMonthlyCost))
+				.collect(Collectors.toList());
+		
 		return silverTownDetailList;
 	}
 	
@@ -205,6 +213,9 @@ public class SilverTownService {
 		List<Deposit> depositList_total = depositRepository.findAll();
 		List<Deposit> depositList = new ArrayList<Deposit>();
 		for (Deposit deposit : depositList_total) {
+			// 갯수 제한
+			if(depositList.size() >= 2) continue;
+			
 			// 이자: 예치금 * 만기이자율 * 연수(기간/12)
 			// 이자과세: 이자 * 이자과세율
 			// 총 저축금: 예치금 + 이자 - 이자과세
@@ -230,6 +241,9 @@ public class SilverTownService {
 		List<Saving> savingList_total = savingRepository.findAll();
 		List<Saving> savingList = new ArrayList<Saving>();
 		for (Saving saving : savingList_total) {
+			// 갯수 제한
+			if(savingList.size() >= 2) continue;
+			
 			// 총 원금: 월 저축액 * 기간 => 조건 필요(예치금 ≥ 총 원금)
 			// 총 이자: 월 저축액 * ( 이자율 / 12 ) * 개월수 * (개월수 + 1) / 2
 			// 이자과세: 총 이자 * 이자과세율
@@ -258,7 +272,10 @@ public class SilverTownService {
 		
 		List<Bond> bondList_total = bondRepository.findAll();
 		List<Bond> bondList = new ArrayList<Bond>();
-		for (Bond bond : bondList_total) {			
+		for (Bond bond : bondList_total) {	
+			// 갯수 제한
+			if(bondList.size() >= 2) continue;
+			
 			// 신용등급 필터링(AA등급 미만 제외)
 			String[] creditFilterArr = {"AA-", "AA0", "AA+", "AAA"};
 			List<String> creditFilterList = new ArrayList<String>(Arrays.asList(creditFilterArr));
