@@ -116,7 +116,6 @@ public class SilverTownController {
 	@GetMapping("/custom")
 	public String silver_custom(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		Users user = usersService.findByUserId(authentication.getName());
 
 		// 로그인 정보 없을 때
 		if (!isUserLoggedIn(authentication, model)) {
@@ -128,6 +127,7 @@ public class SilverTownController {
 			return "common/confirm";
 		}
 
+		Users user = usersService.findByUserId(authentication.getName());
 		String user_name = user.getUserName();
 		long user_year = user.getUserAsset().getHopeAge() - user.getUserAge();
 		model.addAttribute("userName", user_name);
