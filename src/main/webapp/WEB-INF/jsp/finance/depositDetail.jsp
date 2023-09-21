@@ -20,7 +20,7 @@ function calculateSum() {
     var period = parseFloat(document.getElementById('period').value);
     var percent = parseFloat(document.getElementById('percent').value);
     var interest = won * period * percent/12/100;
-    var result = won + won * period * percent/12;
+    var result = won + interest;
     document.getElementById('result').innerHTML = '이자: ' + '<b>'+ interest + '</b>' + '를 더해' + '<br>'+ '총: '+ '<b>' +result  +'</b>' + '을 모으실 수 있습니다.' ;
 
     // 폼의 기본 제출 동작을 방지합니다.
