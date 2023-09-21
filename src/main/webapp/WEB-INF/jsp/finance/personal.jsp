@@ -154,7 +154,7 @@
 									        <input type="radio" class="btn-check" autocomplete="off"  id="knowhalf" name="understand" value="3" required>
 									        <label class="btn btn-outline-dark mb-2" for="knowhalf">적당히 알고있다</label>
 									        <input type="radio" class="btn-check" autocomplete="off"  id="knowless" name="understand" value="1" required>
-									        <label class="btn btn-outline-dark mb-2" for="knowless">어디까지만 안다</label><br>
+									        <label class="btn btn-outline-dark mb-2" for="knowless">잘 모른다</label><br>
 											<br>
 	                                     </div>
                                    </div>
