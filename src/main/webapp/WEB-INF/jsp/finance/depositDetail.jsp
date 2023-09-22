@@ -176,7 +176,7 @@ function calculateSum() {
 													
 													<div class="col-lg-4 col-md-6 col-12">
 														<div class="form-floating">
-															<input type="number" name="period" id="percent"
+															<input type="text" name="period" id="percent"
 																 class="form-control"
 																placeholder="Name" required=""> <label
 																for="floatingInput">%의 예금 상품</label>
