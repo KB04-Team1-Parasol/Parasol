@@ -173,23 +173,60 @@ public class FinanceService {
 	
 
 
-// 채권추천은 설문지 기반, usersdto X 
+// 채권추천은 설문지 기반
 	public BondDto bondRecommendation(PersonalDto personaldto) {
-		// 계산합
-		int sum = personaldto.getAge() + personaldto.getIncome()
+		// GDP랑 금리를 반영
+		double nowrate = 3.5;
+		double averageGdp = 2.6;
+		double nowGdp = 2.6; // 매년 변동 예정
+		
+		// 전체 계산 합
+		double sum = personaldto.getAge() + personaldto.getIncome()
 		+personaldto.getInvest()+personaldto.getFinance() + personaldto.getDerivatives()
 		+personaldto.getLossprofit() + personaldto.getUnderstand();		
+		//사용자 나이대와 금융자산에 따른 가중치 부여
+		if(personaldto.getAge() == 5  || personaldto.getAge() == 4 || personaldto.getAge() == 3) {
+			if(personaldto.getFinance() > 2) {
+				sum += 2;
+			}
+		}
+		if (personaldto.getAge() == 2  || personaldto.getAge() == 1) {
+			if(personaldto.getFinance() <= 3) {
+				sum += 2;
+			}
+		}
+		
+		//gdp계산
+		if(nowGdp >= averageGdp) {
+			sum = sum * 1.2 ;
+		} else {
+			sum = sum * 0.8;
+		}
+		
+		//금리 계산
+		if(nowrate > 4.5) {
+			sum = sum * 0.7;
+		}else if(nowrate > 3.5) {
+			sum = sum * 0.8;
+		}else if(nowrate > 2) {
+			sum = sum * 1;
+		}else {
+			sum = sum * 1.2;
+		}
+		
+		
+		System.out.println("dddddddddddddddddddddddddd" + sum);
 		// 위험도
 		int danger = 0;
-		if(sum < 11) {
+		if(sum < 15) {
 			danger = 1; }
-		else if(sum < 15){
+		else if(sum < 22){
 			danger = 2; }
-		else if(sum < 19){
+		else if(sum < 29){
 			danger = 3; }
-		else if(sum < 24) {
+		else if(sum < 33) {
 			danger = 4; }
-		else if(sum >= 24) {
+		else if(sum >= 38) {
 			danger = 5; // 제일 위험한 것
 		}
 	    System.out.println(danger);
@@ -216,6 +253,7 @@ public class FinanceService {
                 largeRateBondDto.setBondCredit(bond.getBondCredit());
                 largeRate = bondRate; // swap
                 }
+			
 		}	
         System.out.println(largeRateBondDto);
         return largeRateBondDto;	
