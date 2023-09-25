@@ -11,7 +11,7 @@
 <hr>
 
 [팀 노션](https://www.naver.com/) | 
-[시연 영상](https://www.naver.com/)
+[시연 영상](https://www.youtube.com/watch?v=j_32DQJPxKo)
 </div>
 
 <br>
