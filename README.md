@@ -17,48 +17,46 @@
 <br>
 
 ## 기술 스택
-<div align=center>
-<img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white">
-   <img src="https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white">
-<img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
-<br>
-<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> 
-<img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> 
-<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> 
-<br>
-<img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white"> 
-<img src="https://img.shields.io/badge/JSP-3DDC84?style=for-the-badge&logo=JSP&logoColor=white">
-   <img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
-<br>
-<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
-<img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
-  
-</div>
+### <p align="center">Frontend</p>
+<p align="center">
+  <img alt="HTML" src="https://img.shields.io/badge/HTML-E34F26.svg?&style=for-the-badge&logo=HTML5&logoColor=white"/>
+  <img alt="CSS" src="https://img.shields.io/badge/CSS-1572B6.svg?&style=for-the-badge&logo=CSS3&logoColor=white"/>
+  <img alt="JavaScript" src="https://img.shields.io/badge/JAVASCRIPT-F7DF1E.svg?&style=for-the-badge&logo=JavaScript&logoColor=white"/>
+  <img alt="Bootstrap" src="https://img.shields.io/badge/BOOTSTRAP-7952B3.svg?&style=for-the-badge&logo=Bootstrap&logoColor=white"/>
+  <img alt="JSP" src="https://img.shields.io/badge/JSP-007396.svg?&style=for-the-badge&logo=Java&logoColor=white"/>
+</p>
 
-## 커밋 메시지 컨벤션
-- feat : 새로운 기능 추가
-- fix : 버그 수정
-- hotfix : 급하게 치명적인 버그 수정
-- docs : 문서 수정
-- style : 코드 포맷팅, 세미콜론 등의 스타일 수정(코드 자체 수정 X)
-- refactor : 프로덕션 코드 리팩토링
-- test : 테스트 코드, 테스트 코드 리팩토링
-- chore : 빌드 과정 또는 보조 기능(문서 생성 기능 등) 수정
-- rename : 파일 혹은 폴더명을 수정하거나 옮기는 작업만인 경우
-- remove : 파일을 삭제하는 작업만 수행한 경우
-- comment : 필요한 주석 추가 및 변경
+---
 
-### 커밋 작성 예시
-> type: subject
-> 
-> body
+### <p align="center">Backend</p>
+<p align="center">
+  <img alt="Spring Boot" src="https://img.shields.io/badge/SPRING%20BOOT-6DB33F.svg?&style=for-the-badge&logo=Spring&logoColor=white"/>
+  <img alt="Spring Data" src="https://img.shields.io/badge/SPRING%20DATA-6DB33F.svg?&style=for-the-badge&logo=Spring&logoColor=white"/>
+  <img alt="Oracle" src="https://img.shields.io/badge/ORACLE-F80000.svg?&style=for-the-badge&logo=Oracle&logoColor=white"/>
+</p>
 
-**body는 필요할 때만 적어도 되는 옵션에 해당한다고 보면 됩니다.**
+---
 
-> feat: 압축파일 미리보기 기능 추가
-> 사용자의 편의를 위해 압축을 풀기 전에 다음과 같이 압축파일 미리보기를 할 수 있도록함
-> - 마우스 오른쪽 클릭
-> - 윈도우 탐색기 또는 맥 파인더의 미리보기 창
+### <p align="center">Tools & Platforms </p>
+<p align="center">
+  <table align="center">
+    <tr>
+      <td>일정 관리, API 명세</td>
+      <td><img alt="RED" src ="https://img.shields.io/badge/Notion-000000.svg?&style=for-the-badge&logo=Notion&logoColor=white"/>
+      </td>
+    </tr>
+    <tr>
+      <td>화면설계, 플로우차트</td>
+      <td><img alt="RED" src ="https://img.shields.io/badge/Figma-F24E1E.svg?&style=for-the-badge&logo=Figma&logoColor=white"/></td>
+    </tr>
+    <tr>
+      <td>버전 관리, 협업</td>
+      <td><img alt="Git" src="https://img.shields.io/badge/git-E6484F.svg?style=for-the-badge&logo=git&logoColor=white"/> <img alt="GitHub" src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/></td>
+    </tr>
+  </table>
+</p>
+
+---
 
 ## 팀원
 <table>
@@ -73,3 +71,18 @@
     </tr>
   </tbody>
 </table>
+
+---
+
+### 커밋 컨벤션
+- feat : 새로운 기능 추가
+- fix : 버그 수정
+- hotfix : 급하게 치명적인 버그 수정
+- docs : 문서 수정
+- style : 코드 포맷팅, 세미콜론 등의 스타일 수정(코드 자체 수정 X)
+- refactor : 프로덕션 코드 리팩토링
+- test : 테스트 코드, 테스트 코드 리팩토링
+- chore : 빌드 과정 또는 보조 기능(문서 생성 기능 등) 수정
+- rename : 파일 혹은 폴더명을 수정하거나 옮기는 작업만인 경우
+- remove : 파일을 삭제하는 작업만 수행한 경우
+- comment : 필요한 주석 추가 및 변경
