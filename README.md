@@ -4,14 +4,14 @@
 </div>
 
 # 파라솔 (파라다이스 라이프 솔루션)
-### KB IT아카데미 It's Your Life 4기 최종 프로젝트
-### 시니어들을 위한 실버타운 & 금융상품 추천 서비스
+### KB IT아카데미 It's Your Life 4기 1조 최종 프로젝트
+### 시니어들을 위한 자산기반 맞춤형 실버타운 & 금융상품 추천 서비스
 
+   
+## 시연 영상
 <div align=center>
-<hr>
-
-[팀 노션](https://www.naver.com/) | 
-[시연 영상](https://www.youtube.com/watch?v=j_32DQJPxKo)
+   
+[![시연 영상](http://img.youtube.com/vi/j_32DQJPxKo/0.jpg)](https://youtu.be/j_32DQJPxKo)
 </div>
 
 <br>
@@ -26,16 +26,12 @@
   <img alt="JSP" src="https://img.shields.io/badge/JSP-007396.svg?&style=for-the-badge&logo=Java&logoColor=white"/>
 </p>
 
----
-
 ### <p align="center">Backend</p>
 <p align="center">
   <img alt="Spring Boot" src="https://img.shields.io/badge/SPRING%20BOOT-6DB33F.svg?&style=for-the-badge&logo=Spring&logoColor=white"/>
   <img alt="Spring Data" src="https://img.shields.io/badge/SPRING%20DATA-6DB33F.svg?&style=for-the-badge&logo=Spring&logoColor=white"/>
   <img alt="Oracle" src="https://img.shields.io/badge/ORACLE-F80000.svg?&style=for-the-badge&logo=Oracle&logoColor=white"/>
 </p>
-
----
 
 ### <p align="center">Tools & Platforms </p>
 <p align="center">
@@ -56,9 +52,8 @@
   </table>
 </p>
 
----
-
 ## 팀원
+<div align=center>
 <table>
   <tbody>
     <tr>
@@ -71,8 +66,7 @@
     </tr>
   </tbody>
 </table>
-
----
+</div>
 
 ### 커밋 컨벤션
 - feat : 새로운 기능 추가
